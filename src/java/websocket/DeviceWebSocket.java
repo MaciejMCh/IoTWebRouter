@@ -5,6 +5,11 @@
  */
 package websocket;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSyntaxException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
@@ -16,6 +21,10 @@ import javax.faces.bean.ApplicationScoped;
 //import javax.enterprise.context.ApplicationScoped;
 import javax.websocket.server.ServerEndpoint;
 import javax.websocket.*;
+import org.json.JSONObject;
+import websocket.requestOperations.RequestOperation;
+import websocket.requestOperations.RequestOperationsSerializer;
+
 /**
  *
  * @author maciej
@@ -38,35 +47,11 @@ public class DeviceWebSocket {
     public void onError(Throwable error) {
         
     }
-    
-//    @OnMessage
-//public void onMessage(ByteBuffer byteBuffer) {
-//    byte[] bytes = byteBuffer.array();
-//    String string;
-//        try {
-//            string = new String(bytes, "UTF-8");
-//            Logger.getLogger(DeviceSessionHandler.class.getName()).log(Level.SEVERE, string, string);
-//        } catch (UnsupportedEncodingException ex) {
-//            Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    
-    
-//  for (Session session : sessions) {
-//    try {
-//      session.getBasicRemote().sendBinary(byteBuffer);
-//    } catch (IOException ex) {
-//      Logger.getLogger(BinaryWebSocketServer.class.getName()).log(Level.SEVERE, null, ex);
-//    }
-//  }
-//}
 
     @OnMessage
     public void handleMessage(String message, Session session) {
-        Logger.getLogger(DeviceSessionHandler.class.getName()).log(Level.SEVERE, message, message);
-        try {
-            session.getBasicRemote().sendText(message.toString());
-        } catch (IOException ex) {
-            //Logger.getLogger(DeviceSessionHandler.class.getName()).log(Level.SEVERE, "sending error", ex);
-        }
+        JSONObject json = new JSONObject(message);
+        RequestOperation operation = RequestOperationsSerializer.serializeOperation(json);
+        operation.performOperation();
     }
 }

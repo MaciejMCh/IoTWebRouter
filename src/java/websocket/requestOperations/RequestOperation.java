@@ -5,6 +5,8 @@
  */
 package websocket.requestOperations;
 
+import org.json.JSONObject;
+
 /**
  *
  * @author maciej
@@ -13,7 +15,7 @@ public class RequestOperation {
     public void performOperation() {
         
     }
-    public RequestOperation(String params) {
+    public RequestOperation(JSONObject params) {
         
     }
 }
