@@ -21,6 +21,7 @@ import javax.faces.bean.ApplicationScoped;
 //import javax.enterprise.context.ApplicationScoped;
 import javax.websocket.server.ServerEndpoint;
 import javax.websocket.*;
+import model.Interactor;
 import org.json.JSONObject;
 import websocket.requestOperations.RequestOperation;
 import websocket.requestOperations.RequestOperationsSerializer;
@@ -40,7 +41,7 @@ public class DeviceWebSocket {
 
     @OnClose
     public void close(Session session) {
-        
+        Interactor.getInstance().sessionExpired(session);
     }
 
     @OnError
@@ -51,7 +52,14 @@ public class DeviceWebSocket {
     @OnMessage
     public void handleMessage(String message, Session session) {
         JSONObject json = new JSONObject(message);
-        RequestOperation operation = RequestOperationsSerializer.serializeOperation(json);
-        operation.performOperation();
+        RequestOperation operation;
+        try {
+            operation = RequestOperationsSerializer.serializeOperation(json, session);
+            operation.performOperation();
+        } catch (InstantiationException ex) {
+            Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

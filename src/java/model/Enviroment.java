@@ -12,14 +12,13 @@ import java.util.ArrayList;
  * @author maciej
  */
 public class Enviroment {
+    private final ArrayList<Device> devices = new ArrayList<>();
     
-    private static Enviroment instance = null;
-    public static Enviroment getInstance() {
-        if(instance == null) {
-            instance = new Enviroment();
-        }
-        return instance;
+    public void addDevice(Device device) {
+        this.devices.add(device);
     }
     
-    private final ArrayList<Device> devices = new ArrayList<>();
+    public void removeDevice(Device device) {
+        this.devices.remove(device);
+    }
 }

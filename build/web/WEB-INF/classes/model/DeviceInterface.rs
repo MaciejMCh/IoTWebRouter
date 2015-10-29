@@ -1,0 +1,2 @@
+model.InterfaceDirection
+model.DeviceInterface

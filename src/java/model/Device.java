@@ -5,7 +5,10 @@
  */
 package model;
 
+import static java.lang.System.in;
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
@@ -14,5 +17,23 @@ import java.util.ArrayList;
 public class Device {
     private String id;
     private String name;
-    private final ArrayList<DeviceInterface> interfaces = new ArrayList<>();
+    private ArrayList<DeviceInterface> interfaces = new ArrayList<>();
+    
+    public Device(String id, String name, ArrayList<DeviceInterface> interfaces) {
+        this.id = id;
+        this.name = name;
+        this.interfaces = interfaces;
+    }
+    
+    public Device(JSONObject json) {
+        this.id = "unassigned";
+        this.name = json.getString("name");
+        JSONArray array = json.getJSONArray("interface");
+        
+        for (int i=0; i<= array.length() - 1; i++) {
+            DeviceInterface deviceInterface = new DeviceInterface((JSONObject)array.get(i));
+            this.interfaces.add(deviceInterface);
+        }
+    }
+    
 }

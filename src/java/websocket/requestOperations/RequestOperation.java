@@ -5,6 +5,7 @@
  */
 package websocket.requestOperations;
 
+import javax.websocket.Session;
 import org.json.JSONObject;
 
 /**
@@ -12,10 +13,13 @@ import org.json.JSONObject;
  * @author maciej
  */
 public class RequestOperation {
+    
+    protected Session session;
+    
     public void performOperation() {
         
     }
-    public RequestOperation(JSONObject params) {
-        
+    public RequestOperation(JSONObject params, Session session) {
+        this.session = session;
     }
 }

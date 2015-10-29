@@ -5,6 +5,9 @@
  */
 package websocket.requestOperations;
 
+import javax.websocket.Session;
+import model.Device;
+import model.Interactor;
 import org.json.JSONObject;
 
 /**
@@ -13,13 +16,16 @@ import org.json.JSONObject;
  */
 public class RegisterOperation extends RequestOperation {
 
-    public RegisterOperation(JSONObject params) {
-        super(params);
+    private Device registeringDevice;
+    
+    public RegisterOperation(JSONObject params, Session session) {
+        super(params, session);
+        this.registeringDevice = new Device(params.getJSONObject("device"));
     }
 
     @Override
     public void performOperation() {
-        
+        Interactor.getInstance().registerDevice(this.registeringDevice, this.session);
     }
     
 }

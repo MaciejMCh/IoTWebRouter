@@ -10,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.websocket.Session;
 import org.json.JSONObject;
 
 /**
@@ -22,16 +23,16 @@ public class RequestOperationsSerializer {
         put("register", RegisterOperation.class);
     }};
     
-    public static RequestOperation serializeOperation(JSONObject json) throws InstantiationException, IllegalAccessException {
+    public static RequestOperation serializeOperation(JSONObject json, Session session) throws InstantiationException, IllegalAccessException {
         HashMap map = operationClassMap;
         String action = json.getString("action");
         Class operationClass = operationClassMap.get(action);
         String s = "";
         if (operationClass != null) {
             try {
-                Constructor constructor = operationClass.getDeclaredConstructor(JSONObject.class);
+                Constructor constructor = operationClass.getDeclaredConstructor(JSONObject.class, Session.class);
                 try {
-                    RequestOperation operation = (RequestOperation)constructor.newInstance(json);
+                    RequestOperation operation = (RequestOperation)constructor.newInstance(json, session);
                     return operation;
                 } catch (IllegalArgumentException ex) {
                     Logger.getLogger(RequestOperationsSerializer.class.getName()).log(Level.SEVERE, null, ex);
@@ -44,7 +45,6 @@ public class RequestOperationsSerializer {
                 Logger.getLogger(RequestOperationsSerializer.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
         return null;
     }
     
