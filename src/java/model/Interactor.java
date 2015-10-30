@@ -40,4 +40,5 @@ public class Interactor {
         this.deviceSessionMap.remove(session);
         AdminWebSocket.getInstance().deviceUnregistered(device);
     }
+    
 }

@@ -29,5 +29,11 @@ public class AdminWebSocket {
     public void deviceUnregistered(Device device) {
         Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, "device unregistered", "asd");
     }
+    
+    public void deviceSentData(Device device) {
+        Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, "device sent data", "asd");
+    }
+    
+    
 
 }
