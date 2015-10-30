@@ -7,12 +7,24 @@ package websocket;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.bean.ApplicationScoped;
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.ServerEndpoint;
 import model.Device;
+import org.json.JSONObject;
+import websocket.requestOperations.RequestOperation;
+import websocket.requestOperations.RequestOperationsSerializer;
 
 /**
  *
  * @author maciej
  */
+@ApplicationScoped
+@ServerEndpoint("/admin")
 public class AdminWebSocket {
     private static AdminWebSocket instance = null;
     public static AdminWebSocket getInstance() {
@@ -20,6 +32,35 @@ public class AdminWebSocket {
             instance = new AdminWebSocket();
         }
         return instance;
+    }
+    
+    @OnOpen
+    public void open(Session session) {
+        
+    }
+
+    @OnClose
+    public void close(Session session) {
+        
+    }
+
+    @OnError
+    public void onError(Throwable error) {
+        
+    }
+
+    @OnMessage
+    public void handleMessage(String message, Session session) {
+        JSONObject json = new JSONObject(message);
+        RequestOperation operation;
+        try {
+            operation = RequestOperationsSerializer.serializeOperation(json, session);
+            operation.performOperation();
+        } catch (InstantiationException ex) {
+            Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void deviceRegistered(Device device) {

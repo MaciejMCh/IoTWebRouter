@@ -22,6 +22,7 @@ public class RequestOperationsSerializer {
     private static final HashMap<String, Class> operationClassMap = new HashMap<String, Class>() {{
         put("register", RegisterOperation.class);
         put("data", DataOperation.class);
+        put("log", LogOperation.class);
     }};
     
     public static RequestOperation serializeOperation(JSONObject json, Session session) throws InstantiationException, IllegalAccessException {

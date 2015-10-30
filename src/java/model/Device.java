@@ -16,8 +16,8 @@ import org.json.JSONObject;
  * @author maciej
  */
 public class Device {
-    private String id;
-    private String name;
+    public String id;
+    public String name;
     public ArrayList<DeviceInterface> interfaces = new ArrayList<>();
     
     public Device(String id, String name, ArrayList<DeviceInterface> interfaces) {

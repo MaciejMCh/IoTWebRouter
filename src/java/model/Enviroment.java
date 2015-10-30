@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author maciej
  */
 public class Enviroment {
-    private final ArrayList<Device> devices = new ArrayList<>();
+    public final ArrayList<Device> devices = new ArrayList<>();
     
     public void addDevice(Device device) {
         this.devices.add(device);

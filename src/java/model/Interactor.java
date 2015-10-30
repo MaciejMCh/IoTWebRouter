@@ -27,7 +27,7 @@ public class Interactor {
     private final HashMap<Session, Device> deviceSessionMap = new HashMap<>();
     private final HashMap<Device, Session> sessionDeviceMap = new HashMap<>();
     
-    private final Enviroment enviroment = new Enviroment();
+    public final Enviroment enviroment = new Enviroment();
     public final Router router = new Router();
     
     public Session sessionOfDevice(Device device) {
