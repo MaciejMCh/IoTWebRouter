@@ -68,17 +68,4 @@ public class Router {
         
         return routedSignals;
     }
-    
-    
-    // WARNING: Temporary
-    public void testConnection(DeviceInterface inter) {
-        if (this.routingTable.keySet().isEmpty()) {
-            return;
-        }
-        if (inter.interfaceDirection == Output) {
-            return;
-        }
-        
-        this.routingTable.get(this.routingTable.keySet().toArray()[0]).add(inter);
-    }
 }

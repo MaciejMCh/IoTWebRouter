@@ -27,9 +27,6 @@ public class RegisterOperation extends RequestOperation {
     @Override
     public void performOperation() {
         Interactor.getInstance().registerDevice(this.registeringDevice, this.session);
-        
-        // WARNING: Temporary
-        Interactor.getInstance().router.testConnection(this.registeringDevice.interfaces.get(0));
     }
     
 }
