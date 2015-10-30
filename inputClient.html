@@ -1,16 +1,36 @@
 <!DOCTYPE html>  <meta charset="utf-8" />  
 <title>WebSocket Test</title>  
+<br><label for="male">Name</label><input type="text" name="txt" id="name"/>
+<br><label for="male">Interface ID</label><input type="text" name="txt" id="interfaceID"/>
+<br><label for="male">Data type</label><input type="text" name="txt" id="dataType"/>
+<br><input type="button" value="Start" onclick="testWebSocket();">
 <script language="javascript" type="text/javascript">  
 
 var wsUri = "ws://localhost:8080/WebApplication1/actions"; 
 var output;
 
+var name;
+var interfaceID;
+var dataType;
+var isInput;
+
   function init() { 
   	output = document.getElementById("output"); 
-  	testWebSocket(); 
+  	// testWebSocket(); 
   }  
 
   function testWebSocket() { 
+
+	var txtbox = document.getElementById("name");
+    name = txtbox.value;
+
+    txtbox = document.getElementById("interfaceID");
+    interfaceID = txtbox.value
+
+    txtbox = document.getElementById("dataType");
+    dataType = txtbox.value
+
+
   	websocket = new WebSocket(wsUri); 
   	websocket.onopen = function(evt) { 
   		onOpen(evt) 
@@ -29,15 +49,8 @@ var output;
   function onOpen(evt) {
    writeToScreen("CONNECTED"); 
 
-   doSend("{\"action\":\"register\",\"device\":{\"name\":\"WeatherMeter\",\"interface\":[{\"direction\":\"output\",\"dataType\":\"light\",\"id\":\"il1\"}]}}"); 
-
-   sendData();
+   doSend("{\"action\":\"register\",\"device\":{\"name\":\"" + name + "\",\"interface\":[{\"direction\":\"input\",\"dataType\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
 } 
-
-function sendData() {
-	doSend("{\"action\":\"data\",\"interfaces\":[{\"dataType\":\"light\",\"id\":\"il1\",\"value\":345}]}");
-	setTimeout(sendData, 1000);
-}
 
  function onClose(evt) {
  	writeToScreen("DISCONNECTED");
@@ -64,4 +77,4 @@ function sendData() {
  	output.appendChild(pre); 
  }  
 
- window.addEventListener("load", init, false);  </script>  <h2>WebSocket Test</h2>  <div id="output"></div>
+ window.addEventListener("load", init, false);  </script>  <h2>Intput client</h2>  <div id="output"></div>
