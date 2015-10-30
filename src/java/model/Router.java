@@ -34,6 +34,12 @@ public class Router {
         }
     }
     
+    public void connectInterfaces(DeviceInterface outputInterface, DeviceInterface inputInterface) {
+        if (this.routingTable.containsKey(outputInterface)) {
+            this.routingTable.get(outputInterface).add(inputInterface);
+        }
+    }
+    
     private void addOuputInterface(DeviceInterface outputInterface) {
         if (this.routingTable.containsKey(outputInterface)) {
             return;
@@ -61,5 +67,18 @@ public class Router {
         }
         
         return routedSignals;
+    }
+    
+    
+    // WARNING: Temporary
+    public void testConnection(DeviceInterface inter) {
+        if (this.routingTable.keySet().isEmpty()) {
+            return;
+        }
+        if (inter.interfaceDirection == Output) {
+            return;
+        }
+        
+        this.routingTable.get(this.routingTable.keySet().toArray()[0]).add(inter);
     }
 }

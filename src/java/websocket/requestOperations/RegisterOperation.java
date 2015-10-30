@@ -6,6 +6,7 @@
 package websocket.requestOperations;
 
 import javax.websocket.Session;
+import jdk.internal.util.xml.impl.Input;
 import model.Device;
 import model.Interactor;
 import org.json.JSONObject;
@@ -26,6 +27,9 @@ public class RegisterOperation extends RequestOperation {
     @Override
     public void performOperation() {
         Interactor.getInstance().registerDevice(this.registeringDevice, this.session);
+        
+        // WARNING: Temporary
+        Interactor.getInstance().router.testConnection(this.registeringDevice.interfaces.get(0));
     }
     
 }

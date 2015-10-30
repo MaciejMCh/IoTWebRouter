@@ -13,8 +13,8 @@ import org.json.JSONObject;
  */
 public class Signal {
     Message message;
-    DeviceInterface sourceInterface;
-    DeviceInterface destinationInterface;
+    public DeviceInterface sourceInterface;
+    public DeviceInterface destinationInterface;
     
     public Signal(JSONObject json, Device device) {
         this.message = new Message(json.getString("dataType"), json.get("value"));
@@ -29,5 +29,15 @@ public class Signal {
         newSignal.sourceInterface = this.sourceInterface;
         newSignal.destinationInterface = destinationInterface;
         return newSignal;
+    }
+    
+    public String stringDataRepresentation() {
+        JSONObject json = new JSONObject();
+        
+        json.append("dataType", this.message.dataType);
+        json.append("value", this.message.value);
+        json.append("interface", this.destinationInterface.id);
+        
+        return json.toString();
     }
 }

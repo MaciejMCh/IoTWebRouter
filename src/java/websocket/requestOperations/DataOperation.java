@@ -5,7 +5,10 @@
  */
 package websocket.requestOperations;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.websocket.Session;
 import model.Device;
 import model.Interactor;
@@ -44,7 +47,16 @@ public class DataOperation extends RequestOperation {
     }
     
     private void sendSignals(ArrayList<Signal> signals) {
-        
+        for (Signal signal : signals) {
+            
+            Device destinationDevice = signal.destinationInterface.parentDevice.get();
+            Session destinationSession = Interactor.getInstance().sessionOfDevice(destinationDevice);
+            try {
+                destinationSession.getBasicRemote().sendText(signal.stringDataRepresentation());
+            } catch (IOException ex) {
+                Logger.getLogger(DataOperation.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
 }

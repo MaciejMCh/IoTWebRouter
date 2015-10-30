@@ -6,6 +6,7 @@
 package model;
 
 import static java.lang.System.in;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,6 +33,7 @@ public class Device {
         
         for (int i=0; i<= array.length() - 1; i++) {
             DeviceInterface deviceInterface = new DeviceInterface((JSONObject)array.get(i));
+            deviceInterface.parentDevice = new WeakReference<>(this);
             this.interfaces.add(deviceInterface);
         }
     }

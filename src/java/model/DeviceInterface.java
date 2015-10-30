@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.lang.ref.WeakReference;
 import static model.InterfaceDirection.Input;
 import static model.InterfaceDirection.Output;
 import org.json.JSONObject;
@@ -22,12 +23,13 @@ public class DeviceInterface {
     public String id;
     public String dataType;
     public InterfaceDirection interfaceDirection;
+    public WeakReference<Device> parentDevice;
     
     public DeviceInterface(JSONObject json) {
         this.id = json.getString("id");
         this.dataType = json.getString("dataType");
         String interfaceDirection = json.getString("direction");
-        if (interfaceDirection == "input") {
+        if ("input".equals(interfaceDirection)) {
             this.interfaceDirection = Input;
         } else {
             this.interfaceDirection = Output;
