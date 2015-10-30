@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class Device {
     private String id;
     private String name;
-    private ArrayList<DeviceInterface> interfaces = new ArrayList<>();
+    public ArrayList<DeviceInterface> interfaces = new ArrayList<>();
     
     public Device(String id, String name, ArrayList<DeviceInterface> interfaces) {
         this.id = id;
@@ -34,6 +34,15 @@ public class Device {
             DeviceInterface deviceInterface = new DeviceInterface((JSONObject)array.get(i));
             this.interfaces.add(deviceInterface);
         }
+    }
+    
+    public DeviceInterface interfaceWithID(String id) {
+        for (DeviceInterface deviceInterface : this.interfaces) {
+            if (deviceInterface.id.equals(id)) {
+                return deviceInterface;
+            }
+        }
+        return null;
     }
     
 }

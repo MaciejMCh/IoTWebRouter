@@ -10,5 +10,11 @@ package model;
  * @author maciej
  */
 public class Message {
+    String dataType;
+    Object value;
     
+    public Message(String dataType, Object value) {
+        this.dataType = dataType;
+        this.value = value;
+    }
 }

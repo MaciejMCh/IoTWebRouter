@@ -7,6 +7,7 @@ package model;
 
 import java.util.HashMap;
 import javax.websocket.Session;
+import static model.InterfaceDirection.Output;
 import websocket.AdminWebSocket;
 
 /**
@@ -24,6 +25,7 @@ public class Interactor {
     
     private final HashMap<Session, Device> deviceSessionMap = new HashMap<>();
     private final Enviroment enviroment = new Enviroment();
+    public final Router router = new Router();
     
     public void registerDevice(Device device, Session session) {
         if (this.deviceSessionMap.keySet().contains(session)) {
@@ -31,6 +33,8 @@ public class Interactor {
         }
         this.deviceSessionMap.put(session, device);
         this.enviroment.addDevice(device);
+        this.router.addOutputsOfDevice(device);
+        
         AdminWebSocket.getInstance().deviceRegistered(device);
     }
     
@@ -41,4 +45,7 @@ public class Interactor {
         AdminWebSocket.getInstance().deviceUnregistered(device);
     }
     
+    public Device deviceForSession(Session session) {
+        return this.deviceSessionMap.get(session);
+    }
 }
