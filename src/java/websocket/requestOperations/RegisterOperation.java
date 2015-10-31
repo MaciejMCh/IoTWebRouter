@@ -6,7 +6,6 @@
 package websocket.requestOperations;
 
 import javax.websocket.Session;
-import jdk.internal.util.xml.impl.Input;
 import model.Device;
 import model.Interactor;
 import org.json.JSONObject;

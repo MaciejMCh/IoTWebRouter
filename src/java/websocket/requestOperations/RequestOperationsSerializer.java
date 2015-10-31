@@ -26,29 +26,16 @@ public class RequestOperationsSerializer {
         put("log", LogOperation.class);
     }};
     
-    public static RequestOperation serializeOperation(JSONObject json, Session session) throws InstantiationException, IllegalAccessException {
-        HashMap map = operationClassMap;
+    public static RequestOperation serializeOperation(JSONObject json, Session session) {
         String action = json.getString("action");
         Class operationClass = operationClassMap.get(action);
-        String s = "";
         if (operationClass != null) {
-            try {
-                Constructor constructor = operationClass.getDeclaredConstructor(JSONObject.class, Session.class);
-                try {
-                    RequestOperation operation = (RequestOperation)constructor.newInstance(json, session);
-                    return operation;
-                } catch (IllegalArgumentException ex) {
-                    Logger.getLogger(RequestOperationsSerializer.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InvocationTargetException ex) {
-                    Logger.getLogger(RequestOperationsSerializer.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            } catch (NoSuchMethodException ex) {
-                Logger.getLogger(RequestOperationsSerializer.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SecurityException ex) {
-                Logger.getLogger(RequestOperationsSerializer.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Constructor constructor = operationClass.getDeclaredConstructor(JSONObject.class, Session.class);
+            RequestOperation operation = (RequestOperation)constructor.newInstance(json, session);
+            return operation;
+        } else {
+            return new ErrorOperation("Can't perform operation for action '" + action + "'", session);
         }
-        return null;
     }
     
     
