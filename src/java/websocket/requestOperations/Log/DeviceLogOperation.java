@@ -5,6 +5,8 @@
  */
 package websocket.requestOperations.Log;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import javax.websocket.Session;
 import org.json.JSONObject;
 
@@ -14,8 +16,24 @@ import org.json.JSONObject;
  */
 public class DeviceLogOperation extends InterpretedLogOperation {
     
+    public String deviceID;
+    
     public DeviceLogOperation(JSONObject params, Session session) {
         super(params, session);
+        String sisi = "asdas";
+        String sisis = "asdas";
+//        set(this, "deviceID", "dupaa");
     }
+
+    @Override
+    public ArrayList<String> propertyNames() {
+        ArrayList<String> propertyNames = new ArrayList<>();
+        propertyNames.add("deviceID");
+        return propertyNames;
+    }
+    
+    
+
+
     
 }
