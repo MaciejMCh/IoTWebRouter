@@ -1,13 +1,14 @@
 <!DOCTYPE html>  <meta charset="utf-8" />  
 <title>WebSocket Test</title>  
 
-<br><input type="button" value="Log" onclick="log();"><label for="male">Device ID</label><input type="text" name="txt" id="deviceID"/>
+
 <script language="javascript" type="text/javascript">  
 
 var wsUri = "ws://localhost:8080/WebApplication1/admin"; 
 var output;
 
 var deviceID;
+var deviceOptions;
 
   function init() { 
   	output = document.getElementById("output"); 
@@ -20,9 +21,11 @@ var deviceID;
   function log() {
     var txtbox = document.getElementById("deviceID");
     deviceID = txtbox.value;
+    txtbox = document.getElementById("deviceOptions");
+    deviceOptions = txtbox.value;
 
 
-    doSend("{\"action\" : \"log\", \"request\" : {\"action\" : \"device\", \"options\" : [], \"arguments\" : ["+deviceID+"]}}");
+    doSend("{\"action\" : \"log\", \"request\" : {\"action\" : \"device\", \"options\" : ["+deviceOptions+"], \"arguments\" : ["+deviceID+"]}}");
   }
 
   function testWebSocket() { 	
@@ -69,6 +72,9 @@ var deviceID;
  	pre.style.wordWrap = "break-word"; 
  	pre.innerHTML = message; 
  	output.appendChild(pre); 
+  window.scrollTo(0,document.body.scrollHeight);
  }  
 
- window.addEventListener("load", init, false);  </script>  <h2>Admin client</h2>  <div id="output"></div>
+ window.addEventListener("load", init, false);  </script>  <h2>Admin client</h2> 
+  <div id="output"></div>
+  <br><input type="button" value="Log device" onclick="log();"><label for="male"> Device ID: </label><input type="text" name="txt" id="deviceID"/><label for="male"> Options: </label><input type="text" name="txt" id="deviceOptions"/>
