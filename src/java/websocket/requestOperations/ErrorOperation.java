@@ -27,6 +27,10 @@ public class ErrorOperation extends RequestOperation {
         super(null, session);
         this.errorMessage = errorMessage;
     }
+    
+    public static ErrorOperation internalServerErrorOperation(Session session) {
+        return new ErrorOperation("Internal server error.", session);
+    }
 
     @Override
     public void performOperation() {

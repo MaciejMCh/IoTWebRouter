@@ -10,11 +10,6 @@ import static model.InterfaceDirection.Input;
 import static model.InterfaceDirection.Output;
 import org.json.JSONObject;
 
-/**
- *
- * @author maciej
- */
-
 enum InterfaceDirection {
     Input, Output
 }

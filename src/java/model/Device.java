@@ -5,16 +5,11 @@
  */
 package model;
 
-import static java.lang.System.in;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-/**
- *
- * @author maciej
- */
 public class Device {
     public static int devicesCount = 0;
     
@@ -48,5 +43,4 @@ public class Device {
         }
         return null;
     }
-    
 }

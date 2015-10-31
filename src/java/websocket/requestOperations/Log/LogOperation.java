@@ -5,11 +5,7 @@
  */
 package websocket.requestOperations.Log;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.websocket.Session;
-import model.Interactor;
 import org.json.JSONObject;
 import websocket.requestOperations.RequestOperation;
 
@@ -23,25 +19,11 @@ public class LogOperation extends RequestOperation {
     
     public LogOperation(JSONObject params, Session session) {
         super(params, session);
-        try {
-            this.interpretedOperation = (InterpretedLogOperation)LogRequestInterpreter.serializeOperation(params.getJSONObject("request"), session);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(LogOperation.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(LogOperation.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.interpretedOperation = (InterpretedLogOperation)LogRequestInterpreter.serializeOperation(params.getJSONObject("request"), session);
     }
 
     @Override
     public void performOperation() {
         this.interpretedOperation.performOperation();
-//        try {
-//            this.session.getBasicRemote().sendText(LogParser.parseDevices(Interactor.getInstance().enviroment.devices));
-//        } catch (IOException ex) {
-//            Logger.getLogger(LogOperation.class.getName()).log(Level.SEVERE, null, ex);
-//        }
     }
-    
-    
-    
 }

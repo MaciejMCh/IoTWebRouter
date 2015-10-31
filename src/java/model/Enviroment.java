@@ -7,10 +7,6 @@ package model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author maciej
- */
 public class Enviroment {
     public final ArrayList<Device> devices = new ArrayList<>();
     

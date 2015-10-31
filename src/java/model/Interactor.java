@@ -6,15 +6,9 @@
 package model;
 
 import java.util.HashMap;
-import java.util.Objects;
 import javax.websocket.Session;
-import static model.InterfaceDirection.Output;
 import websocket.AdminWebSocket;
 
-/**
- *
- * @author maciej
- */
 public class Interactor {
     private static Interactor instance = null;
     public static Interactor getInstance() {
@@ -24,22 +18,18 @@ public class Interactor {
         return instance;
     }
     
-    private final HashMap<Session, Device> deviceSessionMap = new HashMap<>();
-    private final HashMap<Device, Session> sessionDeviceMap = new HashMap<>();
+    private final HashMap<Session, Device> sessionDeviceMap = new HashMap<>();
+    private final HashMap<Device, Session> deviceSessionMap = new HashMap<>();
     
     public final Enviroment enviroment = new Enviroment();
     public final Router router = new Router();
     
-    public Session sessionOfDevice(Device device) {
-        return this.sessionDeviceMap.get(device);
-    }
-    
     public void registerDevice(Device device, Session session) {
-        if (this.deviceSessionMap.keySet().contains(session)) {
+        if (this.sessionDeviceMap.keySet().contains(session)) {
             return;
         }
-        this.deviceSessionMap.put(session, device);
-        this.sessionDeviceMap.put(device, session);
+        this.sessionDeviceMap.put(session, device);
+        this.deviceSessionMap.put(device, session);
         this.enviroment.addDevice(device);
         this.router.addOutputsOfDevice(device);
         
@@ -47,19 +37,23 @@ public class Interactor {
     }
     
     public void sessionExpired(Session session) {
-        Device device = this.deviceSessionMap.get(session);
+        Device device = this.sessionDeviceMap.get(session);
         this.enviroment.removeDevice(device);
-        this.deviceSessionMap.remove(session);
-        this.sessionDeviceMap.remove(device);
+        this.sessionDeviceMap.remove(session);
+        this.deviceSessionMap.remove(device);
         AdminWebSocket.getInstance().deviceUnregistered(device);
     }
     
     public Device deviceForSession(Session session) {
-        return this.deviceSessionMap.get(session);
+        return this.sessionDeviceMap.get(session);
+    }
+    
+    public Session sessionOfDevice(Device device) {
+        return this.deviceSessionMap.get(device);
     }
     
     public Device deviceForID(String id) {
-        for (Device device : this.sessionDeviceMap.keySet()) {
+        for (Device device : this.enviroment.devices) {
             if (device.id.equals(id)) {
                 return device;
             }

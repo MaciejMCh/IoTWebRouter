@@ -5,10 +5,6 @@
  */
 package model;
 
-/**
- *
- * @author maciej
- */
 public class Message {
     String dataType;
     Object value;

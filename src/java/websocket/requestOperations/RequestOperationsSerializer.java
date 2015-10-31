@@ -7,10 +7,7 @@ package websocket.requestOperations;
 
 import websocket.requestOperations.Log.LogOperation;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.websocket.Session;
 import org.json.JSONObject;
 
@@ -30,11 +27,16 @@ public class RequestOperationsSerializer {
         String action = json.getString("action");
         Class operationClass = operationClassMap.get(action);
         if (operationClass != null) {
-            Constructor constructor = operationClass.getDeclaredConstructor(JSONObject.class, Session.class);
-            RequestOperation operation = (RequestOperation)constructor.newInstance(json, session);
-            return operation;
+            try {
+                Constructor constructor = operationClass.getDeclaredConstructor(JSONObject.class, Session.class);
+                RequestOperation operation = (RequestOperation)constructor.newInstance(json, session);
+                return operation;
+            } catch (Exception e) {
+                return ErrorOperation.internalServerErrorOperation(session);
+            }
+            
         } else {
-            return new ErrorOperation("Can't perform operation for action '" + action + "'", session);
+            return new ErrorOperation("Can't perform operation for action '" + action + "'.", session);
         }
     }
     
