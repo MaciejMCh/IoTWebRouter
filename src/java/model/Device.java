@@ -16,6 +16,8 @@ import org.json.JSONObject;
  * @author maciej
  */
 public class Device {
+    public static int devicesCount = 0;
+    
     public String id;
     public String name;
     public ArrayList<DeviceInterface> interfaces = new ArrayList<>();
@@ -27,7 +29,7 @@ public class Device {
     }
     
     public Device(JSONObject json) {
-        this.id = "unassigned";
+        this.id = "dev_" + devicesCount++;
         this.name = json.getString("name");
         JSONArray array = json.getJSONArray("interface");
         
