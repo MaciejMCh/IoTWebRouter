@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package websocket.requestOperations;
+package websocket.requestOperations.Log;
 
-import websocket.requestOperations.Log.LogOperation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -13,17 +12,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.Session;
 import org.json.JSONObject;
+import websocket.requestOperations.DataOperation;
+import websocket.requestOperations.RegisterOperation;
+import websocket.requestOperations.RequestOperation;
+import websocket.requestOperations.RequestOperationsSerializer;
 
 /**
  *
  * @author maciej
  */
-public class RequestOperationsSerializer {
-    
+public class LogRequestInterpreter {
     protected static final HashMap<String, Class> operationClassMap = new HashMap<String, Class>() {{
-        put("register", RegisterOperation.class);
-        put("data", DataOperation.class);
-        put("log", LogOperation.class);
+        put("device", DeviceLogOperation.class);
     }};
     
     public static RequestOperation serializeOperation(JSONObject json, Session session) throws InstantiationException, IllegalAccessException {
@@ -35,7 +35,7 @@ public class RequestOperationsSerializer {
             try {
                 Constructor constructor = operationClass.getDeclaredConstructor(JSONObject.class, Session.class);
                 try {
-                    RequestOperation operation = (RequestOperation)constructor.newInstance(json.getJSONObject("request"), session);
+                    RequestOperation operation = (RequestOperation)constructor.newInstance(json, session);
                     return operation;
                 } catch (IllegalArgumentException ex) {
                     Logger.getLogger(RequestOperationsSerializer.class.getName()).log(Level.SEVERE, null, ex);
@@ -50,7 +50,6 @@ public class RequestOperationsSerializer {
         }
         return null;
     }
-    
     
     
 }
