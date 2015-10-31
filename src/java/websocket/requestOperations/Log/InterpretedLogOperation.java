@@ -5,10 +5,18 @@
  */
 package websocket.requestOperations.Log;
 
+import javax.websocket.Session;
+import org.json.JSONObject;
+import websocket.requestOperations.RequestOperation;
+
 /**
  *
  * @author maciej
  */
-public class InterpretedLogOperation {
+public class InterpretedLogOperation extends RequestOperation {
+
+    public InterpretedLogOperation(JSONObject params, Session session) {
+        super(params, session);
+    }
     
 }

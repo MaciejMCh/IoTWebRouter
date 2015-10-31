@@ -35,7 +35,7 @@ public class RequestOperationsSerializer {
             try {
                 Constructor constructor = operationClass.getDeclaredConstructor(JSONObject.class, Session.class);
                 try {
-                    RequestOperation operation = (RequestOperation)constructor.newInstance(json.getJSONObject("request"), session);
+                    RequestOperation operation = (RequestOperation)constructor.newInstance(json, session);
                     return operation;
                 } catch (IllegalArgumentException ex) {
                     Logger.getLogger(RequestOperationsSerializer.class.getName()).log(Level.SEVERE, null, ex);
