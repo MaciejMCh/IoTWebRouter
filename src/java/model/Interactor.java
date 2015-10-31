@@ -57,4 +57,13 @@ public class Interactor {
     public Device deviceForSession(Session session) {
         return this.deviceSessionMap.get(session);
     }
+    
+    public Device deviceForID(String id) {
+        for (Device device : this.sessionDeviceMap.keySet()) {
+            if (device.id.equals(id)) {
+                return device;
+            }
+        }
+        return null;
+    }
 }

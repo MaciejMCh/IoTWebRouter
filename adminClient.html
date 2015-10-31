@@ -1,24 +1,28 @@
 <!DOCTYPE html>  <meta charset="utf-8" />  
 <title>WebSocket Test</title>  
 
-<br><input type="button" value="Log" onclick="log();">
+<br><input type="button" value="Log" onclick="log();"><label for="male">Device ID</label><input type="text" name="txt" id="deviceID"/>
 <script language="javascript" type="text/javascript">  
 
 var wsUri = "ws://localhost:8080/WebApplication1/admin"; 
 var output;
 
-var name;
-var interfaceID;
-var dataType;
-var isInput;
+var deviceID;
 
   function init() { 
   	output = document.getElementById("output"); 
+
+
+
   	testWebSocket(); 
   }  
 
   function log() {
-    doSend("{\"action\" : \"log\", \"request\" : {\"action\" : \"device\", \"options\" : [], \"arguments\" : []}}");
+    var txtbox = document.getElementById("deviceID");
+    deviceID = txtbox.value;
+
+
+    doSend("{\"action\" : \"log\", \"request\" : {\"action\" : \"device\", \"options\" : [], \"arguments\" : ["+deviceID+"]}}");
   }
 
   function testWebSocket() { 	

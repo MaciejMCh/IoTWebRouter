@@ -10,7 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.Session;
 import model.Interactor;
-import model.LogParser;
 import org.json.JSONObject;
 import websocket.requestOperations.RequestOperation;
 

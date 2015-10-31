@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.Session;
+import model.Device;
 import model.Interactor;
-import model.LogParser;
 import org.json.JSONObject;
 
 /**
@@ -30,7 +30,20 @@ public class DeviceLogOperation extends InterpretedLogOperation {
     @Override
     public void performOperation() {
         if (this.deviceID != null) {
-            
+            Device device = Interactor.getInstance().deviceForID(this.deviceID);
+            if (device == null) {
+                try {
+                    this.session.getBasicRemote().sendText("error: device with id '" + this.deviceID + "' not found.");
+                } catch (IOException ex) {
+                    Logger.getLogger(DeviceLogOperation.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                try {
+                    this.session.getBasicRemote().sendText(LogParser.parseDevice(device));
+                } catch (IOException ex) {
+                    Logger.getLogger(DeviceLogOperation.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         } else {
             try {
                 this.session.getBasicRemote().sendText(LogParser.parseDevices(Interactor.getInstance().enviroment.devices));
