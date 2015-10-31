@@ -15,7 +15,7 @@ import static model.InterfaceDirection.Output;
  */
 
 public class Router {
-    private final HashMap<DeviceInterface, ArrayList<DeviceInterface>> routingTable = new HashMap<>();
+    protected final HashMap<DeviceInterface, ArrayList<DeviceInterface>> routingTable = new HashMap<>();
     
     public void addOutputsOfDevice(Device device) {
         for (DeviceInterface outputInterface : device.interfaces) {
@@ -39,20 +39,6 @@ public class Router {
         }
     }
     
-    private void addOuputInterface(DeviceInterface outputInterface) {
-        if (this.routingTable.containsKey(outputInterface)) {
-            return;
-        }
-        this.routingTable.put(outputInterface, new ArrayList<>());
-    }
-    
-    private void removeOuputInterface(DeviceInterface outputInterface) {
-        if (!this.routingTable.containsKey(outputInterface)) {
-            return;
-        }
-        this.routingTable.remove(outputInterface);
-    }
-    
     public ArrayList<Signal> produceRoutedSignals(Signal signal) {
         if (signal.sourceInterface == null) {
             return new ArrayList<>();
@@ -67,4 +53,19 @@ public class Router {
         
         return routedSignals;
     }
+    
+    protected void addOuputInterface(DeviceInterface outputInterface) {
+        if (this.routingTable.containsKey(outputInterface)) {
+            return;
+        }
+        this.routingTable.put(outputInterface, new ArrayList<>());
+    }
+    
+    protected void removeOuputInterface(DeviceInterface outputInterface) {
+        if (!this.routingTable.containsKey(outputInterface)) {
+            return;
+        }
+        this.routingTable.remove(outputInterface);
+    }
+    
 }

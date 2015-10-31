@@ -21,8 +21,8 @@ import websocket.requestOperations.RequestOperation;
  */
 public class InterpretedLogOperation extends RequestOperation {
 
-    public ArrayList<String> options;
-    public ArrayList arguments;
+    protected ArrayList<String> options;
+    protected ArrayList arguments;
     
     public InterpretedLogOperation(JSONObject params, Session session) {
         super(params, session);

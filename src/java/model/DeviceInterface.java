@@ -15,10 +15,26 @@ enum InterfaceDirection {
 }
 
 public class DeviceInterface {
-    public String id;
-    public String dataType;
-    public InterfaceDirection interfaceDirection;
-    public WeakReference<Device> parentDevice;
+    protected String id;
+    protected String dataType;
+    protected InterfaceDirection interfaceDirection;
+    protected WeakReference<Device> parentDevice;
+    
+    public String getId() {
+        return this.id;
+    }
+    
+    public String getDataType() {
+        return this.dataType;
+    }
+    
+    public InterfaceDirection getInterfaceDirection() {
+        return this.interfaceDirection;
+    }
+    
+    public Device getParentDevice() {
+        return this.parentDevice.get();
+    }
     
     public DeviceInterface(JSONObject json) {
         this.id = json.getString("id");

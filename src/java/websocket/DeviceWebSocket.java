@@ -55,13 +55,7 @@ public class DeviceWebSocket {
     public void handleMessage(String message, Session session) {
         JSONObject json = new JSONObject(message);
         RequestOperation operation;
-        try {
-            operation = RequestOperationsSerializer.serializeOperation(json, session);
-            operation.performOperation();
-        } catch (InstantiationException ex) {
-            Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        operation = RequestOperationsSerializer.serializeOperation(json, session);
+        operation.performOperation();
     }
 }

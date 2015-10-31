@@ -22,6 +22,6 @@ public class LogParser {
     }
     
     public static String parseDevice(Device device) {
-        return "id: " + device.id + "\tname: " + device.name;
+        return "id: " + device.getId() + "\tname: " + device.getName();
     }
 }

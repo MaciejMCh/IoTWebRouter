@@ -13,9 +13,20 @@ import org.json.JSONObject;
 public class Device {
     public static int devicesCount = 0;
     
-    public String id;
-    public String name;
-    public ArrayList<DeviceInterface> interfaces = new ArrayList<>();
+    protected String id;
+    protected String name;
+    protected ArrayList<DeviceInterface> interfaces = new ArrayList<>();
+    
+    public String getId() {
+        return this.id;
+    }
+    
+    public String getName() {
+        return this.name;
+    }
+    public ArrayList<DeviceInterface> getInterfaces() {
+        return this.interfaces;
+    }
     
     public Device(String id, String name, ArrayList<DeviceInterface> interfaces) {
         this.id = id;

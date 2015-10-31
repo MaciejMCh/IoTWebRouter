@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 public class DeviceLogOperation extends InterpretedLogOperation {
     
-    public String deviceID;
+    protected String deviceID;
     
     public DeviceLogOperation(JSONObject params, Session session) {
         super(params, session);
@@ -34,12 +34,12 @@ public class DeviceLogOperation extends InterpretedLogOperation {
                 this.log(LogParser.parseDevice(device));
             }
         } else {
-            this.log(LogParser.parseDevices(Interactor.getInstance().enviroment.devices));
+            this.log(LogParser.parseDevices(Interactor.getInstance().getEnviroment().devices));
         }
     }
 
     @Override
-    public ArrayList<String> propertyNames() {
+    protected ArrayList<String> propertyNames() {
         ArrayList<String> propertyNames = new ArrayList<>();
         propertyNames.add("deviceID");
         return propertyNames;

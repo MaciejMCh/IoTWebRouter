@@ -17,7 +17,11 @@ import org.json.JSONObject;
  */
 public class ErrorOperation extends RequestOperation {
 
-    public String errorMessage;
+    public static ErrorOperation internalServerErrorOperation(Session session) {
+        return new ErrorOperation("Internal server error.", session);
+    }
+    
+    protected String errorMessage;
     
     public ErrorOperation(JSONObject params, Session session) {
         super(params, session);
@@ -26,10 +30,6 @@ public class ErrorOperation extends RequestOperation {
     public ErrorOperation(String errorMessage, Session session) {
         super(null, session);
         this.errorMessage = errorMessage;
-    }
-    
-    public static ErrorOperation internalServerErrorOperation(Session session) {
-        return new ErrorOperation("Internal server error.", session);
     }
 
     @Override
@@ -40,7 +40,5 @@ public class ErrorOperation extends RequestOperation {
             Logger.getLogger(ErrorOperation.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
     
 }

@@ -16,10 +16,11 @@ public class RequestOperation {
     
     protected Session session;
     
-    public void performOperation() {
-        
-    }
     public RequestOperation(JSONObject params, Session session) {
         this.session = session;
+    }
+    
+    public void performOperation() {
+        
     }
 }

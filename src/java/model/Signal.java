@@ -12,9 +12,21 @@ import org.json.JSONObject;
  * @author maciej
  */
 public class Signal {
-    Message message;
-    public DeviceInterface sourceInterface;
-    public DeviceInterface destinationInterface;
+    protected Message message;
+    protected DeviceInterface sourceInterface;
+    protected DeviceInterface destinationInterface;
+    
+    public Message getMessage() {
+        return this.message;
+    }
+    
+    public DeviceInterface getSourceDeviceInterface() {
+        return this.sourceInterface;
+    }
+
+    public DeviceInterface getDestinationInterface() {
+        return destinationInterface;
+    }
     
     public Signal(JSONObject json, Device device) {
         this.message = new Message(json.getString("dataType"), json.get("value"));

@@ -6,8 +6,16 @@
 package model;
 
 public class Message {
-    String dataType;
-    Object value;
+    protected String dataType;
+    protected Object value;
+    
+    public String getDataType() {
+        return this.dataType;
+    }
+    
+    public Object getValue() {
+        return this.value;
+    }
     
     public Message(String dataType, Object value) {
         this.dataType = dataType;

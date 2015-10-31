@@ -18,11 +18,18 @@ public class Interactor {
         return instance;
     }
     
-    private final HashMap<Session, Device> sessionDeviceMap = new HashMap<>();
-    private final HashMap<Device, Session> deviceSessionMap = new HashMap<>();
+    protected final HashMap<Session, Device> sessionDeviceMap = new HashMap<>();
+    protected final HashMap<Device, Session> deviceSessionMap = new HashMap<>();    
+    protected final Enviroment enviroment = new Enviroment();
+    protected final Router router = new Router();
     
-    public final Enviroment enviroment = new Enviroment();
-    public final Router router = new Router();
+    public Router getRouter() {
+        return this.router;
+    }
+    
+    public Enviroment getEnviroment() {
+        return this.enviroment;
+    }
     
     public void registerDevice(Device device, Session session) {
         if (this.sessionDeviceMap.keySet().contains(session)) {
@@ -54,7 +61,7 @@ public class Interactor {
     
     public Device deviceForID(String id) {
         for (Device device : this.enviroment.devices) {
-            if (device.id.equals(id)) {
+            if (device.getId().equals(id)) {
                 return device;
             }
         }

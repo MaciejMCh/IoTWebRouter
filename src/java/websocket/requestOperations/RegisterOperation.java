@@ -16,7 +16,7 @@ import org.json.JSONObject;
  */
 public class RegisterOperation extends RequestOperation {
 
-    private Device registeringDevice;
+    protected Device registeringDevice;
     
     public RegisterOperation(JSONObject params, Session session) {
         super(params, session);

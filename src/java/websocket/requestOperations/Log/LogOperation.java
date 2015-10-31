@@ -15,7 +15,7 @@ import websocket.requestOperations.RequestOperation;
  */
 public class LogOperation extends RequestOperation {
 
-    private InterpretedLogOperation interpretedOperation;
+    protected InterpretedLogOperation interpretedOperation;
     
     public LogOperation(JSONObject params, Session session) {
         super(params, session);

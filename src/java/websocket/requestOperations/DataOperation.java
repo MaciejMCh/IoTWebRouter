@@ -23,7 +23,7 @@ import websocket.AdminWebSocket;
  */
 public class DataOperation extends RequestOperation {
 
-    private ArrayList<Signal> signals = new ArrayList<>();
+    protected ArrayList<Signal> signals = new ArrayList<>();
     
     public DataOperation(JSONObject params, Session session) {
         super(params, session);
@@ -40,16 +40,16 @@ public class DataOperation extends RequestOperation {
     public void performOperation() {
         ArrayList<Signal> routedSignals = new ArrayList<>();
         for (Signal signal : this.signals) {
-            routedSignals.addAll(Interactor.getInstance().router.produceRoutedSignals(signal));
+            routedSignals.addAll(Interactor.getInstance().getRouter().produceRoutedSignals(signal));
         }
         this.sendSignals(routedSignals);
         AdminWebSocket.getInstance().deviceSentData(null);
     }
     
-    private void sendSignals(ArrayList<Signal> signals) {
+    protected void sendSignals(ArrayList<Signal> signals) {
         for (Signal signal : signals) {
             
-            Device destinationDevice = signal.destinationInterface.parentDevice.get();
+            Device destinationDevice = signal.getDestinationInterface().getParentDevice();
             Session destinationSession = Interactor.getInstance().sessionOfDevice(destinationDevice);
             try {
                 destinationSession.getBasicRemote().sendText(signal.stringDataRepresentation());
