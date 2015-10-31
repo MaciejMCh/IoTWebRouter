@@ -12,8 +12,8 @@ import org.json.JSONObject;
  *
  * @author maciej
  */
-public class DeviceLogOperation extends LogOperation {
-
+public class DeviceLogOperation extends InterpretedLogOperation {
+    
     public DeviceLogOperation(JSONObject params, Session session) {
         super(params, session);
     }

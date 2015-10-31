@@ -18,5 +18,4 @@ public class InterpretedLogOperation extends RequestOperation {
     public InterpretedLogOperation(JSONObject params, Session session) {
         super(params, session);
     }
-    
 }
