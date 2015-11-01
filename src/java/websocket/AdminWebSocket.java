@@ -52,9 +52,14 @@ public class AdminWebSocket {
 
     @OnMessage
     public void handleMessage(String message, Session session) {
-        JSONObject json = new JSONObject(message);
         RequestOperation operation;
-        operation = RequestOperationsSerializer.serializeOperation(json, session);
+        try {
+            JSONObject json = new JSONObject(message);
+            operation = RequestOperationsSerializer.serializeOperation(json, session);
+        } catch (Exception e) {
+            operation = RequestOperationsSerializer.serializeOperation(message, session);
+        }
+        
         if (operation.getError() == null) {
             operation.performOperation();
         } else {

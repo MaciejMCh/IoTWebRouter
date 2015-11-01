@@ -15,6 +15,8 @@ var outputInterfaceID;
 var inputDeviceID;
 var inputInterfaceID;
 
+var query;
+
   function init() { 
   	output = document.getElementById("output"); 
 
@@ -22,6 +24,11 @@ var inputInterfaceID;
 
   	testWebSocket(); 
   }  
+
+  function execute() {
+    query = document.getElementById("query").value;
+    doSend(query);
+  }
 
   function log() {
     var txtbox = document.getElementById("deviceID");
@@ -92,6 +99,8 @@ var inputInterfaceID;
  window.addEventListener("load", init, false);  </script>  <h2>Admin client</h2> 
   <div id="output"></div>
   
+<br><input type="button" value="Execute" onclick="execute();"><input type="text" name="txt" id="query"/>
+
   <br><input type="button" value="Log device" onclick="log();"><label for="male"> Device ID: </label><input type="text" name="txt" id="deviceID"/><label for="male"> Options: </label><input type="text" name="txt" id="deviceOptions"/>
 
   <br><input type="button" value="Connect interfaces" onclick="connect();"><label for="male"> Output device id: </label><input type="text" name="txt" id="outputDeviceID"/><label for="male"> Output interface id: </label><input type="text" name="txt" id="outputInterfaceID"/><label for="male"> Input device id: </label><input type="text" name="txt" id="inputDeviceID"/><label for="male"> Input interface id: </label><input type="text" name="txt" id="inputInterfaceID"/>
