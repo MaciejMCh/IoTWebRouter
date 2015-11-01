@@ -87,19 +87,19 @@ var query;
  	websocket.send(message); 
  }  
 
- function writeToScreen(message) { 
-  message = message.replace(/(?:\r\n|\r|\n)/g, '<br />');
+ function writeToScreen(message) {
+  message = message + "\n";
  	var pre = document.createElement("p"); 
  	pre.style.wordWrap = "break-word"; 
  	pre.innerHTML = message; 
- 	output.appendChild(pre); 
-  window.scrollTo(0,document.body.scrollHeight);
+ 	output.appendChild(pre);
+  output.scrollTop = output.scrollHeight;
  }  
 
  window.addEventListener("load", init, false);  </script>  <h2>Admin client</h2> 
-  <div id="output"></div>
+  <textarea id="output" style="resize:none;font-size:10pt;height:calc(100vh - 200px);width:100%;"></textarea>
   
-<br><input type="button" value="Execute" onclick="execute();"><input type="text" name="txt" id="query"/>
+<br><input type="button" value="Execute" onclick="execute();"><input style="width:calc(100% - 100px);" type="text" name="txt" id="query"/>
 
   <br><input type="button" value="Log device" onclick="log();"><label for="male"> Device ID: </label><input type="text" name="txt" id="deviceID"/><label for="male"> Options: </label><input type="text" name="txt" id="deviceOptions"/>
 

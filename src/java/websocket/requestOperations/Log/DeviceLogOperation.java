@@ -38,10 +38,10 @@ public class DeviceLogOperation extends InterpretedLogOperation {
             if (device == null) {
                 this.log("error: device with id '" + this.deviceID + "' not found.");
             } else {
-                this.log(LogParser.parseDevice(device, childrenLoggingDepth));
+                this.log(LogParser.parseDevice(device, new LogDepth(childrenLoggingDepth)));
             }
         } else {
-            this.log(LogParser.parseDevices(Interactor.getInstance().getEnviroment().devices, childrenLoggingDepth));
+            this.log(LogParser.parseDevices(Interactor.getInstance().getEnviroment().devices, new LogDepth(childrenLoggingDepth)));
         }
     }
 

@@ -14,22 +14,54 @@ import static model.DeviceInterface.InterfaceDirection.Input;
  *
  * @author maciej
  */
+
+class LogDepth {
+    protected int currentDepth;
+    protected int maxDepth;
+
+    public int getCurrentDepth() {
+        return currentDepth;
+    }
+    
+    public LogDepth(int maxDepth) {
+        this.maxDepth = maxDepth;
+        this.currentDepth = maxDepth;
+    }
+    
+    protected LogDepth(int maxDepth, int currentDepth) {
+        this.maxDepth = maxDepth;
+        this.currentDepth = currentDepth;
+    }
+    
+    public LogDepth decreasedDepth() {
+        return new LogDepth(this.maxDepth, this.currentDepth - 1);
+    }
+    
+    public String getTab() {
+        String tab = "";
+        for (int i=0; i<= this.maxDepth - this.currentDepth - 1; i++) {
+            tab += " \t ";
+        }
+        return tab;
+    }
+}
+
 public class LogParser {
-    public static String parseDevices(ArrayList<Device> devices, int deepLevels) {
-        String result = "";
+    public static String parseDevices(ArrayList<Device> devices, LogDepth depth) {
+        String result = depth.getTab() + "devices\n";
         for (Device device : devices) {
-            result = result + parseDevice(device, deepLevels) + "\n";
+            result = depth.getTab() + result + parseDevice(device, depth) + "\n";
         }
         return result;
     }
     
-    public static String parseDevice(Device device, int deepLevels) {
-        String output = "id: " + device.getId() + "\tname: " + device.getName();
-        if (deepLevels > 0) {
-            output += "\ninterfaces:";
+    public static String parseDevice(Device device, LogDepth depth) {
+        String output = "id: " + device.getId() + " \t name: " + device.getName();
+        if (depth.getCurrentDepth() > 0) {
+            output += "\n " + depth.decreasedDepth().getTab() + "interfaces:";
             for (DeviceInterface deviceInterface : device.getInterfaces()) {
-                output += "\n";
-                output += LogParser.parseInterface(deviceInterface, deepLevels - 1);
+                output += "\n " + depth.getTab();
+                output += LogParser.parseInterface(deviceInterface, depth.decreasedDepth());
             }
         }
         return output;
@@ -43,7 +75,7 @@ public class LogParser {
         }
     }
     
-    public static String parseInterface(DeviceInterface deviceInterface, int deepLevels) {
-        return "id: " + deviceInterface.getId() + "\tdata type: " + deviceInterface.getDataType() + "\tdirection: " + LogParser.parseInterfaceDirection(deviceInterface.getInterfaceDirection());
+    public static String parseInterface(DeviceInterface deviceInterface, LogDepth depth) {
+        return depth.getTab() + "id: " + deviceInterface.getId() + "\t data type: " + deviceInterface.getDataType() + "\t direction: " + LogParser.parseInterfaceDirection(deviceInterface.getInterfaceDirection());
     }
 }
