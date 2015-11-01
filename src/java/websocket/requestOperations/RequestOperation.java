@@ -15,6 +15,11 @@ import org.json.JSONObject;
 public class RequestOperation {
     
     protected Session session;
+    protected Error error;
+
+    public Error getError() {
+        return error;
+    }
     
     public RequestOperation(JSONObject params, Session session) {
         this.session = session;
@@ -22,5 +27,9 @@ public class RequestOperation {
     
     public void performOperation() {
         
+    }
+    
+    protected void error(String errorMessage) {
+        this.error = new Error(errorMessage);
     }
 }

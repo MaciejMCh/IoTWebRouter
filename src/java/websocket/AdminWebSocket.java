@@ -5,6 +5,7 @@
  */
 package websocket;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ApplicationScoped;
@@ -54,7 +55,15 @@ public class AdminWebSocket {
         JSONObject json = new JSONObject(message);
         RequestOperation operation;
         operation = RequestOperationsSerializer.serializeOperation(json, session);
-        operation.performOperation();
+        if (operation.getError() == null) {
+            operation.performOperation();
+        } else {
+            try {
+                session.getBasicRemote().sendText(operation.getError().getErrorMessage());
+            } catch (IOException ex) {
+                Logger.getLogger(AdminWebSocket.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     public void deviceRegistered(Device device) {

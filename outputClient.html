@@ -60,7 +60,7 @@ var isInput;
 } 
 
 function sendData() {
-	doSend("{\"action\":\"data\",\"interfaces\":[{\"dataType\":\""+ dataType +"\",\"id\":\""+dataType+"\",\"value\":"+dataValue+"}]}");
+	doSend("{\"action\":\"data\",\"interfaces\":[{\"dataType\":\""+ dataType +"\",\"id\":\""+interfaceID+"\",\"value\":"+dataValue+"}]}");
 	setTimeout(sendData, 1000);
 }
 
@@ -70,7 +70,7 @@ function sendData() {
 
  function onMessage(evt) { 
  	writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>'); 
- 	websocket.close(); 
+ 	// websocket.close(); 
  } 
 
  function onError(evt) {

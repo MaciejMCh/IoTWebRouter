@@ -21,6 +21,7 @@ public class RequestOperationsSerializer {
         put("register", RegisterOperation.class);
         put("data", DataOperation.class);
         put("log", LogOperation.class);
+        put("connect", ConnectOperation.class);
     }};
     
     public static RequestOperation serializeOperation(JSONObject json, Session session) {
