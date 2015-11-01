@@ -7,7 +7,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import static model.InterfaceDirection.Output;
+import static model.DeviceInterface.InterfaceDirection.Output;
 
 /**
  *

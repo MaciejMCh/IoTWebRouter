@@ -6,15 +6,16 @@
 package model;
 
 import java.lang.ref.WeakReference;
-import static model.InterfaceDirection.Input;
-import static model.InterfaceDirection.Output;
+import static model.DeviceInterface.InterfaceDirection.Input;
+import static model.DeviceInterface.InterfaceDirection.Output;
 import org.json.JSONObject;
 
-enum InterfaceDirection {
-    Input, Output
-}
-
 public class DeviceInterface {
+    
+    public enum InterfaceDirection {
+        Input, Output
+    }
+    
     protected String id;
     protected String dataType;
     protected InterfaceDirection interfaceDirection;

@@ -33,6 +33,12 @@ public class InterpretedLogOperation extends RequestOperation {
             this.arguments.add(argumentsJSONArray.getString(i));
         }
         
+        JSONArray optionsJSONArray = params.getJSONArray("options");
+        this.options = new ArrayList<>();
+        for (int i=0; i<= optionsJSONArray.length() - 1; i++) {
+            this.options.add(optionsJSONArray.getString(i));
+        }
+        
         this.mapArgumentsToProperties();
     }
     
