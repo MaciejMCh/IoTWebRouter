@@ -15,6 +15,7 @@ import websocket.requestOperations.RequestOperation;
 public class LogRequestInterpreter {
     protected static final HashMap<String, Class> operationClassMap = new HashMap<String, Class>() {{
         put("device", DeviceLogOperation.class);
+        put("connection", ConnectionsLogOperation.class);
     }};
     
     public static RequestOperation serializeOperation(JsonObject json, Session session) {

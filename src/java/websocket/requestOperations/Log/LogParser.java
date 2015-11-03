@@ -76,6 +76,10 @@ public class LogParser {
     }
     
     public static String parseInterface(DeviceInterface deviceInterface, LogDepth depth) {
-        return depth.getTab() + "id: " + deviceInterface.getId() + "\t data type: " + deviceInterface.getDataType() + "\t direction: " + LogParser.parseInterfaceDirection(deviceInterface.getInterfaceDirection());
+        String result = depth.getTab() + "id: " + deviceInterface.getId() + "\t data type: " + deviceInterface.getDataType() + "\t direction: " + LogParser.parseInterfaceDirection(deviceInterface.getInterfaceDirection());
+        if (depth.getCurrentDepth() > 0) {
+            result = result + "\t device: " + deviceInterface.getParentDevice().getId();
+        }
+        return result;
     }
 }
