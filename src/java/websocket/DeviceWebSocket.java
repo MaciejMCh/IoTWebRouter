@@ -24,7 +24,7 @@ import javax.websocket.server.ServerEndpoint;
 import javax.websocket.*;
 import model.Interactor;
 import model.Signal;
-import org.json.JSONObject;
+import com.google.gson.*;
 import websocket.requestOperations.RequestOperation;
 import websocket.requestOperations.RequestOperationsSerializer;
 
@@ -53,7 +53,7 @@ public class DeviceWebSocket {
 
     @OnMessage
     public void handleMessage(String message, Session session) {
-        JSONObject json = new JSONObject(message);
+        JsonObject json = new JsonParser().parse(message).getAsJsonObject();
         RequestOperation operation;
         operation = RequestOperationsSerializer.serializeOperation(json, session);
         operation.performOperation();

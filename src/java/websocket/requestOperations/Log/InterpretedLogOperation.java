@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.Session;
 import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.gson.*;
 import websocket.requestOperations.RequestOperation;
 
 /**
@@ -24,19 +24,19 @@ public class InterpretedLogOperation extends RequestOperation {
     protected ArrayList<String> options;
     protected ArrayList arguments;
     
-    public InterpretedLogOperation(JSONObject params, Session session) {
+    public InterpretedLogOperation(JsonObject params, Session session) {
         super(params, session);
         
-        JSONArray argumentsJSONArray = params.getJSONArray("arguments");
+        JsonArray argumentsJSONArray = params.get("arguments").getAsJsonArray();
         this.arguments = new ArrayList();
-        for (int i=0; i<= argumentsJSONArray.length() - 1; i++) {
-            this.arguments.add(argumentsJSONArray.getString(i));
+        for (int i=0; i<= argumentsJSONArray.size() - 1; i++) {
+            this.arguments.add(argumentsJSONArray.get(i).getAsString());
         }
         
-        JSONArray optionsJSONArray = params.getJSONArray("options");
+        JsonArray optionsJSONArray = params.get("options").getAsJsonArray();
         this.options = new ArrayList<>();
-        for (int i=0; i<= optionsJSONArray.length() - 1; i++) {
-            this.options.add(optionsJSONArray.getString(i));
+        for (int i=0; i<= optionsJSONArray.size() - 1; i++) {
+            this.options.add(optionsJSONArray.get(i).getAsString());
         }
         
         this.mapArgumentsToProperties();

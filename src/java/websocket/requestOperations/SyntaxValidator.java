@@ -6,58 +6,46 @@
 package websocket.requestOperations;
 
 import java.util.ArrayList;
-import org.json.JSONObject;
+import com.google.gson.*;
+import java.util.Map;
 
 /**
  *
  * @author maciej
  */
 public class SyntaxValidator {
-    public static String validateSyntax(JSONObject json, JSONObject syntax) {
+    public static String validateSyntax(JsonElement syntax, JsonElement json) {
+        // Json Object
+        if (syntax.isJsonObject() && json.isJsonObject()) {
+            JsonObject oJson = json.getAsJsonObject();
+            JsonObject oSyntax = syntax.getAsJsonObject();
+            // check keys matching
+            for (Map.Entry<String, JsonElement> entry : oSyntax.entrySet()) {
+                if (!oJson.has(entry.getKey())) {
+                    return entry.getKey() + " entry is missing.";
+                }
+            }
         
-        String error = validateKeysMatching(syntax, json);
-        
-        
-        
-        return error;
-    }
-    
-    
-    protected static String validateKeysMatching(JSONObject syntax, JSONObject json) {
-        String missingKeys = missingKeys(syntax, json);
-        if (missingKeys != null) {
-            return missingKeys;
-        }
-        for (String key : syntax.keySet()) {
-            Object childSyntax = syntax.get(key);
-            Object childJson = json.get(key);
-            
-            if (!childSyntax.getClass().equals(childJson.getClass())) {
-                return key + " type is " + childJson.getClass().toString() + ", but expected type is " + childSyntax.getClass().toString();
+            // check types matching
+            for (Map.Entry<String, JsonElement> entry : oSyntax.entrySet()) {
+                if (!oJson.get(entry.getKey()).getClass().equals(entry.getValue().getClass())) {
+                    return entry.getKey() + " entry type is " + getStringOfClass(oJson.get(entry.getKey())) + ", but expected type is " + getStringOfClass(entry.getValue()) + ".";
+                }
             }
             
-            if (childSyntax.getClass().equals(JSONObject.class)) {
-                String childrenError = validateKeysMatching((JSONObject)childSyntax, (JSONObject)childJson);
-                if (childrenError != null) {
-                    return key + "." + childrenError;
+            // check children errors
+            for (Map.Entry<String, JsonElement> entry : oSyntax.entrySet()) {
+                String childError = validateSyntax(entry.getValue(), oJson.get(entry.getKey()));
+                if (childError != null) {
+                    return entry.getKey() + "." + childError;
                 }
             }
         }
         return null;
     }
     
-    protected static String missingKeys(JSONObject syntax, JSONObject json) {
-        ArrayList<String> missingKeys = new ArrayList<>();
-        for (String key : syntax.keySet()) {
-            if (!json.keySet().contains(key)) {
-                missingKeys.add(key);
-            }
-        }
-        
-        if (missingKeys.isEmpty()) {
-            return null;
-        }
-        
-        return missingKeys.toString();
+    protected static String getStringOfClass(Object o) {
+        return o.getClass().toString().substring(o.getClass().toString().lastIndexOf(".") + 1);
     }
+    
 }

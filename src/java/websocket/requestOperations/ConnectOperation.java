@@ -9,27 +9,26 @@ import javax.websocket.Session;
 import model.Device;
 import model.DeviceInterface;
 import model.Interactor;
-import org.json.JSONObject;
+import com.google.gson.*;
 
 public class ConnectOperation extends RequestOperation {
     
     protected DeviceInterface outputInterface;
     protected DeviceInterface inputInterface;
     
-    public ConnectOperation(JSONObject params, Session session) {
+    public ConnectOperation(JsonObject params, Session session) {
         super(params, session);
-        JSONObject json = this.getSyntax();
-        String sytnaxError = SyntaxValidator.validateSyntax(params, json);
+        String sytnaxError = SyntaxValidator.validateSyntax(this.getSyntax(), params);
         
         if (sytnaxError != null) {
-            this.error("Syntax error. Missing params: " + sytnaxError);
+            this.error("Syntax error. " + sytnaxError);
             return;
         }
         
-        String outputDeviceID = params.getJSONObject("output").getString("device");
-        String outputInterfaceID = params.getJSONObject("output").getString("interface");
-        String inputDeviceID = params.getJSONObject("input").getString("device");
-        String inputInterfaceID = params.getJSONObject("input").getString("interface");
+        String outputDeviceID = params.get("output").getAsJsonObject().get("device").getAsString();
+        String outputInterfaceID = params.get("output").getAsJsonObject().get("interface").getAsString();
+        String inputDeviceID = params.get("input").getAsJsonObject().get("device").getAsString();
+        String inputInterfaceID = params.get("input").getAsJsonObject().get("interface").getAsString();
         
         Device outputDevice = Interactor.getInstance().deviceForID(outputDeviceID);
         if (outputDevice == null) {
@@ -72,11 +71,8 @@ public class ConnectOperation extends RequestOperation {
     }
 
     @Override
-    protected JSONObject getSyntax() {
-        JSONObject json = new JSONObject();
-        json.append("output", new JSONObject().append("device", "String").append("interface", "String")).append("input", new JSONObject().append("device", "String").append("interface", "String"));
-        
-        return json;
+    protected JsonObject getSyntax() {
+        return new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device\":\"String\",\"interface\":\"String\"},\"input\":{\"device\":\"String\",\"interface\":\"String\"}}").getAsJsonObject();
     }
     
     

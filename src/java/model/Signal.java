@@ -5,7 +5,7 @@
  */
 package model;
 
-import org.json.JSONObject;
+import com.google.gson.*;
 
 /**
  *
@@ -28,9 +28,9 @@ public class Signal {
         return destinationInterface;
     }
     
-    public Signal(JSONObject json, Device device) {
-        this.message = new Message(json.getString("dataType"), json.get("value"));
-        this.sourceInterface = device.interfaceWithID(json.getString("id"));
+    public Signal(JsonObject json, Device device) {
+        this.message = new Message(json.get("dataType").getAsString(), json.get("value"));
+        this.sourceInterface = device.interfaceWithID(json.get("id").getAsString());
     }
 
     private Signal() {}
@@ -44,11 +44,11 @@ public class Signal {
     }
     
     public String stringDataRepresentation() {
-        JSONObject json = new JSONObject();
+        JsonObject json = new JsonObject();
         
-        json.append("dataType", this.message.dataType);
-        json.append("value", this.message.value);
-        json.append("interface", this.destinationInterface.id);
+        json.addProperty("dataType", this.message.dataType);
+        json.addProperty("value", (String) this.message.value);
+        json.addProperty("interface", this.destinationInterface.id);
         
         return json.toString();
     }

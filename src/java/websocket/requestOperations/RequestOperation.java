@@ -6,7 +6,7 @@
 package websocket.requestOperations;
 
 import javax.websocket.Session;
-import org.json.JSONObject;
+import com.google.gson.*;
 
 /**
  *
@@ -21,7 +21,7 @@ public class RequestOperation {
         return error;
     }
     
-    public RequestOperation(JSONObject params, Session session) {
+    public RequestOperation(JsonObject params, Session session) {
         this.session = session;
         this.getSyntax();
     }
@@ -34,7 +34,7 @@ public class RequestOperation {
         this.error = new Error(errorMessage);
     }
     
-    protected JSONObject getSyntax() {
-        return new JSONObject();
+    protected JsonObject getSyntax() {
+        return new JsonObject();
     }
 }

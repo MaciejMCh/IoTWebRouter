@@ -8,7 +8,7 @@ package model;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.gson.*;
 
 public class Device {
     public static int devicesCount = 0;
@@ -34,13 +34,13 @@ public class Device {
         this.interfaces = interfaces;
     }
     
-    public Device(JSONObject json) {
+    public Device(JsonObject json) {
         this.id = "dev_" + devicesCount++;
-        this.name = json.getString("name");
-        JSONArray array = json.getJSONArray("interface");
+        this.name = json.get("name").getAsString();
+        JsonArray array = json.get("interface").getAsJsonArray();
         
-        for (int i=0; i<= array.length() - 1; i++) {
-            DeviceInterface deviceInterface = new DeviceInterface((JSONObject)array.get(i));
+        for (int i=0; i<= array.size() - 1; i++) {
+            DeviceInterface deviceInterface = new DeviceInterface(array.get(i).getAsJsonObject());
             deviceInterface.parentDevice = new WeakReference<>(this);
             this.interfaces.add(deviceInterface);
         }

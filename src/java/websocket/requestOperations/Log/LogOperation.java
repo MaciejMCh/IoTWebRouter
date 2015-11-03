@@ -6,7 +6,7 @@
 package websocket.requestOperations.Log;
 
 import javax.websocket.Session;
-import org.json.JSONObject;
+import com.google.gson.*;
 import websocket.requestOperations.RequestOperation;
 
 /**
@@ -17,9 +17,9 @@ public class LogOperation extends RequestOperation {
 
     protected InterpretedLogOperation interpretedOperation;
     
-    public LogOperation(JSONObject params, Session session) {
+    public LogOperation(JsonObject params, Session session) {
         super(params, session);
-        this.interpretedOperation = (InterpretedLogOperation)LogRequestInterpreter.serializeOperation(params.getJSONObject("request"), session);
+        this.interpretedOperation = (InterpretedLogOperation)LogRequestInterpreter.serializeOperation(params.get("request").getAsJsonObject(), session);
     }
 
     @Override

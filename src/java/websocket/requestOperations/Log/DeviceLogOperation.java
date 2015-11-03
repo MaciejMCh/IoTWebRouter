@@ -10,7 +10,7 @@ import javax.websocket.Session;
 import model.Device;
 import model.DeviceInterface;
 import model.Interactor;
-import org.json.JSONObject;
+import com.google.gson.*;
 
 /**
  *
@@ -21,7 +21,7 @@ public class DeviceLogOperation extends InterpretedLogOperation {
     
     protected String deviceID;
     
-    public DeviceLogOperation(JSONObject params, Session session) {
+    public DeviceLogOperation(JsonObject params, Session session) {
         super(params, session);
     }
 

@@ -9,7 +9,7 @@ import websocket.requestOperations.Log.LogOperation;
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import javax.websocket.Session;
-import org.json.JSONObject;
+import com.google.gson.*;
 
 /**
  *
@@ -24,12 +24,12 @@ public class RequestOperationsSerializer {
         put("connect", ConnectOperation.class);
     }};
     
-    public static RequestOperation serializeOperation(JSONObject json, Session session) {
-        String action = json.getString("action");
+    public static RequestOperation serializeOperation(JsonObject json, Session session) {
+        String action = json.get("action").getAsString();
         Class operationClass = operationClassMap.get(action);
         if (operationClass != null) {
             try {
-                Constructor constructor = operationClass.getDeclaredConstructor(JSONObject.class, Session.class);
+                Constructor constructor = operationClass.getDeclaredConstructor(JsonObject.class, Session.class);
                 RequestOperation operation = (RequestOperation)constructor.newInstance(json, session);
                 return operation;
             } catch (Exception e) {

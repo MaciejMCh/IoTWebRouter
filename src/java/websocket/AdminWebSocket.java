@@ -16,7 +16,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 import model.Device;
-import org.json.JSONObject;
+import com.google.gson.*;
 import websocket.requestOperations.RequestOperation;
 import websocket.requestOperations.RequestOperationsSerializer;
 
@@ -53,7 +53,7 @@ public class AdminWebSocket {
     @OnMessage
     public void handleMessage(String message, Session session) {
         RequestOperation operation;
-        JSONObject json = new JSONObject(message);
+        JsonObject json = new JsonParser().parse(message).getAsJsonObject();
         operation = RequestOperationsSerializer.serializeOperation(json, session);
         
         if (operation.getError() == null) {

@@ -8,7 +8,7 @@ package websocket.requestOperations;
 import javax.websocket.Session;
 import model.Device;
 import model.Interactor;
-import org.json.JSONObject;
+import com.google.gson.*;
 
 /**
  *
@@ -18,9 +18,9 @@ public class RegisterOperation extends RequestOperation {
 
     protected Device registeringDevice;
     
-    public RegisterOperation(JSONObject params, Session session) {
+    public RegisterOperation(JsonObject params, Session session) {
         super(params, session);
-        this.registeringDevice = new Device(params.getJSONObject("device"));
+        this.registeringDevice = new Device(params.get("device").getAsJsonObject());
     }
 
     @Override

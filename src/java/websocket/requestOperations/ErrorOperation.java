@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.Session;
-import org.json.JSONObject;
+import com.google.gson.*;
 
 /**
  *
@@ -23,7 +23,7 @@ public class ErrorOperation extends RequestOperation {
     
     protected String errorMessage;
     
-    public ErrorOperation(JSONObject params, Session session) {
+    public ErrorOperation(JsonObject params, Session session) {
         super(params, session);
     }
     

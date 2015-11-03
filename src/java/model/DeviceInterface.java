@@ -8,7 +8,7 @@ package model;
 import java.lang.ref.WeakReference;
 import static model.DeviceInterface.InterfaceDirection.Input;
 import static model.DeviceInterface.InterfaceDirection.Output;
-import org.json.JSONObject;
+import com.google.gson.*;
 
 public class DeviceInterface {
     
@@ -37,10 +37,10 @@ public class DeviceInterface {
         return this.parentDevice.get();
     }
     
-    public DeviceInterface(JSONObject json) {
-        this.id = json.getString("id");
-        this.dataType = json.getString("dataType");
-        String interfaceDirection = json.getString("direction");
+    public DeviceInterface(JsonObject json) {
+        this.id = json.get("id").getAsString();
+        this.dataType = json.get("dataType").getAsString();
+        String interfaceDirection = json.get("direction").getAsString();
         if ("input".equals(interfaceDirection)) {
             this.interfaceDirection = Input;
         } else {

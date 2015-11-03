@@ -14,7 +14,7 @@ import model.Device;
 import model.Interactor;
 import model.Signal;
 import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.gson.*;
 import websocket.AdminWebSocket;
 
 /**
@@ -25,13 +25,13 @@ public class DataOperation extends RequestOperation {
 
     protected ArrayList<Signal> signals = new ArrayList<>();
     
-    public DataOperation(JSONObject params, Session session) {
+    public DataOperation(JsonObject params, Session session) {
         super(params, session);
-        JSONArray array = params.getJSONArray("interfaces");
+        JsonArray array = params.get("interfaces").getAsJsonArray();
         
         Device sendingDevice = Interactor.getInstance().deviceForSession(session);
         for (Object object : array) {
-            JSONObject json = (JSONObject)object;
+            JsonObject json = (JsonObject)object;
             this.signals.add(new Signal(json, sendingDevice));
         }
     }
