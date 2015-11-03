@@ -20,11 +20,14 @@ public class RegisterOperation extends RequestOperation {
     
     public RegisterOperation(JsonObject params, Session session) {
         super(params, session);
-        if (this.getError() != null) {
-            return;
-        }
-        this.registeringDevice = new Device(params.get("device").getAsJsonObject());
     }
+
+    @Override
+    protected void mapJson(JsonObject json) {
+        this.registeringDevice = new Device(json.get("device").getAsJsonObject());
+    }
+    
+    
 
     @Override
     public void performOperation() {

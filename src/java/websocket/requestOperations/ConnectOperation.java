@@ -18,11 +18,14 @@ public class ConnectOperation extends RequestOperation {
     
     public ConnectOperation(JsonObject params, Session session) {
         super(params, session);
-        
-        String outputDeviceID = params.get("output").getAsJsonObject().get("device").getAsString();
-        String outputInterfaceID = params.get("output").getAsJsonObject().get("interface").getAsString();
-        String inputDeviceID = params.get("input").getAsJsonObject().get("device").getAsString();
-        String inputInterfaceID = params.get("input").getAsJsonObject().get("interface").getAsString();
+    }
+
+    @Override
+    protected void mapJson(JsonObject json) {
+        String outputDeviceID = json.get("output").getAsJsonObject().get("device").getAsString();
+        String outputInterfaceID = json.get("output").getAsJsonObject().get("interface").getAsString();
+        String inputDeviceID = json.get("input").getAsJsonObject().get("device").getAsString();
+        String inputInterfaceID = json.get("input").getAsJsonObject().get("interface").getAsString();
         
         Device outputDevice = Interactor.getInstance().deviceForID(outputDeviceID);
         if (outputDevice == null) {
@@ -56,8 +59,9 @@ public class ConnectOperation extends RequestOperation {
         
         this.inputInterface = inputInterface;
         this.outputInterface = outputInterface;
-        
     }
+    
+    
 
     @Override
     public void performOperation() {

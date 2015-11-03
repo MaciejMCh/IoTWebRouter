@@ -29,6 +29,12 @@ public class RequestOperation {
             this.error("Syntax error. " + sytnaxError);
             return;
         }
+        
+        this.mapJson(params);
+    }
+    
+    protected void mapJson(JsonObject json) {
+        
     }
     
     public void performOperation() {

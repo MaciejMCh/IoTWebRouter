@@ -27,12 +27,16 @@ public class DataOperation extends RequestOperation {
     
     public DataOperation(JsonObject params, Session session) {
         super(params, session);
-        JsonArray array = params.get("interfaces").getAsJsonArray();
+    }
+
+    @Override
+    protected void mapJson(JsonObject json) {
+        JsonArray array = json.get("interfaces").getAsJsonArray();
         
         Device sendingDevice = Interactor.getInstance().deviceForSession(session);
         for (Object object : array) {
-            JsonObject json = (JsonObject)object;
-            this.signals.add(new Signal(json, sendingDevice));
+            JsonObject jsonObject = (JsonObject)object;
+            this.signals.add(new Signal(jsonObject, sendingDevice));
         }
     }
     

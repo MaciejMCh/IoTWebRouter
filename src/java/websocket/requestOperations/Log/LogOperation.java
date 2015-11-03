@@ -19,11 +19,22 @@ public class LogOperation extends RequestOperation {
     
     public LogOperation(JsonObject params, Session session) {
         super(params, session);
-        this.interpretedOperation = (InterpretedLogOperation)LogRequestInterpreter.serializeOperation(params.get("request").getAsJsonObject(), session);
+    }
+
+    @Override
+    protected void mapJson(JsonObject json) {
+        this.interpretedOperation = (InterpretedLogOperation)LogRequestInterpreter.serializeOperation(json.get("request").getAsJsonObject(), session);
     }
 
     @Override
     public void performOperation() {
         this.interpretedOperation.performOperation();
     }
+
+    @Override
+    protected JsonObject getSyntax() {
+        return new JsonParser().parse("{\"action\":\"connect\",\"request\":{}}").getAsJsonObject();
+    }
+    
+    
 }
