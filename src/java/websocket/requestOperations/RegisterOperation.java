@@ -20,6 +20,9 @@ public class RegisterOperation extends RequestOperation {
     
     public RegisterOperation(JsonObject params, Session session) {
         super(params, session);
+        if (this.getError() != null) {
+            return;
+        }
         this.registeringDevice = new Device(params.get("device").getAsJsonObject());
     }
 
@@ -28,4 +31,8 @@ public class RegisterOperation extends RequestOperation {
         Interactor.getInstance().registerDevice(this.registeringDevice, this.session);
     }
     
+    @Override
+    protected JsonObject getSyntax() {
+        return new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"String\",\"interface\":[]}}").getAsJsonObject();
+    }
 }

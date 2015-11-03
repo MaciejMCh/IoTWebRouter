@@ -23,7 +23,12 @@ public class RequestOperation {
     
     public RequestOperation(JsonObject params, Session session) {
         this.session = session;
-        this.getSyntax();
+        
+        String sytnaxError = SyntaxValidator.validateSyntax(this.getSyntax(), params);
+        if (sytnaxError != null) {
+            this.error("Syntax error. " + sytnaxError);
+            return;
+        }
     }
     
     public void performOperation() {

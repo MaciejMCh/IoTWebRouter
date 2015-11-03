@@ -18,12 +18,6 @@ public class ConnectOperation extends RequestOperation {
     
     public ConnectOperation(JsonObject params, Session session) {
         super(params, session);
-        String sytnaxError = SyntaxValidator.validateSyntax(this.getSyntax(), params);
-        
-        if (sytnaxError != null) {
-            this.error("Syntax error. " + sytnaxError);
-            return;
-        }
         
         String outputDeviceID = params.get("output").getAsJsonObject().get("device").getAsString();
         String outputInterfaceID = params.get("output").getAsJsonObject().get("interface").getAsString();
