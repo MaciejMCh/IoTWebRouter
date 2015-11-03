@@ -29,7 +29,7 @@ public class Signal {
     }
     
     public Signal(JsonObject json, Device device) {
-        this.message = new Message(json.get("dataType").getAsString(), json.get("value"));
+        this.message = new Message(json.get("dataType").getAsString(), json.get("value").getAsString());
         this.sourceInterface = device.interfaceWithID(json.get("id").getAsString());
     }
 
@@ -47,7 +47,7 @@ public class Signal {
         JsonObject json = new JsonObject();
         
         json.addProperty("dataType", this.message.dataType);
-        json.addProperty("value", (String) this.message.value);
+        json.addProperty("value", this.message.value);
         json.addProperty("interface", this.destinationInterface.id);
         
         return json.toString();

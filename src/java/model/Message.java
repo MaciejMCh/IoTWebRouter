@@ -7,7 +7,7 @@ package model;
 
 public class Message {
     protected String dataType;
-    protected Object value;
+    protected String value;
     
     public String getDataType() {
         return this.dataType;
@@ -17,7 +17,7 @@ public class Message {
         return this.value;
     }
     
-    public Message(String dataType, Object value) {
+    public Message(String dataType, String value) {
         this.dataType = dataType;
         this.value = value;
     }
