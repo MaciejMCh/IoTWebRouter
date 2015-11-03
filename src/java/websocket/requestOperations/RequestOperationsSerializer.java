@@ -41,8 +41,4 @@ public class RequestOperationsSerializer {
         }
     }
     
-    public static RequestOperation serializeOperation(String query, Session session) {
-        return null;
-    }
-    
 }

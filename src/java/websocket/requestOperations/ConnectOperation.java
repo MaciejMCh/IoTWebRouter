@@ -18,6 +18,13 @@ public class ConnectOperation extends RequestOperation {
     
     public ConnectOperation(JSONObject params, Session session) {
         super(params, session);
+        JSONObject json = this.getSyntax();
+        String sytnaxError = SyntaxValidator.validateSyntax(params, json);
+        
+        if (sytnaxError != null) {
+            this.error("Syntax error. Missing params: " + sytnaxError);
+            return;
+        }
         
         String outputDeviceID = params.getJSONObject("output").getString("device");
         String outputInterfaceID = params.getJSONObject("output").getString("interface");
@@ -62,6 +69,14 @@ public class ConnectOperation extends RequestOperation {
     @Override
     public void performOperation() {
         Interactor.getInstance().getRouter().connectInterfaces(this.outputInterface, this.inputInterface);
+    }
+
+    @Override
+    protected JSONObject getSyntax() {
+        JSONObject json = new JSONObject();
+        json.append("output", new JSONObject().append("device", "String").append("interface", "String")).append("input", new JSONObject().append("device", "String").append("interface", "String"));
+        
+        return json;
     }
     
     

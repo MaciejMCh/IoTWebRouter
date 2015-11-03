@@ -23,6 +23,7 @@ public class RequestOperation {
     
     public RequestOperation(JSONObject params, Session session) {
         this.session = session;
+        this.getSyntax();
     }
     
     public void performOperation() {
@@ -31,5 +32,9 @@ public class RequestOperation {
     
     protected void error(String errorMessage) {
         this.error = new Error(errorMessage);
+    }
+    
+    protected JSONObject getSyntax() {
+        return new JSONObject();
     }
 }
