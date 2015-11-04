@@ -59,4 +59,12 @@ public class DeviceLogOperation extends InterpretedLogOperation {
         arguments.add(new Option("interface", "Logs all interfaces of device.", "interfaceOption", "i"));
         return arguments;
     }   
+
+    @Override
+    public String description() {
+        return "informations about devices connected to server";
+    }
+    
+    
+    
 }

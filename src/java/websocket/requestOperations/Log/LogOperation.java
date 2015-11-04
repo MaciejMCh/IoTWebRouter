@@ -7,6 +7,9 @@ package websocket.requestOperations.Log;
 
 import javax.websocket.Session;
 import com.google.gson.*;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import websocket.requestOperations.RequestOperation;
 
 /**
@@ -28,7 +31,15 @@ public class LogOperation extends RequestOperation {
 
     @Override
     public void performOperation() {
-        this.interpretedOperation.performOperation();
+        if (this.interpretedOperation.getError() != null) {
+            try {
+                this.session.getBasicRemote().sendText(this.interpretedOperation.getError().getErrorMessage());
+            } catch (IOException ex) {
+                Logger.getLogger(LogOperation.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            this.interpretedOperation.performOperation();
+        }
     }
 
     @Override

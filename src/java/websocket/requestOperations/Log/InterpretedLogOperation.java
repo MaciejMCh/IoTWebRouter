@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.Session;
-import org.json.JSONArray;
 import com.google.gson.*;
 import websocket.requestOperations.RequestOperation;
 
@@ -27,6 +26,11 @@ public class InterpretedLogOperation extends RequestOperation {
     public InterpretedLogOperation(JsonObject params, Session session) {
         super(params, session);
         
+        if (params.entrySet().isEmpty()) {
+            // in case of reflect methods initialization
+            return;
+        }
+        
         JsonArray argumentsJSONArray = params.get("arguments").getAsJsonArray();
         this.arguments = new ArrayList();
         for (int i=0; i<= argumentsJSONArray.size() - 1; i++) {
@@ -41,6 +45,61 @@ public class InterpretedLogOperation extends RequestOperation {
         
         this.mapArgumentsToProperties();
         this.mapOptionsToProperties();
+        
+        String syntaxError = this.validateSyntax(params);
+        if (syntaxError != null) {
+            this.error(syntaxError);
+        }
+    }
+    
+    protected String validateSyntax(JsonObject json) {
+        for (Argument argument : this.arguments()) {
+            if (argument.getIsRequired()) {
+                Class<?> clazz = this.getClass();
+                try {
+                    Field field = clazz.getDeclaredField(argument.getPropertyName());
+                    Object value = field.get(this);
+                    if (value == null) {
+                        return "argument '"+ argument.getPropertyName() + "' is missing";
+                    }
+                } catch(Exception e) {
+                    
+                }
+            }
+        }
+        
+        ArrayList<String> optionRepresentations = new ArrayList<>();
+        for (Option option : this.options()) {
+            optionRepresentations.add(option.getRepresentation());
+        }
+        for (JsonElement element : json.get("options").getAsJsonArray()) {
+            if (!optionRepresentations.contains(element.getAsString())) {
+                return "option '-"+ element.getAsString() + "' is unknown";
+            }
+        }
+        
+        return null;
+    }
+    
+    public String syntaxString() {
+        String result = "";
+        for (Argument argument : this.arguments()) {
+            result += "$" + argument.getPropertyName() + " ";
+        }
+        
+        if (!this.options().isEmpty()) {
+            result += "[";
+            for (Option option : this.options()) {
+                result += "-" + option.getRepresentation() + " ";
+            }
+            result += "]";
+        }
+        
+        return result;
+    }
+    
+    public String description() {
+        return "";
     }
     
     protected ArrayList<Argument> arguments() {

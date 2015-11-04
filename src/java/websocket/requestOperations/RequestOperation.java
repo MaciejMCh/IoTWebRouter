@@ -21,6 +21,10 @@ public class RequestOperation {
         return error;
     }
     
+    public RequestOperation() {
+        
+    }
+    
     public RequestOperation(JsonObject params, Session session) {
         this.session = session;
         

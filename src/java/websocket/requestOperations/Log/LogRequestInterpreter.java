@@ -9,7 +9,6 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import javax.websocket.Session;
 import com.google.gson.*;
-import java.util.ArrayList;
 import websocket.requestOperations.ErrorOperation;
 import websocket.requestOperations.RequestOperation;
 
@@ -17,7 +16,12 @@ public class LogRequestInterpreter {
     protected static final HashMap<String, Class> operationClassMap = new HashMap<String, Class>() {{
         put("device", DeviceLogOperation.class);
         put("connection", ConnectionsLogOperation.class);
+        put("help", HelpLogOperation.class);
     }};
+
+    public static HashMap<String, Class> getOperationClassMap() {
+        return operationClassMap;
+    }
     
     public static RequestOperation serializeOperation(JsonObject json, Session session) {
         if (json.has("query")) {

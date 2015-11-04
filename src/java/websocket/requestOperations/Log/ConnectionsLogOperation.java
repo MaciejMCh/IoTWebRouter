@@ -21,18 +21,34 @@ import model.Router;
  */
 public class ConnectionsLogOperation extends InterpretedLogOperation {
 
+    protected boolean possibleInterfaces;
+    
     public ConnectionsLogOperation(JsonObject params, Session session) {
         super(params, session);
     }
 
     @Override
     public void performOperation() {
-        if (this.options.contains("p")) {
+        if (this.possibleInterfaces) {
             this.log(possibleConnectionsLog());
         } else {
             this.log(connectionsLog());
         }
     }
+
+    @Override
+    protected ArrayList<Option> options() {
+        ArrayList<Option> options = super.options();
+        options.add(new Option("possible", "logs possible connections of all interfaces", "possibleInterfaces", "p"));
+        return options;
+    }
+
+    @Override
+    public String description() {
+        return "logs connections between interfaces";
+    }
+    
+    
     
     public String connectionsLog() {
         String output = "connections:";
