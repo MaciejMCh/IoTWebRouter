@@ -40,9 +40,14 @@ public class InterpretedLogOperation extends RequestOperation {
         }
         
         this.mapArgumentsToProperties();
+        this.mapOptionsToProperties();
     }
     
-    protected ArrayList<String> propertyNames() {
+    protected ArrayList<Argument> arguments() {
+        return new ArrayList<>();
+    }
+    
+    protected ArrayList<Option> options() {
         return new ArrayList<>();
     }
     
@@ -56,9 +61,21 @@ public class InterpretedLogOperation extends RequestOperation {
     
     private void mapArgumentsToProperties() {
         int i = 0;
-        for (String propertyName : this.propertyNames()) {
+        for (Argument argument : this.arguments()) {
+            String propertyName = argument.getPropertyName();
             if (this.arguments.size() > i) {
                 reflectiveSet(this, propertyName, this.arguments.get(i));
+            }
+            i++;
+        }
+    }
+    
+    private void mapOptionsToProperties() {
+        int i = 0;
+        for (Option option : this.options()) {
+            String propertyName = option.getPropertyName();
+            if (this.options.size() > i) {
+                reflectiveSet(this, propertyName, true);
             }
             i++;
         }
@@ -80,4 +97,50 @@ public class InterpretedLogOperation extends RequestOperation {
         }
         return false;
     }
+    
+}
+
+class Argument {
+    protected String propertyName;
+    protected String description;
+    protected boolean isRequired;
+    public String getDescription() {
+        return description;
+    }
+    public String getPropertyName() {
+        return propertyName;
+    }    
+    public boolean getIsRequired() {
+        return this.isRequired;
+    }    
+    public Argument(String propertyName, String description, boolean isRequired) {
+        this.propertyName = propertyName;
+        this.description = description;
+        this.isRequired = isRequired;
+    }
+}
+    
+class Option {
+    protected String name;
+    protected String description;
+    protected String propertyName;
+    protected String representation;
+    public String getName() {
+        return name;
+    }
+    public String getPropertyName() {
+        return propertyName;
+    }
+    public String getRepresentation() {
+        return representation;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public Option(String name, String description, String propertyName, String representation) {
+        this.name = name;
+        this.description = description;
+        this.propertyName = propertyName;
+        this.representation = representation;
+    }        
 }
