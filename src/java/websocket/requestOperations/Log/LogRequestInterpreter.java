@@ -9,6 +9,7 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import javax.websocket.Session;
 import com.google.gson.*;
+import java.util.ArrayList;
 import websocket.requestOperations.ErrorOperation;
 import websocket.requestOperations.RequestOperation;
 
@@ -19,6 +20,10 @@ public class LogRequestInterpreter {
     }};
     
     public static RequestOperation serializeOperation(JsonObject json, Session session) {
+        if (json.has("query")) {
+            return serializeOperation(parseQuery(json.get("query").getAsString()), session);
+        }
+        
         String action = json.get("action").getAsString();
         Class operationClass = operationClassMap.get(action);
         if (operationClass != null) {
@@ -33,4 +38,39 @@ public class LogRequestInterpreter {
             return new ErrorOperation("Unknown log action '" + action + "'.", session);
         }
     }
+    
+    protected static JsonObject parseQuery(String query) {
+        JsonObject parsedQuery = new JsonObject();
+        JsonArray options = new JsonArray();
+        JsonArray arguments = new JsonArray();
+        
+        String[] syntax = query.split(" ");
+        for (String element : syntax) {
+            // ignore empty string
+            if (element.equals("")) {
+                continue;
+            }
+            
+            // first element is action
+            if (syntax[0] == element) {
+                parsedQuery.add("action", new JsonPrimitive(element));
+                continue;
+            } 
+            
+            // option
+            if (element.startsWith("-")) {
+                options.add(new JsonPrimitive(element.replace("-", "")));
+                continue;
+            }
+            
+            // argument
+            arguments.add(new JsonPrimitive(element));
+        }
+        
+        parsedQuery.add("options", options);
+        parsedQuery.add("arguments", arguments);
+        
+        return parsedQuery;
+    }
+    
 }

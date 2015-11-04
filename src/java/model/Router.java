@@ -16,6 +16,10 @@ import static model.DeviceInterface.InterfaceDirection.Output;
 
 public class Router {
     protected final HashMap<DeviceInterface, ArrayList<DeviceInterface>> routingTable = new HashMap<>();
+
+    public HashMap<DeviceInterface, ArrayList<DeviceInterface>> getRoutingTable() {
+        return routingTable;
+    }
     
     public void addOutputsOfDevice(Device device) {
         for (DeviceInterface outputInterface : device.interfaces) {

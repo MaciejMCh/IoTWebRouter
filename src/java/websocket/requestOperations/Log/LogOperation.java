@@ -33,7 +33,7 @@ public class LogOperation extends RequestOperation {
 
     @Override
     protected JsonObject getSyntax() {
-        return new JsonParser().parse("{\"action\":\"connect\",\"request\":{}}").getAsJsonObject();
+        return new JsonParser().parse("{\"action\":\"String\",\"request\":{}}").getAsJsonObject();
     }
     
     

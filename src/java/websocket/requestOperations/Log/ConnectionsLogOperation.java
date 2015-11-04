@@ -8,10 +8,12 @@ package websocket.requestOperations.Log;
 import com.google.gson.JsonObject;
 import com.sun.javafx.sg.prism.GrowableDataBuffer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.websocket.Session;
 import model.Device;
 import model.DeviceInterface;
 import model.Interactor;
+import model.Router;
 
 /**
  *
@@ -25,7 +27,29 @@ public class ConnectionsLogOperation extends InterpretedLogOperation {
 
     @Override
     public void performOperation() {
-        this.log(possibleConnectionsLog());
+        if (this.options.contains("p")) {
+            this.log(possibleConnectionsLog());
+        } else {
+            this.log(connectionsLog());
+        }
+    }
+    
+    public String connectionsLog() {
+        String output = "connections:";
+        
+        HashMap<DeviceInterface, ArrayList<DeviceInterface>> routingTable = Interactor.getInstance().getRouter().getRoutingTable();
+        
+        ArrayList<InterfaceConnection> connections = new ArrayList<>();
+        for (DeviceInterface outputInterface : routingTable.keySet()) {
+            for (DeviceInterface inputInterface : routingTable.get(outputInterface)) {
+                connections.add(new InterfaceConnection(inputInterface, outputInterface));
+            }
+        }
+        for (InterfaceConnection connection : connections) {
+            output += "\n " + connection.log();
+        }
+        
+        return output;
     }
     
     public String possibleConnectionsLog() {
@@ -36,6 +60,10 @@ public class ConnectionsLogOperation extends InterpretedLogOperation {
             for (DeviceInterface deviceInterface : device.getInterfaces()) {
                 allInterfaces.add(deviceInterface);
             }
+        }
+        
+        if (allInterfaces.size() < 2) {
+            return output;
         }
         
         ArrayList<InterfaceConnection> connections = new ArrayList<>();

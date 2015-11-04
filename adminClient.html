@@ -14,16 +14,19 @@ var outputDeviceID;
 var outputInterfaceID;
 var inputDeviceID;
 var inputInterfaceID;
+var logQuery;
 
 var query;
 
   function init() { 
   	output = document.getElementById("output"); 
-
-
-
   	testWebSocket(); 
   }  
+
+  function logQuery() {
+    var query = document.getElementById("logQuery").value;
+    doSend("{\"action\" : \"log\", \"request\" : {\"query\" : \"" + query + "\"}}");
+  }
 
   function execute() {
     query = document.getElementById("query").value;
@@ -98,7 +101,7 @@ var query;
 
  window.addEventListener("load", init, false);  </script>  <h2>Admin client</h2> 
   <textarea id="output" style="resize:none;font-size:10pt;height:calc(100vh - 200px);width:100%;"></textarea>
-  
+<br><input type="button" value="Log" onclick="logQuery();"><input style="width:calc(100% - 100px);" type="text" name="txt" id="logQuery"/>  
 <br><input type="button" value="Execute" onclick="execute();"><input style="width:calc(100% - 100px);" type="text" name="txt" id="query"/>
 
   <br><input type="button" value="Log device" onclick="log();"><label for="male"> Device ID: </label><input type="text" name="txt" id="deviceID"/><label for="male"> Options: </label><input type="text" name="txt" id="deviceOptions"/>
