@@ -44,6 +44,11 @@ public class ConnectionsLogOperation extends InterpretedLogOperation {
     }
 
     @Override
+    protected ArrayList<Argument> arguments() {
+        return new ArrayList<>();
+    }
+
+    @Override
     public String description() {
         return "logs connections between interfaces";
     }

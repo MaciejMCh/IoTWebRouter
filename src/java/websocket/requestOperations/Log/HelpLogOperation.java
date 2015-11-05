@@ -29,14 +29,27 @@ public class HelpLogOperation extends InterpretedLogOperation {
         if (this.operationName == null) {
             String output = "log operations:";
             for (String operationName : LogRequestInterpreter.getOperationClassMap().keySet()) {
-                output += "\n" + operationName + " - " + staticStringValue(operationName, "description");
+                output += "\n" + operationName + " - " + staticEvaluation(operationName, "description");
                 if (this.syntax || this.details) {
-                    output += " syntax: " + operationName + " " + staticStringValue(operationName, "syntaxString");
+                    output += " syntax: " + operationName + " " + staticEvaluation(operationName, "syntaxString");
                     if (this.details) {
-                        
+                        ArrayList<Argument> arguments = (ArrayList<Argument>)staticEvaluation(operationName, "arguments");
+                        if (!arguments.isEmpty()) {
+                            output += "\n\t arguments:";
+                            for (Argument argument : arguments) {
+                                String requiredString = argument.getIsRequired() ? "(Required)" : "";
+                                output += "\n\t\t " + argument.getPropertyName() + " - " + argument.getDescription() + " " + requiredString;
+                            }                    
+                        }
+                        ArrayList<Option> options = (ArrayList<Option>)staticEvaluation(operationName, "options");
+                        if (!options.isEmpty()) {
+                            output += "\n\t options:";
+                            for (Option option : options) {
+                                output += "\n\t\t --" + option.getName() + " [-" + option.getRepresentation() + "] - " + option.getDescription();
+                            }                    
+                        }
                     }
                 }
-                
             }
             this.log(output);
         }
@@ -64,15 +77,23 @@ public class HelpLogOperation extends InterpretedLogOperation {
     
     
     
-    protected String staticStringValue(String logOperationName, String selector) {
+    protected Object staticEvaluation(String logOperationName, String selector) {
         try {
             Class<InterpretedLogOperation> clazz = LogRequestInterpreter.getOperationClassMap().get(logOperationName);
             Object object = clazz.getConstructor(JsonObject.class, Session.class).newInstance(new JsonObject(), this.session);
             Method method = clazz.getMethod(selector);
-            String result = (String)method.invoke(object);
+            Object result = method.invoke(object);
             return result;
         } catch (Exception e) {
+            try {
+                Class<InterpretedLogOperation> clazz = LogRequestInterpreter.getOperationClassMap().get(logOperationName);
+                Object object = clazz.getConstructor(JsonObject.class, Session.class).newInstance(new JsonObject(), this.session);
+                Method method = clazz.getDeclaredMethod(selector);
+                Object result = method.invoke(object);
+                return result;
+            } catch (Exception ex) {
             
+            }
         }
         return null;
     }           
