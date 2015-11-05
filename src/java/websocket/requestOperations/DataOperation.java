@@ -23,7 +23,7 @@ import websocket.AdminWebSocket;
  */
 public class DataOperation extends RequestOperation {
 
-    protected ArrayList<Signal> signals = new ArrayList<>();
+    protected ArrayList<Signal> signals;
     
     public DataOperation(JsonObject params, Session session) {
         super(params, session);
@@ -31,6 +31,7 @@ public class DataOperation extends RequestOperation {
 
     @Override
     protected void mapJson(JsonObject json) {
+        this.signals = new ArrayList<>();
         JsonArray array = json.get("interfaces").getAsJsonArray();
         
         Device sendingDevice = Interactor.getInstance().deviceForSession(session);
