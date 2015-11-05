@@ -30,9 +30,13 @@ public class HelpLogOperation extends InterpretedLogOperation {
             String output = "log operations:";
             for (String operationName : LogRequestInterpreter.getOperationClassMap().keySet()) {
                 output += "\n" + operationName + " - " + staticStringValue(operationName, "description");
-                if (this.syntax) {
+                if (this.syntax || this.details) {
                     output += " syntax: " + operationName + " " + staticStringValue(operationName, "syntaxString");
+                    if (this.details) {
+                        
+                    }
                 }
+                
             }
             this.log(output);
         }

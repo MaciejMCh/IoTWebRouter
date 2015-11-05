@@ -84,7 +84,7 @@ public class InterpretedLogOperation extends RequestOperation {
     public String syntaxString() {
         String result = "";
         for (Argument argument : this.arguments()) {
-            result += "$" + argument.getPropertyName() + " ";
+            result += "'" + argument.getPropertyName() + "' ";
         }
         
         if (!this.options().isEmpty()) {
@@ -133,7 +133,7 @@ public class InterpretedLogOperation extends RequestOperation {
         int i = 0;
         for (Option option : this.options()) {
             String propertyName = option.getPropertyName();
-            if (this.options.size() > i) {
+            if (this.options.contains(option.getRepresentation())) {
                 reflectiveSet(this, propertyName, true);
             }
             i++;
