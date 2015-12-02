@@ -1,0 +1,109 @@
+<!DOCTYPE html>  <meta charset="utf-8" />  
+<title>WebSocket Test</title>  
+
+
+<script language="javascript" type="text/javascript">  
+
+var wsUri = "ws://localhost:8080/IoTWebRouter/admin"; 
+var output;
+
+var deviceID;
+var deviceOptions;
+
+var outputDeviceID;
+var outputInterfaceID;
+var inputDeviceID;
+var inputInterfaceID;
+var logQuery;
+
+var query;
+
+  function init() { 
+  	output = document.getElementById("output"); 
+  	testWebSocket(); 
+  }  
+
+  function logQuery() {
+    var query = document.getElementById("logQuery").value;
+    doSend("{\"action\" : \"log\", \"request\" : {\"query\" : \"" + query + "\"}}");
+  }
+
+  function execute() {
+    query = document.getElementById("query").value;
+    doSend(query);
+  }
+
+  function log() {
+    var txtbox = document.getElementById("deviceID");
+    deviceID = txtbox.value;
+    txtbox = document.getElementById("deviceOptions");
+    deviceOptions = txtbox.value;
+
+
+    doSend("{\"action\" : \"log\", \"request\" : {\"action\" : \"device\", \"options\" : ["+deviceOptions+"], \"arguments\" : ["+deviceID+"]}}");
+  }
+
+  function connect() {
+    outputDeviceID = document.getElementById("outputDeviceID").value;
+    outputInterfaceID = document.getElementById("outputInterfaceID").value;
+    inputDeviceID = document.getElementById("inputDeviceID").value;
+    inputInterfaceID = document.getElementById("inputInterfaceID").value;
+
+    doSend("{\"action\":\"connect\",\"output\":{\"device\":\""+outputDeviceID+"\",\"interface\":\""+outputInterfaceID+"\"},\"input\":{\"device\":\""+inputDeviceID+"\",\"interface\":\""+inputInterfaceID+"\"}}");
+  }
+
+  function testWebSocket() { 	
+
+  	websocket = new WebSocket(wsUri); 
+  	websocket.onopen = function(evt) { 
+  		onOpen(evt) 
+  	}; 
+  	websocket.onclose = function(evt) { 
+  		onClose(evt) 
+  	}; 
+  	websocket.onmessage = function(evt) {
+  	 onMessage(evt) 
+  	};
+  	 websocket.onerror = function(evt) {
+  	  onError(evt) 
+  	}; 
+  }  
+
+  function onOpen(evt) {
+   writeToScreen("CONNECTED"); 
+} 
+
+ function onClose(evt) {
+ 	writeToScreen("DISCONNECTED");
+ } 
+
+ function onMessage(evt) { 
+ 	writeToScreen('<span style="color: blue;">RESPONSE:\n' + evt.data+'</span>'); 
+ } 
+
+ function onError(evt) {
+ 	writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data); 
+ }  
+
+ function doSend(message) { 
+ 	writeToScreen("SENT: " + message);  
+ 	websocket.send(message); 
+ }  
+
+ function writeToScreen(message) {
+  message = message + "\n";
+ 	var pre = document.createElement("p"); 
+ 	pre.style.wordWrap = "break-word"; 
+ 	pre.innerHTML = message; 
+ 	output.appendChild(pre);
+  output.scrollTop = output.scrollHeight;
+ }  
+
+ window.addEventListener("load", init, false);  </script>  <h2>Admin client</h2> 
+  <textarea id="output" style="resize:none;font-size:10pt;height:calc(100vh - 200px);width:100%;"></textarea>
+<br><input type="button" value="Log" onclick="logQuery();"><input style="width:calc(100% - 100px);" type="text" name="txt" id="logQuery"/>  
+<br><input type="button" value="Execute" onclick="execute();"><input style="width:calc(100% - 100px);" type="text" name="txt" id="query"/>
+
+  <br><input type="button" value="Log device" onclick="log();"><label for="male"> Device ID: </label><input type="text" name="txt" id="deviceID"/><label for="male"> Options: </label><input type="text" name="txt" id="deviceOptions"/>
+
+  <br><input type="button" value="Connect interfaces" onclick="connect();"><label for="male"> Output device id: </label><input type="text" name="txt" id="outputDeviceID"/><label for="male"> Output interface id: </label><input type="text" name="txt" id="outputInterfaceID"/><label for="male"> Input device id: </label><input type="text" name="txt" id="inputDeviceID"/><label for="male"> Input interface id: </label><input type="text" name="txt" id="inputInterfaceID"/>

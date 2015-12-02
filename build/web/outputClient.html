@@ -3,15 +3,17 @@
 <br><label for="male">Name</label><input type="text" name="txt" id="name"/>
 <br><label for="male">Interface ID</label><input type="text" name="txt" id="interfaceID"/>
 <br><label for="male">Data type</label><input type="text" name="txt" id="dataType"/>
+<br><label for="male">Data value</label><input type="text" name="txt" id="dataValue"/>
 <br><input type="button" value="Start" onclick="testWebSocket();">
 <script language="javascript" type="text/javascript">  
 
-var wsUri = "ws://localhost:8080/WebApplication1/actions"; 
+var wsUri = "ws://localhost:8080/IoTWebRouter/actions"; 
 var output;
 
 var name;
 var interfaceID;
 var dataType;
+var dataValue;
 var isInput;
 
   function init() { 
@@ -29,6 +31,9 @@ var isInput;
 
     txtbox = document.getElementById("dataType");
     dataType = txtbox.value
+
+    txtbox = document.getElementById("dataValue");
+    dataValue = txtbox.value
 
 
   	websocket = new WebSocket(wsUri); 
@@ -49,8 +54,15 @@ var isInput;
   function onOpen(evt) {
    writeToScreen("CONNECTED"); 
 
-   doSend("{\"action\":\"register\",\"device\":{\"name\":\"" + name + "\",\"interface\":[{\"direction\":\"input\",\"dataType\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
+   doSend("{\"action\":\"register\",\"device\":{\"name\":\"" + name + "\",\"interface\":[{\"direction\":\"output\",\"dataType\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
+
+   sendData();
 } 
+
+function sendData() {
+	doSend("{\"action\":\"data\",\"interfaces\":[{\"dataType\":\""+ dataType +"\",\"id\":\""+interfaceID+"\",\"value\":"+dataValue+"}]}");
+	setTimeout(sendData, 1000);
+}
 
  function onClose(evt) {
  	writeToScreen("DISCONNECTED");
@@ -58,6 +70,7 @@ var isInput;
 
  function onMessage(evt) { 
  	writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>'); 
+ 	// websocket.close(); 
  } 
 
  function onError(evt) {
@@ -76,4 +89,4 @@ var isInput;
  	output.appendChild(pre); 
  }  
 
- window.addEventListener("load", init, false);  </script>  <h2>Intput client</h2>  <div id="output"></div>
+ window.addEventListener("load", init, false);  </script>  <h2>Output client</h2>  <div id="output"></div>
