@@ -4,7 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/web/index.html</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/AdminWebSocket.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/web/adminClient.html</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/SyntaxValidator.java</file>
         </group>
     </open-files>
 </project-private>
