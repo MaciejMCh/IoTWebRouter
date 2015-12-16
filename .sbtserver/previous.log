@@ -1,5 +1,5 @@
-New log file opened at Wed Dec 16 20:36:28 CET 2015 by 524@MaciejCH.local
-jvm 524@MaciejCH.local
+New log file opened at Wed Dec 16 20:36:49 CET 2015 by 541@MaciejCH.local
+jvm 541@MaciejCH.local
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.60-b23
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /Users/maciej/Desktop/IoTWebRouter/project, returning: (iotwebrouter-build)
 Loading project definition from /Users/maciej/Desktop/IoTWebRouter/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@265b6f6a, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@5732bf74, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -47,20 +47,579 @@ All initially invalidated sources: Set()
 Copy resource mappings: 
 	
 [Loading] Scanning directory /Users/maciej/Desktop/IoTWebRouter
-/Users/maciej/Desktop/IoTWebRouter/build.sbt:18: error: reference to fork is ambiguous;
-it is imported twice in the same scope by
-import _root_.play.Project._
-and import Keys._
-fork in run := true
-^
-Type error in expression
-> load-failed
-Failed to load project.
-> server-wait-for-reboot
+[Loading] Found non-root projects 
+[Loading] Done in /Users/maciej/Desktop/IoTWebRouter, returning: ()
+deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.BackgroundRunPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.BackgroundRunPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.InteractionServicePlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.SendEventServicePlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.SerializersPlugin)))))
+  :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.SerializersPlugin,sbt.plugins.SendEventServicePlugin,sbt.plugins.InteractionServicePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.BackgroundRunPlugin,sbt.plugins.JUnitXmlReportPlugin)
+sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin) not found List(sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin) not found List(sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin) not found List(sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin) not found List()
+  :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
+[Loading] Done in /Users/maciej/Desktop/IoTWebRouter, returning: (iotwebrouter)
+Set current project to play-ws-test (in build file:/Users/maciej/Desktop/IoTWebRouter/)
+Reapplying settings...
+Set current project to play-ws-test (in build file:/Users/maciej/Desktop/IoTWebRouter/)
+> iflast shell
+> server-send-ready-for-request
+> server-handle-next-server-request
+> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:mainClass
+Evaluating tasks: compile:mainClass
+Running task... Cancel: sbt.server.ServerTaskCancellation@3da5d6b9, check cycles: false
+Total time: 0 s, completed 2015-12-16 20:36:54
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
+Evaluating tasks: compile:discoveredMainClasses
+Running task... Cancel: sbt.server.ServerTaskCancellation@59e94b66, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450285401000) to lastModified(1450285402000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+
+Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@a582da directly...
+Java compilation took 0.677860129 s
+Java analysis took 0.095051058 s
+Java compile + analysis took 0.786932234 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 3 s, completed 2015-12-16 20:36:57
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:mainClass
+Evaluating tasks: compile:mainClass
+Running task... Cancel: sbt.server.ServerTaskCancellation@5db578ed, check cycles: false
+Total time: 0 s, completed 2015-12-16 20:36:57
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
+Evaluating tasks: compile:discoveredMainClasses
+Running task... Cancel: sbt.server.ServerTaskCancellation@43e1c24a, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450285402000) to lastModified(1450294616000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1$1.class)
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+
+Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@71fcbf39 directly...
+Java compilation took 0.090790262 s
+Java analysis took 0.021314977 s
+Java compile + analysis took 0.118660755 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed 2015-12-16 20:36:58
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@7aa2a0bb, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450294616000) to lastModified(1450294618000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@37102b6e directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java:31: cannot find symbol
+Read from stdout: symbol: class Callback
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java:31: cannot find symbol
+  symbol: class Callback
+Read from stdout: Callback
+Callback
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 1 s, completed 2015-12-16 20:38:46
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@19c18b76, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450294616000) to lastModified(1450294618000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@4c7fc10e directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java:35: cannot find symbol
+Read from stdout: symbol: class RequestOperation
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java:35: cannot find symbol
+  symbol: class RequestOperation
+Read from stdout: RequestOperation
+RequestOperation
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java:36: cannot find symbol
+Read from stdout: symbol: variable RequestOperationsSerializer
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java:36: cannot find symbol
+  symbol: variable RequestOperationsSerializer
+Read from stdout: RequestOperationsSerializer
+RequestOperationsSerializer
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 1 s, completed 2015-12-16 20:38:58
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@5f1b983b, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450294616000) to lastModified(1450294618000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@947cc9d directly...
+Java compilation took 0.140272871 s
+Java analysis took 0.024621338 s
+Java compile + analysis took 0.172811818 s
+Invalidating /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java...
+Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java...
+Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+The /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java source file has the following regular definitions changed:
+	.
+All member reference dependencies will be considered within this context.
+Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java
+None of the modified names appears in /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/src_managed/main/routes_routing.scala. This dependency is not being considered for invalidation.
+None of the modified names appears in /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/src_managed/main/routes_reverseRouting.scala. This dependency is not being considered for invalidation.
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed 2015-12-16 20:39:15
+> server-post-command-cleanup
+> server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@6608a0f2, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450294618000) to lastModified(1450294755000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+
+Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@4b92af5b directly...
+Java compilation took 0.064160991 s
+Java analysis took 0.01915829 s
+Java compile + analysis took 0.089691373 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Copy resource mappings: 
+	(/Users/maciej/Desktop/IoTWebRouter/conf/application.conf,/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/application.conf)
+	(/Users/maciej/Desktop/IoTWebRouter/conf/routes,/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/routes)
+Copy play resource mappings: 
+	(/Users/maciej/Desktop/IoTWebRouter/public/images/favicon.png,/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/public/images/favicon.png)
+	(/Users/maciej/Desktop/IoTWebRouter/public/javascripts/jquery-1.9.0.min.js,/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/public/javascripts/jquery-1.9.0.min.js)
+	(/Users/maciej/Desktop/IoTWebRouter/public/stylesheets/main.css,/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/public/stylesheets/main.css)
+Total time: 1 s, completed 2015-12-16 20:39:25
+> server-post-command-cleanup
+> server-handle-next-server-request
+Play server process ID is 541
+[info] play - Application started (Prod)
+[info] play - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+[error] p.nettyException - Exception caught in Netty
+java.lang.IllegalArgumentException: empty text
+	at org.jboss.netty.handler.codec.http.HttpVersion.<init>(HttpVersion.java:97) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpVersion.valueOf(HttpVersion.java:62) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpRequestDecoder.createMessage(HttpRequestDecoder.java:75) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpMessageDecoder.decode(HttpMessageDecoder.java:189) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpMessageDecoder.decode(HttpMessageDecoder.java:101) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:500) ~[netty-3.7.0.Final.jar:na]
+[error] p.nettyException - Exception caught in Netty
+java.lang.IllegalArgumentException: empty text
+	at org.jboss.netty.handler.codec.http.HttpVersion.<init>(HttpVersion.java:97) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpVersion.valueOf(HttpVersion.java:62) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpRequestDecoder.createMessage(HttpRequestDecoder.java:75) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpMessageDecoder.decode(HttpMessageDecoder.java:189) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpMessageDecoder.decode(HttpMessageDecoder.java:101) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:500) ~[netty-3.7.0.Final.jar:na]
+> jobStop 1
+Evaluating tasks: *:jobStop
+Running task... Cancel: sbt.server.ServerTaskCancellation@298fe4a0, check cycles: false
+Total time: 0 s, completed 2015-12-16 20:44:45
+> server-post-command-cleanup
+> server-handle-next-server-request
+Exception in thread "sbt-bg-threads-1" java.lang.RuntimeException: Nonzero exit code: 1
+	at scala.sys.package$.error(package.scala:27)
+	at sbt.BuildCommon$$anonfun$toError$1.apply(Defaults.scala:1943)
+	at sbt.BuildCommon$$anonfun$toError$1.apply(Defaults.scala:1943)
+	at scala.Option.foreach(Option.scala:236)
+	at sbt.BuildCommon$class.toError(Defaults.scala:1943)
+	at sbt.package$.toError(package.scala:4)
+	at sbt.plugins.BackgroundRun$$$$7a35ad7c3e3c86b67367822c77d1e57$$$$onfun$apply$9.apply(BackgroundRunPlugin.scala:53)
+	at sbt.plugins.BackgroundRun$$$$7a35ad7c3e3c86b67367822c77d1e57$$$$onfun$apply$9.apply(BackgroundRunPlugin.scala:51)
+	at sbt.BackgroundThreadPool$$anonfun$1.apply$mcV$sp(AbstractBackgroundJobService.scala:134)
+	at sbt.BackgroundThreadPool$BackgroundRunnable.run(AbstractBackgroundJobService.scala:68)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@73867843, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450294755000) to lastModified(1450294765000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@7f81c74c directly...
+Java compilation took 0.481556062 s
+Java analysis took 0.070658334 s
+Java compile + analysis took 0.561730168 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed 2015-12-16 20:44:54
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@4028ac61, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450294765000) to lastModified(1450295093000)
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450294755000) to lastModified(1450295093000)
+
+Initial source changes: 
+	removed:Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	added: Set()
+	modified: Set()
+Removed products: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2$1.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1$1.class)
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+
+Sources indirectly invalidated by:
+	product: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@672abfd6 directly...
+Java compilation took 0.294793444 s
+Java analysis took 0.09553027 s
+Java compile + analysis took 0.462337292 s
+Invalidating /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java...
+Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java...
+Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+The /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java source file has the following regular definitions changed:
+	.
+All member reference dependencies will be considered within this context.
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed 2015-12-16 20:45:13
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@286a7bb2, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450295093000) to lastModified(1450295112000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2$1.class)
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class)
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@2a99603d directly...
+Java compilation took 0.297480077 s
+Java analysis took 0.023166141 s
+Java compile + analysis took 0.343691497 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed 2015-12-16 20:45:14
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@1442b283, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450295112000) to lastModified(1450295114000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@71dae01 directly...
+Java compilation took 0.322748277 s
+Java analysis took 0.114296334 s
+Java compile + analysis took 0.442972656 s
+Invalidating /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java...
+Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java...
+Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+The /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java source file has the following regular definitions changed:
+	.
+All member reference dependencies will be considered within this context.
+Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed 2015-12-16 20:45:22
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@46a5e98e, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450295114000) to lastModified(1450295122000)
+
+Initial source changes: 
+	removed:Set(/Users/maciej/Desktop/IoTWebRouter/app/models/Pinger.java)
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/models/Pinger.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/models/Pinger.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@37a2e73d directly...
+Java compilation took 0.172091544 s
+Java analysis took 0.111607234 s
+Java compile + analysis took 0.291019497 s
+Invalidating /Users/maciej/Desktop/IoTWebRouter/app/models/Pinger.java...
+Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/app/models/Pinger.java...
+Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/app/models/Pinger.java)
+Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/app/models/Pinger.java)
+The /Users/maciej/Desktop/IoTWebRouter/app/models/Pinger.java source file has the following regular definitions changed:
+	.
+All member reference dependencies will be considered within this context.
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed 2015-12-16 20:45:38
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@14564ff3, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450295122000) to lastModified(1450295138000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class)
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@fac3f0e directly...
+Java compilation took 0.316610623 s
+Java analysis took 0.018875778 s
+Java compile + analysis took 0.344187535 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed 2015-12-16 20:45:40
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@1227f37, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450295138000) to lastModified(1450295140000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class)
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
+
+Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@3e4c9ca4 directly...
+Java compilation took 0.242374298 s
+Java analysis took 0.059883826 s
+Java compile + analysis took 0.33047133 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed 2015-12-16 20:45:57
+> server-post-command-cleanup
+> server-handle-next-server-request
 Done executing sbt server engine, result Right(Exit(0))
 Closing listening server socket
 Waiting for socket thread
 Waiting for request processor thread
 Waiting for command engine result
 Returning control to sbt launcher with result Exit(0)
-Closing the 524@MaciejCH.local logs at Wed Dec 16 20:36:43 CET 2015, goodbye.
+Closing the 541@MaciejCH.local logs at Wed Dec 16 20:55:42 CET 2015, goodbye.

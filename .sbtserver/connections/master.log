@@ -1,16 +1,1 @@
-New log file opened at Wed Dec 16 20:36:49 CET 2015 by 541@MaciejCH.local
-Taking next connection to: 49219
-New client attempting to connect on port: 49220-49219
-  Address = /10.10.2.46:49219
-This client on port 49220 has uuid 32b1003b-78fd-49a2-a1c9-12106f491059 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
-Connected Clients: activator-32b1003b-78fd-49a2-a1c9-12106f491059
-Taking next connection to: 49219
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 49219
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 49219
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 49219
+New log file opened at Wed Dec 16 20:55:48 CET 2015 by 1855@MaciejCH.local
