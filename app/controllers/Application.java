@@ -47,20 +47,4 @@ public class Application extends Controller {
             );}
         };
     };
-    
-    public static WebSocket<String> ping() {
-        return new WebSocket<String>() {
-            public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
-                out.write("ping connected");
-            }
-        };
-    };
-
-    public static Result pingJs() {
-        return ok(views.js.ping.render());
-    }
-
-    public static Result index() {
-        return ok(index.render());
-    }
 }
