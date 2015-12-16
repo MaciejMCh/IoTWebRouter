@@ -1,1 +1,7 @@
 New log file opened at Wed Dec 16 20:55:48 CET 2015 by 1855@MaciejCH.local
+Taking next connection to: 49414
+New client attempting to connect on port: 49415-49414
+  Address = /10.10.2.46:49414
+This client on port 49415 has uuid d3ec3538-8402-425e-8093-dbec0673be6e configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-d3ec3538-8402-425e-8093-dbec0673be6e
+Taking next connection to: 49414
