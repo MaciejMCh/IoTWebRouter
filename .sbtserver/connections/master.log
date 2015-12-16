@@ -1,28 +1,16 @@
-New log file opened at Wed Dec 16 17:54:59 CET 2015 by 1431@MaciejCH.local
-Taking next connection to: 49507
-New client attempting to connect on port: 49508-49507
-  Address = /172.31.10.232:49507
-This client on port 49508 has uuid 12d17241-660c-439b-ac31-b2f3dbfab3bd configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
-Connected Clients: activator-12d17241-660c-439b-ac31-b2f3dbfab3bd
-Taking next connection to: 49507
-New client attempting to connect on port: 49509-49507
-  Address = /172.31.10.232:49507
-Handshake exception on socket: 49509
-sbt.impl.ipc.HandshakeException: Unable to perform handshake
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
-	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
-	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
-Caused by: java.io.EOFException
-	at java.io.DataInputStream.readInt(DataInputStream.java:392)
-	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
-	... 2 more
-Taking next connection to: 49507
-New client attempting to connect on port: 49510-49507
-  Address = /172.31.10.232:49507
-This client on port 49510 has uuid e1be989c-32e0-4b23-8035-856eae3b9905 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
-Connected Clients: activator-12d17241-660c-439b-ac31-b2f3dbfab3bd, activator-e1be989c-32e0-4b23-8035-856eae3b9905
-Taking next connection to: 49507
+New log file opened at Wed Dec 16 20:36:49 CET 2015 by 541@MaciejCH.local
+Taking next connection to: 49219
+New client attempting to connect on port: 49220-49219
+  Address = /10.10.2.46:49219
+This client on port 49220 has uuid 32b1003b-78fd-49a2-a1c9-12106f491059 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-32b1003b-78fd-49a2-a1c9-12106f491059
+Taking next connection to: 49219
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 49507
+Taking next connection to: 49219
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 49219
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 49219

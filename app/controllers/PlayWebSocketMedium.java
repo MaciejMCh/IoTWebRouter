@@ -14,7 +14,7 @@ class PlayWebSocketMedium implements Medium {
     
     @Override
     public void sendMessage(String message) {
-        
+        this.webSocketOut.write(message);
     }
     
 }

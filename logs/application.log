@@ -1103,3 +1103,64 @@ Application started (Prod)
 2015-12-04 17:07:01,560 - [INFO] - from play in run-main-4 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
+2015-12-16 20:39:27,424 - [INFO] - from play in run-main-0 
+Application started (Prod)
+
+2015-12-16 20:39:27,543 - [INFO] - from play in run-main-0 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-12-16 20:41:17,447 - [ERROR] - from play.nettyException in New I/O worker #1 
+Exception caught in Netty
+java.lang.IllegalArgumentException: empty text
+	at org.jboss.netty.handler.codec.http.HttpVersion.<init>(HttpVersion.java:97) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpVersion.valueOf(HttpVersion.java:62) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpRequestDecoder.createMessage(HttpRequestDecoder.java:75) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpMessageDecoder.decode(HttpMessageDecoder.java:189) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpMessageDecoder.decode(HttpMessageDecoder.java:101) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:500) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:435) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:88) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:109) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:312) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:90) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178) ~[netty-3.7.0.Final.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+
+2015-12-16 20:41:17,469 - [ERROR] - from play.nettyException in New I/O worker #1 
+Exception caught in Netty
+java.lang.IllegalArgumentException: empty text
+	at org.jboss.netty.handler.codec.http.HttpVersion.<init>(HttpVersion.java:97) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpVersion.valueOf(HttpVersion.java:62) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpRequestDecoder.createMessage(HttpRequestDecoder.java:75) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpMessageDecoder.decode(HttpMessageDecoder.java:189) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpMessageDecoder.decode(HttpMessageDecoder.java:101) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:500) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.cleanup(ReplayingDecoder.java:554) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.channelDisconnected(FrameDecoder.java:365) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireChannelDisconnected(Channels.java:396) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.close(AbstractNioWorker.java:361) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleAcceptedSocket(NioServerSocketPipelineSink.java:81) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:36) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.handler.codec.oneone.OneToOneEncoder.handleDownstream(OneToOneEncoder.java:54) ~[netty-3.7.0.Final.jar:na]
+	at com.typesafe.netty.http.pipelining.HttpPipeliningHandler.handleDownstream(HttpPipeliningHandler.java:106) ~[netty-http-pipelining-1.1.2.jar:na]
+	at org.jboss.netty.channel.Channels.close(Channels.java:812) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.AbstractChannel.close(AbstractChannel.java:197) ~[netty-3.7.0.Final.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.exceptionCaught(PlayDefaultUpstreamHandler.scala:43) ~[play_2.10-2.2.0.jar:2.2.0]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.exceptionCaught(FrameDecoder.java:377) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireExceptionCaught(Channels.java:525) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.AbstractChannelSink.exceptionCaught(AbstractChannelSink.java:48) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:88) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:109) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:312) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:90) ~[netty-3.7.0.Final.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178) ~[netty-3.7.0.Final.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+

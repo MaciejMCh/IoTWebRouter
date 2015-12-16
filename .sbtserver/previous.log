@@ -1,5 +1,5 @@
-New log file opened at Wed Dec 16 17:53:15 CET 2015 by 1323@MaciejCH.local
-jvm 1323@MaciejCH.local
+New log file opened at Wed Dec 16 20:36:28 CET 2015 by 524@MaciejCH.local
+jvm 524@MaciejCH.local
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.60-b23
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /Users/maciej/Desktop/IoTWebRouter/project, returning: (iotwebrouter-build)
 Loading project definition from /Users/maciej/Desktop/IoTWebRouter/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@7c4d1f51, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@265b6f6a, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -47,186 +47,20 @@ All initially invalidated sources: Set()
 Copy resource mappings: 
 	
 [Loading] Scanning directory /Users/maciej/Desktop/IoTWebRouter
-[Loading] Found non-root projects 
-[Loading] Done in /Users/maciej/Desktop/IoTWebRouter, returning: ()
-deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.BackgroundRunPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.BackgroundRunPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.InteractionServicePlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.SendEventServicePlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.SerializersPlugin)))))
-  :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.SerializersPlugin,sbt.plugins.SendEventServicePlugin,sbt.plugins.InteractionServicePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.BackgroundRunPlugin,sbt.plugins.JUnitXmlReportPlugin)
-sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
-  :: sorting:: found: List(sbt.plugins.CorePlugin) not found List(sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
-  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin) not found List(sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
-  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin) not found List(sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
-  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin) not found List()
-  :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
-[Loading] Done in /Users/maciej/Desktop/IoTWebRouter, returning: (iotwebrouter)
-Set current project to play-ws-test (in build file:/Users/maciej/Desktop/IoTWebRouter/)
-Reapplying settings...
-Set current project to play-ws-test (in build file:/Users/maciej/Desktop/IoTWebRouter/)
-> iflast shell
-> server-send-ready-for-request
-> server-handle-next-server-request
-> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
-Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@38fec136, check cycles: false
-Received TaskFinished for a task we don't know about TaskFinished(1,43,None,true,None)
-Received TaskFinished for a task we don't know about TaskFinished(1,43,None,true,None)
-Use 'last' for the full log.
-> server-post-command-error-handler
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:mainClass
-Evaluating tasks: compile:mainClass
-Running task... Cancel: sbt.server.ServerTaskCancellation@654e78b, check cycles: false
-Total time: 0 s, completed 2015-12-16 17:53:21
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
-Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@519e375e, check cycles: false
-Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
-
-Initial source changes: 
-	removed:Set()
-	added: Set()
-	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-Removed products: Set()
-External API changes: API Changes: Set()
-Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
-Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-
-Sources indirectly invalidated by:
-	product: Set()
-	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-	external source: Set()
-All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-
-Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Attempting to call com.sun.tools.javac.api.JavacTool@e007e2f directly...
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
-/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
-Read from stdout: operation
-operation
-Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
-(compile:compileIncremental) javac returned nonzero exit code
-Total time: 3 s, completed 2015-12-16 17:53:24
-> server-post-command-error-handler
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
-Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@683afdc7, check cycles: false
-Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
-
-Initial source changes: 
-	removed:Set()
-	added: Set()
-	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-Removed products: Set()
-External API changes: API Changes: Set()
-Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
-Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-
-Sources indirectly invalidated by:
-	product: Set()
-	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-	external source: Set()
-All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-
-Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Attempting to call com.sun.tools.javac.api.JavacTool@92a0ac3 directly...
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
-/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
-Read from stdout: operation
-operation
-Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
-(compile:compileIncremental) javac returned nonzero exit code
-Total time: 1 s, completed 2015-12-16 17:53:25
-> server-post-command-error-handler
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:mainClass
-Evaluating tasks: compile:mainClass
-Running task... Cancel: sbt.server.ServerTaskCancellation@1159347, check cycles: false
-Total time: 0 s, completed 2015-12-16 17:53:25
-> server-post-command-cleanup
-> server-handle-next-server-request
-> compile
-Evaluating tasks: compile:compile
-Running task... Cancel: sbt.server.ServerTaskCancellation@36414e0c, check cycles: false
-Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
-
-Initial source changes: 
-	removed:Set()
-	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
-	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-Removed products: Set()
-External API changes: API Changes: Set()
-Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
-Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
-
-Sources indirectly invalidated by:
-	product: Set()
-	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-	external source: Set()
-All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
-
-Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Attempting to call com.sun.tools.javac.api.JavacTool@4507cb57 directly...
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
-/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
-Read from stdout: operation
-operation
-Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
-(compile:compileIncremental) javac returned nonzero exit code
-Total time: 1 s, completed 2015-12-16 17:54:34
-> server-post-command-error-handler
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
-Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@297ab034, check cycles: false
-Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
-
-Initial source changes: 
-	removed:Set()
-	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
-	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-Removed products: Set()
-External API changes: API Changes: Set()
-Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
-Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
-
-Sources indirectly invalidated by:
-	product: Set()
-	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
-	external source: Set()
-All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
-
-Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Attempting to call com.sun.tools.javac.api.JavacTool@3b51e300 directly...
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
-/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
-Read from stdout: operation
-operation
-Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
-(compile:compileIncremental) javac returned nonzero exit code
-Total time: 1 s, completed 2015-12-16 17:54:51
-> server-post-command-error-handler
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:mainClass
-Evaluating tasks: compile:mainClass
-Running task... Cancel: sbt.server.ServerTaskCancellation@37e97081, check cycles: false
-Total time: 0 s, completed 2015-12-16 17:54:51
-> server-post-command-cleanup
-> server-handle-next-server-request
+/Users/maciej/Desktop/IoTWebRouter/build.sbt:18: error: reference to fork is ambiguous;
+it is imported twice in the same scope by
+import _root_.play.Project._
+and import Keys._
+fork in run := true
+^
+Type error in expression
+> load-failed
+Failed to load project.
+> server-wait-for-reboot
 Done executing sbt server engine, result Right(Exit(0))
 Closing listening server socket
 Waiting for socket thread
 Waiting for request processor thread
 Waiting for command engine result
 Returning control to sbt launcher with result Exit(0)
-Closing the 1323@MaciejCH.local logs at Wed Dec 16 17:54:53 CET 2015, goodbye.
+Closing the 524@MaciejCH.local logs at Wed Dec 16 20:36:43 CET 2015, goodbye.

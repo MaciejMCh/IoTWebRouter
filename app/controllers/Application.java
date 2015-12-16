@@ -14,22 +14,39 @@ import akka.actor.Cancellable;
 import akka.actor.Props;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.*;
+import play.libs.F.Callback;
+import websocket.requestOperations.RequestOperation;
+import websocket.requestOperations.RequestOperationsSerializer;
 
 public class Application extends Controller {
     
     public static WebSocket<String> device() {
         return new WebSocket<String>() {
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
-                out.write("device connected");
-            }
+                in.onMessage(new Callback<String>() {
+                    public void invoke(String event) {
+                        JsonObject json = new JsonParser().parse(event).getAsJsonObject();
+                        RequestOperation operation;
+                        operation = RequestOperationsSerializer.serializeOperation(json, new PlayWebSocketMedium(out));
+                        operation.performOperation();
+                    }
+                }
+            );}
         };
     };
     
     public static WebSocket<String> admin() {
         return new WebSocket<String>() {
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
-                out.write("admin connected");
-            }
+                in.onMessage(new Callback<String>() {
+                    public void invoke(String event) {
+                        JsonObject json = new JsonParser().parse(event).getAsJsonObject();
+                        RequestOperation operation;
+                        operation = RequestOperationsSerializer.serializeOperation(json, new PlayWebSocketMedium(out));
+                        operation.performOperation();
+                    }
+                }
+            );}
         };
     };
     

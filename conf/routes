@@ -2,15 +2,11 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /ping                     controllers.Application.ping()
-GET     /assets/javascripts/ping.js controllers.Application.pingJs()
-
 # Admin
 GET     /admin                     controllers.Application.admin()
 
 # Devices
-GET     /device                 controllers.Application.device()
+GET     /device                 controllers.DeviceController.device()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
