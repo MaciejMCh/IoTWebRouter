@@ -1,0 +1,10 @@
+New log file opened at Wed Dec 16 17:20:09 CET 2015 by 629@MaciejCH.local
+Taking next connection to: 49172
+New client attempting to connect on port: 49173-49172
+  Address = /127.0.0.1:49172
+This client on port 49173 has uuid e5d2f1f1-ec79-4dd8-865f-876914fbe46e configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-e5d2f1f1-ec79-4dd8-865f-876914fbe46e
+Taking next connection to: 49172
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 49172

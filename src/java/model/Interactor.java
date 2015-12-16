@@ -6,7 +6,6 @@
 package model;
 
 import java.util.HashMap;
-import websocket.AdminWebSocket;
 
 public class Interactor {
     private static Interactor instance = null;
@@ -38,8 +37,6 @@ public class Interactor {
         this.deviceMediumMap.put(device, medium);
         this.enviroment.addDevice(device);
         this.router.addOutputsOfDevice(device);
-        
-        AdminWebSocket.getInstance().deviceRegistered(device);
     }
     
     public void mediumClosed(Medium medium) {
@@ -47,7 +44,6 @@ public class Interactor {
         this.enviroment.removeDevice(device);
         this.mediumDeviceMap.remove(medium);
         this.deviceMediumMap.remove(device);
-        AdminWebSocket.getInstance().deviceUnregistered(device);
     }
     
     public Device deviceForMedium(Medium medium) {
