@@ -3,33 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/Log/LogOperation.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/ErrorOperation.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/Log/InterpretedLogOperation.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/RequestOperationsSerializer.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/Log/DeviceLogOperation.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/ConnectOperation.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/SyntaxValidator.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/DataOperation.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/Log/LogParser.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/AdminWebSocket.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/RegisterOperation.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/Log/ConnectionsLogOperation.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/RequestOperation.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/Error.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/Log/HelpLogOperation.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/DeviceWebSocket.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/web/index.html</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/requestOperations/Log/LogRequestInterpreter.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/JavaxWebSocketMedium.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/web/WEB-INF/web.xml</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/AdminWebSocket.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/web/adminClient.html</file>
         </group>

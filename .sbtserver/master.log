@@ -1,5 +1,5 @@
-New log file opened at Wed Dec 16 17:20:09 CET 2015 by 629@MaciejCH.local
-jvm 629@MaciejCH.local
+New log file opened at Wed Dec 16 17:54:59 CET 2015 by 1431@MaciejCH.local
+jvm 1431@MaciejCH.local
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.60-b23
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /Users/maciej/Desktop/IoTWebRouter/project, returning: (iotwebrouter-build)
 Loading project definition from /Users/maciej/Desktop/IoTWebRouter/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@33d719, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@265b6f6a, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -66,669 +66,727 @@ Set current project to play-ws-test (in build file:/Users/maciej/Desktop/IoTWebR
 > server-handle-next-server-request
 > {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
 Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@bcc9fce, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@44e215b0, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
 
 Initial source changes: 
 	removed:Set()
-	added: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
-	modified: Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 Removed products: Set()
 External API changes: API Changes: Set()
-Modified binary dependencies: Set()
-Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
 
 Sources indirectly invalidated by:
 	product: Set()
-	binary dep: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 	external source: Set()
-All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
 
-Recompiling all 32 sources: invalidated sources (23) exceeded 50.0% of all sources
-Read from stdout: Compiling 5 Scala sources and 27 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Compiling 5 Scala sources and 27 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Getting compiler-interface from component compiler for Scala 2.10.2
-Other repositories:
-Default repositories:
-Getting compiler-interface from component compiler for Scala 2.10.2
-Other repositories:
-Default repositories:
-Running cached compiler 2577f66b, interfacing (CompilerInterface) with Scala compiler version 2.10.2
-Calling Scala compiler with arguments  (CompilerInterface):
-	-deprecation
-	-unchecked
-	-encoding
-	utf8
-	-bootclasspath
-	/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/classes:/Users/maciej/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.2.jar
-	-classpath
-	/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java-jdbc_2.10/jars/play-java-jdbc_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-jdbc_2.10/jars/play-jdbc_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play_2.10/jars/play_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/sbt-link/jars/sbt-link-2.2.0.jar:/Users/maciej/.ivy2/cache/org.javassist/javassist/bundles/javassist-3.18.0-GA.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/templates_2.10/jars/templates_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.github.scala-incubator.io/scala-io-file_2.10/jars/scala-io-file_2.10-0.4.2.jar:/Users/maciej/.ivy2/cache/com.github.scala-incubator.io/scala-io-core_2.10/jars/scala-io-core_2.10-0.4.2.jar:/Users/maciej/.ivy2/cache/com.jsuereth/scala-arm_2.10/jars/scala-arm_2.10-1.3.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-iteratees_2.10/jars/play-iteratees_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.scala-stm/scala-stm_2.10/jars/scala-stm_2.10-0.7.jar:/Users/maciej/.ivy2/cache/com.typesafe/config/bundles/config-1.0.2.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-json_2.10/jars/play-json_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-functional_2.10/jars/play-functional_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-datacommons_2.10/jars/play-datacommons_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.2.jar:/Users/maciej/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.3.1.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/jars/jackson-annotations-2.2.2.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/jars/jackson-core-2.2.2.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/jars/jackson-databind-2.2.2.jar:/Users/maciej/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.2.jar:/Users/maciej/.ivy2/cache/io.netty/netty/bundles/netty-3.7.0.Final.jar:/Users/maciej/.ivy2/cache/com.typesafe.netty/netty-http-pipelining/jars/netty-http-pipelining-1.1.2.jar:/Users/maciej/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.5.jar:/Users/maciej/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.5.jar:/Users/maciej/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.5.jar:/Users/maciej/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.0.13.jar:/Users/maciej/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.13.jar:/Users/maciej/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/jars/akka-actor_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.10/bundles/akka-slf4j_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.1.jar:/Users/maciej/.ivy2/cache/com.ning/async-http-client/jars/async-http-client-1.7.18.jar:/Users/maciej/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/Users/maciej/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.3.jar:/Users/maciej/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/Users/maciej/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.0.1.jar:/Users/maciej/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.0.1.jar:/Users/maciej/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar:/Users/maciej/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/Users/maciej/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/Users/maciej/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/Users/maciej/.ivy2/cache/com.jolbox/bonecp/bundles/bonecp-0.8.0-rc1.jar:/Users/maciej/.ivy2/cache/com.google.guava/guava/bundles/guava-14.0.1.jar:/Users/maciej/.ivy2/cache/com.h2database/h2/jars/h2-1.3.172.jar:/Users/maciej/.ivy2/cache/tyrex/tyrex/jars/tyrex-1.0.1.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java_2.10/jars/play-java_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.yaml/snakeyaml/bundles/snakeyaml-1.12.jar:/Users/maciej/.ivy2/cache/org.hibernate/hibernate-validator/jars/hibernate-validator-5.0.1.Final.jar:/Users/maciej/.ivy2/cache/javax.validation/validation-api/jars/validation-api-1.1.0.Final.jar:/Users/maciej/.ivy2/cache/org.jboss.logging/jboss-logging/jars/jboss-logging-3.1.1.GA.jar:/Users/maciej/.ivy2/cache/com.fasterxml/classmate/bundles/classmate-0.8.0.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-context/jars/spring-context-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-core/jars/spring-core-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-beans/jars/spring-beans-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.reflections/reflections/jars/reflections-0.9.8.jar:/Users/maciej/.ivy2/cache/dom4j/dom4j/jars/dom4j-1.6.1.jar:/Users/maciej/.ivy2/cache/com.google.code.findbugs/jsr305/jars/jsr305-2.0.1.jar:/Users/maciej/.ivy2/cache/javax.servlet/javax.servlet-api/jars/javax.servlet-api-3.0.1.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java-ebean_2.10/jars/play-java-ebean_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.avaje.ebeanorm/avaje-ebeanorm/jars/avaje-ebeanorm-3.2.2.jar:/Users/maciej/.ivy2/cache/org.avaje.ebeanorm/avaje-ebeanorm-agent/jars/avaje-ebeanorm-agent-3.2.1.jar:/Users/maciej/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.0-api/jars/hibernate-jpa-2.0-api-1.0.1.Final.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-cache_2.10/jars/play-cache_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.6.6.jar:/Users/maciej/.ivy2/cache/com.google.code.gson/gson/jars/gson-2.2.4.jar
-Scala compilation took 7.886688919 s
-Attempting to call com.sun.tools.javac.api.JavacTool@5e6d4a46 directly...
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:9: cannot find symbol
-Read from stdout: symbol:   class AdminWebSocket
-Read from stdout: location: package websocket
-/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:9: cannot find symbol
-  symbol:   class AdminWebSocket
-  location: package websocket
-Read from stdout: websocket.AdminWebSocket
-websocket.AdminWebSocket
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:11: package javax.websocket does not exist
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:11: package javax.websocket does not exist
-Read from stdout: javax.websocket.Session
-javax.websocket.Session
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:42: cannot find symbol
-Read from stdout: symbol:   variable AdminWebSocket
-Read from stdout: location: class model.Interactor
-/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:42: cannot find symbol
-  symbol:   variable AdminWebSocket
-  location: class model.Interactor
-Read from stdout: AdminWebSocket
-AdminWebSocket
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:50: cannot find symbol
-Read from stdout: symbol:   variable AdminWebSocket
-Read from stdout: location: class model.Interactor
-/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:50: cannot find symbol
-  symbol:   variable AdminWebSocket
-  location: class model.Interactor
-Read from stdout: AdminWebSocket
-AdminWebSocket
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:84: cannot find symbol
-Read from stdout: symbol:   class Session
-Read from stdout: location: class websocket.requestOperations.Log.HelpLogOperation
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:84: cannot find symbol
-  symbol:   class Session
-  location: class websocket.requestOperations.Log.HelpLogOperation
-Read from stdout: Session
-Session
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:91: cannot find symbol
-Read from stdout: symbol:   class Session
-Read from stdout: location: class websocket.requestOperations.Log.HelpLogOperation
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:91: cannot find symbol
-  symbol:   class Session
-  location: class websocket.requestOperations.Log.HelpLogOperation
-Read from stdout: Session
-Session
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Some input files use unchecked or unsafe operations.
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Some input files use unchecked or unsafe operations.
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Recompile with -Xlint:unchecked for details.
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Recompile with -Xlint:unchecked for details.
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@df92cd directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
 Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
 (compile:compileIncremental) javac returned nonzero exit code
-Total time: 11 s, completed 2015-12-16 17:20:28
+Total time: 2 s, completed 2015-12-16 17:55:06
 > server-post-command-error-handler
 > server-post-command-cleanup
 > server-handle-next-server-request
 > {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:mainClass
 Evaluating tasks: compile:mainClass
-Running task... Cancel: sbt.server.ServerTaskCancellation@4e58971d, check cycles: false
-Total time: 0 s, completed 2015-12-16 17:20:29
+Running task... Cancel: sbt.server.ServerTaskCancellation@5ac398d7, check cycles: false
+Total time: 0 s, completed 2015-12-16 17:55:06
 > server-post-command-cleanup
 > server-handle-next-server-request
 > {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
 Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@47e14bc0, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@3c6e9bd3, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
 
 Initial source changes: 
 	removed:Set()
-	added: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
-	modified: Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 Removed products: Set()
 External API changes: API Changes: Set()
-Modified binary dependencies: Set()
-Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
 
 Sources indirectly invalidated by:
 	product: Set()
-	binary dep: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 	external source: Set()
-All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
 
-Recompiling all 32 sources: invalidated sources (23) exceeded 50.0% of all sources
-Read from stdout: Compiling 5 Scala sources and 27 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Compiling 5 Scala sources and 27 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Getting compiler-interface from component compiler for Scala 2.10.2
-Other repositories:
-Default repositories:
-Getting compiler-interface from component compiler for Scala 2.10.2
-Other repositories:
-Default repositories:
-Running cached compiler 76954305, interfacing (CompilerInterface) with Scala compiler version 2.10.2
-Calling Scala compiler with arguments  (CompilerInterface):
-	-deprecation
-	-unchecked
-	-encoding
-	utf8
-	-bootclasspath
-	/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/classes:/Users/maciej/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.2.jar
-	-classpath
-	/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java-jdbc_2.10/jars/play-java-jdbc_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-jdbc_2.10/jars/play-jdbc_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play_2.10/jars/play_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/sbt-link/jars/sbt-link-2.2.0.jar:/Users/maciej/.ivy2/cache/org.javassist/javassist/bundles/javassist-3.18.0-GA.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/templates_2.10/jars/templates_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.github.scala-incubator.io/scala-io-file_2.10/jars/scala-io-file_2.10-0.4.2.jar:/Users/maciej/.ivy2/cache/com.github.scala-incubator.io/scala-io-core_2.10/jars/scala-io-core_2.10-0.4.2.jar:/Users/maciej/.ivy2/cache/com.jsuereth/scala-arm_2.10/jars/scala-arm_2.10-1.3.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-iteratees_2.10/jars/play-iteratees_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.scala-stm/scala-stm_2.10/jars/scala-stm_2.10-0.7.jar:/Users/maciej/.ivy2/cache/com.typesafe/config/bundles/config-1.0.2.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-json_2.10/jars/play-json_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-functional_2.10/jars/play-functional_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-datacommons_2.10/jars/play-datacommons_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.2.jar:/Users/maciej/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.3.1.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/jars/jackson-annotations-2.2.2.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/jars/jackson-core-2.2.2.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/jars/jackson-databind-2.2.2.jar:/Users/maciej/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.2.jar:/Users/maciej/.ivy2/cache/io.netty/netty/bundles/netty-3.7.0.Final.jar:/Users/maciej/.ivy2/cache/com.typesafe.netty/netty-http-pipelining/jars/netty-http-pipelining-1.1.2.jar:/Users/maciej/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.5.jar:/Users/maciej/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.5.jar:/Users/maciej/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.5.jar:/Users/maciej/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.0.13.jar:/Users/maciej/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.13.jar:/Users/maciej/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/jars/akka-actor_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.10/bundles/akka-slf4j_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.1.jar:/Users/maciej/.ivy2/cache/com.ning/async-http-client/jars/async-http-client-1.7.18.jar:/Users/maciej/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/Users/maciej/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.3.jar:/Users/maciej/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/Users/maciej/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.0.1.jar:/Users/maciej/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.0.1.jar:/Users/maciej/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar:/Users/maciej/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/Users/maciej/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/Users/maciej/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/Users/maciej/.ivy2/cache/com.jolbox/bonecp/bundles/bonecp-0.8.0-rc1.jar:/Users/maciej/.ivy2/cache/com.google.guava/guava/bundles/guava-14.0.1.jar:/Users/maciej/.ivy2/cache/com.h2database/h2/jars/h2-1.3.172.jar:/Users/maciej/.ivy2/cache/tyrex/tyrex/jars/tyrex-1.0.1.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java_2.10/jars/play-java_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.yaml/snakeyaml/bundles/snakeyaml-1.12.jar:/Users/maciej/.ivy2/cache/org.hibernate/hibernate-validator/jars/hibernate-validator-5.0.1.Final.jar:/Users/maciej/.ivy2/cache/javax.validation/validation-api/jars/validation-api-1.1.0.Final.jar:/Users/maciej/.ivy2/cache/org.jboss.logging/jboss-logging/jars/jboss-logging-3.1.1.GA.jar:/Users/maciej/.ivy2/cache/com.fasterxml/classmate/bundles/classmate-0.8.0.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-context/jars/spring-context-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-core/jars/spring-core-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-beans/jars/spring-beans-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.reflections/reflections/jars/reflections-0.9.8.jar:/Users/maciej/.ivy2/cache/dom4j/dom4j/jars/dom4j-1.6.1.jar:/Users/maciej/.ivy2/cache/com.google.code.findbugs/jsr305/jars/jsr305-2.0.1.jar:/Users/maciej/.ivy2/cache/javax.servlet/javax.servlet-api/jars/javax.servlet-api-3.0.1.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java-ebean_2.10/jars/play-java-ebean_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.avaje.ebeanorm/avaje-ebeanorm/jars/avaje-ebeanorm-3.2.2.jar:/Users/maciej/.ivy2/cache/org.avaje.ebeanorm/avaje-ebeanorm-agent/jars/avaje-ebeanorm-agent-3.2.1.jar:/Users/maciej/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.0-api/jars/hibernate-jpa-2.0-api-1.0.1.Final.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-cache_2.10/jars/play-cache_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.6.6.jar:/Users/maciej/.ivy2/cache/com.google.code.gson/gson/jars/gson-2.2.4.jar
-Scala compilation took 3.944430432 s
-Attempting to call com.sun.tools.javac.api.JavacTool@2757fa72 directly...
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:9: cannot find symbol
-Read from stdout: symbol:   class AdminWebSocket
-Read from stdout: location: package websocket
-/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:9: cannot find symbol
-  symbol:   class AdminWebSocket
-  location: package websocket
-Read from stdout: websocket.AdminWebSocket
-websocket.AdminWebSocket
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:11: package javax.websocket does not exist
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:11: package javax.websocket does not exist
-Read from stdout: javax.websocket.Session
-javax.websocket.Session
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:42: cannot find symbol
-Read from stdout: symbol:   variable AdminWebSocket
-Read from stdout: location: class model.Interactor
-/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:42: cannot find symbol
-  symbol:   variable AdminWebSocket
-  location: class model.Interactor
-Read from stdout: AdminWebSocket
-AdminWebSocket
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:50: cannot find symbol
-Read from stdout: symbol:   variable AdminWebSocket
-Read from stdout: location: class model.Interactor
-/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:50: cannot find symbol
-  symbol:   variable AdminWebSocket
-  location: class model.Interactor
-Read from stdout: AdminWebSocket
-AdminWebSocket
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:84: cannot find symbol
-Read from stdout: symbol:   class Session
-Read from stdout: location: class websocket.requestOperations.Log.HelpLogOperation
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:84: cannot find symbol
-  symbol:   class Session
-  location: class websocket.requestOperations.Log.HelpLogOperation
-Read from stdout: Session
-Session
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:91: cannot find symbol
-Read from stdout: symbol:   class Session
-Read from stdout: location: class websocket.requestOperations.Log.HelpLogOperation
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java:91: cannot find symbol
-  symbol:   class Session
-  location: class websocket.requestOperations.Log.HelpLogOperation
-Read from stdout: Session
-Session
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Some input files use unchecked or unsafe operations.
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Some input files use unchecked or unsafe operations.
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Recompile with -Xlint:unchecked for details.
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Recompile with -Xlint:unchecked for details.
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@68080f8a directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
 Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
 (compile:compileIncremental) javac returned nonzero exit code
-Total time: 5 s, completed 2015-12-16 17:20:34
+Total time: 1 s, completed 2015-12-16 17:55:07
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
+Evaluating tasks: compile:discoveredMainClasses
+Running task... Cancel: sbt.server.ServerTaskCancellation@7c04dcd1, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/playWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@3078ba05 directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 1 s, completed 2015-12-16 17:55:08
 > server-post-command-error-handler
 > server-post-command-cleanup
 > server-handle-next-server-request
 > {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:mainClass
 Evaluating tasks: compile:mainClass
-Running task... Cancel: sbt.server.ServerTaskCancellation@d8fd61, check cycles: false
-Total time: 0 s, completed 2015-12-16 17:20:34
+Running task... Cancel: sbt.server.ServerTaskCancellation@3a2b761f, check cycles: false
+Total time: 0 s, completed 2015-12-16 17:55:08
 > server-post-command-cleanup
 > server-handle-next-server-request
 > compile
 Evaluating tasks: compile:compile
-Running task... Cancel: sbt.server.ServerTaskCancellation@6befec85, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@3f4b4989, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
 
 Initial source changes: 
 	removed:Set()
-	added: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
-	modified: Set()
+	added: Set()
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 Removed products: Set()
 External API changes: API Changes: Set()
-Modified binary dependencies: Set()
-Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 
 Sources indirectly invalidated by:
 	product: Set()
-	binary dep: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 	external source: Set()
-All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 
-Recompiling all 32 sources: invalidated sources (23) exceeded 50.0% of all sources
-Read from stdout: Compiling 5 Scala sources and 27 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Compiling 5 Scala sources and 27 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Getting compiler-interface from component compiler for Scala 2.10.2
-Other repositories:
-Default repositories:
-Getting compiler-interface from component compiler for Scala 2.10.2
-Other repositories:
-Default repositories:
-Running cached compiler 7de669b, interfacing (CompilerInterface) with Scala compiler version 2.10.2
-Calling Scala compiler with arguments  (CompilerInterface):
-	-deprecation
-	-unchecked
-	-encoding
-	utf8
-	-bootclasspath
-	/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/classes:/Users/maciej/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.2.jar
-	-classpath
-	/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java-jdbc_2.10/jars/play-java-jdbc_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-jdbc_2.10/jars/play-jdbc_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play_2.10/jars/play_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/sbt-link/jars/sbt-link-2.2.0.jar:/Users/maciej/.ivy2/cache/org.javassist/javassist/bundles/javassist-3.18.0-GA.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/templates_2.10/jars/templates_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.github.scala-incubator.io/scala-io-file_2.10/jars/scala-io-file_2.10-0.4.2.jar:/Users/maciej/.ivy2/cache/com.github.scala-incubator.io/scala-io-core_2.10/jars/scala-io-core_2.10-0.4.2.jar:/Users/maciej/.ivy2/cache/com.jsuereth/scala-arm_2.10/jars/scala-arm_2.10-1.3.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-iteratees_2.10/jars/play-iteratees_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.scala-stm/scala-stm_2.10/jars/scala-stm_2.10-0.7.jar:/Users/maciej/.ivy2/cache/com.typesafe/config/bundles/config-1.0.2.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-json_2.10/jars/play-json_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-functional_2.10/jars/play-functional_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-datacommons_2.10/jars/play-datacommons_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.2.jar:/Users/maciej/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.3.1.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/jars/jackson-annotations-2.2.2.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/jars/jackson-core-2.2.2.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/jars/jackson-databind-2.2.2.jar:/Users/maciej/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.2.jar:/Users/maciej/.ivy2/cache/io.netty/netty/bundles/netty-3.7.0.Final.jar:/Users/maciej/.ivy2/cache/com.typesafe.netty/netty-http-pipelining/jars/netty-http-pipelining-1.1.2.jar:/Users/maciej/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.5.jar:/Users/maciej/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.5.jar:/Users/maciej/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.5.jar:/Users/maciej/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.0.13.jar:/Users/maciej/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.13.jar:/Users/maciej/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/jars/akka-actor_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.10/bundles/akka-slf4j_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.1.jar:/Users/maciej/.ivy2/cache/com.ning/async-http-client/jars/async-http-client-1.7.18.jar:/Users/maciej/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/Users/maciej/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.3.jar:/Users/maciej/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/Users/maciej/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.0.1.jar:/Users/maciej/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.0.1.jar:/Users/maciej/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar:/Users/maciej/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/Users/maciej/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/Users/maciej/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/Users/maciej/.ivy2/cache/com.jolbox/bonecp/bundles/bonecp-0.8.0-rc1.jar:/Users/maciej/.ivy2/cache/com.google.guava/guava/bundles/guava-14.0.1.jar:/Users/maciej/.ivy2/cache/com.h2database/h2/jars/h2-1.3.172.jar:/Users/maciej/.ivy2/cache/tyrex/tyrex/jars/tyrex-1.0.1.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java_2.10/jars/play-java_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.yaml/snakeyaml/bundles/snakeyaml-1.12.jar:/Users/maciej/.ivy2/cache/org.hibernate/hibernate-validator/jars/hibernate-validator-5.0.1.Final.jar:/Users/maciej/.ivy2/cache/javax.validation/validation-api/jars/validation-api-1.1.0.Final.jar:/Users/maciej/.ivy2/cache/org.jboss.logging/jboss-logging/jars/jboss-logging-3.1.1.GA.jar:/Users/maciej/.ivy2/cache/com.fasterxml/classmate/bundles/classmate-0.8.0.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-context/jars/spring-context-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-core/jars/spring-core-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-beans/jars/spring-beans-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.reflections/reflections/jars/reflections-0.9.8.jar:/Users/maciej/.ivy2/cache/dom4j/dom4j/jars/dom4j-1.6.1.jar:/Users/maciej/.ivy2/cache/com.google.code.findbugs/jsr305/jars/jsr305-2.0.1.jar:/Users/maciej/.ivy2/cache/javax.servlet/javax.servlet-api/jars/javax.servlet-api-3.0.1.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java-ebean_2.10/jars/play-java-ebean_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.avaje.ebeanorm/avaje-ebeanorm/jars/avaje-ebeanorm-3.2.2.jar:/Users/maciej/.ivy2/cache/org.avaje.ebeanorm/avaje-ebeanorm-agent/jars/avaje-ebeanorm-agent-3.2.1.jar:/Users/maciej/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.0-api/jars/hibernate-jpa-2.0-api-1.0.1.Final.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-cache_2.10/jars/play-cache_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.6.6.jar:/Users/maciej/.ivy2/cache/com.google.code.gson/gson/jars/gson-2.2.4.jar
-Scala compilation took 2.915105283 s
-Attempting to call com.sun.tools.javac.api.JavacTool@5c295132 directly...
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:9: cannot find symbol
-Read from stdout: symbol:   class AdminWebSocket
-Read from stdout: location: package websocket
-/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:9: cannot find symbol
-  symbol:   class AdminWebSocket
-  location: package websocket
-Read from stdout: websocket.AdminWebSocket
-websocket.AdminWebSocket
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:42: cannot find symbol
-Read from stdout: symbol:   variable AdminWebSocket
-Read from stdout: location: class model.Interactor
-/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:42: cannot find symbol
-  symbol:   variable AdminWebSocket
-  location: class model.Interactor
-Read from stdout: AdminWebSocket
-AdminWebSocket
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:50: cannot find symbol
-Read from stdout: symbol:   variable AdminWebSocket
-Read from stdout: location: class model.Interactor
-/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java:50: cannot find symbol
-  symbol:   variable AdminWebSocket
-  location: class model.Interactor
-Read from stdout: AdminWebSocket
-AdminWebSocket
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Some input files use unchecked or unsafe operations.
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Some input files use unchecked or unsafe operations.
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Recompile with -Xlint:unchecked for details.
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Recompile with -Xlint:unchecked for details.
+Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@8d5a762 directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
 Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
 (compile:compileIncremental) javac returned nonzero exit code
-Total time: 4 s, completed 2015-12-16 17:21:49
+Total time: 1 s, completed 2015-12-16 17:55:22
 > server-post-command-error-handler
 > server-post-command-cleanup
 > server-handle-next-server-request
 > compile
 Evaluating tasks: compile:compile
-Running task... Cancel: sbt.server.ServerTaskCancellation@114236f0, check cycles: false
-
-Initial source changes: 
-	removed:Set()
-	added: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
-	modified: Set()
-Removed products: Set()
-External API changes: API Changes: Set()
-Modified binary dependencies: Set()
-Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
-
-Sources indirectly invalidated by:
-	product: Set()
-	binary dep: Set()
-	external source: Set()
-All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java, /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
-
-Recompiling all 32 sources: invalidated sources (23) exceeded 50.0% of all sources
-Read from stdout: Compiling 5 Scala sources and 27 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Compiling 5 Scala sources and 27 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Getting compiler-interface from component compiler for Scala 2.10.2
-Other repositories:
-Default repositories:
-Getting compiler-interface from component compiler for Scala 2.10.2
-Other repositories:
-Default repositories:
-Running cached compiler 766c2c1e, interfacing (CompilerInterface) with Scala compiler version 2.10.2
-Calling Scala compiler with arguments  (CompilerInterface):
-	-deprecation
-	-unchecked
-	-encoding
-	utf8
-	-bootclasspath
-	/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/classes:/Users/maciej/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.2.jar
-	-classpath
-	/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java-jdbc_2.10/jars/play-java-jdbc_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-jdbc_2.10/jars/play-jdbc_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play_2.10/jars/play_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/sbt-link/jars/sbt-link-2.2.0.jar:/Users/maciej/.ivy2/cache/org.javassist/javassist/bundles/javassist-3.18.0-GA.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/templates_2.10/jars/templates_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.github.scala-incubator.io/scala-io-file_2.10/jars/scala-io-file_2.10-0.4.2.jar:/Users/maciej/.ivy2/cache/com.github.scala-incubator.io/scala-io-core_2.10/jars/scala-io-core_2.10-0.4.2.jar:/Users/maciej/.ivy2/cache/com.jsuereth/scala-arm_2.10/jars/scala-arm_2.10-1.3.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-iteratees_2.10/jars/play-iteratees_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.scala-stm/scala-stm_2.10/jars/scala-stm_2.10-0.7.jar:/Users/maciej/.ivy2/cache/com.typesafe/config/bundles/config-1.0.2.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-json_2.10/jars/play-json_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-functional_2.10/jars/play-functional_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-datacommons_2.10/jars/play-datacommons_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.2.jar:/Users/maciej/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.3.1.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/jars/jackson-annotations-2.2.2.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/jars/jackson-core-2.2.2.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/jars/jackson-databind-2.2.2.jar:/Users/maciej/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.2.jar:/Users/maciej/.ivy2/cache/io.netty/netty/bundles/netty-3.7.0.Final.jar:/Users/maciej/.ivy2/cache/com.typesafe.netty/netty-http-pipelining/jars/netty-http-pipelining-1.1.2.jar:/Users/maciej/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.5.jar:/Users/maciej/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.5.jar:/Users/maciej/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.5.jar:/Users/maciej/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.0.13.jar:/Users/maciej/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.13.jar:/Users/maciej/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/jars/akka-actor_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.10/bundles/akka-slf4j_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.1.jar:/Users/maciej/.ivy2/cache/com.ning/async-http-client/jars/async-http-client-1.7.18.jar:/Users/maciej/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/Users/maciej/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.3.jar:/Users/maciej/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/Users/maciej/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.0.1.jar:/Users/maciej/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.0.1.jar:/Users/maciej/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar:/Users/maciej/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/Users/maciej/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/Users/maciej/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/Users/maciej/.ivy2/cache/com.jolbox/bonecp/bundles/bonecp-0.8.0-rc1.jar:/Users/maciej/.ivy2/cache/com.google.guava/guava/bundles/guava-14.0.1.jar:/Users/maciej/.ivy2/cache/com.h2database/h2/jars/h2-1.3.172.jar:/Users/maciej/.ivy2/cache/tyrex/tyrex/jars/tyrex-1.0.1.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java_2.10/jars/play-java_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.yaml/snakeyaml/bundles/snakeyaml-1.12.jar:/Users/maciej/.ivy2/cache/org.hibernate/hibernate-validator/jars/hibernate-validator-5.0.1.Final.jar:/Users/maciej/.ivy2/cache/javax.validation/validation-api/jars/validation-api-1.1.0.Final.jar:/Users/maciej/.ivy2/cache/org.jboss.logging/jboss-logging/jars/jboss-logging-3.1.1.GA.jar:/Users/maciej/.ivy2/cache/com.fasterxml/classmate/bundles/classmate-0.8.0.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-context/jars/spring-context-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-core/jars/spring-core-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-beans/jars/spring-beans-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.reflections/reflections/jars/reflections-0.9.8.jar:/Users/maciej/.ivy2/cache/dom4j/dom4j/jars/dom4j-1.6.1.jar:/Users/maciej/.ivy2/cache/com.google.code.findbugs/jsr305/jars/jsr305-2.0.1.jar:/Users/maciej/.ivy2/cache/javax.servlet/javax.servlet-api/jars/javax.servlet-api-3.0.1.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java-ebean_2.10/jars/play-java-ebean_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.avaje.ebeanorm/avaje-ebeanorm/jars/avaje-ebeanorm-3.2.2.jar:/Users/maciej/.ivy2/cache/org.avaje.ebeanorm/avaje-ebeanorm-agent/jars/avaje-ebeanorm-agent-3.2.1.jar:/Users/maciej/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.0-api/jars/hibernate-jpa-2.0-api-1.0.1.Final.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-cache_2.10/jars/play-cache_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.6.6.jar:/Users/maciej/.ivy2/cache/com.google.code.gson/gson/jars/gson-2.2.4.jar
-Scala compilation took 2.33916573 s
-Attempting to call com.sun.tools.javac.api.JavacTool@41ceba66 directly...
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Some input files use unchecked or unsafe operations.
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Some input files use unchecked or unsafe operations.
-Read from stdout: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Recompile with -Xlint:unchecked for details.
-/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Recompile with -Xlint:unchecked for details.
-Java compilation took 0.566640895 s
-Java analysis took 0.260377668 s
-Java compile + analysis took 0.834672445 s
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java source file has the following regular definitions changed:
-	notify, wait, equals, SyntaxValidator, validateSyntax, notifyAll, <init>, getStringOfClass, toString, getClass, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/SyntaxValidator.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java source file has the following regular definitions changed:
-	notify, wait, equals, removeOuputInterface, produceRoutedSignals, addOutputsOfDevice, notifyAll, routingTable, removeOutputsOfDevice, <init>, connectInterfaces, addOuputInterface, toString, getClass, Router, hashCode, getRoutingTable.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java source file has the following regular definitions changed:
-	notify, getSyntax, wait, equals, registeringDevice, mapJson, notifyAll, <init>, getError, toString, performOperation, RegisterOperation, getClass, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java source file has the following regular definitions changed:
-	sessionOfDevice, notify, deviceMediumMap, getInstance, wait, deviceForID, equals, Interactor, deviceForMedium, getEnviroment, instance, notifyAll, registerDevice, mediumDeviceMap, <init>, mediumClosed, toString, getRouter, getClass, enviroment, router, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java source file has the following regular definitions changed:
-	Medium, sendMessage.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java source file has the following regular definitions changed:
-	notify, wait, Signal, equals, getDestinationInterface, sourceInterface, stringDataRepresentation, notifyAll, <init>, getMessage, destinationInterface, message, toString, getClass, routedSignalWithDestinationInterface, hashCode, getSourceDeviceInterface.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java source file has the following regular definitions changed:
-	notify, wait, equals, description, notifyAll, options, <init>, deviceID, syntaxString, getError, toString, performOperation, DeviceLogOperation, interfaceOption, getClass, hashCode, arguments.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java source file has the following regular definitions changed:
-	notify, staticEvaluation, wait, equals, description, notifyAll, options, syntax, <init>, syntaxString, HelpLogOperation, getError, details, toString, performOperation, getClass, operationName, hashCode, arguments.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java source file has the following regular definitions changed:
-	notify, wait, equals, signals, sendSignals, mapJson, DataOperation, notifyAll, <init>, getError, toString, performOperation, getClass, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java source file has the following regular definitions changed:
-	notify, wait, errorMessage, equals, Error, notifyAll, <init>, toString, getClass, getErrorMessage, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Error.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java source file has the following regular definitions changed:
-	notify, wait, errorMessage, equals, ErrorOperation, notifyAll, <init>, internalServerErrorOperation, getError, toString, performOperation, getClass, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java source file has the following regular definitions changed:
-	notify, getDataType, wait, equals, notifyAll, <init>, Message, toString, getClass, getValue, dataType, value, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java)
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java source file has the following regular definitions changed:
-	notify, Argument, name, wait, isRequired, equals, description, validateSyntax, getDescription, InterpretedLogOperation, notifyAll, getName, options, mapArgumentsToProperties, <init>, syntaxString, reflectiveSet, getError, Option, toString, performOperation, getClass, propertyName, getIsRequired, getRepresentation, representation, log, getPropertyName, hashCode, arguments, mapOptionsToProperties.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java source file has the following regular definitions changed:
-	getCurrentDepth, notify, decreasedDepth, parseDevice, wait, equals, LogParser, parseDevices, getTab, maxDepth, LogDepth, notifyAll, <init>, parseInterfaceDirection, toString, getClass, parseInterface, currentDepth, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java)
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java
-Including /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java by /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java, /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java source file has the following regular definitions changed:
-	notify, getSyntax, wait, equals, mapJson, medium, notifyAll, <init>, error, getError, toString, performOperation, getClass, RequestOperation, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ErrorOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java source file has the following regular definitions changed:
-	notify, getSyntax, wait, equals, mapJson, inputInterface, notifyAll, <init>, outputInterface, getError, toString, performOperation, getClass, ConnectOperation, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java source file has the following regular definitions changed:
-	parentDevice, notify, getDataType, name, DeviceInterface$InterfaceDirection, wait, valueOf, equals, interfaceDirection, getDeclaringClass, $VALUES, DeviceInterface, notifyAll, compareTo, <init>, id, Input, ordinal, Output, values, toString, getInterfaceDirection, getClass, dataType, getParentDevice, getId, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java source file has the following regular definitions changed:
-	notify, wait, equals, notifyAll, <init>, getOperationClassMap, operationClassMap, parseQuery, LogRequestInterpreter, serializeOperation, toString, getClass, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/HelpLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java source file has the following regular definitions changed:
-	notify, ConnectionsLogOperation, ConnectionsLogOperation$InterfaceConnection, wait, isValid, equals, description, possibleInterfaces, notifyAll, options, <init>, possibleConnectionsLog, syntaxString, this$0, getError, toString, performOperation, connectionsLog, getClass, output, input, log, hashCode, arguments.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogRequestInterpreter.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java source file has the following regular definitions changed:
-	notify, name, wait, equals, interfaces, Device, interfaceWithID, notifyAll, getName, <init>, id, toString, devicesCount, getClass, getId, hashCode, getInterfaces.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DataOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RegisterOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/ConnectOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogParser.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/DeviceInterface.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Device.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java source file has the following regular definitions changed:
-	notify, wait, Enviroment, equals, addDevice, removeDevice, notifyAll, <init>, toString, getClass, devices, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/DeviceLogOperation.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/model/Enviroment.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/ConnectionsLogOperation.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java source file has the following regular definitions changed:
-	notify, LogOperation, getSyntax, wait, equals, mapJson, notifyAll, <init>, getError, toString, performOperation, interpretedOperation, getClass, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/LogOperation.java
-Invalidating /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java...
-Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java...
-Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java)
-Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java)
-The /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java source file has the following regular definitions changed:
-	notify, RequestOperationsSerializer, wait, equals, notifyAll, <init>, operationClassMap, serializeOperation, toString, getClass, hashCode.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/RequestOperationsSerializer.java
-New invalidations:
-	Set()
-Initial set of included nodes: Set()
-Previously invalidated, but (transitively) depend on new invalidations:
-	Set()
-All newly invalidated sources after taking into account (previously) recompiled sources:Set()
-Total time: 4 s, completed 2015-12-16 17:23:07
-> server-post-command-cleanup
-> server-handle-next-server-request
-> compile
-Evaluating tasks: compile:compile
-Running task... Cancel: sbt.server.ServerTaskCancellation@3c007ec4, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@26eff721, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
 
 Initial source changes: 
 	removed:Set()
 	added: Set()
-	modified: Set()
-Removed products: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/views/js/ping.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/views/html/main$$anonfun$f$1.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/views/html/main.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/views/html/index.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/views/html/index$$anonfun$f$1.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/views/js/ping$.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/views/html/index$.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/views/html/main$$anonfun$f$1$$anonfun$apply$1.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/views/html/main$.class, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/views/js/ping$$anonfun$f$1.class)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
 External API changes: API Changes: Set()
-Modified binary dependencies: Set()
-Initial directly invalidated sources: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 
 Sources indirectly invalidated by:
-	product: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/src_managed/main/views/js/ping.template.scala, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/src_managed/main/views/html/main.template.scala, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/src_managed/main/views/html/index.template.scala)
-	binary dep: Set()
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 	external source: Set()
-All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/src_managed/main/views/html/main.template.scala, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/src_managed/main/views/html/index.template.scala, /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/src_managed/main/views/js/ping.template.scala)
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 
-Read from stdout: Compiling 3 Scala sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Compiling 3 Scala sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Getting compiler-interface from component compiler for Scala 2.10.2
-Other repositories:
-Default repositories:
-Getting compiler-interface from component compiler for Scala 2.10.2
-Other repositories:
-Default repositories:
-Running cached compiler 60a784c1, interfacing (CompilerInterface) with Scala compiler version 2.10.2
-Calling Scala compiler with arguments  (CompilerInterface):
-	-deprecation
-	-unchecked
-	-encoding
-	utf8
-	-bootclasspath
-	/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/classes:/Users/maciej/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.2.jar
-	-classpath
-	/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java-jdbc_2.10/jars/play-java-jdbc_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-jdbc_2.10/jars/play-jdbc_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play_2.10/jars/play_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/sbt-link/jars/sbt-link-2.2.0.jar:/Users/maciej/.ivy2/cache/org.javassist/javassist/bundles/javassist-3.18.0-GA.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/templates_2.10/jars/templates_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.github.scala-incubator.io/scala-io-file_2.10/jars/scala-io-file_2.10-0.4.2.jar:/Users/maciej/.ivy2/cache/com.github.scala-incubator.io/scala-io-core_2.10/jars/scala-io-core_2.10-0.4.2.jar:/Users/maciej/.ivy2/cache/com.jsuereth/scala-arm_2.10/jars/scala-arm_2.10-1.3.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-iteratees_2.10/jars/play-iteratees_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.scala-stm/scala-stm_2.10/jars/scala-stm_2.10-0.7.jar:/Users/maciej/.ivy2/cache/com.typesafe/config/bundles/config-1.0.2.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-json_2.10/jars/play-json_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-functional_2.10/jars/play-functional_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-datacommons_2.10/jars/play-datacommons_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.2.jar:/Users/maciej/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.3.1.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/jars/jackson-annotations-2.2.2.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/jars/jackson-core-2.2.2.jar:/Users/maciej/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/jars/jackson-databind-2.2.2.jar:/Users/maciej/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.2.jar:/Users/maciej/.ivy2/cache/io.netty/netty/bundles/netty-3.7.0.Final.jar:/Users/maciej/.ivy2/cache/com.typesafe.netty/netty-http-pipelining/jars/netty-http-pipelining-1.1.2.jar:/Users/maciej/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.5.jar:/Users/maciej/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.5.jar:/Users/maciej/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.5.jar:/Users/maciej/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.0.13.jar:/Users/maciej/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.13.jar:/Users/maciej/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/jars/akka-actor_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.10/bundles/akka-slf4j_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.1.jar:/Users/maciej/.ivy2/cache/com.ning/async-http-client/jars/async-http-client-1.7.18.jar:/Users/maciej/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/Users/maciej/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.3.jar:/Users/maciej/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/Users/maciej/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.0.1.jar:/Users/maciej/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.0.1.jar:/Users/maciej/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar:/Users/maciej/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/Users/maciej/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/Users/maciej/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/Users/maciej/.ivy2/cache/com.jolbox/bonecp/bundles/bonecp-0.8.0-rc1.jar:/Users/maciej/.ivy2/cache/com.google.guava/guava/bundles/guava-14.0.1.jar:/Users/maciej/.ivy2/cache/com.h2database/h2/jars/h2-1.3.172.jar:/Users/maciej/.ivy2/cache/tyrex/tyrex/jars/tyrex-1.0.1.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java_2.10/jars/play-java_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.yaml/snakeyaml/bundles/snakeyaml-1.12.jar:/Users/maciej/.ivy2/cache/org.hibernate/hibernate-validator/jars/hibernate-validator-5.0.1.Final.jar:/Users/maciej/.ivy2/cache/javax.validation/validation-api/jars/validation-api-1.1.0.Final.jar:/Users/maciej/.ivy2/cache/org.jboss.logging/jboss-logging/jars/jboss-logging-3.1.1.GA.jar:/Users/maciej/.ivy2/cache/com.fasterxml/classmate/bundles/classmate-0.8.0.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-context/jars/spring-context-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-core/jars/spring-core-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.springframework/spring-beans/jars/spring-beans-3.2.3.RELEASE.jar:/Users/maciej/.ivy2/cache/org.reflections/reflections/jars/reflections-0.9.8.jar:/Users/maciej/.ivy2/cache/dom4j/dom4j/jars/dom4j-1.6.1.jar:/Users/maciej/.ivy2/cache/com.google.code.findbugs/jsr305/jars/jsr305-2.0.1.jar:/Users/maciej/.ivy2/cache/javax.servlet/javax.servlet-api/jars/javax.servlet-api-3.0.1.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-java-ebean_2.10/jars/play-java-ebean_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/org.avaje.ebeanorm/avaje-ebeanorm/jars/avaje-ebeanorm-3.2.2.jar:/Users/maciej/.ivy2/cache/org.avaje.ebeanorm/avaje-ebeanorm-agent/jars/avaje-ebeanorm-agent-3.2.1.jar:/Users/maciej/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.0-api/jars/hibernate-jpa-2.0-api-1.0.1.Final.jar:/Users/maciej/.ivy2/cache/com.typesafe.play/play-cache_2.10/jars/play-cache_2.10-2.2.0.jar:/Users/maciej/.ivy2/cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.6.6.jar:/Users/maciej/.ivy2/cache/com.google.code.gson/gson/jars/gson-2.2.4.jar
-Scala compilation took 0.994481463 s
+Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@3261d230 directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 0 s, completed 2015-12-16 17:55:22
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@60cef506, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@2f7bf80c directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 1 s, completed 2015-12-16 17:55:52
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@1c735056, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@6f48e8bd directly...
+java.lang.RuntimeException: Invalid position: 0
+java.lang.RuntimeException: java.lang.RuntimeException: Invalid position: 0
+	at com.sun.tools.javac.main.Main.compile(Main.java:559)
+	at com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:129)
+	at com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:138)
+	at sbt.compiler.javac.LocalJavaCompiler.run(LocalJava.scala:69)
+	at sbt.compiler.javac.JavaCompilerAdapter.compileWithReporter(JavaCompilerAdapter.scala:31)
+	at sbt.compiler.javac.AnalyzingJavaCompiler$$anonfun$compile$1.apply$mcV$sp(AnalyzingJavaCompiler.scala:65)
+	at sbt.compiler.javac.AnalyzingJavaCompiler$$anonfun$compile$1.apply(AnalyzingJavaCompiler.scala:65)
+	at sbt.compiler.javac.AnalyzingJavaCompiler$$anonfun$compile$1.apply(AnalyzingJavaCompiler.scala:65)
+	at sbt.compiler.javac.AnalyzingJavaCompiler.timed(AnalyzingJavaCompiler.scala:93)
+	at sbt.compiler.javac.AnalyzingJavaCompiler.compile(AnalyzingJavaCompiler.scala:64)
+	at sbt.compiler.MixedAnalyzingCompiler$$anonfun$compileJava$1$1.apply$mcV$sp(MixedAnalyzingCompiler.scala:61)
+	at sbt.compiler.MixedAnalyzingCompiler$$anonfun$compileJava$1$1.apply(MixedAnalyzingCompiler.scala:61)
+	at sbt.compiler.MixedAnalyzingCompiler$$anonfun$compileJava$1$1.apply(MixedAnalyzingCompiler.scala:61)
+	at sbt.compiler.MixedAnalyzingCompiler.timed(MixedAnalyzingCompiler.scala:75)
+	at sbt.compiler.MixedAnalyzingCompiler.compileJava$1(MixedAnalyzingCompiler.scala:60)
+	at sbt.compiler.MixedAnalyzingCompiler.compile(MixedAnalyzingCompiler.scala:65)
+	at sbt.compiler.IC$$anonfun$compileInternal$1.apply(IncrementalCompiler.scala:160)
+	at sbt.compiler.IC$$anonfun$compileInternal$1.apply(IncrementalCompiler.scala:160)
+	at sbt.inc.IncrementalCompile$$anonfun$doCompile$1.apply(Compile.scala:66)
+	at sbt.inc.IncrementalCompile$$anonfun$doCompile$1.apply(Compile.scala:64)
+	at sbt.inc.IncrementalCommon.cycle(IncrementalCommon.scala:31)
+	at sbt.inc.Incremental$$anonfun$1.apply(Incremental.scala:62)
+	at sbt.inc.Incremental$$anonfun$1.apply(Incremental.scala:61)
+	at sbt.inc.Incremental$.manageClassfiles(Incremental.scala:89)
+	at sbt.inc.Incremental$.compile(Incremental.scala:61)
+	at sbt.inc.IncrementalCompile$.apply(Compile.scala:54)
+	at sbt.compiler.IC$.compileInternal(IncrementalCompiler.scala:160)
+	at sbt.compiler.IC$.incrementalCompile(IncrementalCompiler.scala:138)
+	at sbt.Compiler$.compile(Compiler.scala:128)
+	at sbt.Defaults$.sbt$Defaults$$compileIncrementalTaskImpl(Defaults.scala:813)
+	at sbt.Defaults$$anonfun$compileIncrementalTask$1.apply(Defaults.scala:805)
+	at sbt.Defaults$$anonfun$compileIncrementalTask$1.apply(Defaults.scala:803)
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47)
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:40)
+	at sbt.std.Transform$$anon$4.work(System.scala:63)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:226)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:226)
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:17)
+	at sbt.Execute.work(Execute.scala:235)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:226)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:226)
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:159)
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:28)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: Invalid position: 0
+	at scala.sys.package$.error(package.scala:27)
+	at sbt.compiler.javac.DiagnosticsReporter$$anon$1.checkNoPos(DiagnosticsReporter.scala:64)
+	at sbt.compiler.javac.DiagnosticsReporter$$anon$1.<init>(DiagnosticsReporter.scala:71)
+	at sbt.compiler.javac.DiagnosticsReporter.report(DiagnosticsReporter.scala:58)
+	at com.sun.tools.javac.api.ClientCodeWrapper$WrappedDiagnosticListener.report(ClientCodeWrapper.java:593)
+	at com.sun.tools.javac.util.Log.writeDiagnostic(Log.java:616)
+	at com.sun.tools.javac.util.Log$DefaultDiagnosticHandler.report(Log.java:600)
+	at com.sun.tools.javac.util.Log.report(Log.java:562)
+	at com.sun.tools.javac.util.AbstractLog.error(AbstractLog.java:107)
+	at com.sun.tools.javac.parser.JavacParser.error(JavacParser.java:3820)
+	at com.sun.tools.javac.parser.JavacParser.reportSyntaxError(JavacParser.java:460)
+	at com.sun.tools.javac.parser.JavacParser.syntaxError(JavacParser.java:430)
+	at com.sun.tools.javac.parser.JavacParser.classOrInterfaceOrEnumDeclaration(JavacParser.java:3202)
+	at com.sun.tools.javac.parser.JavacParser.typeDeclaration(JavacParser.java:3176)
+	at com.sun.tools.javac.parser.JavacParser.parseCompilationUnit(JavacParser.java:3116)
+	at com.sun.tools.javac.main.JavaCompiler.parse(JavaCompiler.java:628)
+	at com.sun.tools.javac.main.JavaCompiler.parse(JavaCompiler.java:665)
+	at com.sun.tools.javac.main.JavaCompiler.parseFiles(JavaCompiler.java:950)
+	at com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:857)
+	at com.sun.tools.javac.main.Main.compile(Main.java:523)
+	at com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:129)
+	at com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:138)
+	at sbt.compiler.javac.LocalJavaCompiler.run(LocalJava.scala:69)
+	at sbt.compiler.javac.JavaCompilerAdapter.compileWithReporter(JavaCompilerAdapter.scala:31)
+	at sbt.compiler.javac.AnalyzingJavaCompiler$$anonfun$compile$1.apply$mcV$sp(AnalyzingJavaCompiler.scala:65)
+	at sbt.compiler.javac.AnalyzingJavaCompiler$$anonfun$compile$1.apply(AnalyzingJavaCompiler.scala:65)
+	at sbt.compiler.javac.AnalyzingJavaCompiler$$anonfun$compile$1.apply(AnalyzingJavaCompiler.scala:65)
+	at sbt.compiler.javac.AnalyzingJavaCompiler.timed(AnalyzingJavaCompiler.scala:93)
+	at sbt.compiler.javac.AnalyzingJavaCompiler.compile(AnalyzingJavaCompiler.scala:64)
+	at sbt.compiler.MixedAnalyzingCompiler$$anonfun$compileJava$1$1.apply$mcV$sp(MixedAnalyzingCompiler.scala:61)
+	at sbt.compiler.MixedAnalyzingCompiler$$anonfun$compileJava$1$1.apply(MixedAnalyzingCompiler.scala:61)
+	at sbt.compiler.MixedAnalyzingCompiler$$anonfun$compileJava$1$1.apply(MixedAnalyzingCompiler.scala:61)
+	at sbt.compiler.MixedAnalyzingCompiler.timed(MixedAnalyzingCompiler.scala:75)
+	at sbt.compiler.MixedAnalyzingCompiler.compileJava$1(MixedAnalyzingCompiler.scala:60)
+	at sbt.compiler.MixedAnalyzingCompiler.compile(MixedAnalyzingCompiler.scala:65)
+	at sbt.compiler.IC$$anonfun$compileInternal$1.apply(IncrementalCompiler.scala:160)
+	at sbt.compiler.IC$$anonfun$compileInternal$1.apply(IncrementalCompiler.scala:160)
+	at sbt.inc.IncrementalCompile$$anonfun$doCompile$1.apply(Compile.scala:66)
+	at sbt.inc.IncrementalCompile$$anonfun$doCompile$1.apply(Compile.scala:64)
+	at sbt.inc.IncrementalCommon.cycle(IncrementalCommon.scala:31)
+	at sbt.inc.Incremental$$anonfun$1.apply(Incremental.scala:62)
+	at sbt.inc.Incremental$$anonfun$1.apply(Incremental.scala:61)
+	at sbt.inc.Incremental$.manageClassfiles(Incremental.scala:89)
+	at sbt.inc.Incremental$.compile(Incremental.scala:61)
+	at sbt.inc.IncrementalCompile$.apply(Compile.scala:54)
+	at sbt.compiler.IC$.compileInternal(IncrementalCompiler.scala:160)
+	at sbt.compiler.IC$.incrementalCompile(IncrementalCompiler.scala:138)
+	at sbt.Compiler$.compile(Compiler.scala:128)
+	at sbt.Defaults$.sbt$Defaults$$compileIncrementalTaskImpl(Defaults.scala:813)
+	at sbt.Defaults$$anonfun$compileIncrementalTask$1.apply(Defaults.scala:805)
+	at sbt.Defaults$$anonfun$compileIncrementalTask$1.apply(Defaults.scala:803)
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47)
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:40)
+	at sbt.std.Transform$$anon$4.work(System.scala:63)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:226)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:226)
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:17)
+	at sbt.Execute.work(Execute.scala:235)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:226)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:226)
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:159)
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:28)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Read from stdout: (compile:compileIncremental) java.lang.RuntimeException: Invalid position: 0
+(compile:compileIncremental) java.lang.RuntimeException: Invalid position: 0
+Total time: 0 s, completed 2015-12-16 17:56:35
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@1181e800, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@cdda840 directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java:3: cannot find symbol
+Read from stdout: symbol: class Medium
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java:3: cannot find symbol
+  symbol: class Medium
+Read from stdout: Medium
+Medium
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 0 s, completed 2015-12-16 17:56:56
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@6478e773, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@2e6df4a4 directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java:3: cannot find symbol
+Read from stdout: symbol: class Medium
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java:3: cannot find symbol
+  symbol: class Medium
+Read from stdout: Medium
+Medium
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 0 s, completed 2015-12-16 17:57:00
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@51c655dd, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@1037523d directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java:3: cannot access Model.Medium
+Read from stdout: bad class file: /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/Model/Medium.class
+Read from stdout: class file contains wrong class: model.Medium
+Read from stdout: Please remove or make sure it appears in the correct subdirectory of the classpath.
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java:3: cannot access Model.Medium
+  bad class file: /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/Model/Medium.class
+    class file contains wrong class: model.Medium
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+Read from stdout: Model.Medium
+Model.Medium
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 0 s, completed 2015-12-16 17:57:09
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@5f4b40e0, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@57d273f3 directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java:5: controllers.PlayWebSocketMedium is not abstract and does not override abstract method sendMessage(java.lang.String) in model.Medium
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java:5: controllers.PlayWebSocketMedium is not abstract and does not override abstract method sendMessage(java.lang.String) in model.Medium
+Read from stdout: class PlayWebSocketMedium implements Medium {
+Read from stdout: 
+Read from stdout: }
+class PlayWebSocketMedium implements Medium {
+    
+}
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 0 s, completed 2015-12-16 17:57:17
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@180d35af, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@4f9d3e4b directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java:5: controllers.PlayWebSocketMedium is not abstract and does not override abstract method sendMessage(java.lang.String) in model.Medium
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java:5: controllers.PlayWebSocketMedium is not abstract and does not override abstract method sendMessage(java.lang.String) in model.Medium
+Read from stdout: class PlayWebSocketMedium implements Medium {
+Read from stdout: 
+Read from stdout: }
+class PlayWebSocketMedium implements Medium {
+    
+}
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 0 s, completed 2015-12-16 17:57:23
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@53fc0c5c, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@34195e6c directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 0 s, completed 2015-12-16 17:58:10
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@54a5a622, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@1dadb057 directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 0 s, completed 2015-12-16 17:58:50
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@35ac6a1c, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@3eb9ed2d directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 0 s, completed 2015-12-16 17:58:57
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@1fd18936, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@7a590d72 directly...
+Read from stdout: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized
+Read from stdout: operation
+operation
+Read from stdout: (compile:compileIncremental) javac returned nonzero exit code
+(compile:compileIncremental) javac returned nonzero exit code
+Total time: 0 s, completed 2015-12-16 17:58:59
+> server-post-command-error-handler
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@1b0d1c4c, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class: stamp changed from lastModified(1450284166000) to lastModified(1450284236000)
+
+Initial source changes: 
+	removed:Set()
+	added: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+	modified: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/DeviceController$1.class)
+Initial directly invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+	external source: Set()
+All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java, /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+
+Read from stdout: Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Compiling 2 Java sources to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@4f03781 directly...
+Java compilation took 0.085562485 s
+Java analysis took 0.108944645 s
+Java compile + analysis took 0.2021261 s
+Invalidating /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java...
+Invalidating (transitively) by inheritance from /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java...
+Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+Invalidated by transitive inheritance dependency: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java)
+The /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java source file has the following regular definitions changed:
+	notify, wait, sendMessage, PlayWebSocketMedium, equals, notifyAll, <init>, toString, getClass, webSocketOut, hashCode.
+All member reference dependencies will be considered within this context.
+Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java
+Name hashing optimization doesn't apply to non-Scala dependency: /Users/maciej/Desktop/IoTWebRouter/app/controllers/PlayWebSocketMedium.java
 New invalidations:
-	Set()
-Initial set of included nodes: Set()
+	Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
+Initial set of included nodes: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java)
 Previously invalidated, but (transitively) depend on new invalidations:
 	Set()
 All newly invalidated sources after taking into account (previously) recompiled sources:Set()
-Total time: 2 s, completed 2015-12-16 17:23:12
+Total time: 1 s, completed 2015-12-16 17:59:37
 > server-post-command-cleanup
 > server-handle-next-server-request

@@ -1,2 +1,2 @@
-[0m[[0minfo[0m] [0m/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Some input files use unchecked or unsafe operations.[0m
-[0m[[0minfo[0m] [0m/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Log/InterpretedLogOperation.java: Recompile with -Xlint:unchecked for details.[0m
+[0m[[31merror[0m] [0m/Users/maciej/Desktop/IoTWebRouter/app/controllers/DeviceController.java:23: variable operation might not have been initialized[0m
+[0m[[31merror[0m] [0moperation[0m
