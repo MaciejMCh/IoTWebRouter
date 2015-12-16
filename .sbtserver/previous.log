@@ -1,5 +1,5 @@
-New log file opened at Wed Dec 16 20:55:48 CET 2015 by 1855@MaciejCH.local
-jvm 1855@MaciejCH.local
+New log file opened at Wed Dec 16 20:59:38 CET 2015 by 2093@MaciejCH.local
+jvm 2093@MaciejCH.local
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.60-b23
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -27,7 +27,7 @@ sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.Jvm
   :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
 [Loading] Done in /Users/maciej/Desktop/IoTWebRouter/project, returning: (iotwebrouter-build)
 Loading project definition from /Users/maciej/Desktop/IoTWebRouter/project
-Running task... Cancel: sbt.TaskCancellationStrategy$Null$@3ec44bd, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@1f539086, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -66,8 +66,8 @@ Set current project to play-ws-test (in build file:/Users/maciej/Desktop/IoTWebR
 > server-handle-next-server-request
 > {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
 Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@40ac566, check cycles: false
-Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450295140000) to lastModified(1450295157000)
+Running task... Cancel: sbt.server.ServerTaskCancellation@af03591, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450295757000) to lastModified(1450295970000)
 
 Initial source changes: 
 	removed:Set()
@@ -86,70 +86,29 @@ All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/co
 
 Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
 Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Attempting to call com.sun.tools.javac.api.JavacTool@7d1f26f2 directly...
-Java compilation took 0.740255884 s
-Java analysis took 0.06616719 s
-Java compile + analysis took 0.816551722 s
+Attempting to call com.sun.tools.javac.api.JavacTool@47149f9e directly...
+Java compilation took 0.729273216 s
+Java analysis took 0.083981828 s
+Java compile + analysis took 0.826813361 s
 New invalidations:
 	Set()
 Initial set of included nodes: Set()
 Previously invalidated, but (transitively) depend on new invalidations:
 	Set()
 All newly invalidated sources after taking into account (previously) recompiled sources:Set()
-Total time: 2 s, completed 2015-12-16 20:55:56
+Total time: 3 s, completed 2015-12-16 20:59:46
 > server-post-command-cleanup
 > server-handle-next-server-request
 > {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:mainClass
 Evaluating tasks: compile:mainClass
-Running task... Cancel: sbt.server.ServerTaskCancellation@3fdf41ed, check cycles: false
-Total time: 0 s, completed 2015-12-16 20:55:56
+Running task... Cancel: sbt.server.ServerTaskCancellation@32e0650b, check cycles: false
+Total time: 0 s, completed 2015-12-16 20:59:46
 > server-post-command-cleanup
 > server-handle-next-server-request
 > {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
 Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@17d90877, check cycles: false
-Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450295157000) to lastModified(1450295755000)
-
-Initial source changes: 
-	removed:Set()
-	added: Set()
-	modified: Set()
-Removed products: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2$1.class)
-External API changes: API Changes: Set()
-Modified binary dependencies: Set(/Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class)
-Initial directly invalidated sources: Set()
-
-Sources indirectly invalidated by:
-	product: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
-	binary dep: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
-	external source: Set()
-All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/controllers/Application.java)
-
-Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Attempting to call com.sun.tools.javac.api.JavacTool@45a5d8dc directly...
-Java compilation took 0.130508017 s
-Java analysis took 0.01973073 s
-Java compile + analysis took 0.156518301 s
-New invalidations:
-	Set()
-Initial set of included nodes: Set()
-Previously invalidated, but (transitively) depend on new invalidations:
-	Set()
-All newly invalidated sources after taking into account (previously) recompiled sources:Set()
-Total time: 1 s, completed 2015-12-16 20:55:57
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:mainClass
-Evaluating tasks: compile:mainClass
-Running task... Cancel: sbt.server.ServerTaskCancellation@d729e30, check cycles: false
-Total time: 0 s, completed 2015-12-16 20:55:57
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:discoveredMainClasses
-Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@11b5d13b, check cycles: false
-Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450295755000) to lastModified(1450295757000)
+Running task... Cancel: sbt.server.ServerTaskCancellation@64d6a745, check cycles: false
+Invalidating /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes/controllers/Application$2.class: stamp changed from lastModified(1450295970000) to lastModified(1450295986000)
 
 Initial source changes: 
 	removed:Set()
@@ -168,23 +127,23 @@ All initially invalidated sources: Set(/Users/maciej/Desktop/IoTWebRouter/app/co
 
 Read from stdout: Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
 Compiling 1 Java source to /Users/maciej/Desktop/IoTWebRouter/target/scala-2.10/classes...
-Attempting to call com.sun.tools.javac.api.JavacTool@1643e65d directly...
-Java compilation took 0.185191426 s
-Java analysis took 0.020357428 s
-Java compile + analysis took 0.212398953 s
+Attempting to call com.sun.tools.javac.api.JavacTool@13d530bd directly...
+Java compilation took 0.145927852 s
+Java analysis took 0.025163282 s
+Java compile + analysis took 0.178866739 s
 New invalidations:
 	Set()
 Initial set of included nodes: Set()
 Previously invalidated, but (transitively) depend on new invalidations:
 	Set()
 All newly invalidated sources after taking into account (previously) recompiled sources:Set()
-Total time: 1 s, completed 2015-12-16 20:59:30
+Total time: 1 s, completed 2015-12-16 20:59:47
 > server-post-command-cleanup
 > server-handle-next-server-request
 > {file:/Users/maciej/Desktop/IoTWebRouter/}iotwebrouter/compile:mainClass
 Evaluating tasks: compile:mainClass
-Running task... Cancel: sbt.server.ServerTaskCancellation@5592ec19, check cycles: false
-Total time: 0 s, completed 2015-12-16 20:59:30
+Running task... Cancel: sbt.server.ServerTaskCancellation@7868ece5, check cycles: false
+Total time: 0 s, completed 2015-12-16 20:59:47
 > server-post-command-cleanup
 > server-handle-next-server-request
 Done executing sbt server engine, result Right(Exit(0))
@@ -193,4 +152,4 @@ Waiting for socket thread
 Waiting for request processor thread
 Waiting for command engine result
 Returning control to sbt launcher with result Exit(0)
-Closing the 1855@MaciejCH.local logs at Wed Dec 16 20:59:32 CET 2015, goodbye.
+Closing the 2093@MaciejCH.local logs at Wed Dec 16 21:02:39 CET 2015, goodbye.
