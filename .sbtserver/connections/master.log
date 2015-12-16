@@ -23,3 +23,9 @@ New client attempting to connect on port: 49425-49422
 This client on port 49425 has uuid dcadccf7-4314-4d76-9153-79f9cb44fa8b configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
 Connected Clients: activator-e6a94da2-0695-42fc-9658-233346ad13b6, activator-dcadccf7-4314-4d76-9153-79f9cb44fa8b
 Taking next connection to: 49422
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 2093@MaciejCH.local logs at Wed Dec 16 21:02:39 CET 2015, goodbye.
