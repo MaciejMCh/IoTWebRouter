@@ -5,3 +5,6 @@ New client attempting to connect on port: 49700-49699
 This client on port 49700 has uuid 5e6dee56-0f86-42c1-bf13-5733abf17a8b configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
 Connected Clients: activator-5e6dee56-0f86-42c1-bf13-5733abf17a8b
 Taking next connection to: 49699
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 49699
