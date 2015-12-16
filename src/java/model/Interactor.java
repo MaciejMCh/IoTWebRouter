@@ -6,7 +6,6 @@
 package model;
 
 import java.util.HashMap;
-import javax.websocket.Session;
 import websocket.AdminWebSocket;
 
 public class Interactor {
@@ -18,8 +17,8 @@ public class Interactor {
         return instance;
     }
     
-    protected final HashMap<Session, Device> sessionDeviceMap = new HashMap<>();
-    protected final HashMap<Device, Session> deviceSessionMap = new HashMap<>();    
+    protected final HashMap<Medium, Device> mediumDeviceMap = new HashMap<>();
+    protected final HashMap<Device, Medium> deviceMediumMap = new HashMap<>();    
     protected final Enviroment enviroment = new Enviroment();
     protected final Router router = new Router();
     
@@ -31,32 +30,32 @@ public class Interactor {
         return this.enviroment;
     }
     
-    public void registerDevice(Device device, Session session) {
-        if (this.sessionDeviceMap.keySet().contains(session)) {
+    public void registerDevice(Device device, Medium medium) {
+        if (this.mediumDeviceMap.keySet().contains(medium)) {
             return;
         }
-        this.sessionDeviceMap.put(session, device);
-        this.deviceSessionMap.put(device, session);
+        this.mediumDeviceMap.put(medium, device);
+        this.deviceMediumMap.put(device, medium);
         this.enviroment.addDevice(device);
         this.router.addOutputsOfDevice(device);
         
         AdminWebSocket.getInstance().deviceRegistered(device);
     }
     
-    public void sessionExpired(Session session) {
-        Device device = this.sessionDeviceMap.get(session);
+    public void mediumClosed(Medium medium) {
+        Device device = this.mediumDeviceMap.get(medium);
         this.enviroment.removeDevice(device);
-        this.sessionDeviceMap.remove(session);
-        this.deviceSessionMap.remove(device);
+        this.mediumDeviceMap.remove(medium);
+        this.deviceMediumMap.remove(device);
         AdminWebSocket.getInstance().deviceUnregistered(device);
     }
     
-    public Device deviceForSession(Session session) {
-        return this.sessionDeviceMap.get(session);
+    public Device deviceForMedium(Medium medium) {
+        return this.mediumDeviceMap.get(medium);
     }
     
-    public Session sessionOfDevice(Device device) {
-        return this.deviceSessionMap.get(device);
+    public Medium sessionOfDevice(Device device) {
+        return this.deviceMediumMap.get(device);
     }
     
     public Device deviceForID(String id) {

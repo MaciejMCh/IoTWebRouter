@@ -5,19 +5,19 @@
  */
 package websocket.requestOperations;
 
-import javax.websocket.Session;
 import model.Device;
 import model.DeviceInterface;
 import model.Interactor;
 import com.google.gson.*;
+import model.Medium;
 
 public class ConnectOperation extends RequestOperation {
     
     protected DeviceInterface outputInterface;
     protected DeviceInterface inputInterface;
     
-    public ConnectOperation(JsonObject params, Session session) {
-        super(params, session);
+    public ConnectOperation(JsonObject params, Medium medium) {
+        super(params, medium);
     }
 
     @Override

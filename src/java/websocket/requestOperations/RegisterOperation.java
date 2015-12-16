@@ -5,10 +5,10 @@
  */
 package websocket.requestOperations;
 
-import javax.websocket.Session;
 import model.Device;
 import model.Interactor;
 import com.google.gson.*;
+import model.Medium;
 
 /**
  *
@@ -18,8 +18,8 @@ public class RegisterOperation extends RequestOperation {
 
     protected Device registeringDevice;
     
-    public RegisterOperation(JsonObject params, Session session) {
-        super(params, session);
+    public RegisterOperation(JsonObject params, Medium medium) {
+        super(params, medium);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class RegisterOperation extends RequestOperation {
 
     @Override
     public void performOperation() {
-        Interactor.getInstance().registerDevice(this.registeringDevice, this.session);
+        Interactor.getInstance().registerDevice(this.registeringDevice, this.medium);
     }
     
     @Override

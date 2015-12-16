@@ -54,7 +54,7 @@ public class AdminWebSocket {
     public void handleMessage(String message, Session session) {
         RequestOperation operation;
         JsonObject json = new JsonParser().parse(message).getAsJsonObject();
-        operation = RequestOperationsSerializer.serializeOperation(json, session);
+        operation = RequestOperationsSerializer.serializeOperation(json, new JavaxWebSocketMedium(session));
         
         if (operation.getError() == null) {
             operation.performOperation();

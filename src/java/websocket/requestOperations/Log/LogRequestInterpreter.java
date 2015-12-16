@@ -7,8 +7,8 @@ package websocket.requestOperations.Log;
 
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
-import javax.websocket.Session;
 import com.google.gson.*;
+import model.Medium;
 import websocket.requestOperations.ErrorOperation;
 import websocket.requestOperations.RequestOperation;
 
@@ -23,23 +23,23 @@ public class LogRequestInterpreter {
         return operationClassMap;
     }
     
-    public static RequestOperation serializeOperation(JsonObject json, Session session) {
+    public static RequestOperation serializeOperation(JsonObject json, Medium medium) {
         if (json.has("query")) {
-            return serializeOperation(parseQuery(json.get("query").getAsString()), session);
+            return serializeOperation(parseQuery(json.get("query").getAsString()), medium);
         }
         
         String action = json.get("action").getAsString();
         Class operationClass = operationClassMap.get(action);
         if (operationClass != null) {
             try {
-                Constructor constructor = operationClass.getDeclaredConstructor(JsonObject.class, Session.class);
-                RequestOperation operation = (RequestOperation)constructor.newInstance(json, session);
+                Constructor constructor = operationClass.getDeclaredConstructor(JsonObject.class, Medium.class);
+                RequestOperation operation = (RequestOperation)constructor.newInstance(json, medium);
                 return operation;
             } catch (Exception e) {
-                return ErrorOperation.internalServerErrorOperation(session);
+                return ErrorOperation.internalServerErrorOperation(medium);
             }
         } else {
-            return new ErrorOperation("Unknown log action '" + action + "'.", session);
+            return new ErrorOperation("Unknown log action '" + action + "'.", medium);
         }
     }
     

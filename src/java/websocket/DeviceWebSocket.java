@@ -5,26 +5,14 @@
  */
 package websocket;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSyntaxException;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashMap;
 import javax.faces.bean.ApplicationScoped;
-//import javax.enterprise.context.ApplicationScoped;
 import javax.websocket.server.ServerEndpoint;
 import javax.websocket.*;
 import model.Interactor;
-import model.Signal;
-import com.google.gson.*;
+import model.Medium;
 import websocket.requestOperations.RequestOperation;
 import websocket.requestOperations.RequestOperationsSerializer;
 
@@ -35,6 +23,7 @@ import websocket.requestOperations.RequestOperationsSerializer;
 @ApplicationScoped
 @ServerEndpoint("/actions")
 public class DeviceWebSocket {
+    protected final HashMap<Session, Medium> mediumSessionMap = new HashMap<>();
     
     @OnOpen
     public void open(Session session) {
@@ -43,7 +32,10 @@ public class DeviceWebSocket {
 
     @OnClose
     public void close(Session session) {
-        Interactor.getInstance().sessionExpired(session);
+        if (this.mediumSessionMap.get(session) == null) {
+            return;
+        }
+        Interactor.getInstance().mediumClosed(this.mediumSessionMap.get(session));
     }
 
     @OnError
@@ -55,7 +47,7 @@ public class DeviceWebSocket {
     public void handleMessage(String message, Session session) {
         JsonObject json = new JsonParser().parse(message).getAsJsonObject();
         RequestOperation operation;
-        operation = RequestOperationsSerializer.serializeOperation(json, session);
+        operation = RequestOperationsSerializer.serializeOperation(json, new JavaxWebSocketMedium(session));
         operation.performOperation();
     }
 }

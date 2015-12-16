@@ -5,7 +5,6 @@
  */
 package websocket.requestOperations;
 
-import java.util.ArrayList;
 import com.google.gson.*;
 import java.util.Map;
 

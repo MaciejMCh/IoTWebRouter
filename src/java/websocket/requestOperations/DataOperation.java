@@ -5,17 +5,12 @@
  */
 package websocket.requestOperations;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.websocket.Session;
 import model.Device;
 import model.Interactor;
 import model.Signal;
-import org.json.JSONArray;
 import com.google.gson.*;
-import websocket.AdminWebSocket;
+import model.Medium;
 
 /**
  *
@@ -25,8 +20,8 @@ public class DataOperation extends RequestOperation {
 
     protected ArrayList<Signal> signals;
     
-    public DataOperation(JsonObject params, Session session) {
-        super(params, session);
+    public DataOperation(JsonObject params, Medium medium) {
+        super(params, medium);
     }
 
     @Override
@@ -34,7 +29,7 @@ public class DataOperation extends RequestOperation {
         this.signals = new ArrayList<>();
         JsonArray array = json.get("interfaces").getAsJsonArray();
         
-        Device sendingDevice = Interactor.getInstance().deviceForSession(session);
+        Device sendingDevice = Interactor.getInstance().deviceForMedium(medium);
         for (Object object : array) {
             JsonObject jsonObject = (JsonObject)object;
             this.signals.add(new Signal(jsonObject, sendingDevice));
@@ -48,19 +43,14 @@ public class DataOperation extends RequestOperation {
             routedSignals.addAll(Interactor.getInstance().getRouter().produceRoutedSignals(signal));
         }
         this.sendSignals(routedSignals);
-        AdminWebSocket.getInstance().deviceSentData(null);
     }
     
     protected void sendSignals(ArrayList<Signal> signals) {
         for (Signal signal : signals) {
             
             Device destinationDevice = signal.getDestinationInterface().getParentDevice();
-            Session destinationSession = Interactor.getInstance().sessionOfDevice(destinationDevice);
-            try {
-                destinationSession.getBasicRemote().sendText(signal.stringDataRepresentation());
-            } catch (IOException ex) {
-                Logger.getLogger(DataOperation.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Medium destinationMedium = Interactor.getInstance().sessionOfDevice(destinationDevice);
+            destinationMedium.sendMessage(signal.stringDataRepresentation());
         }
     }
     

@@ -7,7 +7,6 @@ package model;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import org.json.JSONArray;
 import com.google.gson.*;
 
 public class Device {

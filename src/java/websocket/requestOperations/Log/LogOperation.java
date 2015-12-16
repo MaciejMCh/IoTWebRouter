@@ -5,11 +5,11 @@
  */
 package websocket.requestOperations.Log;
 
-import javax.websocket.Session;
 import com.google.gson.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Medium;
 import websocket.requestOperations.RequestOperation;
 
 /**
@@ -20,23 +20,19 @@ public class LogOperation extends RequestOperation {
 
     protected InterpretedLogOperation interpretedOperation;
     
-    public LogOperation(JsonObject params, Session session) {
-        super(params, session);
+    public LogOperation(JsonObject params, Medium medium) {
+        super(params, medium);
     }
 
     @Override
     protected void mapJson(JsonObject json) {
-        this.interpretedOperation = (InterpretedLogOperation)LogRequestInterpreter.serializeOperation(json.get("request").getAsJsonObject(), session);
+        this.interpretedOperation = (InterpretedLogOperation)LogRequestInterpreter.serializeOperation(json.get("request").getAsJsonObject(), this.medium);
     }
 
     @Override
     public void performOperation() {
         if (this.interpretedOperation.getError() != null) {
-            try {
-                this.session.getBasicRemote().sendText(this.interpretedOperation.getError().getErrorMessage());
-            } catch (IOException ex) {
-                Logger.getLogger(LogOperation.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            this.medium.sendMessage(this.interpretedOperation.getError().getErrorMessage());
         } else {
             this.interpretedOperation.performOperation();
         }

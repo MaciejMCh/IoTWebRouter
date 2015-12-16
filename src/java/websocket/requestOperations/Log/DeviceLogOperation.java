@@ -6,10 +6,10 @@
 package websocket.requestOperations.Log;
 
 import java.util.ArrayList;
-import javax.websocket.Session;
 import model.Device;
 import model.Interactor;
 import com.google.gson.*;
+import model.Medium;
 
 /**
  *
@@ -22,8 +22,8 @@ public class DeviceLogOperation extends InterpretedLogOperation {
     
     protected boolean interfaceOption;
     
-    public DeviceLogOperation(JsonObject params, Session session) {
-        super(params, session);
+    public DeviceLogOperation(JsonObject params, Medium medium) {
+        super(params, medium);
     }
 
     @Override

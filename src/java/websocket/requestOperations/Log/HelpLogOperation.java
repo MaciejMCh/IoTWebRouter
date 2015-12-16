@@ -9,6 +9,7 @@ import com.google.gson.JsonObject;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import javax.websocket.Session;
+import model.Medium;
 
 /**
  *
@@ -20,8 +21,8 @@ public class HelpLogOperation extends InterpretedLogOperation {
     protected boolean details;
     protected boolean syntax;
 
-    public HelpLogOperation(JsonObject params, Session session) {
-        super(params, session);
+    public HelpLogOperation(JsonObject params, Medium medium) {
+        super(params, medium);
     }
 
     @Override
@@ -80,14 +81,14 @@ public class HelpLogOperation extends InterpretedLogOperation {
     protected Object staticEvaluation(String logOperationName, String selector) {
         try {
             Class<InterpretedLogOperation> clazz = LogRequestInterpreter.getOperationClassMap().get(logOperationName);
-            Object object = clazz.getConstructor(JsonObject.class, Session.class).newInstance(new JsonObject(), this.session);
+            Object object = clazz.getConstructor(JsonObject.class, Session.class).newInstance(new JsonObject(), this.medium);
             Method method = clazz.getMethod(selector);
             Object result = method.invoke(object);
             return result;
         } catch (Exception e) {
             try {
                 Class<InterpretedLogOperation> clazz = LogRequestInterpreter.getOperationClassMap().get(logOperationName);
-                Object object = clazz.getConstructor(JsonObject.class, Session.class).newInstance(new JsonObject(), this.session);
+                Object object = clazz.getConstructor(JsonObject.class, Session.class).newInstance(new JsonObject(), this.medium);
                 Method method = clazz.getDeclaredMethod(selector);
                 Object result = method.invoke(object);
                 return result;

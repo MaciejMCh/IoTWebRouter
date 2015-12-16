@@ -10,8 +10,8 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.websocket.Session;
 import com.google.gson.*;
+import model.Medium;
 import websocket.requestOperations.RequestOperation;
 
 /**
@@ -23,8 +23,8 @@ public class InterpretedLogOperation extends RequestOperation {
     protected ArrayList<String> options;
     protected ArrayList arguments;
     
-    public InterpretedLogOperation(JsonObject params, Session session) {
-        super(params, session);
+    public InterpretedLogOperation(JsonObject params, Medium medium) {
+        super(params, medium);
         
         if (params.entrySet().isEmpty()) {
             // in case of reflect methods initialization
@@ -111,11 +111,7 @@ public class InterpretedLogOperation extends RequestOperation {
     }
     
     protected void log(String logMessage) {
-        try {
-            this.session.getBasicRemote().sendText(logMessage);
-        } catch (IOException ex) {
-            Logger.getLogger(LogOperation.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.medium.sendMessage(logMessage);
     }
     
     private void mapArgumentsToProperties() {

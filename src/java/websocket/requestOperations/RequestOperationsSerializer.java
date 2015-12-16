@@ -8,8 +8,8 @@ package websocket.requestOperations;
 import websocket.requestOperations.Log.LogOperation;
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
-import javax.websocket.Session;
 import com.google.gson.*;
+import model.Medium;
 
 /**
  *
@@ -24,20 +24,20 @@ public class RequestOperationsSerializer {
         put("connect", ConnectOperation.class);
     }};
     
-    public static RequestOperation serializeOperation(JsonObject json, Session session) {
+    public static RequestOperation serializeOperation(JsonObject json, Medium medium) {
         String action = json.get("action").getAsString();
         Class operationClass = operationClassMap.get(action);
         if (operationClass != null) {
             try {
-                Constructor constructor = operationClass.getDeclaredConstructor(JsonObject.class, Session.class);
-                RequestOperation operation = (RequestOperation)constructor.newInstance(json, session);
+                Constructor constructor = operationClass.getDeclaredConstructor(JsonObject.class, Medium.class);
+                RequestOperation operation = (RequestOperation)constructor.newInstance(json, medium);
                 return operation;
             } catch (Exception e) {
-                return ErrorOperation.internalServerErrorOperation(session);
+                return ErrorOperation.internalServerErrorOperation(medium);
             }
             
         } else {
-            return new ErrorOperation("Can't perform operation for action '" + action + "'.", session);
+            return new ErrorOperation("Can't perform operation for action '" + action + "'.", medium);
         }
     }
     

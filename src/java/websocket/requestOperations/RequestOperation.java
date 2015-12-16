@@ -5,8 +5,8 @@
  */
 package websocket.requestOperations;
 
-import javax.websocket.Session;
 import com.google.gson.*;
+import model.Medium;
 
 /**
  *
@@ -14,7 +14,7 @@ import com.google.gson.*;
  */
 public class RequestOperation {
     
-    protected Session session;
+    protected Medium medium;
     protected Error error;
 
     public Error getError() {
@@ -25,8 +25,8 @@ public class RequestOperation {
         
     }
     
-    public RequestOperation(JsonObject params, Session session) {
-        this.session = session;
+    public RequestOperation(JsonObject params, Medium medium) {
+        this.medium = medium;
         
         String sytnaxError = SyntaxValidator.validateSyntax(this.getSyntax(), params);
         if (sytnaxError != null) {

@@ -8,8 +8,8 @@ package websocket.requestOperations;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.websocket.Session;
 import com.google.gson.*;
+import model.Medium;
 
 /**
  *
@@ -17,28 +17,24 @@ import com.google.gson.*;
  */
 public class ErrorOperation extends RequestOperation {
 
-    public static ErrorOperation internalServerErrorOperation(Session session) {
-        return new ErrorOperation("Internal server error.", session);
+    public static ErrorOperation internalServerErrorOperation(Medium medium) {
+        return new ErrorOperation("Internal server error.", medium);
     }
     
     protected String errorMessage;
     
-    public ErrorOperation(JsonObject params, Session session) {
-        super(params, session);
+    public ErrorOperation(JsonObject params, Medium medium) {
+        super(params, medium);
     }
     
-    public ErrorOperation(String errorMessage, Session session) {
-        super(null, session);
+    public ErrorOperation(String errorMessage, Medium medium) {
+        super(null, medium);
         this.errorMessage = errorMessage;
     }
 
     @Override
     public void performOperation() {
-        try {
-            this.session.getBasicRemote().sendText(this.errorMessage);
-        } catch (IOException ex) {
-            Logger.getLogger(ErrorOperation.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.medium.sendMessage(this.errorMessage);
     }
     
 }

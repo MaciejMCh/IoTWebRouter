@@ -6,14 +6,12 @@
 package websocket.requestOperations.Log;
 
 import com.google.gson.JsonObject;
-import com.sun.javafx.sg.prism.GrowableDataBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.websocket.Session;
 import model.Device;
 import model.DeviceInterface;
 import model.Interactor;
-import model.Router;
+import model.Medium;
 
 /**
  *
@@ -23,8 +21,8 @@ public class ConnectionsLogOperation extends InterpretedLogOperation {
 
     protected boolean possibleInterfaces;
     
-    public ConnectionsLogOperation(JsonObject params, Session session) {
-        super(params, session);
+    public ConnectionsLogOperation(JsonObject params, Medium medium) {
+        super(params, medium);
     }
 
     @Override
