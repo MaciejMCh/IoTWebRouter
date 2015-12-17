@@ -9,7 +9,20 @@ package conversation;
  *
  * @author maciej
  */
-public interface Conversable {
-    public void sendMessage(String message);
-    public void handleMessage(MessageHandler messageHandler);
+public abstract class Conversable {
+    
+    protected MessageHandler messageHandler;
+    
+    public abstract void sendMessage(String message);
+    
+    public void receivedMessage(String message) {
+        if (this.messageHandler == null) {
+            return;
+        }
+        this.messageHandler.onMessage(message);
+    }
+    
+    public void handleMessage(MessageHandler messageHandler) {
+        this.messageHandler = messageHandler;
+    }
 }
