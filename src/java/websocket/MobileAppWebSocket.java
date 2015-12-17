@@ -42,6 +42,6 @@ public class MobileAppWebSocket {
 
     @OnMessage
     public void handleMessage(String message, Session session) {
-        
+//        this.sessionConversableMap.get(session).receivedMessage(message);
     }
 }
