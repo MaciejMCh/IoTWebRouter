@@ -14,6 +14,3 @@ play.Project.playJavaSettings
 unmanagedSourceDirectories in Compile += baseDirectory.value / "src/java/model"
 
 unmanagedSourceDirectories in Compile += baseDirectory.value / "src/java/requestOperations"
-
-
-fork in run := true
