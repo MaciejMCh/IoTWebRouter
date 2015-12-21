@@ -12,7 +12,7 @@ import model.Medium;
  *
  * @author maciej
  */
-public class RequestOperation {
+public abstract class RequestOperation {
     
     protected Medium medium;
     protected Error error;
@@ -41,9 +41,7 @@ public class RequestOperation {
         
     }
     
-    public void performOperation() {
-        
-    }
+    public abstract void performOperation();
     
     protected void error(String errorMessage) {
         this.error = new Error(errorMessage);

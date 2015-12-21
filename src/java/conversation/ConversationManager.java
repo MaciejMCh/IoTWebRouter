@@ -26,14 +26,14 @@ public class ConversationManager {
         return this.conversationIDConversableMap.get(conversationID);
     }
     
-    public void requestReceived(ConversationRequest conversationRequest) {
-        this.sendResponse(conversationRequest.performRequestedActions());
-    }
+//    public void requestReceived(ConversationRequest conversationRequest) {
+//        this.sendResponse(conversationRequest.performRequestedActions());
+//    }
     
-    public void sendResponse(ConversationResponse conversationResponse) {
-        Conversable conversable = this.conversableWithConversationID(conversationResponse.conversationID);
-        conversable.sendMessage(conversationResponse.jsonRepresentation().getAsString());
-    }
+//    public void sendResponse(ConversationResponse conversationResponse) {
+//        Conversable conversable = this.conversableWithConversationID(conversationResponse.conversationID);
+//        conversable.sendMessage(conversationResponse.jsonRepresentation().getAsString());
+//    }
     
     
 }

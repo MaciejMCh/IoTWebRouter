@@ -15,22 +15,20 @@ public class ConversationResponse {
     protected String result;
     protected JsonObject response;
     public String requestID;
-    public String conversationID;
     
-    private ConversationResponse(ConversationRequest conversationRequest, String result, JsonObject response) {
+    private ConversationResponse(String requestID, String result, JsonObject response) {
         super();
         this.result = result;
         this.response = response;
-        this.requestID = conversationRequest.requestID;
-        this.conversationID = conversationRequest.conversationID;
+        this.requestID = requestID;
     }
     
-    static ConversationResponse successResponse(ConversationRequest conversationRequest, JsonObject result) {
-        return new ConversationResponse(conversationRequest, "success", result);
+    static ConversationResponse successResponse(String requestID, JsonObject result) {
+        return new ConversationResponse(requestID, "success", result);
     }
     
-    static ConversationResponse errorResponse(ConversationRequest conversationRequest, JsonObject result) {
-        return new ConversationResponse(conversationRequest, "error", result);
+    static ConversationResponse errorResponse(String requestID, JsonObject result) {
+        return new ConversationResponse(requestID, "error", result);
     }
     
     public JsonObject jsonRepresentation() {

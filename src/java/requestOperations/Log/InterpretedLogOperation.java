@@ -152,6 +152,11 @@ public class InterpretedLogOperation extends RequestOperation {
         }
         return false;
     }
+
+    @Override
+    public void performOperation() {
+        
+    }
     
 }
 
