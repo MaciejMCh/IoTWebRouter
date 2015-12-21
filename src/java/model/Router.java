@@ -37,6 +37,16 @@ public class Router {
         }
     }
     
+    public ArrayList<InterfaceConnection> getInterfacesConnections() {
+        ArrayList<InterfaceConnection> connections = new ArrayList<>();
+        for (DeviceInterface outputInterface : this.routingTable.keySet()) {
+            for (DeviceInterface inputInterface : this.routingTable.get(outputInterface)) {
+                connections.add(new InterfaceConnection(inputInterface, outputInterface));
+            }
+        }
+        return connections;
+    }
+    
     public void connectInterfaces(DeviceInterface outputInterface, DeviceInterface inputInterface) {
         if (this.routingTable.containsKey(outputInterface)) {
             this.routingTable.get(outputInterface).add(inputInterface);
