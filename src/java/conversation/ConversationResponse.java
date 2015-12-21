@@ -27,8 +27,10 @@ public class ConversationResponse {
         return new ConversationResponse(requestID, "success", result);
     }
     
-    static ConversationResponse errorResponse(String requestID, JsonObject result) {
-        return new ConversationResponse(requestID, "error", result);
+    static ConversationResponse errorResponse(String requestID, String message) {
+        JsonObject errorJson = new JsonObject();
+        errorJson.addProperty("message", message);
+        return new ConversationResponse(requestID, "error", errorJson);
     }
     
     public JsonObject jsonRepresentation() {
