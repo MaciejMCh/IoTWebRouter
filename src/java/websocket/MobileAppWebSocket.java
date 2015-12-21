@@ -5,8 +5,13 @@
  */
 package websocket;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import conversation.Conversable;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ApplicationScoped;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -14,6 +19,8 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+import websocket.requestOperations.RequestOperation;
+import websocket.requestOperations.RequestOperationsSerializer;
 
 /**
  *
@@ -42,6 +49,18 @@ public class MobileAppWebSocket {
 
     @OnMessage
     public void handleMessage(String message, Session session) {
-//        this.sessionConversableMap.get(session).receivedMessage(message);
+        RequestOperation operation;
+        JsonObject json = new JsonParser().parse(message).getAsJsonObject();
+        operation = RequestOperationsSerializer.serializeOperation(json, new JavaxWebSocketMedium(session));
+        
+        if (operation.getError() == null) {
+            operation.performOperation();
+        } else {
+            try {
+                session.getBasicRemote().sendText(operation.getError().getErrorMessage());
+            } catch (IOException ex) {
+                Logger.getLogger(AdminWebSocket.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }

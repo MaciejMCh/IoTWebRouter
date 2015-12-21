@@ -7,6 +7,7 @@ package conversation;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import model.Medium;
 import websocket.requestOperations.RequestOperation;
 
 /**
@@ -19,9 +20,13 @@ public abstract class ResponsableRequestOperation extends RequestOperation {
     
     public abstract ConversationResponse performReponsableOperation();
     
+    public ResponsableRequestOperation(JsonObject params, Medium medium) {
+        super(params, medium);
+    }
+    
     @Override
     protected JsonObject getSyntax() {
-        return new JsonParser().parse("{\"request_action\":\"String\",\"request_id\":\"String\"}").getAsJsonObject();
+        return new JsonParser().parse("{\"action\":\"String\",\"request_id\":\"String\"}").getAsJsonObject();
     }
 
     @Override
@@ -31,7 +36,7 @@ public abstract class ResponsableRequestOperation extends RequestOperation {
     
     @Override
     public void performOperation() {
-        this.medium.sendMessage(this.performReponsableOperation().toString());
+        this.medium.sendMessage(this.performReponsableOperation().jsonRepresentation().toString());
     }
     
 }

@@ -9,6 +9,7 @@ import websocket.requestOperations.Log.LogOperation;
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import com.google.gson.*;
+import conversation.IndexDevicesOperation;
 import model.Medium;
 
 /**
@@ -22,6 +23,7 @@ public class RequestOperationsSerializer {
         put("data", DataOperation.class);
         put("log", LogOperation.class);
         put("connect", ConnectOperation.class);
+        put("index_devices", IndexDevicesOperation.class);
     }};
     
     public static RequestOperation serializeOperation(JsonObject json, Medium medium) {
