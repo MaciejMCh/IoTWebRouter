@@ -27,12 +27,11 @@ public class RegisterOperation extends RequestOperation {
     protected void mapJson(JsonObject json) {
         this.registeringDevice = new Device(json.get("device").getAsJsonObject());
     }
-    
-    
 
     @Override
     public void performOperation() {
         Interactor.getInstance().registerDevice(this.registeringDevice, this.medium);
+        this.medium.sendMessage(this.registeringDevice.getId());
     }
     
     @Override

@@ -5,9 +5,10 @@
 <br><label for="male">Data type</label><input type="text" name="txt" id="dataType"/>
 <br><label for="male">Data value</label><input type="text" name="txt" id="dataValue"/>
 <br><input type="button" value="Start" onclick="testWebSocket();">
+<br><input type="button" value="Simulate disconnect" onclick="simulateDisconnect();"><input style="width:calc(100% - 100px);" type="text" name="txt" id="logQuery"/>  
 <script language="javascript" type="text/javascript">  
 
-var wsUri = "wss://iotwebrouter.herokuapp.com/device"; 
+var wsUri = "ws://localhost:8080/IoTWebRouter/actions"; 
 var output;
 
 var name;
@@ -15,10 +16,18 @@ var interfaceID;
 var dataType;
 var dataValue;
 var isInput;
+var sessionID;
+
+var first;
+
+
+  function simulateDisconnect() {
+    websocket.close();
+  }
+
 
   function init() { 
   	output = document.getElementById("output"); 
-  	// testWebSocket(); 
   }  
 
   function testWebSocket() { 
@@ -54,23 +63,28 @@ var isInput;
   function onOpen(evt) {
    writeToScreen("CONNECTED"); 
 
-   doSend("{\"action\":\"register\",\"device\":{\"name\":\"" + name + "\",\"interface\":[{\"direction\":\"output\",\"dataType\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
+   doSend("{\"action\":\"register\",\"session_id\":\""+ sessionID +"\",\"device\":{\"name\":\"" + name + "\",\"interface\":[{\"direction\":\"output\",\"dataType\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
 
-   sendData();
+   if (first != 1) {
+    sendData();
+    first = 1;
+   }
 } 
 
 function sendData() {
-	doSend("{\"action\":\"data\",\"interfaces\":[{\"dataType\":\""+ dataType +"\",\"id\":\""+interfaceID+"\",\"value\":"+dataValue+"}]}");
+	doSend("{\"session_id\":\""+ sessionID +"\",\"action\":\"data\",\"interfaces\":[{\"dataType\":\""+ dataType +"\",\"id\":\""+interfaceID+"\",\"value\":"+dataValue+"}]}");
 	setTimeout(sendData, 1000);
 }
 
  function onClose(evt) {
  	writeToScreen("DISCONNECTED");
+  testWebSocket();
  } 
 
  function onMessage(evt) { 
  	writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>'); 
- 	// websocket.close(); 
+
+  this.sessionID = evt.data;
  } 
 
  function onError(evt) {
@@ -78,8 +92,11 @@ function sendData() {
  }  
 
  function doSend(message) { 
- 	writeToScreen("SENT: " + message);  
- 	websocket.send(message); 
+
+  if (websocket.readyState == 1) {
+    writeToScreen("SENT: " + message);  
+    websocket.send(message); 
+  }
  }  
 
  function writeToScreen(message) { 
