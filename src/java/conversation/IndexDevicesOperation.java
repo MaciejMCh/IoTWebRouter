@@ -6,6 +6,7 @@
 package conversation;
 
 import com.google.gson.JsonObject;
+import model.Interactor;
 import model.Medium;
 
 /**
@@ -20,7 +21,7 @@ public class IndexDevicesOperation extends ResponsableRequestOperation {
     
     @Override
     public ConversationResponse performReponsableOperation() {
-        return ConversationResponse.successResponse(this.requestID, null);
+        return ConversationResponse.successResponse(this.requestID, JsonParser.parseDevices(Interactor.getInstance().getEnviroment().devices));
     }
     
 }
