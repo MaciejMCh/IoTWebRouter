@@ -7,7 +7,6 @@ package websocket;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import conversation.Conversable;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -29,8 +28,6 @@ import websocket.requestOperations.RequestOperationsSerializer;
 @ApplicationScoped
 @ServerEndpoint("/mobile")
 public class MobileAppWebSocket {
-    
-    protected HashMap<Session, Conversable> sessionConversableMap = new HashMap();
     
     @OnOpen
     public void open(Session session) {
