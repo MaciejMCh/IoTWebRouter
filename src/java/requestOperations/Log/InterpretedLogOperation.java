@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package websocket.requestOperations.Log;
+package requestOperations.Log;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.google.gson.*;
 import model.Medium;
-import websocket.requestOperations.RequestOperation;
+import requestOperations.RequestOperation;
 
 /**
  *

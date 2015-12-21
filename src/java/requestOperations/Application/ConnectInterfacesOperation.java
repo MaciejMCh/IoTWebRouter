@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conversation;
+package requestOperations.Application;
 
 import com.google.gson.JsonObject;
 import model.DeviceInterface;
 import model.Medium;
-import websocket.requestOperations.ConnectOperation;
+import requestOperations.Admin.ConnectOperation;
 
 /**
  *

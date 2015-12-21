@@ -17,8 +17,8 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 import model.Device;
 import com.google.gson.*;
-import websocket.requestOperations.RequestOperation;
-import websocket.requestOperations.RequestOperationsSerializer;
+import requestOperations.RequestOperation;
+import requestOperations.RequestOperationsSerializer;
 
 /**
  *

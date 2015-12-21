@@ -13,8 +13,8 @@ import javax.websocket.server.ServerEndpoint;
 import javax.websocket.*;
 import model.Interactor;
 import model.Medium;
-import websocket.requestOperations.RequestOperation;
-import websocket.requestOperations.RequestOperationsSerializer;
+import requestOperations.RequestOperation;
+import requestOperations.RequestOperationsSerializer;
 
 /**
  *

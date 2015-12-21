@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package websocket.requestOperations.Log;
+package requestOperations.Log;
 
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import com.google.gson.*;
 import model.Medium;
-import websocket.requestOperations.ErrorOperation;
-import websocket.requestOperations.RequestOperation;
+import requestOperations.ErrorOperation;
+import requestOperations.RequestOperation;
 
 public class LogRequestInterpreter {
     protected static final HashMap<String, Class> operationClassMap = new HashMap<String, Class>() {{

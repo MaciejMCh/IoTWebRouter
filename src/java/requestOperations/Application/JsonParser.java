@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conversation;
+package requestOperations.Application;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import model.Device;
 import model.DeviceInterface;
 import model.InterfaceConnection;
-import websocket.requestOperations.Log.LogParser;
+import requestOperations.Log.LogParser;
 
 /**
  *

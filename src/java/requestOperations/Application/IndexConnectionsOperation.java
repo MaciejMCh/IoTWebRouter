@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conversation;
+package requestOperations.Application;
 
 import com.google.gson.JsonObject;
 import model.Interactor;
@@ -13,15 +13,15 @@ import model.Medium;
  *
  * @author maciej
  */
-public class IndexDevicesOperation extends ResponsableRequestOperation {
+public class IndexConnectionsOperation extends ResponsableRequestOperation {
 
-    public IndexDevicesOperation(JsonObject params, Medium medium) {
+    public IndexConnectionsOperation(JsonObject params, Medium medium) {
         super(params, medium);
     }
-    
+
     @Override
     public ConversationResponse performReponsableOperation() {
-        return ConversationResponse.successResponse(this.requestID, JsonParser.parseDevices(Interactor.getInstance().getEnviroment().devices));
+        return ConversationResponse.successResponse(this.requestID, JsonParser.parseInterfacesConnections(Interactor.getInstance().getRouter().getInterfacesConnections()));
     }
     
 }

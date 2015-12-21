@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package websocket.requestOperations.Log;
+package requestOperations.Log;
 
 import java.util.ArrayList;
 import model.Device;
@@ -47,9 +47,9 @@ public class DeviceLogOperation extends InterpretedLogOperation {
     }
     
     @Override
-    protected ArrayList<websocket.requestOperations.Log.Argument> arguments() {
+    protected ArrayList<requestOperations.Log.Argument> arguments() {
         ArrayList<Argument> arguments = new ArrayList<>();
-        arguments.add(new websocket.requestOperations.Log.Argument("deviceID", "Id of device you want to log.", false));
+        arguments.add(new requestOperations.Log.Argument("deviceID", "Id of device you want to log.", false));
         return arguments;
     }
     

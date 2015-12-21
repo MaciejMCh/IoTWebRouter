@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package websocket.requestOperations;
+package requestOperations;
 
-import websocket.requestOperations.Log.LogOperation;
+import requestOperations.Admin.ConnectOperation;
+import requestOperations.Device.RegisterOperation;
+import requestOperations.Device.DataOperation;
+import requestOperations.Log.LogOperation;
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import com.google.gson.*;
-import conversation.ConnectInterfacesOperation;
-import conversation.IndexConnectionsOperation;
-import conversation.IndexDevicesOperation;
+import requestOperations.Application.ConnectInterfacesOperation;
+import requestOperations.Application.IndexConnectionsOperation;
+import requestOperations.Application.IndexDevicesOperation;
 import model.Medium;
 
 /**
