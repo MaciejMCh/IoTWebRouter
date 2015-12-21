@@ -5,8 +5,8 @@ import play.mvc.Result;
 import play.mvc.WebSocket;
 import play.libs.F.Callback;
 import com.google.gson.*;
-import websocket.requestOperations.RequestOperation;
-import websocket.requestOperations.RequestOperationsSerializer;
+import requestOperations.RequestOperation;
+import requestOperations.RequestOperationsSerializer;
 
 // import model.Device;
 

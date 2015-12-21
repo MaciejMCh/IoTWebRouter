@@ -13,8 +13,8 @@ import akka.actor.Props;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.*;
 import play.libs.F.Callback;
-import websocket.requestOperations.RequestOperation;
-import websocket.requestOperations.RequestOperationsSerializer;
+import requestOperations.RequestOperation;
+import requestOperations.RequestOperationsSerializer;
 
 public class Application extends Controller {
     
