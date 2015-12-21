@@ -6,6 +6,7 @@
 package websocket;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.Session;
@@ -31,6 +32,18 @@ public class JavaxWebSocketMedium implements Medium {
         } catch (IOException ex) {
             Logger.getLogger(JavaxWebSocketMedium.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof JavaxWebSocketMedium)) return false;
+        final JavaxWebSocketMedium that = (JavaxWebSocketMedium) o;
+        return Objects.equals(this.session, that.session);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(session);
     }
     
 }
