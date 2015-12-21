@@ -9,6 +9,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import model.Device;
+import model.DeviceInterface;
+import websocket.requestOperations.Log.LogParser;
 
 /**
  *
@@ -19,6 +21,7 @@ public class JsonParser {
         JsonObject json = new JsonObject();
         json.addProperty("id", device.getId());
         json.addProperty("name", device.getName());
+        json.add("interfaces", parseInterfaces(device.getInterfaces()).get("interfaces"));
         
         return json;
     }
@@ -30,6 +33,25 @@ public class JsonParser {
         }
         JsonObject resultJson = new JsonObject();
         resultJson.add("devices", devicesJsonArray);
+        return resultJson;
+    }
+    
+    public static JsonObject parseInterface(DeviceInterface deviceInterface) {
+        JsonObject json = new JsonObject();
+        json.addProperty("id", deviceInterface.getId());
+        json.addProperty("data_type", deviceInterface.getDataType());
+        json.addProperty("direction", LogParser.parseInterfaceDirection(deviceInterface.getInterfaceDirection()));
+        
+        return json;
+    }
+    
+    public static JsonObject parseInterfaces(ArrayList<DeviceInterface> interfaces) {
+        JsonArray interfacesJsonArray = new JsonArray();
+        for (DeviceInterface deviceInterface : interfaces) {
+            interfacesJsonArray.add(parseInterface(deviceInterface));
+        }
+        JsonObject resultJson = new JsonObject();
+        resultJson.add("interfaces", interfacesJsonArray);
         return resultJson;
     }
 }
