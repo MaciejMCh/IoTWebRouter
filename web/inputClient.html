@@ -1,14 +1,14 @@
 <!DOCTYPE html>  <meta charset="utf-8" />  
-<title>WebSocket Test</title>  
+<title>Input Client</title>  
 <br><label for="male">Name</label><input type="text" name="txt" id="name"/>
 <br><label for="male">Interface ID</label><input type="text" name="txt" id="interfaceID"/>
 <br><label for="male">Data type</label><input type="text" name="txt" id="dataType"/>
-<br><input type="button" value="Start" onclick="testWebSocket();">
+<br><label id="checkLabel" for="male">Remote host: </label><input type="checkbox" name="txt" id="checkbox"/><input id="startButton" type="button" value="Start" onclick="testWebSocket();">
 <br><input type="button" value="Simulate disconnect" onclick="simulateDisconnect();"><input style="width:calc(100% - 100px);" type="text" name="txt" id="logQuery"/>  
 <script language="javascript" type="text/javascript">  
 
-var wsUri = "wss://iotwebrouter.herokuapp.com/device";
-// var wsUri = "ws://localhost:8080/IoTWebRouter/actions";
+var wsUri;
+
 var output;
 
 var name;
@@ -28,6 +28,10 @@ var sessionID;
 
   function testWebSocket() { 
 
+    document.getElementById("checkbox").style.display = 'none';
+    document.getElementById("checkLabel").style.display = 'none';
+    document.getElementById("startButton").style.display = 'none';
+
 	var txtbox = document.getElementById("name");
     name = txtbox.value;
 
@@ -36,6 +40,13 @@ var sessionID;
 
     txtbox = document.getElementById("dataType");
     dataType = txtbox.value
+
+
+    if (checkbox.checked) {
+      wsUri = "wss://iotwebrouter.herokuapp.com/admin";
+    } else {
+      wsUri = "ws://localhost:8080/IoTWebRouter/admin";
+    }
 
 
   	websocket = new WebSocket(wsUri); 

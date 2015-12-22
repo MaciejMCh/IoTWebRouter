@@ -31,7 +31,6 @@ public class DataOperation extends RequestOperation {
         JsonArray array = json.get("interfaces").getAsJsonArray();
         
         Device sendingDevice = Interactor.getInstance().deviceForMedium(medium);
-        this.medium.sendMessage(sendingDevice.toString());
         for (Object object : array) {
             JsonObject jsonObject = (JsonObject)object;
             this.signals.add(new Signal(jsonObject, sendingDevice));

@@ -1,10 +1,12 @@
 <!DOCTYPE html>  <meta charset="utf-8" />  
-<title>WebSocket Test</title>  
+<title>Admin Client</title>  
 
+<br><input type="button" value="Start" id="startButton" onclick="testWebSocket();">
+<label id="checkLabel" for="male">Remote host: </label><input type="checkbox" name="txt" id="checkbox"/>
+<script language="javascript" type="text/javascript"> 
 
-<script language="javascript" type="text/javascript">  
+var wsUri;
 
-var wsUri = "wss://iotwebrouter.herokuapp.com/admin"; 
 var output;
 
 var deviceID;
@@ -20,7 +22,6 @@ var query;
 
   function init() { 
   	output = document.getElementById("output"); 
-  	testWebSocket(); 
   }  
 
   function logQuery() {
@@ -54,6 +55,19 @@ var query;
 
   function testWebSocket() { 	
 
+    document.getElementById("checkbox").style.display = 'none';
+    document.getElementById("checkLabel").style.display = 'none';
+    document.getElementById("startButton").style.display = 'none';
+
+
+    var checkbox = document.getElementById("checkbox");
+
+    if (checkbox.checked) {
+      wsUri = "wss://iotwebrouter.herokuapp.com/admin";
+    } else {
+      wsUri = "ws://localhost:8080/IoTWebRouter/admin";
+    }
+
   	websocket = new WebSocket(wsUri); 
   	websocket.onopen = function(evt) { 
   		onOpen(evt) 
@@ -70,7 +84,7 @@ var query;
   }  
 
   function onOpen(evt) {
-   writeToScreen("CONNECTED"); 
+   writeToScreen("CONNECTED " + wsUri); 
 } 
 
  function onClose(evt) {
