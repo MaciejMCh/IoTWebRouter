@@ -7,15 +7,16 @@ package notificationCenter;
 
 import com.google.gson.JsonObject;
 import model.Device;
+import requestOperations.Application.JsonParser;
 
 /**
  *
  * @author maciej
  */
 public class NewDeviceNotification extends Notification {
-    
+
     protected Device device;
-    
+
     public NewDeviceNotification(Device device) {
         super();
         this.device = device;
@@ -28,8 +29,6 @@ public class NewDeviceNotification extends Notification {
 
     @Override
     protected JsonObject subjectJsonRepresentation() {
-        JsonObject json = new JsonObject();
-        json.addProperty("device_id", device.getId());
-        return json;
+        return JsonParser.parseDevice(this.device);
     }
 }
