@@ -8,6 +8,8 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import static model.DeviceInterface.InterfaceDirection.Output;
+import notificationCenter.NewConnectionNotification;
+import notificationCenter.NotificationCenter;
 
 /**
  *
@@ -50,6 +52,7 @@ public class Router {
     public void connectInterfaces(DeviceInterface outputInterface, DeviceInterface inputInterface) {
         if (this.routingTable.containsKey(outputInterface)) {
             this.routingTable.get(outputInterface).add(inputInterface);
+            NotificationCenter.getInstance().notify(new NewConnectionNotification(new InterfaceConnection(inputInterface, outputInterface)));
         }
     }
     

@@ -60,7 +60,6 @@ public class Interactor {
     
     public void mediumClosed(Medium medium) {
         Device device = this.mediumDeviceMap.get(medium);
-        this.enviroment.removeDevice(device);
         this.mediumDeviceMap.remove(medium);
         this.deviceMediumMap.remove(device);
         

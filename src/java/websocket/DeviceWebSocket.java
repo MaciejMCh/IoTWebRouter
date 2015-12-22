@@ -23,7 +23,6 @@ import requestOperations.RequestOperationsSerializer;
 @ApplicationScoped
 @ServerEndpoint("/actions")
 public class DeviceWebSocket {
-    protected final HashMap<Session, Medium> mediumSessionMap = new HashMap<>();
     
     @OnOpen
     public void open(Session session) {
@@ -32,10 +31,7 @@ public class DeviceWebSocket {
 
     @OnClose
     public void close(Session session) {
-        if (this.mediumSessionMap.get(session) == null) {
-            return;
-        }
-        Interactor.getInstance().mediumClosed(this.mediumSessionMap.get(session));
+        Interactor.getInstance().mediumClosed(new JavaxWebSocketMedium(session));
     }
 
     @OnError
