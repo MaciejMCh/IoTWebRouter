@@ -4,20 +4,27 @@
 <br><label for="male">Interface ID</label><input type="text" name="txt" id="interfaceID"/>
 <br><label for="male">Data type</label><input type="text" name="txt" id="dataType"/>
 <br><input type="button" value="Start" onclick="testWebSocket();">
+<br><input type="button" value="Simulate disconnect" onclick="simulateDisconnect();"><input style="width:calc(100% - 100px);" type="text" name="txt" id="logQuery"/>  
 <script language="javascript" type="text/javascript">  
 
-var wsUri = "wss://iotwebrouter.herokuapp.com/device"; 
+var wsUri = "wss://iotwebrouter.herokuapp.com/device";
+// var wsUri = "ws://localhost:8080/IoTWebRouter/actions";
 var output;
 
 var name;
 var interfaceID;
 var dataType;
 var isInput;
+var sessionID;
 
   function init() { 
   	output = document.getElementById("output"); 
   	// testWebSocket(); 
   }  
+
+  function simulateDisconnect() {
+    websocket.close();
+  }
 
   function testWebSocket() { 
 
@@ -49,15 +56,18 @@ var isInput;
   function onOpen(evt) {
    writeToScreen("CONNECTED"); 
 
-   doSend("{\"action\":\"register\",\"device\":{\"name\":\"" + name + "\",\"interface\":[{\"direction\":\"input\",\"dataType\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
+   doSend("{\"stored_id\":\""+ sessionID +"\",\"action\":\"register\",\"device\":{\"name\":\"" + name + "\",\"interface\":[{\"direction\":\"input\",\"dataType\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
 } 
 
  function onClose(evt) {
  	writeToScreen("DISCONNECTED");
+  testWebSocket();
  } 
 
  function onMessage(evt) { 
  	writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>'); 
+  var json = JSON.parse(evt.data);
+  this.sessionID = json["device_id"];
  } 
 
  function onError(evt) {

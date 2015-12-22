@@ -8,7 +8,8 @@
 <br><input type="button" value="Simulate disconnect" onclick="simulateDisconnect();"><input style="width:calc(100% - 100px);" type="text" name="txt" id="logQuery"/>  
 <script language="javascript" type="text/javascript">  
 
-var wsUri = "ws://localhost:8080/IoTWebRouter/actions"; 
+var wsUri = "wss://iotwebrouter.herokuapp.com/device";
+// var wsUri = "ws://localhost:8080/IoTWebRouter/actions";
 var output;
 
 var name;
@@ -63,7 +64,7 @@ var first;
   function onOpen(evt) {
    writeToScreen("CONNECTED"); 
 
-   doSend("{\"action\":\"register\",\"session_id\":\""+ sessionID +"\",\"device\":{\"name\":\"" + name + "\",\"interface\":[{\"direction\":\"output\",\"dataType\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
+   doSend("{\"action\":\"register\",\"stored_id\":\""+ sessionID +"\",\"device\":{\"name\":\"" + name + "\",\"interface\":[{\"direction\":\"output\",\"dataType\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
 
    if (first != 1) {
     sendData();
@@ -72,7 +73,7 @@ var first;
 } 
 
 function sendData() {
-	doSend("{\"session_id\":\""+ sessionID +"\",\"action\":\"data\",\"interfaces\":[{\"dataType\":\""+ dataType +"\",\"id\":\""+interfaceID+"\",\"value\":"+dataValue+"}]}");
+	doSend("{\"stored_id\":\""+ sessionID +"\",\"action\":\"data\",\"interfaces\":[{\"dataType\":\""+ dataType +"\",\"id\":\""+interfaceID+"\",\"value\":"+dataValue+"}]}");
 	setTimeout(sendData, 1000);
 }
 
@@ -83,8 +84,8 @@ function sendData() {
 
  function onMessage(evt) { 
  	writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>'); 
-
-  this.sessionID = evt.data;
+  var json = JSON.parse(evt.data);
+  this.sessionID = json["device_id"];
  } 
 
  function onError(evt) {

@@ -33,10 +33,21 @@ public class Interactor {
         if (this.mediumDeviceMap.keySet().contains(medium)) {
             return;
         }
+        
         this.mediumDeviceMap.put(medium, device);
         this.deviceMediumMap.put(device, medium);
         this.enviroment.addDevice(device);
         this.router.addOutputsOfDevice(device);
+    }
+    
+    public void updateMedium(Medium medium, String deviceID) {
+        Device device = this.deviceForID(deviceID);
+        Medium oldMedium = this.deviceMediumMap.get(device);
+        
+        this.mediumDeviceMap.remove(oldMedium);
+        this.mediumDeviceMap.put(medium, device);
+        
+        this.deviceMediumMap.replace(device, medium);
     }
     
     public void mediumClosed(Medium medium) {

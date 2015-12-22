@@ -18,6 +18,7 @@ import requestOperations.RequestOperation;
 public class RegisterOperation extends RequestOperation {
 
     protected Device registeringDevice;
+    protected String storedID;
     
     public RegisterOperation(JsonObject params, Medium medium) {
         super(params, medium);
@@ -26,12 +27,23 @@ public class RegisterOperation extends RequestOperation {
     @Override
     protected void mapJson(JsonObject json) {
         this.registeringDevice = new Device(json.get("device").getAsJsonObject());
+        if (json.has("stored_id")) {
+            this.storedID = json.get("stored_id").getAsString();
+        }
     }
 
     @Override
     public void performOperation() {
+        if (this.storedID != null) {
+            if (Interactor.getInstance().deviceForID(storedID) != null) {
+                Interactor.getInstance().updateMedium(this.medium, this.storedID);
+                return;
+            }
+        }
         Interactor.getInstance().registerDevice(this.registeringDevice, this.medium);
-        this.medium.sendMessage(this.registeringDevice.getId());
+        JsonObject deviceIdJson = new JsonObject();
+        deviceIdJson.addProperty("device_id", this.registeringDevice.getId());
+        this.medium.sendMessage(deviceIdJson.toString());
     }
     
     @Override
