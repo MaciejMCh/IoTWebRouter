@@ -18,6 +18,7 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+import notificationCenter.NotificationCenter;
 import requestOperations.RequestOperation;
 import requestOperations.RequestOperationsSerializer;
 
@@ -31,12 +32,12 @@ public class MobileAppWebSocket {
     
     @OnOpen
     public void open(Session session) {
-        
+        NotificationCenter.getInstance().addMedium(new JavaxWebSocketMedium(session));
     }
 
     @OnClose
     public void close(Session session) {
-        
+        NotificationCenter.getInstance().removeMedium(new JavaxWebSocketMedium(session));
     }
 
     @OnError

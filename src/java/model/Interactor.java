@@ -6,6 +6,10 @@
 package model;
 
 import java.util.HashMap;
+import notificationCenter.DeviceConnectionErrorNotification;
+import notificationCenter.DeviceReconnectNotification;
+import notificationCenter.NewDeviceNotification;
+import notificationCenter.NotificationCenter;
 
 public class Interactor {
     private static Interactor instance = null;
@@ -38,6 +42,8 @@ public class Interactor {
         this.deviceMediumMap.put(device, medium);
         this.enviroment.addDevice(device);
         this.router.addOutputsOfDevice(device);
+        
+        NotificationCenter.getInstance().notify(new NewDeviceNotification(device));
     }
     
     public void updateMedium(Medium medium, String deviceID) {
@@ -48,6 +54,8 @@ public class Interactor {
         this.mediumDeviceMap.put(medium, device);
         
         this.deviceMediumMap.replace(device, medium);
+        
+        NotificationCenter.getInstance().notify(new DeviceReconnectNotification(device));
     }
     
     public void mediumClosed(Medium medium) {
@@ -55,6 +63,8 @@ public class Interactor {
         this.enviroment.removeDevice(device);
         this.mediumDeviceMap.remove(medium);
         this.deviceMediumMap.remove(device);
+        
+        NotificationCenter.getInstance().notify(new DeviceConnectionErrorNotification(device));
     }
     
     public Device deviceForMedium(Medium medium) {
