@@ -17,4 +17,17 @@ class PlayWebSocketMedium implements Medium {
         this.webSocketOut.write(message);
     }
     
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PlayWebSocketMedium)) return false;
+        final PlayWebSocketMedium that = (PlayWebSocketMedium) o;
+        return Objects.equals(this.webSocketOut, that.webSocketOut);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(webSocketOut);
+    }
+    
 }
