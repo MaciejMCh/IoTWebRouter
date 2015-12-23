@@ -42,23 +42,23 @@ public class ModelSerializerTest {
     /**
      * Test of model method, of class ModelSerializer.
      */
-//    @Test
-//    public void testStringSerialization() {
-//        Class clazz = ModelTestClass.class;
-//        JsonObject json = new JsonObject();
-//        json.addProperty("string_property", "string");
-//        SerializableModel result = ModelSerializer.model(clazz, json);
-//        
-//        assertNotNull(result);
-//        assertEquals(result.getClass(), clazz);
-//        
-//        ModelTestClass testModel = (ModelTestClass)result;
-//        
-//        assertEquals(testModel.getStringProperty(), "string");
-//    }
+    @Test
+    public void testStringSerialization() {
+        Class clazz = ModelTestClass.class;
+        JsonObject json = new JsonObject();
+        json.addProperty("string_property", "string");
+        SerializableModel result = ModelSerializer.model(clazz, json);
+        
+        assertNotNull(result);
+        assertEquals(result.getClass(), clazz);
+        
+        ModelTestClass testModel = (ModelTestClass)result;
+        
+        assertEquals(testModel.getStringProperty(), "string");
+    }
     
     @Test
-    public void testNumberSerialization() {
+    public void testIntSerialization() {
         Class clazz = ModelTestClass.class;
         JsonObject json = new JsonObject();
         json = new JsonParser().parse("{\"int_property\":100}").getAsJsonObject();
@@ -68,7 +68,6 @@ public class ModelSerializerTest {
         assertEquals(result.getClass(), clazz);
         
         ModelTestClass testModel = (ModelTestClass)result;
-        
         assertEquals(testModel.getIntProperty(), 100);
     }
 }

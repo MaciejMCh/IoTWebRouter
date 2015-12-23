@@ -35,6 +35,12 @@ public class ModelSerializer {
                 
                 if (field.getGenericType() == int.class) {
                     field.set(object, Integer.parseInt(fieldValue));
+                    return true;
+                }
+                
+                if (field.getGenericType() == String.class) {
+                    field.set(object, fieldValue);
+                    return true;
                 }
                 
                 return true;
