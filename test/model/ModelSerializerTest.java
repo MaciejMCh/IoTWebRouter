@@ -70,4 +70,18 @@ public class ModelSerializerTest {
         ModelTestClass testModel = (ModelTestClass)result;
         assertEquals(testModel.getIntProperty(), 100);
     }
+    
+    @Test
+    public void testFloatSerialization() {
+        Class clazz = ModelTestClass.class;
+        JsonObject json = new JsonObject();
+        json = new JsonParser().parse("{\"float_property\":100.1}").getAsJsonObject();
+        SerializableModel result = ModelSerializer.model(clazz, json);
+        
+        assertNotNull(result);
+        assertEquals(result.getClass(), clazz);
+        
+        ModelTestClass testModel = (ModelTestClass)result;
+        assertEquals(100.1, testModel.getFloatProperty(), 0.01);
+    }
 }

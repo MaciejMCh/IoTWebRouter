@@ -15,10 +15,7 @@ public class ModelTestClass implements SerializableModel {
 
     public String stringProperty;
     public int intProperty;
-
-    public String getStringProperty() {
-        return stringProperty;
-    }
+    public float floatProperty;
     
     @Override
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {
@@ -26,6 +23,7 @@ public class ModelTestClass implements SerializableModel {
             {
                 put("stringProperty", "string_property");
                 put("intProperty", "int_property");
+                put("floatProperty", "float_property");
             }
         };
     }
@@ -33,5 +31,15 @@ public class ModelTestClass implements SerializableModel {
     public int getIntProperty() {
         return intProperty;
     }
+    
+    public String getStringProperty() {
+        return stringProperty;
+    }
+
+    public float getFloatProperty() {
+        return floatProperty;
+    }
+    
+    
     
 }

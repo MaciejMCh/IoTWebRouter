@@ -33,14 +33,20 @@ public class ModelSerializer {
                 Field field = clazz.getDeclaredField(fieldName);
                 field.setAccessible(true);
                 
+                if (field.getGenericType() == String.class) {
+                    field.set(object, fieldValue);
+                    return true;
+                }
+                
                 if (field.getGenericType() == int.class) {
                     field.set(object, Integer.parseInt(fieldValue));
                     return true;
                 }
                 
-                if (field.getGenericType() == String.class) {
-                    field.set(object, fieldValue);
-                    return true;
+                if (field.getGenericType() == float.class) {
+                    System.out.println("flot");
+                    field.set(object, Float.parseFloat(fieldValue));
+                    System.out.println("set");
                 }
                 
                 return true;
