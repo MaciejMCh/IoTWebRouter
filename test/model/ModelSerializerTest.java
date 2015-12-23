@@ -72,6 +72,19 @@ public class ModelSerializerTest {
     }
     
     @Test
+    public void testLongSerialization() {
+        Class clazz = ModelTestClass.class;
+        JsonObject json = new JsonParser().parse("{\"long_property\":100}").getAsJsonObject();
+        SerializableModel result = ModelSerializer.model(clazz, json);
+        
+        assertNotNull(result);
+        assertEquals(result.getClass(), clazz);
+        
+        ModelTestClass testModel = (ModelTestClass)result;
+        assertEquals(testModel.getLongProperty(), 100);
+    }
+    
+    @Test
     public void testFloatSerialization() {
         Class clazz = ModelTestClass.class;
         JsonObject json = new JsonObject();
@@ -84,4 +97,31 @@ public class ModelSerializerTest {
         ModelTestClass testModel = (ModelTestClass)result;
         assertEquals(100.1, testModel.getFloatProperty(), 0.01);
     }
+    
+    @Test
+    public void testDoubleSerialization() {
+        Class clazz = ModelTestClass.class;
+        JsonObject json = new JsonParser().parse("{\"double_property\":100.1}").getAsJsonObject();
+        SerializableModel result = ModelSerializer.model(clazz, json);
+        
+        assertNotNull(result);
+        assertEquals(result.getClass(), clazz);
+        
+        ModelTestClass testModel = (ModelTestClass)result;
+        assertEquals(testModel.getDoubleProperty(), 100.1, 0.1);
+    }
+    
+    @Test
+    public void testBooleanSerialization() {
+        Class clazz = ModelTestClass.class;
+        JsonObject json = new JsonParser().parse("{\"boolean_property\":true}").getAsJsonObject();
+        SerializableModel result = ModelSerializer.model(clazz, json);
+        
+        assertNotNull(result);
+        assertEquals(result.getClass(), clazz);
+        
+        ModelTestClass testModel = (ModelTestClass)result;
+        assertEquals(testModel.getBooleanProperty(), true);
+    }
+    
 }

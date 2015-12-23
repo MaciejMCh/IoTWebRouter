@@ -43,13 +43,27 @@ public class ModelSerializer {
                     return true;
                 }
                 
-                if (field.getGenericType() == float.class) {
-                    System.out.println("flot");
-                    field.set(object, Float.parseFloat(fieldValue));
-                    System.out.println("set");
+                if (field.getGenericType() == long.class) {
+                    field.set(object, Long.parseLong(fieldValue));
+                    return true;
                 }
                 
-                return true;
+                if (field.getGenericType() == float.class) {
+                    field.set(object, Float.parseFloat(fieldValue));
+                    return true;
+                }
+                
+                if (field.getGenericType() == double.class) {
+                    field.set(object, Double.parseDouble(fieldValue));
+                    return true;
+                }
+                
+                if (field.getGenericType() == boolean.class) {
+                    field.set(object, Boolean.parseBoolean(fieldValue));
+                    return true;
+                }
+                
+                return false;
             } catch (NoSuchFieldException e) {
                 clazz = clazz.getSuperclass();
             } catch (Exception e) {
