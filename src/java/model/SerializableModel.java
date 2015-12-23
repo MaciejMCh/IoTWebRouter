@@ -2,6 +2,7 @@ package model;
 
 import java.util.HashMap;
 
-public abstract class SerializableModel {
+public interface SerializableModel {
     public abstract HashMap<String, String> JSONKeyPathsByPropertyKey();
+
 }
