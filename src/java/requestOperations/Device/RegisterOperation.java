@@ -31,6 +31,10 @@ public class RegisterOperation extends RequestOperation implements SerializableM
         };
     }
 
+    public Device getRegisteringDevice() {
+        return registeringDevice;
+    }
+
     @Override
     public void performOperation() {
         if (this.storedID != null) {

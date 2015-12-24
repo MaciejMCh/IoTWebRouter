@@ -63,7 +63,7 @@ public class ConnectOperation extends RequestOperation implements SerializableMo
             return;
         }
         if (outputInterface.getInterfaceDirection() == DeviceInterface.InterfaceDirection.Input) {
-            this.error("Interface '+" + outputInterfaceID + "' is 'input', but expected type is 'output'.");
+            this.error("Interface '" + outputInterfaceID + "' is 'input', but expected type is 'output'.");
             return;
         }
         
@@ -78,7 +78,7 @@ public class ConnectOperation extends RequestOperation implements SerializableMo
             return;
         }
         if (inputInterface.getInterfaceDirection() == DeviceInterface.InterfaceDirection.Output) {
-            this.error("Interface '+" + outputInterfaceID + "' is 'output', but expected type is 'input'.");
+            this.error("Interface '" + outputInterfaceID + "' is 'output', but expected type is 'input'.");
             return;
         }
         
