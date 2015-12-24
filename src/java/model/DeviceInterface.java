@@ -9,8 +9,19 @@ import java.lang.ref.WeakReference;
 import static model.DeviceInterface.InterfaceDirection.Input;
 import static model.DeviceInterface.InterfaceDirection.Output;
 import com.google.gson.*;
+import java.util.HashMap;
 
-public class DeviceInterface {
+public class DeviceInterface implements SerializableModel {
+
+    @Override
+    public HashMap<String, String> JSONKeyPathsByPropertyKey() {
+        return new HashMap<String, String>() {
+            {
+                put("dataType", "data_type");
+                put("interfaceDirection", "direction");
+            }
+        };
+    }
     
     public enum InterfaceDirection {
         Input, Output
@@ -35,16 +46,5 @@ public class DeviceInterface {
     
     public Device getParentDevice() {
         return this.parentDevice.get();
-    }
-    
-    public DeviceInterface(JsonObject json) {
-        this.id = json.get("id").getAsString();
-        this.dataType = json.get("dataType").getAsString();
-        String interfaceDirection = json.get("direction").getAsString();
-        if ("input".equals(interfaceDirection)) {
-            this.interfaceDirection = Input;
-        } else {
-            this.interfaceDirection = Output;
-        }
     }
 }

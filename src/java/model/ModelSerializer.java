@@ -1,17 +1,18 @@
 package model;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ModelSerializer {
     public static SerializableModel model(Class clazz, JsonObject json) {
-        
         try {
             SerializableModel model = (SerializableModel) clazz.newInstance();
             
@@ -34,7 +35,6 @@ public class ModelSerializer {
         Class<?> clazz = object.getClass();
         while (clazz != null) {
             try {
-                
                 Field field = clazz.getDeclaredField(fieldName);
                 field.setAccessible(true);
                 
@@ -68,9 +68,29 @@ public class ModelSerializer {
                     return true;
                 }
                 
-                if (Arrays.asList(field.getGenericType().getClass().getInterfaces()).contains(Serializable.class)) {
+                if (((Class)field.getGenericType()).isEnum()) {
+                    // TODO: implement enum binding
+                    return true;
+                }
+                
+                if (Arrays.asList(((Class)field.getGenericType()).getInterfaces()).contains(SerializableModel.class)) {
+                    System.out.println(field.getGenericType());
                     Object model = model((Class) field.getGenericType(), fieldValue.getAsJsonObject());
                     field.set(object, model);
+                    return true;
+                }
+                
+                if (field.getGenericType().getTypeName().contains("ArrayList")) {
+                    String genericClassString = field.getGenericType().getTypeName();
+                    genericClassString = genericClassString.substring(genericClassString.indexOf("<") + 1, genericClassString.indexOf(">"));
+                    Class genericClazz = Class.forName(genericClassString);
+                    ArrayList<Object> models = new ArrayList<>();
+                    JsonArray jsonArray = fieldValue.getAsJsonArray();
+                    for (JsonElement jsonElement : jsonArray) {
+                        Object model = ModelSerializer.model(genericClazz, jsonElement.getAsJsonObject());
+                        models.add(model);
+                    }
+                    System.out.println(models);
                 }
                         
                 return false;

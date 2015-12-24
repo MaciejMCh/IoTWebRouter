@@ -7,9 +7,7 @@ package model;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import java.util.ArrayList;
 import java.util.HashMap;
-import jdk.nashorn.internal.parser.JSONParser;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,9 +19,9 @@ import static org.junit.Assert.*;
  *
  * @author maciej
  */
-public class DeviceTest {
+public class DeviceInterfaceTest {
     
-    public DeviceTest() {
+    public DeviceInterfaceTest() {
     }
     
     @BeforeClass
@@ -43,12 +41,12 @@ public class DeviceTest {
     }
 
     /**
-     * Test of getId method, of class Device.
+     * Test of JSONKeyPathsByPropertyKey method, of class DeviceInterface.
      */
     @Test
     public void testSerialization() {
-//        JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"input\",\"dataType\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
-//        Device device = (Device) ModelSerializer.model(Device.class, json);
+        JsonObject json = new JsonParser().parse("{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_li_in\"}").getAsJsonObject();
+        DeviceInterface deviceInterface = (DeviceInterface) ModelSerializer.model(DeviceInterface.class, json);
 //        
 //        assertNotNull(device);
 //        assertEquals(device.getName(), "sensor");
