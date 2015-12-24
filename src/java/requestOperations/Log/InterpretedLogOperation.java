@@ -5,11 +5,8 @@
  */
 package requestOperations.Log;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import com.google.gson.*;
 import model.Medium;
 import requestOperations.RequestOperation;

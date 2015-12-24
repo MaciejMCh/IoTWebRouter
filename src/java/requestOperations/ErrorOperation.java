@@ -5,10 +5,6 @@
  */
 package requestOperations;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import com.google.gson.*;
 import model.Medium;
 
 /**
@@ -23,12 +19,8 @@ public class ErrorOperation extends RequestOperation {
     
     protected String errorMessage;
     
-    public ErrorOperation(JsonObject params, Medium medium) {
-        super(params, medium);
-    }
-    
     public ErrorOperation(String errorMessage, Medium medium) {
-        super(null, medium);
+        super();
         this.errorMessage = errorMessage;
     }
 

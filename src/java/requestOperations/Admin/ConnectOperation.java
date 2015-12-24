@@ -5,28 +5,52 @@
  */
 package requestOperations.Admin;
 
+import java.util.HashMap;
 import model.Device;
 import model.DeviceInterface;
 import model.Interactor;
-import com.google.gson.*;
-import model.Medium;
+import model.SerializableModel;
 import requestOperations.RequestOperation;
 
-public class ConnectOperation extends RequestOperation {
+public class ConnectOperation extends RequestOperation implements SerializableModel {
+    
+    protected String outputDeviceID;
+    protected String outputInterfaceID;
+    protected String inputDeviceID;
+    protected String inputInterfaceID;
     
     protected DeviceInterface outputInterface;
     protected DeviceInterface inputInterface;
     
-    public ConnectOperation(JsonObject params, Medium medium) {
-        super(params, medium);
+    @Override
+    public HashMap<String, String> JSONKeyPathsByPropertyKey() {
+        return new HashMap<String, String>() {
+            {
+                put("!outputDeviceID", "output.device_id");
+                put("!outputInterfaceID", "output.interface_id");
+                put("!inputDeviceID", "input.device_id");
+                put("!inputInterfaceID", "input.interface_id");
+            }
+        };
     }
 
-    @Override
-    protected void mapJson(JsonObject json) {
-        String outputDeviceID = json.get("output").getAsJsonObject().get("device").getAsString();
-        String outputInterfaceID = json.get("output").getAsJsonObject().get("interface").getAsString();
-        String inputDeviceID = json.get("input").getAsJsonObject().get("device").getAsString();
-        String inputInterfaceID = json.get("input").getAsJsonObject().get("interface").getAsString();
+    public String getOutputDeviceID() {
+        return outputDeviceID;
+    }
+
+    public String getOutputInterfaceID() {
+        return outputInterfaceID;
+    }
+
+    public String getInputDeviceID() {
+        return inputDeviceID;
+    }
+
+    public String getInputInterfaceID() {
+        return inputInterfaceID;
+    }
+    
+    private void init() {
         
         Device outputDevice = Interactor.getInstance().deviceForID(outputDeviceID);
         if (outputDevice == null) {
@@ -62,18 +86,8 @@ public class ConnectOperation extends RequestOperation {
         this.outputInterface = outputInterface;
     }
     
-    
-
     @Override
     public void performOperation() {
         Interactor.getInstance().getRouter().connectInterfaces(this.outputInterface, this.inputInterface);
     }
-
-    @Override
-    protected JsonObject getSyntax() {
-        return new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device\":\"String\",\"interface\":\"String\"},\"input\":{\"device\":\"String\",\"interface\":\"String\"}}").getAsJsonObject();
-    }
-    
-    
-    
 }

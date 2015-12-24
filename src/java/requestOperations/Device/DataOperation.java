@@ -21,22 +21,6 @@ public class DataOperation extends RequestOperation {
 
     protected ArrayList<Signal> signals;
     
-    public DataOperation(JsonObject params, Medium medium) {
-        super(params, medium);
-    }
-
-    @Override
-    protected void mapJson(JsonObject json) {
-        this.signals = new ArrayList<>();
-        JsonArray array = json.get("interfaces").getAsJsonArray();
-        
-        Device sendingDevice = Interactor.getInstance().deviceForMedium(medium);
-        for (Object object : array) {
-            JsonObject jsonObject = (JsonObject)object;
-            this.signals.add(new Signal(jsonObject, sendingDevice));
-        }
-    }
-    
     @Override
     public void performOperation() {
         ArrayList<Signal> routedSignals = new ArrayList<>();

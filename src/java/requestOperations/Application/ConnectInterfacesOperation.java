@@ -18,9 +18,8 @@ public class ConnectInterfacesOperation extends ResponsableRequestOperation {
 
     protected ConnectOperation workerOperation;
     
-    public ConnectInterfacesOperation(JsonObject params, Medium medium) {
-        super(params, medium);
-        this.workerOperation = new ConnectOperation(params, medium);
+    private void init() {
+        //TODO: assign worker operation
     }
 
     @Override

@@ -20,18 +20,6 @@ public class RegisterOperation extends RequestOperation {
 
     protected Device registeringDevice;
     protected String storedID;
-    
-    public RegisterOperation(JsonObject params, Medium medium) {
-        super(params, medium);
-    }
-
-    @Override
-    protected void mapJson(JsonObject json) {
-        this.registeringDevice = (Device)ModelSerializer.model(Device.class, json.get("device").getAsJsonObject());
-        if (json.has("stored_id")) {
-            this.storedID = json.get("stored_id").getAsString();
-        }
-    }
 
     @Override
     public void performOperation() {
@@ -47,8 +35,4 @@ public class RegisterOperation extends RequestOperation {
         this.medium.sendMessage(deviceIdJson.toString());
     }
     
-    @Override
-    protected JsonObject getSyntax() {
-        return new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"String\",\"interface\":[]}}").getAsJsonObject();
-    }
 }

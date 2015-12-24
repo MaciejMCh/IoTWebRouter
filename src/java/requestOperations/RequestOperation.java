@@ -5,7 +5,6 @@
  */
 package requestOperations;
 
-import com.google.gson.*;
 import model.Medium;
 
 /**
@@ -25,29 +24,9 @@ public abstract class RequestOperation {
         
     }
     
-    public RequestOperation(JsonObject params, Medium medium) {
-        this.medium = medium;
-        
-        String sytnaxError = SyntaxValidator.validateSyntax(this.getSyntax(), params);
-        if (sytnaxError != null) {
-            this.error("Syntax error. " + sytnaxError);
-            return;
-        }
-        
-        this.mapJson(params);
-    }
-    
-    protected void mapJson(JsonObject json) {
-        
-    }
-    
     public abstract void performOperation();
     
     protected void error(String errorMessage) {
         this.error = new Error(errorMessage);
-    }
-    
-    protected JsonObject getSyntax() {
-        return new JsonObject();
     }
 }

@@ -14,10 +14,6 @@ import model.Medium;
  * @author maciej
  */
 public class IndexDevicesOperation extends ResponsableRequestOperation {
-
-    public IndexDevicesOperation(JsonObject params, Medium medium) {
-        super(params, medium);
-    }
     
     @Override
     public ConversationResponse performReponsableOperation() {

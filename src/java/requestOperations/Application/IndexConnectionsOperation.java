@@ -15,10 +15,6 @@ import model.Medium;
  */
 public class IndexConnectionsOperation extends ResponsableRequestOperation {
 
-    public IndexConnectionsOperation(JsonObject params, Medium medium) {
-        super(params, medium);
-    }
-
     @Override
     public ConversationResponse performReponsableOperation() {
         return ConversationResponse.successResponse(this.requestID, JsonParser.parseInterfacesConnections(Interactor.getInstance().getRouter().getInterfacesConnections()));
