@@ -22,7 +22,7 @@ public class Device implements SerializableModel {
         return new HashMap<String, String>() {
             {
                 put("name", "name");
-                put("interfaces", "interfaces");
+                put("!interfaces", "interfaces");
             }
         };
     }

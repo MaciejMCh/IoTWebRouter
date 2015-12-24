@@ -8,6 +8,8 @@ package model;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,13 +47,17 @@ public class DeviceInterfaceTest {
      */
     @Test
     public void testSerialization() {
-        JsonObject json = new JsonParser().parse("{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_li_in\"}").getAsJsonObject();
-        DeviceInterface deviceInterface = (DeviceInterface) ModelSerializer.model(DeviceInterface.class, json);
-        
-        assertNotNull(deviceInterface);
-        assertEquals(deviceInterface.getDataType(), "light");
-        assertEquals(deviceInterface.getId(), "int_li_in");
-        assertEquals(deviceInterface.getInterfaceDirection(), DeviceInterface.InterfaceDirection.Input);
+        try {
+            JsonObject json = new JsonParser().parse("{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_li_in\"}").getAsJsonObject();
+            DeviceInterface deviceInterface = (DeviceInterface) ModelSerializer.model(DeviceInterface.class, json);
+            
+            assertNotNull(deviceInterface);
+            assertEquals(deviceInterface.getDataType(), "light");
+            assertEquals(deviceInterface.getId(), "int_li_in");
+            assertEquals(deviceInterface.getInterfaceDirection(), DeviceInterface.InterfaceDirection.Input);
+        } catch (SerializationErrorException ex) {
+            assertTrue(false);
+        }
     }
     
 }

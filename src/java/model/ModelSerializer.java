@@ -10,14 +10,19 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class ModelSerializer {
-    public static SerializableModel model(Class clazz, JsonObject json) {
+    public static SerializableModel model(Class clazz, JsonObject json) throws SerializationErrorException {
         try {
             SerializableModel model = (SerializableModel) clazz.newInstance();
             
-            for (String propertyName : model.JSONKeyPathsByPropertyKey().keySet()) {
-                String jsonName = model.JSONKeyPathsByPropertyKey().get(propertyName);
+            for (String propertyExpression : model.JSONKeyPathsByPropertyKey().keySet()) {
+                String jsonName = model.JSONKeyPathsByPropertyKey().get(propertyExpression);
+                String propertyName = propertyExpression.replace("!", "");
                 if (json.has(jsonName)) {
                     reflectiveSet(model, propertyName, json.get(jsonName));
+                } else {
+                    if (propertyExpression.contains("!")) {
+                        throw new SerializationErrorException(jsonName + " field is missing.");
+                    }
                 }
             }
             
@@ -104,8 +109,8 @@ public class ModelSerializer {
                     field.set(object, model);
                     return true;
                 }
-                        
-                return false;
+                
+                throw new SerializationErrorException(fieldName + " is unprocessable.");
             } catch (NoSuchFieldException e) {
                 clazz = clazz.getSuperclass();
             } catch (Exception e) {
