@@ -7,8 +7,6 @@ package requestOperations.Admin;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.ModelSerializer;
 import model.SerializationErrorException;
 import org.junit.After;
@@ -59,7 +57,7 @@ public class ConnectOperationTest {
             assertEquals(operation.getInputInterfaceID(), "int_1");
             
         } catch (SerializationErrorException ex) {
-            fail();
+            fail(ex.toString());
         }
     }
     

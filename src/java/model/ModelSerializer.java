@@ -21,8 +21,9 @@ public class ModelSerializer {
         for (String propertyExpression : model.JSONKeyPathsByPropertyKey().keySet()) {
             String jsonName = model.JSONKeyPathsByPropertyKey().get(propertyExpression);
             String propertyName = propertyExpression.replace("!", "");
-            if (json.has(jsonName)) {
-                reflectiveSet(model, propertyName, json.get(jsonName));
+            JsonElement value = getValueFromJsonWithPath(json, jsonName);
+            if (value != null) {
+                reflectiveSet(model, propertyName, value);
             } else {
                 if (propertyExpression.contains("!")) {
                     throw new SerializationErrorException(jsonName + " field is missing.");
@@ -38,6 +39,17 @@ public class ModelSerializer {
             
         }
         return model;
+    }
+    
+    private static JsonElement getValueFromJsonWithPath(JsonObject json, String path) {
+        if (path.contains(".")) {
+            JsonElement result = json;
+            for (String node : path.split("\\.")) {
+                result = result.getAsJsonObject().get(node);
+            }
+            return result;
+        } 
+        return json.get(path);
     }
     
     private static boolean reflectiveSet(Object object, String fieldName, JsonElement fieldValue) {
