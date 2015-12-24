@@ -47,12 +47,11 @@ public class DeviceInterfaceTest {
     public void testSerialization() {
         JsonObject json = new JsonParser().parse("{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_li_in\"}").getAsJsonObject();
         DeviceInterface deviceInterface = (DeviceInterface) ModelSerializer.model(DeviceInterface.class, json);
-//        
-//        assertNotNull(device);
-//        assertEquals(device.getName(), "sensor");
-//        
-//        assertNotNull(device.getInterfaces());
-//        assertEquals(device.getInterfaces().size(), 1);
+        
+        assertNotNull(deviceInterface);
+        assertEquals(deviceInterface.getDataType(), "light");
+        assertEquals(deviceInterface.getId(), "int_li_in");
+        assertEquals(deviceInterface.getInterfaceDirection(), DeviceInterface.InterfaceDirection.Input);
     }
     
 }

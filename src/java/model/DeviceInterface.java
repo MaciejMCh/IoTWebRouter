@@ -19,6 +19,16 @@ public class DeviceInterface implements SerializableModel {
             {
                 put("dataType", "data_type");
                 put("interfaceDirection", "direction");
+                put("id", "id");
+            }
+        };
+    }
+    
+    public HashMap<String, InterfaceDirection> interfaceDirectionEnumMap() {
+        return new HashMap<String, InterfaceDirection>() {
+            {
+                put("input", Input);
+                put("output", Output);
             }
         };
     }

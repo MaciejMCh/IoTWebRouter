@@ -3,13 +3,11 @@ package model;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import java.io.Serializable;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashMap;
 
 public class ModelSerializer {
     public static SerializableModel model(Class clazz, JsonObject json) {
@@ -69,12 +67,17 @@ public class ModelSerializer {
                 }
                 
                 if (((Class)field.getGenericType()).isEnum()) {
-                    // TODO: implement enum binding
-                    return true;
+                    try {
+                        Method method = clazz.getMethod(fieldName+"EnumMap");
+                        HashMap<String, Object> enumMap = (HashMap<String, Object>) method.invoke(object);
+                        field.set(object, enumMap.get(fieldValue.getAsString()));
+                        return true;
+                    } catch(Exception e) {
+                        System.out.println(fieldName+"EnumMap method not found");
+                    }
                 }
                 
                 if (Arrays.asList(((Class)field.getGenericType()).getInterfaces()).contains(SerializableModel.class)) {
-                    System.out.println(field.getGenericType());
                     Object model = model((Class) field.getGenericType(), fieldValue.getAsJsonObject());
                     field.set(object, model);
                     return true;
