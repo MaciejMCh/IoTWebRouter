@@ -39,6 +39,7 @@ public class Device implements SerializableModel {
     }
     
     private void init() {
+        this.id = "dev_" + devicesCount++;
         for (DeviceInterface deviceInterface : interfaces) {
             deviceInterface.parentDevice = new WeakReference<>(this);
         }
