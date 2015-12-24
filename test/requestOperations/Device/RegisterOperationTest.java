@@ -7,6 +7,7 @@ package requestOperations.Device;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import model.Interactor;
 import model.ModelSerializer;
 import model.SerializationErrorException;
 import org.junit.After;
@@ -44,6 +45,7 @@ public class RegisterOperationTest {
     /**
      * Test of JSONKeyPathsByPropertyKey method, of class RegisterOperation.
      */
+    
     @Test
     public void testSerialization() {
         try {
@@ -59,5 +61,48 @@ public class RegisterOperationTest {
             fail(ex.toString());
         }
     }
+    
+    @Test
+    public void testPerformFirstRegistration() {
+        try {
+            JsonObject json = new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"in_0\"}]}}").getAsJsonObject();
+            
+            int preDevicesCount = Interactor.getInstance().getEnviroment().devices.size();
+            RegisterOperation operation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, json);
+            FakeMedium medium = new FakeMedium();
+            operation.medium = medium;
+            
+            operation.performOperation();
+            
+            assertEquals(Interactor.getInstance().getEnviroment().devices.size() , preDevicesCount + 1);
+            assertEquals(medium.message, "{\"device_id\":\""+ operation.registeringDevice.getId() +"\"}");
+            assertNotNull(Interactor.getInstance().deviceForID(operation.registeringDevice.getId()));
+            
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testPerformReconnect() {
+        try {
+            int preDevicesCount = Interactor.getInstance().getEnviroment().devices.size();
+            String storedID = Interactor.getInstance().getEnviroment().devices.get(0).getId();
+            JsonObject json = new JsonParser().parse("{\"action\":\"register\",\"stored_id\":\"" + storedID + "\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"in_0\"}]}}").getAsJsonObject();
+            
+            RegisterOperation operation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, json);
+            FakeMedium medium = new FakeMedium();
+            operation.medium = medium;
+            operation.performOperation();
+            
+            assertEquals(Interactor.getInstance().getEnviroment().devices.size() , preDevicesCount);
+            assertNull(medium.message);
+            
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    
     
 }

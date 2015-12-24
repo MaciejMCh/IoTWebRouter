@@ -13,7 +13,7 @@ import model.Medium;
  */
 public abstract class RequestOperation {
     
-    protected Medium medium;
+    public Medium medium;
     protected Error error;
 
     public Error getError() {
