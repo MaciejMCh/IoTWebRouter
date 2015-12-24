@@ -47,14 +47,35 @@ public class DeviceTest {
      */
     @Test
     public void testSerialization() {
-//        JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"input\",\"dataType\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
-//        Device device = (Device) ModelSerializer.model(Device.class, json);
-//        
-//        assertNotNull(device);
-//        assertEquals(device.getName(), "sensor");
-//        
-//        assertNotNull(device.getInterfaces());
-//        assertEquals(device.getInterfaces().size(), 1);
+        JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+        Device device = (Device) ModelSerializer.model(Device.class, json);
+        
+        assertNotNull(device);
+        assertEquals(device.getName(), "sensor");
+        
+        assertNotNull(device.getInterfaces());
+        assertEquals(device.getInterfaces().size(), 1);
+        
+        DeviceInterface deviceInterface = device.getInterfaces().get(0);
+        
+        assertEquals(deviceInterface.getDataType(), "light");
+        assertEquals(deviceInterface.getId(), "int_li_in");
+        assertEquals(deviceInterface.getInterfaceDirection(), DeviceInterface.InterfaceDirection.Output);
+    }
+    
+    @Test
+    public void testParent() {
+        JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+        Device device = (Device) ModelSerializer.model(Device.class, json);
+        
+        assertNotNull(device);
+        
+        assertNotNull(device.getInterfaces());
+        assertEquals(device.getInterfaces().size(), 1);
+        
+        DeviceInterface deviceInterface = device.getInterfaces().get(0);
+        
+        assertEquals(deviceInterface.getParentDevice(), device);
     }
     
 }

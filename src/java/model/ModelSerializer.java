@@ -35,7 +35,6 @@ public class ModelSerializer {
             try {
                 Field field = clazz.getDeclaredField(fieldName);
                 field.setAccessible(true);
-                
                 if (field.getGenericType() == String.class) {
                     field.set(object, fieldValue.getAsString());
                     return true;
@@ -66,23 +65,6 @@ public class ModelSerializer {
                     return true;
                 }
                 
-                if (((Class)field.getGenericType()).isEnum()) {
-                    try {
-                        Method method = clazz.getMethod(fieldName+"EnumMap");
-                        HashMap<String, Object> enumMap = (HashMap<String, Object>) method.invoke(object);
-                        field.set(object, enumMap.get(fieldValue.getAsString()));
-                        return true;
-                    } catch(Exception e) {
-                        System.out.println(fieldName+"EnumMap method not found");
-                    }
-                }
-                
-                if (Arrays.asList(((Class)field.getGenericType()).getInterfaces()).contains(SerializableModel.class)) {
-                    Object model = model((Class) field.getGenericType(), fieldValue.getAsJsonObject());
-                    field.set(object, model);
-                    return true;
-                }
-                
                 if (field.getGenericType().getTypeName().contains("ArrayList")) {
                     String genericClassString = field.getGenericType().getTypeName();
                     genericClassString = genericClassString.substring(genericClassString.indexOf("<") + 1, genericClassString.indexOf(">"));
@@ -93,7 +75,26 @@ public class ModelSerializer {
                         Object model = ModelSerializer.model(genericClazz, jsonElement.getAsJsonObject());
                         models.add(model);
                     }
-                    System.out.println(models);
+                    field.set(object, models);
+                    return true;
+                }
+                
+                if (((Class)field.getGenericType()).isEnum()) {
+                    try {
+                        Method method = clazz.getMethod(fieldName+"EnumMap");
+                        HashMap<String, Object> enumMap = (HashMap<String, Object>) method.invoke(object);
+                        field.set(object, enumMap.get(fieldValue.getAsString()));
+                        return true;
+                    } catch(Exception e) {
+                        System.out.println(fieldName+"EnumMap method not found");
+                        return false;
+                    }
+                }
+                
+                if (Arrays.asList(((Class)field.getGenericType()).getInterfaces()).contains(SerializableModel.class)) {
+                    Object model = model((Class) field.getGenericType(), fieldValue.getAsJsonObject());
+                    field.set(object, model);
+                    return true;
                 }
                         
                 return false;
