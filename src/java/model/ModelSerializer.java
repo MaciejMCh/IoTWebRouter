@@ -21,6 +21,14 @@ public class ModelSerializer {
                 }
             }
             
+            try {
+                Method init = clazz.getDeclaredMethod("init");
+                init.setAccessible(true);
+                init.invoke(model);
+            } catch(Exception e) {
+                
+            }
+            
             return model;
         } catch(Exception e) {
             System.out.println(e);

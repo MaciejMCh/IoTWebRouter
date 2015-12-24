@@ -8,7 +8,6 @@ package model;
 import java.lang.ref.WeakReference;
 import static model.DeviceInterface.InterfaceDirection.Input;
 import static model.DeviceInterface.InterfaceDirection.Output;
-import com.google.gson.*;
 import java.util.HashMap;
 
 public class DeviceInterface implements SerializableModel {

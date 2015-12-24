@@ -28,6 +28,12 @@ public class Device implements SerializableModel {
         return this.interfaces;
     }
     
+    private void init() {
+        for (DeviceInterface deviceInterface : interfaces) {
+            deviceInterface.parentDevice = new WeakReference<>(this);
+        }
+    }
+    
 //    public Device(String id, String name, ArrayList<DeviceInterface> interfaces) {
 //        this.id = id;
 //        this.name = name;
