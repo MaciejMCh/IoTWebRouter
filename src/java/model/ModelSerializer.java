@@ -15,7 +15,7 @@ public class ModelSerializer {
         try {
             model = (SerializableModel) clazz.newInstance();
         } catch(Exception e) {
-            throw new SerializationErrorException("Internal server error.");
+            throw new SerializationErrorException("Internal server error. Instantiating class " + clazz);
         }
             
         for (String propertyExpression : model.JSONKeyPathsByPropertyKey().keySet()) {
@@ -26,6 +26,7 @@ public class ModelSerializer {
                 reflectiveSet(model, propertyName, value);
             } else {
                 if (propertyExpression.contains("!")) {
+                    System.out.println(json);
                     throw new SerializationErrorException(jsonName + " field is missing.");
                 }
             }

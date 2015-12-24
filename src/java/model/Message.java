@@ -5,9 +5,21 @@
  */
 package model;
 
-public class Message {
+import java.util.HashMap;
+
+public class Message implements SerializableModel {
     protected String dataType;
     protected String value;
+    
+    @Override
+    public HashMap<String, String> JSONKeyPathsByPropertyKey() {
+        return new HashMap<String, String>() {
+            {
+                put("dataType", "data_type");
+                put("value", "value");
+            }
+        };
+    }
     
     public String getDataType() {
         return this.dataType;
@@ -17,8 +29,4 @@ public class Message {
         return this.value;
     }
     
-    public Message(String dataType, String value) {
-        this.dataType = dataType;
-        this.value = value;
-    }
 }

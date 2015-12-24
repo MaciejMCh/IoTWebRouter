@@ -6,15 +6,28 @@
 package model;
 
 import com.google.gson.*;
+import java.util.HashMap;
 
 /**
  *
  * @author maciej
  */
-public class Signal {
+public class Signal implements SerializableModel {
     protected Message message;
+    protected String sourceInterfaceID;
+    
     protected DeviceInterface sourceInterface;
     protected DeviceInterface destinationInterface;
+    
+    @Override
+    public HashMap<String, String> JSONKeyPathsByPropertyKey() {
+        return new HashMap<String, String>() {
+            {
+                put("!message", "message");
+                put("!sourceInterfaceID", "interface_id");
+            }
+        };
+    }
     
     public Message getMessage() {
         return this.message;
@@ -28,19 +41,14 @@ public class Signal {
         return destinationInterface;
     }
     
-    public Signal(JsonObject json, Device device) {
-        this.message = new Message(json.get("dataType").getAsString(), json.get("value").getAsString());
-        this.sourceInterface = device.interfaceWithID(json.get("id").getAsString());
-    }
-
-    private Signal() {}
-    
     public Signal routedSignalWithDestinationInterface(DeviceInterface destinationInterface) {
-        Signal newSignal = new Signal();
-        newSignal.message = this.message;
-        newSignal.sourceInterface = this.sourceInterface;
-        newSignal.destinationInterface = destinationInterface;
-        return newSignal;
+        //TODO: implement this method
+//        Signal newSignal = new Signal();
+//        newSignal.message = this.message;
+//        newSignal.sourceInterface = this.sourceInterface;
+//        newSignal.destinationInterface = destinationInterface;
+//        return newSignal;
+        return null;
     }
     
     public String stringDataRepresentation() {
