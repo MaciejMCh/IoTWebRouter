@@ -7,9 +7,6 @@ package model;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -47,9 +44,14 @@ public class SignalTest {
      */
     @Test
     public void testSerialization() {
-        JsonObject json = new JsonParser().parse("{\"interface_id\":\"int_0\",\"message\":{\"data_type\":\"\\\"light\\\"\",\"value\":455}}").getAsJsonObject();
+        JsonObject json = new JsonParser().parse("{\"interface_id\":\"int_0\",\"message\":{\"data_type\":\"light\",\"value\":455}}").getAsJsonObject();
         try {
-            ModelSerializer.model(Signal.class, json);
+            Signal signal = (Signal) ModelSerializer.model(Signal.class, json);
+            assertNotNull(signal);
+            assertEquals(signal.getSourceInterfaceID(), "int_0");
+            assertNotNull(signal.getMessage());
+            assertEquals(signal.getMessage().getDataType(), "light");
+            assertEquals(signal.getMessage().getValue(), "455");
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }

@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package requestOperations.Device;
+package model;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import model.ModelSerializer;
-import model.SerializationErrorException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,9 +18,9 @@ import static org.junit.Assert.*;
  *
  * @author maciej
  */
-public class RegisterOperationTest {
+public class MessageTest {
     
-    public RegisterOperationTest() {
+    public MessageTest() {
     }
     
     @BeforeClass
@@ -42,13 +40,17 @@ public class RegisterOperationTest {
     }
 
     /**
-     * Test of JSONKeyPathsByPropertyKey method, of class RegisterOperation.
+     * Test of JSONKeyPathsByPropertyKey method, of class Message.
      */
     @Test
     public void testSerialization() {
         try {
-            JsonObject json = new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"in_0\"}]}}").getAsJsonObject();
-            RegisterOperation operation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, json);
+            JsonObject json = new JsonParser().parse("{\"data_type\":\"light\",\"value\":455}").getAsJsonObject();
+            Message message = (Message) ModelSerializer.model(Message.class, json);
+            
+            assertNotNull(message);
+            assertEquals(message.getDataType(), "light");
+            assertEquals(message.getValue(), "455");
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }

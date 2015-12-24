@@ -28,6 +28,10 @@ public class Signal implements SerializableModel {
             }
         };
     }
+
+    public String getSourceInterfaceID() {
+        return sourceInterfaceID;
+    }
     
     public Message getMessage() {
         return this.message;
