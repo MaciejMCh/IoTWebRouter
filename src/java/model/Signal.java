@@ -46,13 +46,11 @@ public class Signal implements SerializableModel {
     }
     
     public Signal routedSignalWithDestinationInterface(DeviceInterface destinationInterface) {
-        //TODO: implement this method
-//        Signal newSignal = new Signal();
-//        newSignal.message = this.message;
-//        newSignal.sourceInterface = this.sourceInterface;
-//        newSignal.destinationInterface = destinationInterface;
-//        return newSignal;
-        return null;
+        Signal newSignal = new Signal();
+        newSignal.message = this.message;
+        newSignal.sourceInterface = this.sourceInterface;
+        newSignal.destinationInterface = destinationInterface;
+        return newSignal;
     }
     
     public String stringDataRepresentation() {

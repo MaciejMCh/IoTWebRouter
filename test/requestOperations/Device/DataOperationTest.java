@@ -7,6 +7,8 @@ package requestOperations.Device;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.ModelSerializer;
 import model.SerializationErrorException;
 import model.Signal;
@@ -17,6 +19,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.internal.runners.statements.Fail;
+import requestOperations.Admin.ConnectOperation;
 
 /**
  *
@@ -61,6 +65,48 @@ public class DataOperationTest {
             assertEquals(signal.getSourceInterfaceID(), "int_0");
             assertEquals(signal.getMessage().getDataType(), "light");
             assertEquals(signal.getMessage().getValue(), "455");
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testOperationPerform() {
+        try {
+            JsonObject inputRegisterJson = new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"in_0\"}]}}").getAsJsonObject();
+            RegisterOperation inputRegisterOperation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, inputRegisterJson);
+            FakeMedium inputRegisterMedium = new FakeMedium();
+            inputRegisterOperation.medium = inputRegisterMedium;
+            inputRegisterOperation.performOperation();
+            String inputDeviceID = inputRegisterOperation.getRegisteringDevice().getId();
+            
+            JsonObject outputRegisterJson = new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"in_1\"}]}}").getAsJsonObject();
+            RegisterOperation outputRegisterOperation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, outputRegisterJson);
+            FakeMedium outputRegisterMedium = new FakeMedium();
+            outputRegisterOperation.medium = outputRegisterMedium;
+            outputRegisterOperation.performOperation();
+            String outputDeviceID = outputRegisterOperation.getRegisteringDevice().getId();
+            
+            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"" + outputDeviceID + "\",\"interface_id\":\"in_1\"},\"input\":{\"device_id\":\""+ inputDeviceID +"\",\"interface_id\":\"in_0\"}}").getAsJsonObject();
+            ConnectOperation connectOperation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
+            FakeMedium connectMedium = new FakeMedium();
+            connectOperation.medium = connectMedium;
+            connectOperation.performOperation();
+            
+            JsonObject dataJson = new JsonParser().parse("{\"action\":\"data\",\"signals\":[{\"interface_id\":\"in_1\",\"message\":{\"data_type\":\"light\",\"value\":455}}]}").getAsJsonObject();
+            DataOperation dataOperation = (DataOperation) ModelSerializer.model(DataOperation.class, dataJson);
+            
+            assertNotNull(dataOperation);
+            assertNotNull(dataOperation.signals);
+            
+            dataOperation.medium = outputRegisterMedium;
+            dataOperation.performOperation();
+            
+            
+            assertNull(dataOperation.getError());
+            
+            System.out.println(inputRegisterMedium.message);
+            
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }
