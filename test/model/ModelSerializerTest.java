@@ -6,7 +6,6 @@
 package model;
 
 import com.google.gson.*;
-import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -122,6 +121,20 @@ public class ModelSerializerTest {
         
         ModelTestClass testModel = (ModelTestClass)result;
         assertEquals(testModel.getBooleanProperty(), true);
+    }
+    
+    @Test
+    public void testSerializableSerialization() {
+        Class clazz = ModelTestClass.class;
+        JsonObject json = new JsonParser().parse("{\"serializable_property\":{}}").getAsJsonObject();
+        SerializableModel result = ModelSerializer.model(clazz, json);
+        
+        assertNotNull(result);
+        assertEquals(result.getClass(), clazz);
+        
+        ModelTestClass testModel = (ModelTestClass)result;
+        assertNotNull(testModel.getSerializableProperty());
+        assertEquals(testModel.getSerializableProperty().getClass(), ModelTestClass.class);
     }
     
 }

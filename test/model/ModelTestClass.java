@@ -6,7 +6,6 @@
 package model;
 
 import java.util.HashMap;
-import sun.security.action.GetBooleanAction;
 
 /**
  *
@@ -14,12 +13,13 @@ import sun.security.action.GetBooleanAction;
  */
 public class ModelTestClass implements SerializableModel {
 
-    public String stringProperty;
-    public int intProperty;
-    public long longProperty;
-    public float floatProperty;
-    public double doubleProperty;
-    public boolean booleanProperty;
+    private String stringProperty;
+    private int intProperty;
+    private long longProperty;
+    private float floatProperty;
+    private double doubleProperty;
+    private boolean booleanProperty;
+    private ModelTestClass serializableProperty;
     
     @Override
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {
@@ -31,6 +31,7 @@ public class ModelTestClass implements SerializableModel {
                 put("floatProperty", "float_property");
                 put("doubleProperty", "double_property");
                 put("booleanProperty", "boolean_property");
+                put("serializableProperty", "serializable_property");
             }
         };
     }
@@ -57,6 +58,10 @@ public class ModelTestClass implements SerializableModel {
     
     public boolean getBooleanProperty() {
         return booleanProperty;
+    }
+
+    public ModelTestClass getSerializableProperty() {
+        return serializableProperty;
     }
     
 }
