@@ -16,8 +16,8 @@ public class Signal implements SerializableModel {
     protected Message message;
     protected String sourceInterfaceID;
     
-    protected DeviceInterface sourceInterface;
-    protected DeviceInterface destinationInterface;
+    public DeviceInterface sourceInterface;
+    public DeviceInterface destinationInterface;
     
     @Override
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {
@@ -56,9 +56,8 @@ public class Signal implements SerializableModel {
     public String stringDataRepresentation() {
         JsonObject json = new JsonObject();
         
-        json.addProperty("dataType", this.message.dataType);
+        json.addProperty("data_type", this.message.dataType);
         json.addProperty("value", this.message.value);
-        json.addProperty("interface", this.destinationInterface.id);
         
         return json.toString();
     }

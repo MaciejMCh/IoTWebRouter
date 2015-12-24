@@ -7,19 +7,15 @@ package requestOperations.Device;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.ModelSerializer;
 import model.SerializationErrorException;
 import model.Signal;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.internal.runners.statements.Fail;
 import requestOperations.Admin.ConnectOperation;
 
 /**
@@ -96,14 +92,17 @@ public class DataOperationTest {
             JsonObject dataJson = new JsonParser().parse("{\"action\":\"data\",\"signals\":[{\"interface_id\":\"in_1\",\"message\":{\"data_type\":\"light\",\"value\":455}}]}").getAsJsonObject();
             DataOperation dataOperation = (DataOperation) ModelSerializer.model(DataOperation.class, dataJson);
             
+            
             assertNotNull(dataOperation);
             assertNotNull(dataOperation.signals);
             
             dataOperation.medium = outputRegisterMedium;
+            dataOperation.init();
+            
             dataOperation.performOperation();
             
-            
             assertNull(dataOperation.getError());
+            assertEquals(inputRegisterMedium.message, "{\"data_type\":\"light\",\"value\":\"455\"}");
             
             System.out.println(inputRegisterMedium.message);
             

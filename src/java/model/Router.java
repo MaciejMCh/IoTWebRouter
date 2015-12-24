@@ -57,14 +57,12 @@ public class Router {
     }
     
     public ArrayList<Signal> produceRoutedSignals(Signal signal) {
-        System.out.println(signal.sourceInterface);
         if (signal.sourceInterface == null) {
             return new ArrayList<>();
         }
         
         ArrayList<Signal> routedSignals = new ArrayList<>();
         if (this.routingTable.containsKey(signal.sourceInterface)) {
-            System.out.println("jest w tablicy");
             for (DeviceInterface inputInterface : this.routingTable.get(signal.sourceInterface)) {
                 routedSignals.add(signal.routedSignalWithDestinationInterface(inputInterface));
             }
