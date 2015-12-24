@@ -9,17 +9,27 @@ import java.util.ArrayList;
 import model.Device;
 import model.Interactor;
 import model.Signal;
-import com.google.gson.*;
+import java.util.HashMap;
 import model.Medium;
+import model.SerializableModel;
 import requestOperations.RequestOperation;
 
 /**
  *
  * @author maciej
  */
-public class DataOperation extends RequestOperation {
+public class DataOperation extends RequestOperation implements SerializableModel {
 
     protected ArrayList<Signal> signals;
+    
+    @Override
+    public HashMap<String, String> JSONKeyPathsByPropertyKey() {
+        return new HashMap<String, String>() {
+            {
+                put("signals", "signals");
+            }
+        };
+    }
     
     @Override
     public void performOperation() {
