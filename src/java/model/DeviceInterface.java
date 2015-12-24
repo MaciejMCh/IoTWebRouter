@@ -11,7 +11,16 @@ import static model.DeviceInterface.InterfaceDirection.Output;
 import java.util.HashMap;
 
 public class DeviceInterface implements SerializableModel {
-
+    
+    public enum InterfaceDirection {
+        Input, Output
+    }
+    
+    protected String id;
+    protected String dataType;
+    protected InterfaceDirection interfaceDirection;
+    protected WeakReference<Device> parentDevice;
+    
     @Override
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {
         return new HashMap<String, String>() {
@@ -31,15 +40,6 @@ public class DeviceInterface implements SerializableModel {
             }
         };
     }
-    
-    public enum InterfaceDirection {
-        Input, Output
-    }
-    
-    protected String id;
-    protected String dataType;
-    protected InterfaceDirection interfaceDirection;
-    protected WeakReference<Device> parentDevice;
     
     public String getId() {
         return this.id;
