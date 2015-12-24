@@ -49,6 +49,12 @@ public class RegisterOperationTest {
         try {
             JsonObject json = new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"in_0\"}]}}").getAsJsonObject();
             RegisterOperation operation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, json);
+            
+            assertNotNull(operation);
+            assertNotNull(operation.registeringDevice);
+            assertEquals(operation.registeringDevice.getName(), "actuator");
+            assertNotNull(operation.registeringDevice.getInterfaces());
+            assertEquals(operation.registeringDevice.getInterfaces().size(), 1);
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }
