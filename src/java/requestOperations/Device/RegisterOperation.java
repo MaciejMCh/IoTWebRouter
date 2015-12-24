@@ -9,6 +9,7 @@ import model.Device;
 import model.Interactor;
 import com.google.gson.*;
 import model.Medium;
+import model.ModelSerializer;
 import requestOperations.RequestOperation;
 
 /**
@@ -26,7 +27,7 @@ public class RegisterOperation extends RequestOperation {
 
     @Override
     protected void mapJson(JsonObject json) {
-        this.registeringDevice = new Device(json.get("device").getAsJsonObject());
+        this.registeringDevice = (Device)ModelSerializer.model(Device.class, json.get("device").getAsJsonObject());
         if (json.has("stored_id")) {
             this.storedID = json.get("stored_id").getAsString();
         }
