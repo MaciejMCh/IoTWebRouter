@@ -8,18 +8,28 @@ package requestOperations.Device;
 import model.Device;
 import model.Interactor;
 import com.google.gson.*;
-import model.Medium;
-import model.ModelSerializer;
+import java.util.HashMap;
+import model.SerializableModel;
 import requestOperations.RequestOperation;
 
 /**
  *
  * @author maciej
  */
-public class RegisterOperation extends RequestOperation {
+public class RegisterOperation extends RequestOperation implements SerializableModel {
 
     protected Device registeringDevice;
     protected String storedID;
+    
+    @Override
+    public HashMap<String, String> JSONKeyPathsByPropertyKey() {
+        return new HashMap<String, String>() {
+            {
+                put("!registeringDevice", "device");
+                put("storedID", "stored_id");
+            }
+        };
+    }
 
     @Override
     public void performOperation() {

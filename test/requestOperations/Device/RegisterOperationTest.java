@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package requestOperations.Admin;
+package requestOperations.Device;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.ModelSerializer;
 import model.SerializationErrorException;
 import org.junit.After;
@@ -20,9 +23,9 @@ import static org.junit.Assert.*;
  *
  * @author maciej
  */
-public class ConnectOperationTest {
+public class RegisterOperationTest {
     
-    public ConnectOperationTest() {
+    public RegisterOperationTest() {
     }
     
     @BeforeClass
@@ -42,20 +45,13 @@ public class ConnectOperationTest {
     }
 
     /**
-     * Test of performOperation method, of class ConnectOperation.
+     * Test of JSONKeyPathsByPropertyKey method, of class RegisterOperation.
      */
     @Test
     public void testSerialization() {
         try {
-            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"dev_0\",\"interface_id\":\"int_0\"},\"input\":{\"device_id\":\"dev_1\",\"interface_id\":\"int_1\"}}").getAsJsonObject();
-            ConnectOperation operation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
-            
-            assertNotNull(operation);
-            assertEquals(operation.getOutputDeviceID(), "dev_0");
-            assertEquals(operation.getInputDeviceID(), "dev_1");
-            assertEquals(operation.getOutputInterfaceID(), "int_0");
-            assertEquals(operation.getInputInterfaceID(), "int_1");
-            
+            JsonObject json = new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"in_0\"}]}}").getAsJsonObject();
+            RegisterOperation operation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, json);
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }
