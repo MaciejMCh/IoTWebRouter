@@ -7,8 +7,6 @@ package model;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -86,10 +84,11 @@ public class DeviceTest {
     }
     
     @Test
-    public void testRequired() {
+    public void testMissingInterface() {
         JsonObject json = new JsonParser().parse("{\"name\":\"sensor\"}").getAsJsonObject();
         try {
             Device device = (Device) ModelSerializer.model(Device.class, json);
+            assertTrue(false);
         } catch(SerializationErrorException e) {
             assertTrue(true);
         }

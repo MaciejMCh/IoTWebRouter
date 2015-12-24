@@ -11,35 +11,33 @@ import java.util.HashMap;
 
 public class ModelSerializer {
     public static SerializableModel model(Class clazz, JsonObject json) throws SerializationErrorException {
+        SerializableModel model;
         try {
-            SerializableModel model = (SerializableModel) clazz.newInstance();
+            model = (SerializableModel) clazz.newInstance();
+        } catch(Exception e) {
+            throw new SerializationErrorException("Internal server error.");
+        }
             
-            for (String propertyExpression : model.JSONKeyPathsByPropertyKey().keySet()) {
-                String jsonName = model.JSONKeyPathsByPropertyKey().get(propertyExpression);
-                String propertyName = propertyExpression.replace("!", "");
-                if (json.has(jsonName)) {
-                    reflectiveSet(model, propertyName, json.get(jsonName));
-                } else {
-                    if (propertyExpression.contains("!")) {
-                        throw new SerializationErrorException(jsonName + " field is missing.");
-                    }
+        for (String propertyExpression : model.JSONKeyPathsByPropertyKey().keySet()) {
+            String jsonName = model.JSONKeyPathsByPropertyKey().get(propertyExpression);
+            String propertyName = propertyExpression.replace("!", "");
+            if (json.has(jsonName)) {
+                reflectiveSet(model, propertyName, json.get(jsonName));
+            } else {
+                if (propertyExpression.contains("!")) {
+                    throw new SerializationErrorException(jsonName + " field is missing.");
                 }
             }
-            
-            try {
-                Method init = clazz.getDeclaredMethod("init");
-                init.setAccessible(true);
-                init.invoke(model);
-            } catch(Exception e) {
-                
-            }
-            
-            return model;
-        } catch(Exception e) {
-            System.out.println(e);
         }
-        
-        return null;
+            
+        try {
+            Method init = clazz.getDeclaredMethod("init");
+            init.setAccessible(true);
+            init.invoke(model);
+        } catch(Exception e) {
+            
+        }
+        return model;
     }
     
     private static boolean reflectiveSet(Object object, String fieldName, JsonElement fieldValue) {

@@ -7,7 +7,6 @@ package model;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import com.google.gson.*;
 import java.util.HashMap;
 
 public class Device implements SerializableModel {
@@ -23,6 +22,7 @@ public class Device implements SerializableModel {
             {
                 put("name", "name");
                 put("!interfaces", "interfaces");
+                put("id", "id");
             }
         };
     }

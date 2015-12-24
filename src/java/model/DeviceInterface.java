@@ -25,9 +25,9 @@ public class DeviceInterface implements SerializableModel {
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {
         return new HashMap<String, String>() {
             {
-                put("dataType", "data_type");
-                put("interfaceDirection", "direction");
-                put("id", "id");
+                put("!dataType", "data_type");
+                put("!interfaceDirection", "direction");
+                put("!id", "id");
             }
         };
     }

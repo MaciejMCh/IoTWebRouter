@@ -7,9 +7,6 @@ package model;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -57,6 +54,39 @@ public class DeviceInterfaceTest {
             assertEquals(deviceInterface.getInterfaceDirection(), DeviceInterface.InterfaceDirection.Input);
         } catch (SerializationErrorException ex) {
             assertTrue(false);
+        }
+    }
+    
+    @Test
+    public void testMissingID() {
+        try {
+            JsonObject json = new JsonParser().parse("{\"direction\":\"input\",\"data_type\":\"light\"}").getAsJsonObject();
+            DeviceInterface deviceInterface = (DeviceInterface) ModelSerializer.model(DeviceInterface.class, json);
+            assertTrue(false);
+        } catch (SerializationErrorException ex) {
+            assertTrue(true);
+        }
+    }
+    
+    @Test
+    public void testMissingDirection() {
+        try {
+            JsonObject json = new JsonParser().parse("{\"data_type\":\"light\",\"id\":\"int_li_in\"}").getAsJsonObject();
+            DeviceInterface deviceInterface = (DeviceInterface) ModelSerializer.model(DeviceInterface.class, json);
+            assertTrue(false);
+        } catch (SerializationErrorException ex) {
+            assertTrue(true);
+        }
+    }
+    
+    @Test
+    public void testMissingDataType() {
+        try {
+            JsonObject json = new JsonParser().parse("{\"direction\":\"input\",\"id\":\"int_li_in\"}").getAsJsonObject();
+            DeviceInterface deviceInterface = (DeviceInterface) ModelSerializer.model(DeviceInterface.class, json);
+            assertTrue(false);
+        } catch (SerializationErrorException ex) {
+            assertTrue(true);
         }
     }
     
