@@ -86,8 +86,14 @@ public class RegisterOperationTest {
     @Test
     public void testPerformReconnect() {
         try {
+            JsonObject firstRegisterJson = new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"in_0\"}]}}").getAsJsonObject();
+            RegisterOperation firstRegisterOperation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, firstRegisterJson);
+            FakeMedium firstMedium = new FakeMedium();
+            firstRegisterOperation.medium = firstMedium;
+            firstRegisterOperation.performOperation();
+            
             int preDevicesCount = Interactor.getInstance().getEnviroment().devices.size();
-            String storedID = Interactor.getInstance().getEnviroment().devices.get(0).getId();
+            String storedID = firstRegisterOperation.getRegisteringDevice().getId();
             JsonObject json = new JsonParser().parse("{\"action\":\"register\",\"stored_id\":\"" + storedID + "\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"in_0\"}]}}").getAsJsonObject();
             
             RegisterOperation operation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, json);
