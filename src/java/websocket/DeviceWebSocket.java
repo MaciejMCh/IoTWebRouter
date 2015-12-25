@@ -7,14 +7,12 @@ package websocket;
 
 import com.google.gson.JsonParser;
 import com.google.gson.JsonObject;
-import java.util.HashMap;
 import javax.faces.bean.ApplicationScoped;
 import javax.websocket.server.ServerEndpoint;
 import javax.websocket.*;
 import model.Interactor;
-import model.Medium;
+import requestOperations.DeviceRequestOperationsSerializer;
 import requestOperations.RequestOperation;
-import requestOperations.RequestOperationsSerializer;
 
 /**
  *
@@ -43,7 +41,7 @@ public class DeviceWebSocket {
     public void handleMessage(String message, Session session) {
         JsonObject json = new JsonParser().parse(message).getAsJsonObject();
         RequestOperation operation;
-        operation = RequestOperationsSerializer.serializeOperation(json, new JavaxWebSocketMedium(session));
+        operation = new DeviceRequestOperationsSerializer().serializeOperation(json, new JavaxWebSocketMedium(session));
         operation.performOperation();
     }
 }

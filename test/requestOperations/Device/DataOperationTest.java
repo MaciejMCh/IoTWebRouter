@@ -104,8 +104,6 @@ public class DataOperationTest {
             assertNull(dataOperation.getError());
             assertEquals(inputRegisterMedium.message, "{\"data_type\":\"light\",\"value\":\"455\"}");
             
-            System.out.println(inputRegisterMedium.message);
-            
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }

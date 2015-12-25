@@ -5,44 +5,40 @@
  */
 package requestOperations;
 
-import requestOperations.Admin.ConnectOperation;
-import requestOperations.Device.RegisterOperation;
-import requestOperations.Device.DataOperation;
-import requestOperations.Log.LogOperation;
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import com.google.gson.*;
-import requestOperations.Application.ConnectInterfacesOperation;
-import requestOperations.Application.IndexConnectionsOperation;
-import requestOperations.Application.IndexDevicesOperation;
 import model.Medium;
+import model.ModelSerializer;
 
 /**
  *
  * @author maciej
  */
-public class RequestOperationsSerializer {
+public abstract class RequestOperationsSerializer {
     
-    protected static final HashMap<String, Class> operationClassMap = new HashMap<String, Class>() {{
-        put("register", RegisterOperation.class);
-        put("data", DataOperation.class);
-        put("log", LogOperation.class);
-        put("connect", ConnectOperation.class);
-        put("index_devices", IndexDevicesOperation.class);
-        put("index_connections", IndexConnectionsOperation.class);
-        put("connect_interfaces", ConnectInterfacesOperation.class);
-    }};
+    protected abstract HashMap<String, Class> operationClassMap();
+//            = new HashMap<String, Class>();
+//    {{
+//        put("register", RegisterOperation.class);
+//        put("data", DataOperation.class);
+//        put("log", LogOperation.class);
+//        put("connect", ConnectOperation.class);
+//        put("index_devices", IndexDevicesOperation.class);
+//        put("index_connections", IndexConnectionsOperation.class);
+//        put("connect_interfaces", ConnectInterfacesOperation.class);
+//    }};
     
-    public static RequestOperation serializeOperation(JsonObject json, Medium medium) {
+    public RequestOperation serializeOperation(JsonObject json, Medium medium) {
         String action = json.get("action").getAsString();
-        Class operationClass = operationClassMap.get(action);
+        Class operationClass = operationClassMap().get(action);
         if (operationClass != null) {
             try {
-                Constructor constructor = operationClass.getDeclaredConstructor(JsonObject.class, Medium.class);
-                RequestOperation operation = (RequestOperation)constructor.newInstance(json, medium);
+                RequestOperation operation = (RequestOperation)ModelSerializer.model(operationClass, json);
+                operation.medium = medium;
                 return operation;
             } catch (Exception e) {
-                return ErrorOperation.internalServerErrorOperation(medium);
+                return new ErrorOperation(e.toString(), medium);
             }
             
         } else {
