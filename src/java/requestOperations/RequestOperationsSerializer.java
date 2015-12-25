@@ -18,16 +18,6 @@ import model.ModelSerializer;
 public abstract class RequestOperationsSerializer {
     
     protected abstract HashMap<String, Class> operationClassMap();
-//            = new HashMap<String, Class>();
-//    {{
-//        put("register", RegisterOperation.class);
-//        put("data", DataOperation.class);
-//        put("log", LogOperation.class);
-//        put("connect", ConnectOperation.class);
-//        put("index_devices", IndexDevicesOperation.class);
-//        put("index_connections", IndexConnectionsOperation.class);
-//        put("connect_interfaces", ConnectInterfacesOperation.class);
-//    }};
     
     public RequestOperation serializeOperation(JsonObject json, Medium medium) {
         String action = json.get("action").getAsString();
@@ -40,7 +30,6 @@ public abstract class RequestOperationsSerializer {
             } catch (Exception e) {
                 return new ErrorOperation(e.toString(), medium);
             }
-            
         } else {
             return new ErrorOperation("Can't perform operation for action '" + action + "'.", medium);
         }

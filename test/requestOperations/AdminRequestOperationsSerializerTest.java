@@ -14,7 +14,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import requestOperations.Admin.ConnectOperation;
-import requestOperations.Device.FakeMedium;
 import requestOperations.Log.LogOperation;
 
 /**

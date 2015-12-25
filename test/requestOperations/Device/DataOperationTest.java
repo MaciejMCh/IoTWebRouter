@@ -5,6 +5,7 @@
  */
 package requestOperations.Device;
 
+import requestOperations.FakeMedium;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import model.ModelSerializer;

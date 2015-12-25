@@ -17,6 +17,7 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 import model.Device;
 import com.google.gson.*;
+import requestOperations.AdminRequestOperationsSerializer;
 import requestOperations.RequestOperation;
 import requestOperations.RequestOperationsSerializer;
 
@@ -52,33 +53,9 @@ public class AdminWebSocket {
 
     @OnMessage
     public void handleMessage(String message, Session session) {
-        RequestOperation operation;
         JsonObject json = new JsonParser().parse(message).getAsJsonObject();
-        operation = RequestOperationsSerializer.serializeOperation(json, new JavaxWebSocketMedium(session));
-        
-        if (operation.getError() == null) {
-            operation.performOperation();
-        } else {
-            try {
-                session.getBasicRemote().sendText(operation.getError().getErrorMessage());
-            } catch (IOException ex) {
-                Logger.getLogger(AdminWebSocket.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        RequestOperation operation;
+        operation = new AdminRequestOperationsSerializer().serializeOperation(json, new JavaxWebSocketMedium(session));
+        operation.performOperation();
     }
-    
-    public void deviceRegistered(Device device) {
-        Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, "device registered", "as");
-    }
-    
-    public void deviceUnregistered(Device device) {
-        Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, "device unregistered", "asd");
-    }
-    
-    public void deviceSentData(Device device) {
-        Logger.getLogger(DeviceWebSocket.class.getName()).log(Level.SEVERE, "device sent data", "asd");
-    }
-    
-    
-
 }

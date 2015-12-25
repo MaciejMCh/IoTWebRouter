@@ -17,7 +17,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import requestOperations.Device.FakeMedium;
+import requestOperations.FakeMedium;
 import requestOperations.Device.RegisterOperation;
 
 /**

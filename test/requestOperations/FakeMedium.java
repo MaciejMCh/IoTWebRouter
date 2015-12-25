@@ -1,4 +1,4 @@
-package requestOperations.Device;
+package requestOperations;
 
 
 import model.Medium;
