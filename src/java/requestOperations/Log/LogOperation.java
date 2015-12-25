@@ -7,28 +7,28 @@ package requestOperations.Log;
 
 import com.google.gson.*;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Medium;
+import model.SerializableModel;
 import requestOperations.RequestOperation;
 
 /**
  *
  * @author maciej
  */
-public class LogOperation extends RequestOperation {
-
+public class LogOperation extends RequestOperation implements SerializableModel {
+    
     protected InterpretedLogOperation interpretedOperation;
     
-    public LogOperation(JsonObject params, Medium medium) {
-        super(params, medium);
-    }
-
     @Override
-    protected void mapJson(JsonObject json) {
-        this.interpretedOperation = (InterpretedLogOperation)LogRequestInterpreter.serializeOperation(json.get("request").getAsJsonObject(), this.medium);
+    public HashMap<String, String> JSONKeyPathsByPropertyKey() {
+        return new HashMap<String, String>() {{
+            put("interpretedOperation", "request");
+        }};
     }
-
+    
     @Override
     public void performOperation() {
         if (this.interpretedOperation.getError() != null) {
@@ -37,11 +37,5 @@ public class LogOperation extends RequestOperation {
             this.interpretedOperation.performOperation();
         }
     }
-
-    @Override
-    protected JsonObject getSyntax() {
-        return new JsonParser().parse("{\"action\":\"String\",\"request\":{}}").getAsJsonObject();
-    }
-    
     
 }
