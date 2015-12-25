@@ -20,63 +20,36 @@ public class InterpretedLogOperation extends RequestOperation {
     protected ArrayList<String> options;
     protected ArrayList arguments;
     
-    public InterpretedLogOperation(JsonObject params, Medium medium) {
-        super(params, medium);
-        
-        if (params.entrySet().isEmpty()) {
-            // in case of reflect methods initialization
-            return;
-        }
-        
-        JsonArray argumentsJSONArray = params.get("arguments").getAsJsonArray();
-        this.arguments = new ArrayList();
-        for (int i=0; i<= argumentsJSONArray.size() - 1; i++) {
-            this.arguments.add(argumentsJSONArray.get(i).getAsString());
-        }
-        
-        JsonArray optionsJSONArray = params.get("options").getAsJsonArray();
-        this.options = new ArrayList<>();
-        for (int i=0; i<= optionsJSONArray.size() - 1; i++) {
-            this.options.add(optionsJSONArray.get(i).getAsString());
-        }
-        
-        this.mapArgumentsToProperties();
-        this.mapOptionsToProperties();
-        
-        String syntaxError = this.validateSyntax(params);
-        if (syntaxError != null) {
-            this.error(syntaxError);
-        }
-    }
+//    public InterpretedLogOperation(JsonObject params, Medium medium) {
+//        super(params, medium);
+//        
+//        if (params.entrySet().isEmpty()) {
+//            // in case of reflect methods initialization
+//            return;
+//        }
+//        
+//        JsonArray argumentsJSONArray = params.get("arguments").getAsJsonArray();
+//        this.arguments = new ArrayList();
+//        for (int i=0; i<= argumentsJSONArray.size() - 1; i++) {
+//            this.arguments.add(argumentsJSONArray.get(i).getAsString());
+//        }
+//        
+//        JsonArray optionsJSONArray = params.get("options").getAsJsonArray();
+//        this.options = new ArrayList<>();
+//        for (int i=0; i<= optionsJSONArray.size() - 1; i++) {
+//            this.options.add(optionsJSONArray.get(i).getAsString());
+//        }
+//        
+//        this.mapArgumentsToProperties();
+//        this.mapOptionsToProperties();
+//        
+//        String syntaxError = this.validateSyntax(params);
+//        if (syntaxError != null) {
+//            this.error(syntaxError);
+//        }
+//    }
     
-    protected String validateSyntax(JsonObject json) {
-        for (Argument argument : this.arguments()) {
-            if (argument.getIsRequired()) {
-                Class<?> clazz = this.getClass();
-                try {
-                    Field field = clazz.getDeclaredField(argument.getPropertyName());
-                    Object value = field.get(this);
-                    if (value == null) {
-                        return "argument '"+ argument.getPropertyName() + "' is missing";
-                    }
-                } catch(Exception e) {
-                    
-                }
-            }
-        }
-        
-        ArrayList<String> optionRepresentations = new ArrayList<>();
-        for (Option option : this.options()) {
-            optionRepresentations.add(option.getRepresentation());
-        }
-        for (JsonElement element : json.get("options").getAsJsonArray()) {
-            if (!optionRepresentations.contains(element.getAsString())) {
-                return "option '-"+ element.getAsString() + "' is unknown";
-            }
-        }
-        
-        return null;
-    }
+    
     
     public String syntaxString() {
         String result = "";
