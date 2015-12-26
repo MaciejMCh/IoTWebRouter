@@ -50,7 +50,7 @@ public class InterpretedLogOperationTest {
     @Test
     public void testSerialization() {
         try {
-            JsonObject json = new JsonParser().parse("{\"action\" : \"log\", \"request\" : {\"action\" : \"device\", \"options\" : [\"-i\", \"-p\"], \"arguments\" : [\"dev_0\"]}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"action\" : \"log\", \"query\" : \"name arg1 arg2 -o -p\"}").getAsJsonObject();
             
             InterpretedLogOperation interpretedLogOperation = (InterpretedLogOperation) ModelSerializer.model(InterpretedLogOperation.class, json);
             assertNotNull(interpretedLogOperation);
