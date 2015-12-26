@@ -14,7 +14,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import requestOperations.Admin.ConnectOperation;
-import requestOperations.Log.LogOperation;
 
 /**
  *
@@ -52,16 +51,6 @@ public class AdminRequestOperationsSerializerTest {
         RequestOperation connectOperation = new AdminRequestOperationsSerializer().serializeOperation(json, medium);
         assertNotNull(connectOperation);
         assertEquals(connectOperation.getClass(), ConnectOperation.class);
-    }
-    
-    @Test
-    public void testLogSerialization() {
-        JsonObject json = new JsonParser().parse("{\"action\" : \"log\", \"request\" : {\"action\" : \"device\", \"options\" : [], \"arguments\" : []}}").getAsJsonObject();
-        FakeMedium medium = new FakeMedium();
-        
-        RequestOperation logOperation = new AdminRequestOperationsSerializer().serializeOperation(json, medium);
-        assertNotNull(logOperation);
-        assertEquals(logOperation.getClass(), LogOperation.class);
     }
     
 }

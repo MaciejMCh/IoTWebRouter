@@ -52,9 +52,9 @@ public class InterpretedLogOperationTest {
         try {
             JsonObject json = new JsonParser().parse("{\"action\" : \"log\", \"query\" : \"name arg1 arg2 -o -p\"}").getAsJsonObject();
             
-            InterpretedLogOperation interpretedLogOperation = (InterpretedLogOperation) ModelSerializer.model(InterpretedLogOperation.class, json);
+            InterpretedOperation interpretedLogOperation = (InterpretedOperation) ModelSerializer.model(InterpretedOperation.class, json);
             assertNotNull(interpretedLogOperation);
-            assertEquals(interpretedLogOperation.getClass(), InterpretedLogOperation.class);
+            assertEquals(interpretedLogOperation.getClass(), InterpretedOperation.class);
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }

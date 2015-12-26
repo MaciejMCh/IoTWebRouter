@@ -18,7 +18,7 @@ import model.Medium;
  *
  * @author maciej
  */
-public class ConnectionsLogOperation extends InterpretedLogOperation {
+public class ConnectionsLogOperation extends InterpretedOperation {
 
     protected boolean possibleInterfaces;
     

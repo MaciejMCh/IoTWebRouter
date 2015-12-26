@@ -5,11 +5,8 @@
  */
 package requestOperations.Log;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import com.google.gson.*;
 import java.util.HashMap;
-import model.Medium;
 import model.SerializableModel;
 import requestOperations.RequestOperation;
 
@@ -17,7 +14,7 @@ import requestOperations.RequestOperation;
  *
  * @author maciej
  */
-public abstract class InterpretedLogOperation extends RequestOperation implements SerializableModel {
+public abstract class InterpretedOperation extends RequestOperation implements SerializableModel {
 
     protected String query;
     protected ArrayList<String> options;

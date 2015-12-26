@@ -16,7 +16,7 @@ import model.Medium;
  * @author maciej
  */
 
-public class DeviceLogOperation extends InterpretedLogOperation {
+public class DeviceLogOperation extends InterpretedOperation {
     
     protected String deviceID;
     

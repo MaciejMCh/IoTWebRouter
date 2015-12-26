@@ -7,7 +7,6 @@ package requestOperations;
 
 import java.util.HashMap;
 import requestOperations.Admin.ConnectOperation;
-import requestOperations.Log.LogOperation;
 
 /**
  *
@@ -18,7 +17,6 @@ public class AdminRequestOperationsSerializer extends RequestOperationsSerialize
     @Override
     protected HashMap<String, Class> operationClassMap() {
         return new HashMap<String, Class>() {{
-            put("log", LogOperation.class);
             put("connect", ConnectOperation.class);
         }};
     }

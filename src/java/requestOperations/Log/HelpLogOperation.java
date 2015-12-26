@@ -14,7 +14,7 @@ import model.Medium;
  *
  * @author maciej
  */
-public class HelpLogOperation extends InterpretedLogOperation {
+public class HelpLogOperation extends InterpretedOperation {
     
     protected String operationName;
     protected boolean details;
@@ -79,14 +79,14 @@ public class HelpLogOperation extends InterpretedLogOperation {
     
     protected Object staticEvaluation(String logOperationName, String selector) {
         try {
-            Class<InterpretedLogOperation> clazz = LogRequestInterpreter.getOperationClassMap().get(logOperationName);
+            Class<InterpretedOperation> clazz = LogRequestInterpreter.getOperationClassMap().get(logOperationName);
             Object object = clazz.getConstructor(JsonObject.class, Medium.class).newInstance(new JsonObject(), this.medium);
             Method method = clazz.getMethod(selector);
             Object result = method.invoke(object);
             return result;
         } catch (Exception e) {
             try {
-                Class<InterpretedLogOperation> clazz = LogRequestInterpreter.getOperationClassMap().get(logOperationName);
+                Class<InterpretedOperation> clazz = LogRequestInterpreter.getOperationClassMap().get(logOperationName);
                 Object object = clazz.getConstructor(JsonObject.class, Medium.class).newInstance(new JsonObject(), this.medium);
                 Method method = clazz.getDeclaredMethod(selector);
                 Object result = method.invoke(object);
