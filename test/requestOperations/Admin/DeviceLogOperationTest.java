@@ -81,7 +81,7 @@ public class DeviceLogOperationTest {
             
             assertNull(operation.deviceID);
             assertNotNull(operation.interfaceOption);
-            assertEquals(operation.interfaceOption, false);
+            assertEquals(operation.interfaceOption, true);
             
         } catch (SerializationErrorException ex) {
             fail(ex.toString());

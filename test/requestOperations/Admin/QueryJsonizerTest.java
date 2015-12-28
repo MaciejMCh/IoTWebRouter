@@ -55,17 +55,22 @@ public class QueryJsonizerTest {
         assertTrue(json.has("action"));
         assertEquals(json.get("action").getAsString(), "test");
         
-        assertTrue(json.has("firstArgument"));
-        assertEquals(json.get("firstArgument").getAsString(), "arg1");
+        assertTrue(json.has("first_argument"));
+        assertEquals(json.get("first_argument").getAsString(), "arg1");
         
-        assertTrue(json.has("secondArgument"));
-        assertEquals(json.get("secondArgument").getAsString(), "arg2");
+        assertTrue(json.has("second_argument"));
+        assertEquals(json.get("second_argument").getAsString(), "arg2");
         
-        assertFalse(json.has("thirdArgument"));
+        assertFalse(json.has("third_argument"));
         
-        assertEquals(json.get("optionA").getAsBoolean(), true);
-        assertEquals(json.get("optionB").getAsBoolean(), true);
-        assertEquals(json.get("optionC").getAsBoolean(), false);
+        assertTrue(json.has("is_a"));
+        assertEquals(json.get("is_a").getAsBoolean(), true);
+        
+        assertTrue(json.has("is_b"));
+        assertEquals(json.get("is_b").getAsBoolean(), true);
+        
+        assertTrue(json.has("is_c"));
+        assertEquals(json.get("is_c").getAsBoolean(), false);
     }
     
 }
