@@ -22,7 +22,7 @@ public class DeviceLogOperation extends InterpretedOperation {
     @Override
     public ArrayList<Argument> arguments() {
         ArrayList<Argument> arguments = new ArrayList<>();
-        arguments.add(new Argument("device_id", "Id of device you want to log."));
+        arguments.add(new Argument("device_id", "Id of device you want to log.", "deviceID"));
         return arguments;
     }
     

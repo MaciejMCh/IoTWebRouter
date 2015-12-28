@@ -10,8 +10,13 @@ package requestOperations.Admin;
  * @author maciej
  */
 public class Argument {
-    protected String propertyName;
+    protected String argumentName;
     protected String description;
+    protected String propertyName;
+
+    public String getArgumentName() {
+        return argumentName;
+    }
     
     public String getDescription() {
         return description;
@@ -19,10 +24,11 @@ public class Argument {
     
     public String getPropertyName() {
         return propertyName;
-    }    
+    }
     
-    public Argument(String propertyName, String description) {
-        this.propertyName = propertyName;
+    public Argument(String argumentName, String description, String propertyName) {
+        this.argumentName = argumentName;
         this.description = description;
+        this.propertyName = propertyName;
     }
 }
