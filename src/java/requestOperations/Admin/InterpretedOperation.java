@@ -20,8 +20,8 @@ public abstract class InterpretedOperation extends RequestOperation implements S
     protected ArrayList<String> options;
     protected ArrayList<String> arguments;
 
-    public abstract ArrayList<Argument> argumentPropertyNames();
-    public abstract HashMap<Option, String> optionByPropertyKey();
+    public abstract ArrayList<Argument> arguments();
+    public abstract ArrayList<Option> options();
     
     @Override
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {

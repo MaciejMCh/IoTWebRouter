@@ -45,7 +45,7 @@ public class HelpLogOperation extends InterpretedOperation {
                         if (!options.isEmpty()) {
                             output += "\n\t options:";
                             for (Option option : options) {
-                                output += "\n\t\t --" + option.getName() + " [-" + option.getRepresentation() + "] - " + option.getDescription();
+                                output += "\n\t\t --" + option.getName() + " [-" + option.getInvocation() + "] - " + option.getDescription();
                             }                    
                         }
                     }

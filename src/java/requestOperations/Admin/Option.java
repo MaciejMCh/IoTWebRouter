@@ -14,23 +14,28 @@ public class Option {
     protected String name;
     protected String description;
     protected String propertyName;
-    protected String representation;
+    protected String invocation;
+    
     public String getName() {
         return name;
     }
+    
     public String getPropertyName() {
         return propertyName;
     }
-    public String getRepresentation() {
-        return representation;
+    
+    public String getInvocation() {
+        return invocation;
     }
+    
     public String getDescription() {
         return description;
     }
+    
     public Option(String name, String description, String propertyName, String representation) {
         this.name = name;
         this.description = description;
         this.propertyName = propertyName;
-        this.representation = representation;
+        this.invocation = representation;
     }        
 }

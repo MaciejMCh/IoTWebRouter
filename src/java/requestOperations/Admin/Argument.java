@@ -12,19 +12,17 @@ package requestOperations.Admin;
 public class Argument {
     protected String propertyName;
     protected String description;
-    protected boolean isRequired;
+    
     public String getDescription() {
         return description;
     }
+    
     public String getPropertyName() {
         return propertyName;
     }    
-    public boolean getIsRequired() {
-        return this.isRequired;
-    }    
-    public Argument(String propertyName, String description, boolean isRequired) {
+    
+    public Argument(String propertyName, String description) {
         this.propertyName = propertyName;
         this.description = description;
-        this.isRequired = isRequired;
     }
 }

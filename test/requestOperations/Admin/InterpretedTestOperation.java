@@ -23,20 +23,20 @@ public class InterpretedTestOperation extends InterpretedOperation {
     public boolean optionC;
     
     @Override
-    public ArrayList<String> argumentPropertyNames() {
-        return new ArrayList<String>() {{
-            add("firstArgument");
-            add("secondArgument");
-            add("thirdArgument");
+    public ArrayList<Argument> arguments() {
+        return new ArrayList<Argument>() {{
+            add(new Argument("firstArgument", "firstArgument"));
+            add(new Argument("secondArgument", "secondArgument"));
+            add(new Argument("thirdArgument", "thirdArgument"));
         }};
     }
 
     @Override
-    public HashMap<String, String> optionByPropertyKey() {
-        return new HashMap<String, String>(){{
-            put("a", "optionA");
-            put("b", "optionB");
-            put("c", "optionC");
+    public ArrayList<Option> options() {
+        return new ArrayList<Option>(){{
+            add(new Option("is_A", "is it A?", "optionA", "a"));
+            add(new Option("is_B", "is it B?", "optionB", "b"));
+            add(new Option("is_C", "is it C?", "optionC", "c"));
         }};
     }
 
