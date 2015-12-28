@@ -21,17 +21,13 @@ import model.Medium;
 public class ConnectionsLogOperation extends InterpretedOperation {
 
     protected boolean possibleInterfaces;
-    
-    public ConnectionsLogOperation(JsonObject params, Medium medium) {
-        super(params, medium);
-    }
 
     @Override
     public void performOperation() {
         if (this.possibleInterfaces) {
-            this.log(possibleConnectionsLog());
+            this.medium.sendMessage(possibleConnectionsLog());
         } else {
-            this.log(connectionsLog());
+            this.medium.sendMessage(connectionsLog());
         }
     }
 
