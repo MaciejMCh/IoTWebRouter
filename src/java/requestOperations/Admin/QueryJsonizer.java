@@ -7,10 +7,11 @@ package requestOperations.Admin;
 
 import com.google.gson.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class QueryJsonizer {
     
-    public static JsonObject jsonizeQuery(String query, Class interpretedOperationClass) {
+    public static JsonObject jsonizeQuery(String query, HashMap<String, Class> operationClassMap) {
         
         String action = "unknown";
         ArrayList<String> options = new ArrayList<>();
@@ -41,7 +42,10 @@ public class QueryJsonizer {
         
         
         try {
-            InterpretedOperation operationObject = (InterpretedOperation) interpretedOperationClass.newInstance();
+            if (operationClassMap.get(action) == null) {
+                return null;
+            }
+            InterpretedOperation operationObject = (InterpretedOperation) operationClassMap.get(action).newInstance();
             JsonObject json = new JsonObject();
             json.addProperty("action", action);
             for (int i=0; i<=arguments.size() - 1; i++) {

@@ -5,8 +5,13 @@
  */
 package requestOperations;
 
+import com.google.gson.JsonObject;
 import java.util.HashMap;
+import model.Medium;
 import requestOperations.Admin.ConnectOperation;
+import requestOperations.Admin.ConnectionsLogOperation;
+import requestOperations.Admin.DeviceLogOperation;
+import requestOperations.Admin.QueryJsonizer;
 
 /**
  *
@@ -18,7 +23,23 @@ public class AdminRequestOperationsSerializer extends RequestOperationsSerialize
     protected HashMap<String, Class> operationClassMap() {
         return new HashMap<String, Class>() {{
             put("connect", ConnectOperation.class);
+            put("devices", DeviceLogOperation.class);
+            put("connections", ConnectionsLogOperation.class);
         }};
     }
+
+    @Override
+    public RequestOperation serializeOperation(JsonObject json, Medium medium) {
+        if (!json.has("action")) {
+            return new ErrorOperation("'action' field is missing.", medium);
+        }
+        if (!json.has("query")) {
+            return new ErrorOperation("'query' field is missing.", medium);
+        }
+        JsonObject jsonizedQuery = QueryJsonizer.jsonizeQuery(json.get("query").getAsString(), operationClassMap());
+        return super.serializeOperation(jsonizedQuery, medium); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
 }

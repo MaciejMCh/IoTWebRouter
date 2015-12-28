@@ -7,6 +7,7 @@ package requestOperations;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,6 +15,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import requestOperations.Admin.ConnectOperation;
+import requestOperations.Admin.ConnectionsLogOperation;
+import requestOperations.Admin.DeviceLogOperation;
 
 /**
  *
@@ -44,11 +47,34 @@ public class AdminRequestOperationsSerializerTest {
      * Test of operationClassMap method, of class AdminRequestOperationsSerializer.
      */
     @Test
-    public void testConnectSerialization() {
-        JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"dev_0\",\"interface_id\":\"in_1\"},\"input\":{\"device_id\":\"dev_1\",\"interface_id\":\"in_0\"}}").getAsJsonObject();
+    public void testDevicesLogSerialization() {
+        JsonObject json = new JsonParser().parse("{\"action\":\"operation\",\"query\":\"devices\"}").getAsJsonObject();
         FakeMedium medium = new FakeMedium();
         
         RequestOperation connectOperation = new AdminRequestOperationsSerializer().serializeOperation(json, medium);
+        
+        assertNotNull(connectOperation);
+        assertEquals(connectOperation.getClass(), DeviceLogOperation.class);
+    }
+    
+    @Test
+    public void testConnecitonsLogSerialization() {
+        JsonObject json = new JsonParser().parse("{\"action\":\"operation\",\"query\":\"connections\"}").getAsJsonObject();
+        FakeMedium medium = new FakeMedium();
+        
+        RequestOperation connectOperation = new AdminRequestOperationsSerializer().serializeOperation(json, medium);
+        
+        assertNotNull(connectOperation);
+        assertEquals(connectOperation.getClass(), ConnectionsLogOperation.class);
+    }
+    
+    @Test
+    public void testConnectSerialization() {
+        JsonObject json = new JsonParser().parse("{\"action\":\"operation\",\"query\":\"connect dev_0 int_0 dev_1 int_1\"}").getAsJsonObject();
+        FakeMedium medium = new FakeMedium();
+        
+        RequestOperation connectOperation = new AdminRequestOperationsSerializer().serializeOperation(json, medium);
+        
         assertNotNull(connectOperation);
         assertEquals(connectOperation.getClass(), ConnectOperation.class);
     }
