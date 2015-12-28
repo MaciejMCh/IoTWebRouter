@@ -5,10 +5,7 @@
  */
 package requestOperations.Admin;
 
-import com.google.gson.JsonObject;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import model.Medium;
 
 /**
  *
@@ -19,10 +16,6 @@ public class HelpLogOperation extends InterpretedOperation {
     protected String operationName;
     protected boolean details;
     protected boolean syntax;
-
-    public HelpLogOperation(JsonObject params, Medium medium) {
-        super(params, medium);
-    }
 
     @Override
     public void performOperation() {
@@ -56,14 +49,14 @@ public class HelpLogOperation extends InterpretedOperation {
     }
 
     @Override
-    protected ArrayList<Argument> arguments() {
+    public ArrayList<Argument> arguments() {
         ArrayList<Argument> arguments = new ArrayList<>();
-        arguments.add(new Argument("operationName", "operation name", false));
+        arguments.add(new Argument("operation_name", "operation name", "operationName"));
         return arguments;
     }
 
     @Override
-    protected ArrayList<Option> options() {
+    public ArrayList<Option> options() {
         ArrayList<Option> options = new ArrayList<>();
         options.add(new Option("syntax", "logs syntax of expression", "syntax", "s"));
         options.add(new Option("details", "logs syntax of and described details of expression", "details", "d"));
@@ -74,27 +67,5 @@ public class HelpLogOperation extends InterpretedOperation {
     public String description() {
         return "logs all available commands";
     }
-    
-    
-    
-    protected Object staticEvaluation(String logOperationName, String selector) {
-        try {
-            Class<InterpretedOperation> clazz = QueryJsonizer.getOperationClassMap().get(logOperationName);
-            Object object = clazz.getConstructor(JsonObject.class, Medium.class).newInstance(new JsonObject(), this.medium);
-            Method method = clazz.getMethod(selector);
-            Object result = method.invoke(object);
-            return result;
-        } catch (Exception e) {
-            try {
-                Class<InterpretedOperation> clazz = QueryJsonizer.getOperationClassMap().get(logOperationName);
-                Object object = clazz.getConstructor(JsonObject.class, Medium.class).newInstance(new JsonObject(), this.medium);
-                Method method = clazz.getDeclaredMethod(selector);
-                Object result = method.invoke(object);
-                return result;
-            } catch (Exception ex) {
-            
-            }
-        }
-        return null;
-    }           
+         
 }
