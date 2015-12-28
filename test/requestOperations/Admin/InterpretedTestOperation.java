@@ -44,5 +44,10 @@ public class InterpretedTestOperation extends InterpretedOperation {
     public void performOperation() {
         
     }
+
+    @Override
+    public String description() {
+        return "Just a test operation";
+    }
     
 }
