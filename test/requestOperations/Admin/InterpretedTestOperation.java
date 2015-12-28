@@ -32,9 +32,9 @@ public class InterpretedTestOperation extends InterpretedOperation {
     @Override
     public ArrayList<Option> options() {
         return new ArrayList<Option>(){{
-            add(new Option("is_A", "is it A?", "optionA", "a"));
-            add(new Option("is_B", "is it B?", "optionB", "b"));
-            add(new Option("is_C", "is it C?", "optionC", "c"));
+            add(new Option("is_a", "is it A?", "optionA", "a"));
+            add(new Option("is_b", "is it B?", "optionB", "b"));
+            add(new Option("is_c", "is it C?", "optionC", "c"));
         }};
     }
 

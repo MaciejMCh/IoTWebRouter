@@ -55,6 +55,12 @@ public class InterpretedOperationTest {
         assertEquals(map.get("firstArgument"), "first_argument");
         assertEquals(map.get("secondArgument"), "second_argument");
         assertEquals(map.get("thirdArgument"), "third_argument");
+        assertTrue(map.containsKey("optionA"));
+        assertTrue(map.containsKey("optionB"));
+        assertTrue(map.containsKey("optionC"));
+        assertEquals(map.get("optionA"), "is_a");
+        assertEquals(map.get("optionB"), "is_b");
+        assertEquals(map.get("optionC"), "is_c");
     }
     
 }

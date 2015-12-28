@@ -32,14 +32,14 @@ public class ConnectionsLogOperation extends InterpretedOperation {
     }
 
     @Override
-    protected ArrayList<Option> options() {
-        ArrayList<Option> options = super.options();
-        options.add(new Option("possible", "logs possible connections of all interfaces", "possibleInterfaces", "p"));
-        return options;
+    public ArrayList<Option> options() {
+        return new ArrayList<Option>() {{
+            add(new Option("possible", "logs possible connections of all interfaces", "possibleInterfaces", "p"));
+        }};
     }
 
     @Override
-    protected ArrayList<Argument> arguments() {
+    public ArrayList<Argument> arguments() {
         return new ArrayList<>();
     }
 
