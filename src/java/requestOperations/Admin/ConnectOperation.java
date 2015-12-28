@@ -5,14 +5,13 @@
  */
 package requestOperations.Admin;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import model.Device;
 import model.DeviceInterface;
 import model.Interactor;
-import model.SerializableModel;
-import requestOperations.RequestOperation;
 
-public class ConnectOperation extends RequestOperation implements SerializableModel {
+public class ConnectOperation extends InterpretedOperation {
     
     protected String outputDeviceID;
     protected String outputInterfaceID;
@@ -23,15 +22,24 @@ public class ConnectOperation extends RequestOperation implements SerializableMo
     protected DeviceInterface inputInterface;
     
     @Override
-    public HashMap<String, String> JSONKeyPathsByPropertyKey() {
-        return new HashMap<String, String>() {
+    public ArrayList<Argument> arguments() {
+        return new ArrayList<Argument>() {
             {
-                put("!outputDeviceID", "output.device_id");
-                put("!outputInterfaceID", "output.interface_id");
-                put("!inputDeviceID", "input.device_id");
-                put("!inputInterfaceID", "input.interface_id");
-            }
-        };
+                add(new Argument("output_device_id", "Output device ID.", "outputDeviceID"));
+                add(new Argument("output_interface_id", "Output interface ID.", "outputInterfaceID"));
+                add(new Argument("input_device_id", "Input device ID.", "inputDeviceID"));
+                add(new Argument("input_interface_id", "Input interface ID.", "inputInterfaceID"));
+            }};
+    }
+
+    @Override
+    public ArrayList<Option> options() {
+        return new ArrayList<>();
+    }
+
+    @Override
+    public String description() {
+        return "Connects two interfaces.";
     }
 
     public String getOutputDeviceID() {

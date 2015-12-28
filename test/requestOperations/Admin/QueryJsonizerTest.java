@@ -7,6 +7,7 @@ package requestOperations.Admin;
 
 import requestOperations.Admin.QueryJsonizer;
 import com.google.gson.JsonObject;
+import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,7 +46,9 @@ public class QueryJsonizerTest {
     @Test
     public void testJsonizeQuery() {
         String query = "test arg1 arg2 -a -b";
-        JsonObject json = QueryJsonizer.jsonizeQuery(query, InterpretedTestOperation.class);
+        HashMap<String, Class> classMap = new HashMap<>();
+        classMap.put("test", InterpretedTestOperation.class);
+        JsonObject json = QueryJsonizer.jsonizeQuery(query, classMap);
         
         assertNotNull(json);
         

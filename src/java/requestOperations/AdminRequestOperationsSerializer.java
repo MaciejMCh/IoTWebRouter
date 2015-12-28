@@ -37,7 +37,7 @@ public class AdminRequestOperationsSerializer extends RequestOperationsSerialize
             return new ErrorOperation("'query' field is missing.", medium);
         }
         JsonObject jsonizedQuery = QueryJsonizer.jsonizeQuery(json.get("query").getAsString(), operationClassMap());
-        return super.serializeOperation(jsonizedQuery, medium); //To change body of generated methods, choose Tools | Templates.
+        return super.serializeOperation(jsonizedQuery, medium);
     }
     
     

@@ -49,12 +49,12 @@ public class QueryJsonizer {
             JsonObject json = new JsonObject();
             json.addProperty("action", action);
             for (int i=0; i<=arguments.size() - 1; i++) {
-                json.addProperty(operationObject.arguments().get(i).getPropertyName(), arguments.get(i));
+                json.addProperty(operationObject.arguments().get(i).getArgumentName(), arguments.get(i));
             }
             
             for (Option option : operationObject.options()) {
                 String optionName = option.getInvocation();
-                json.addProperty(option.getPropertyName(), options.contains(option.getInvocation()));
+                json.addProperty(option.getName(), options.contains(option.getInvocation()));
             }
             return json;
         } catch(Exception e) {

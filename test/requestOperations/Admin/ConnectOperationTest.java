@@ -1,4 +1,4 @@
-/*
+//*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -51,10 +51,15 @@ public class ConnectOperationTest {
     @Test
     public void testSerialization() {
         try {
-            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"dev_0\",\"interface_id\":\"int_0\"},\"input\":{\"device_id\":\"dev_1\",\"interface_id\":\"int_1\"}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output_device_id\":\"dev_0\",\"output_interface_id\":\"int_0\",\"input_device_id\":\"dev_1\",\"input_interface_id\":\"int_1\"}").getAsJsonObject();
             ConnectOperation operation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
             
             assertNotNull(operation);
+            assertNotNull(operation.getOutputDeviceID());
+            assertNotNull(operation.getInputDeviceID());
+            assertNotNull(operation.getOutputInterfaceID());
+            assertNotNull(operation.getInputInterfaceID());
+            
             assertEquals(operation.getOutputDeviceID(), "dev_0");
             assertEquals(operation.getInputDeviceID(), "dev_1");
             assertEquals(operation.getOutputInterfaceID(), "int_0");
@@ -82,7 +87,7 @@ public class ConnectOperationTest {
             outputRegisterOperation.performOperation();
             String outputDeviceID = outputRegisterOperation.getRegisteringDevice().getId();
             
-            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"" + outputDeviceID + "\",\"interface_id\":\"in_1\"},\"input\":{\"device_id\":\""+ inputDeviceID +"\",\"interface_id\":\"in_0\"}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output_device_id\":\"" + outputDeviceID + "\",\"output_interface_id\":\"in_1\",\"input_device_id\":\"" + inputDeviceID + "\",\"input_interface_id\":\"in_0\"}").getAsJsonObject();
             ConnectOperation connectOperation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
             FakeMedium connectMedium = new FakeMedium();
             connectOperation.medium = connectMedium;
@@ -115,7 +120,7 @@ public class ConnectOperationTest {
             outputRegisterOperation.performOperation();
             String outputDeviceID = outputRegisterOperation.getRegisteringDevice().getId();
             
-            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"" + "wrong" + "\",\"interface_id\":\"in_1\"},\"input\":{\"device_id\":\""+ inputDeviceID +"\",\"interface_id\":\"in_0\"}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output_device_id\":\"wrong\",\"output_interface_id\":\"in_1\",\"input_device_id\":\"" + inputDeviceID + "\",\"input_interface_id\":\"in_0\"}").getAsJsonObject();
             ConnectOperation connectOperation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
             FakeMedium connectMedium = new FakeMedium();
             connectOperation.medium = connectMedium;
@@ -145,7 +150,7 @@ public class ConnectOperationTest {
             outputRegisterOperation.performOperation();
             String outputDeviceID = outputRegisterOperation.getRegisteringDevice().getId();
             
-            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"" + outputDeviceID + "\",\"interface_id\":\"in_1\"},\"input\":{\"device_id\":\""+ "wrong" +"\",\"interface_id\":\"in_0\"}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output_device_id\":\"" + outputDeviceID + "\",\"output_interface_id\":\"in_1\",\"input_device_id\":\"" + "wrong" + "\",\"input_interface_id\":\"in_0\"}").getAsJsonObject();
             ConnectOperation connectOperation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
             FakeMedium connectMedium = new FakeMedium();
             connectOperation.medium = connectMedium;
@@ -175,7 +180,7 @@ public class ConnectOperationTest {
             outputRegisterOperation.performOperation();
             String outputDeviceID = outputRegisterOperation.getRegisteringDevice().getId();
             
-            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"" + outputDeviceID + "\",\"interface_id\":\"in_1\"},\"input\":{\"device_id\":\""+ inputDeviceID +"\",\"interface_id\":\"wrong\"}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output_device_id\":\"" + outputDeviceID + "\",\"output_interface_id\":\"in_1\",\"input_device_id\":\"" + inputDeviceID + "\",\"input_interface_id\":\"wrong\"}").getAsJsonObject();
             ConnectOperation connectOperation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
             FakeMedium connectMedium = new FakeMedium();
             connectOperation.medium = connectMedium;
@@ -205,7 +210,7 @@ public class ConnectOperationTest {
             outputRegisterOperation.performOperation();
             String outputDeviceID = outputRegisterOperation.getRegisteringDevice().getId();
             
-            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"" + outputDeviceID + "\",\"interface_id\":\"wrong\"},\"input\":{\"device_id\":\""+ inputDeviceID +"\",\"interface_id\":\"in_0\"}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output_device_id\":\"" + outputDeviceID + "\",\"output_interface_id\":\"wrong\",\"input_device_id\":\"" + inputDeviceID + "\",\"input_interface_id\":\"in_0\"}").getAsJsonObject();
             ConnectOperation connectOperation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
             FakeMedium connectMedium = new FakeMedium();
             connectOperation.medium = connectMedium;
@@ -235,7 +240,7 @@ public class ConnectOperationTest {
             outputRegisterOperation.performOperation();
             String outputDeviceID = outputRegisterOperation.getRegisteringDevice().getId();
             
-            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"" + outputDeviceID + "\",\"interface_id\":\"in_1\"},\"input\":{\"device_id\":\""+ inputDeviceID +"\",\"interface_id\":\"in_0\"}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output_device_id\":\"" + outputDeviceID + "\",\"output_interface_id\":\"in_1\",\"input_device_id\":\"" + inputDeviceID + "\",\"input_interface_id\":\"in_0\"}").getAsJsonObject();
             ConnectOperation connectOperation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
             FakeMedium connectMedium = new FakeMedium();
             connectOperation.medium = connectMedium;
@@ -266,7 +271,7 @@ public class ConnectOperationTest {
             outputRegisterOperation.performOperation();
             String outputDeviceID = outputRegisterOperation.getRegisteringDevice().getId();
             
-            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"" + outputDeviceID + "\",\"interface_id\":\"in_1\"},\"input\":{\"device_id\":\""+ inputDeviceID +"\",\"interface_id\":\"in_0\"}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output_device_id\":\"" + outputDeviceID + "\",\"output_interface_id\":\"in_1\",\"input_device_id\":\"" + inputDeviceID + "\",\"input_interface_id\":\"in_0\"}").getAsJsonObject();
             ConnectOperation connectOperation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
             FakeMedium connectMedium = new FakeMedium();
             connectOperation.medium = connectMedium;
