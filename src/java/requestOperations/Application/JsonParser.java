@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import model.Device;
 import model.DeviceInterface;
 import model.InterfaceConnection;
-import requestOperations.Log.LogParser;
+import requestOperations.Admin.LogParser;
 
 /**
  *

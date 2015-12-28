@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package requestOperations.Log;
+package requestOperations.Admin;
 
+import requestOperations.Admin.QueryJsonizer;
 import com.google.gson.JsonObject;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -62,7 +63,6 @@ public class QueryJsonizerTest {
         assertEquals(json.get("optionA").getAsBoolean(), true);
         assertEquals(json.get("optionB").getAsBoolean(), true);
         assertEquals(json.get("optionC").getAsBoolean(), false);
-        
     }
     
 }
