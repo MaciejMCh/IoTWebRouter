@@ -28,6 +28,12 @@ public abstract class InterpretedOperation extends RequestOperation implements S
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {
         return new HashMap<String, String>() {{
             put("query", "query");
+            for (Option option : options()) {
+                put(option.getName(), option.getPropertyName());
+            }
+            for (Argument argument : arguments()) {
+                put(argument.getPropertyName(), argument.getArgumentName());
+            }
         }};
     }
 }
