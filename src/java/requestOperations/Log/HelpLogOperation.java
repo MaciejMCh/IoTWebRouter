@@ -28,7 +28,7 @@ public class HelpLogOperation extends InterpretedOperation {
     public void performOperation() {
         if (this.operationName == null) {
             String output = "log operations:";
-            for (String operationName : LogRequestInterpreter.getOperationClassMap().keySet()) {
+            for (String operationName : QueryJsonizer.getOperationClassMap().keySet()) {
                 output += "\n" + operationName + " - " + staticEvaluation(operationName, "description");
                 if (this.syntax || this.details) {
                     output += " syntax: " + operationName + " " + staticEvaluation(operationName, "syntaxString");
@@ -79,14 +79,14 @@ public class HelpLogOperation extends InterpretedOperation {
     
     protected Object staticEvaluation(String logOperationName, String selector) {
         try {
-            Class<InterpretedOperation> clazz = LogRequestInterpreter.getOperationClassMap().get(logOperationName);
+            Class<InterpretedOperation> clazz = QueryJsonizer.getOperationClassMap().get(logOperationName);
             Object object = clazz.getConstructor(JsonObject.class, Medium.class).newInstance(new JsonObject(), this.medium);
             Method method = clazz.getMethod(selector);
             Object result = method.invoke(object);
             return result;
         } catch (Exception e) {
             try {
-                Class<InterpretedOperation> clazz = LogRequestInterpreter.getOperationClassMap().get(logOperationName);
+                Class<InterpretedOperation> clazz = QueryJsonizer.getOperationClassMap().get(logOperationName);
                 Object object = clazz.getConstructor(JsonObject.class, Medium.class).newInstance(new JsonObject(), this.medium);
                 Method method = clazz.getDeclaredMethod(selector);
                 Object result = method.invoke(object);
