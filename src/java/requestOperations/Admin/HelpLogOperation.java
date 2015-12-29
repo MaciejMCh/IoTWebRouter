@@ -23,7 +23,7 @@ public class HelpLogOperation extends InterpretedOperation {
     @Override
     public void performOperation() {
         if (this.operationName == null) {
-            String output = "log operations:";
+            String output = "operations:";
             for (String operationName : new AdminRequestOperationsSerializer().operationClassMap().keySet()) {
                 InterpretedOperation operation = null;
                 try {

@@ -19,6 +19,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import requestOperations.AdminRequestOperationsSerializer;
+import requestOperations.FakeMedium;
+import requestOperations.RequestOperation;
 
 /**
  *
@@ -65,6 +68,40 @@ public class HelpLogOperationTest {
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }
+    }
+    
+    @Test
+    public void testLogHelp() {
+        JsonObject logJson = new JsonParser().parse("{\"action\":\"operation\",\"query\":\"help\"}").getAsJsonObject();
+        FakeMedium logMedium = new FakeMedium();
+        RequestOperation operation = new AdminRequestOperationsSerializer().serializeOperation(logJson, logMedium);
+        operation.performOperation();
+        
+        assertTrue(logMedium.message.contains("operations:"));
+    }
+    
+    @Test
+    public void testLogHelpAndSyntax() {
+        JsonObject logJson = new JsonParser().parse("{\"action\":\"operation\",\"query\":\"help -s\"}").getAsJsonObject();
+        FakeMedium logMedium = new FakeMedium();
+        RequestOperation operation = new AdminRequestOperationsSerializer().serializeOperation(logJson, logMedium);
+        operation.performOperation();
+        
+        assertTrue(logMedium.message.contains("operations:"));
+        assertTrue(logMedium.message.contains("syntax:"));
+    }
+    
+    @Test
+    public void testLogHelpAndDetails() {
+        JsonObject logJson = new JsonParser().parse("{\"action\":\"operation\",\"query\":\"help -d\"}").getAsJsonObject();
+        FakeMedium logMedium = new FakeMedium();
+        RequestOperation operation = new AdminRequestOperationsSerializer().serializeOperation(logJson, logMedium);
+        operation.performOperation();
+        
+        assertTrue(logMedium.message.contains("operations:"));
+        assertTrue(logMedium.message.contains("syntax:"));
+        assertTrue(logMedium.message.contains("arguments:"));
+        assertTrue(logMedium.message.contains("options:"));
     }
     
 }
