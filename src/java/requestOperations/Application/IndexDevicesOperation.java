@@ -14,8 +14,8 @@ import model.Interactor;
 public class IndexDevicesOperation extends ResponsableRequestOperation {
     
     @Override
-    public ConversationResponse performReponsableOperation() {
-        return ConversationResponse.successResponse(this.requestID, JsonParser.parseDevices(Interactor.getInstance().getEnviroment().devices));
+    public RequestResponse performReponsableOperation() {
+        return RequestResponse.successResponse(this.requestID, JsonParser.parseDevices(Interactor.getInstance().getEnviroment().devices));
     }
     
 }

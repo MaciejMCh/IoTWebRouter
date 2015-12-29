@@ -14,8 +14,8 @@ import model.Interactor;
 public class IndexConnectionsOperation extends ResponsableRequestOperation {
 
     @Override
-    public ConversationResponse performReponsableOperation() {
-        return ConversationResponse.successResponse(this.requestID, JsonParser.parseInterfacesConnections(Interactor.getInstance().getRouter().getInterfacesConnections()));
+    public RequestResponse performReponsableOperation() {
+        return RequestResponse.successResponse(this.requestID, JsonParser.parseInterfacesConnections(Interactor.getInstance().getRouter().getInterfacesConnections()));
     }
     
 }

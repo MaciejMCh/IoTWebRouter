@@ -17,7 +17,7 @@ public abstract class ResponsableRequestOperation extends RequestOperation imple
     
     protected String  requestID;
     
-    public abstract ConversationResponse performReponsableOperation();
+    public abstract RequestResponse performReponsableOperation();
 
     @Override
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {

@@ -21,12 +21,12 @@ public class ConnectInterfacesOperation extends ResponsableRequestOperation {
     }
 
     @Override
-    public ConversationResponse performReponsableOperation() {
+    public RequestResponse performReponsableOperation() {
         if (this.workerOperation.getError() == null) {
             this.workerOperation.performOperation();
-            return ConversationResponse.successResponse(this.requestID, new JsonObject());
+            return RequestResponse.successResponse(this.requestID, new JsonObject());
         } else {
-            return ConversationResponse.errorResponse(this.requestID, this.workerOperation.getError().getErrorMessage());
+            return RequestResponse.errorResponse(this.requestID, this.workerOperation.getError().getErrorMessage());
         }
     }
     

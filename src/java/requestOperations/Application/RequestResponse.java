@@ -11,26 +11,26 @@ import com.google.gson.JsonObject;
  *
  * @author maciej
  */
-public class ConversationResponse {
+public class RequestResponse {
     protected String result;
     protected JsonObject response;
     public String requestID;
     
-    private ConversationResponse(String requestID, String result, JsonObject response) {
+    private RequestResponse(String requestID, String result, JsonObject response) {
         super();
         this.result = result;
         this.response = response;
         this.requestID = requestID;
     }
     
-    static ConversationResponse successResponse(String requestID, JsonObject result) {
-        return new ConversationResponse(requestID, "success", result);
+    static RequestResponse successResponse(String requestID, JsonObject result) {
+        return new RequestResponse(requestID, "success", result);
     }
     
-    static ConversationResponse errorResponse(String requestID, String message) {
+    static RequestResponse errorResponse(String requestID, String message) {
         JsonObject errorJson = new JsonObject();
         errorJson.addProperty("message", message);
-        return new ConversationResponse(requestID, "error", errorJson);
+        return new RequestResponse(requestID, "error", errorJson);
     }
     
     public JsonObject jsonRepresentation() {
