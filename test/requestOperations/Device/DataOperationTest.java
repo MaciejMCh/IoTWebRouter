@@ -84,7 +84,7 @@ public class DataOperationTest {
             outputRegisterOperation.performOperation();
             String outputDeviceID = outputRegisterOperation.getRegisteringDevice().getId();
             
-            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output\":{\"device_id\":\"" + outputDeviceID + "\",\"interface_id\":\"in_1\"},\"input\":{\"device_id\":\""+ inputDeviceID +"\",\"interface_id\":\"in_0\"}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"action\":\"connect\",\"output_device_id\":\"" + outputDeviceID + "\",\"output_interface_id\":\"in_1\",\"input_device_id\":\"" + inputDeviceID + "\",\"input_interface_id\":\"in_0\"}").getAsJsonObject();
             ConnectOperation connectOperation = (ConnectOperation) ModelSerializer.model(ConnectOperation.class, json);
             FakeMedium connectMedium = new FakeMedium();
             connectOperation.medium = connectMedium;
