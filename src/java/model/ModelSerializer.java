@@ -15,7 +15,7 @@ public class ModelSerializer {
         try {
             model = (SerializableModel) clazz.newInstance();
         } catch(Exception e) {
-            throw new SerializationErrorException("Internal server error. Instantiating class " + clazz);
+            throw new SerializationErrorException("Internal server error. Instantiating class " + clazz + ".\n" + e.toString());
         }
             
         for (String propertyExpression : model.JSONKeyPathsByPropertyKey().keySet()) {

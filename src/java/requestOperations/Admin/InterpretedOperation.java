@@ -36,4 +36,20 @@ public abstract class InterpretedOperation extends RequestOperation implements S
             }
         }};
     }
+
+    String syntaxString() {
+        String output = "";
+        for (Argument argument : this.arguments()) {
+            output += argument.argumentName;
+            output += " ";
+        }
+        output += "[";
+        for (Option option : this.options()) {
+            output += "-" + option.invocation;
+            output += " ";
+        }
+        output+= "]";
+        output = output.replace(" ]", "]");
+        return output;
+    }
 }

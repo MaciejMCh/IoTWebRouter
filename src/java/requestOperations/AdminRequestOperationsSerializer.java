@@ -20,7 +20,7 @@ import requestOperations.Admin.QueryJsonizer;
 public class AdminRequestOperationsSerializer extends RequestOperationsSerializer {
 
     @Override
-    protected HashMap<String, Class> operationClassMap() {
+    public HashMap<String, Class> operationClassMap() {
         return new HashMap<String, Class>() {{
             put("connect", ConnectOperation.class);
             put("devices", DeviceLogOperation.class);

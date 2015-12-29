@@ -5,17 +5,26 @@
  */
 package requestOperations.Application;
 
+import java.util.HashMap;
+import model.SerializableModel;
 import requestOperations.RequestOperation;
 
 /**
  *
  * @author maciej
  */
-public abstract class ResponsableRequestOperation extends RequestOperation {
+public abstract class ResponsableRequestOperation extends RequestOperation implements SerializableModel {
     
     protected String  requestID;
     
     public abstract ConversationResponse performReponsableOperation();
+
+    @Override
+    public HashMap<String, String> JSONKeyPathsByPropertyKey() {
+        return new HashMap<String, String>() {{
+            put("!requestID", "request_id");
+        }};
+    }
     
     @Override
     public void performOperation() {

@@ -6,8 +6,6 @@
 package requestOperations.Application;
 
 import com.google.gson.JsonObject;
-import model.DeviceInterface;
-import model.Medium;
 import requestOperations.Admin.ConnectOperation;
 
 /**

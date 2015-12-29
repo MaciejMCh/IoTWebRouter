@@ -51,6 +51,7 @@ public class MobileRequestOperationsSerializerTest {
         FakeMedium medium = new FakeMedium();
         
         RequestOperation dataOperation = new MobileRequestOperationsSerializer().serializeOperation(json, medium);
+        
         assertNotNull(dataOperation);
         assertEquals(dataOperation.getClass(), IndexDevicesOperation.class);
     }

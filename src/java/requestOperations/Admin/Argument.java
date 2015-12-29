@@ -13,6 +13,7 @@ public class Argument {
     protected String argumentName;
     protected String description;
     protected String propertyName;
+    protected boolean isRequired;
 
     public String getArgumentName() {
         return argumentName;
@@ -26,9 +27,14 @@ public class Argument {
         return propertyName;
     }
     
-    public Argument(String argumentName, String description, String propertyName) {
+    public boolean getIsRequired() {
+        return isRequired;
+    }
+    
+    public Argument(String argumentName, String description, String propertyName, boolean isRequired) {
         this.argumentName = argumentName;
         this.description = description;
         this.propertyName = propertyName;
+        this.isRequired = isRequired;
     }
 }

@@ -23,9 +23,9 @@ public class InterpretedTestOperation extends InterpretedOperation {
     @Override
     public ArrayList<Argument> arguments() {
         return new ArrayList<Argument>() {{
-            add(new Argument("first_argument", "first argument", "firstArgument"));
-            add(new Argument("second_argument", "second argument", "secondArgument"));
-            add(new Argument("third_argument", "third argument", "thirdArgument"));
+            add(new Argument("first_argument", "first argument", "firstArgument", true));
+            add(new Argument("second_argument", "second argument", "secondArgument", true));
+            add(new Argument("third_argument", "third argument", "thirdArgument", false));
         }};
     }
 

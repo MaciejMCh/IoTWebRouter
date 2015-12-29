@@ -6,6 +6,9 @@
 package requestOperations.Admin;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import requestOperations.AdminRequestOperationsSerializer;
 
 /**
  *
@@ -21,12 +24,18 @@ public class HelpLogOperation extends InterpretedOperation {
     public void performOperation() {
         if (this.operationName == null) {
             String output = "log operations:";
-            for (String operationName : QueryJsonizer.getOperationClassMap().keySet()) {
-                output += "\n" + operationName + " - " + staticEvaluation(operationName, "description");
+            for (String operationName : new AdminRequestOperationsSerializer().operationClassMap().keySet()) {
+                InterpretedOperation operation = null;
+                try {
+                    operation = (InterpretedOperation) new AdminRequestOperationsSerializer().operationClassMap().get(operationName).newInstance();
+                } catch (Exception ex) {
+                    this.medium.sendMessage("Internal server error. " + ex.toString());
+                }
+                output += "\n" + operationName + " - " + operation.description();
                 if (this.syntax || this.details) {
-                    output += " syntax: " + operationName + " " + staticEvaluation(operationName, "syntaxString");
+                    output += " syntax: " + operationName + " " + operation.syntaxString();
                     if (this.details) {
-                        ArrayList<Argument> arguments = (ArrayList<Argument>)staticEvaluation(operationName, "arguments");
+                        ArrayList<Argument> arguments = operation.arguments();
                         if (!arguments.isEmpty()) {
                             output += "\n\t arguments:";
                             for (Argument argument : arguments) {
@@ -34,7 +43,7 @@ public class HelpLogOperation extends InterpretedOperation {
                                 output += "\n\t\t " + argument.getPropertyName() + " - " + argument.getDescription() + " " + requiredString;
                             }                    
                         }
-                        ArrayList<Option> options = (ArrayList<Option>)staticEvaluation(operationName, "options");
+                        ArrayList<Option> options = operation.options();
                         if (!options.isEmpty()) {
                             output += "\n\t options:";
                             for (Option option : options) {
@@ -44,14 +53,14 @@ public class HelpLogOperation extends InterpretedOperation {
                     }
                 }
             }
-            this.log(output);
+            this.medium.sendMessage(output);
         }
     }
 
     @Override
     public ArrayList<Argument> arguments() {
         ArrayList<Argument> arguments = new ArrayList<>();
-        arguments.add(new Argument("operation_name", "operation name", "operationName"));
+        arguments.add(new Argument("operation_name", "operation name", "operationName", false));
         return arguments;
     }
 

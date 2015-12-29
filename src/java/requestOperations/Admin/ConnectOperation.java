@@ -25,10 +25,10 @@ public class ConnectOperation extends InterpretedOperation {
     public ArrayList<Argument> arguments() {
         return new ArrayList<Argument>() {
             {
-                add(new Argument("output_device_id", "Output device ID.", "outputDeviceID"));
-                add(new Argument("output_interface_id", "Output interface ID.", "outputInterfaceID"));
-                add(new Argument("input_device_id", "Input device ID.", "inputDeviceID"));
-                add(new Argument("input_interface_id", "Input interface ID.", "inputInterfaceID"));
+                add(new Argument("output_device_id", "Output device ID.", "outputDeviceID", true));
+                add(new Argument("output_interface_id", "Output interface ID.", "outputInterfaceID", true));
+                add(new Argument("input_device_id", "Input device ID.", "inputDeviceID", true));
+                add(new Argument("input_interface_id", "Input interface ID.", "inputInterfaceID", true));
             }};
     }
 

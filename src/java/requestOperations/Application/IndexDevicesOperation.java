@@ -5,9 +5,7 @@
  */
 package requestOperations.Application;
 
-import com.google.gson.JsonObject;
 import model.Interactor;
-import model.Medium;
 
 /**
  *
