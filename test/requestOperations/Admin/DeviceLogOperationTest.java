@@ -146,7 +146,7 @@ public class DeviceLogOperationTest {
             assertTrue(logMedium.message.contains("direction"));
             assertTrue(logMedium.message.contains("in_1"));
             assertTrue(logMedium.message.contains("light"));
-            assertTrue(logMedium.message.contains("Output"));
+            assertTrue(logMedium.message.contains("output"));
             
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
@@ -209,7 +209,7 @@ public class DeviceLogOperationTest {
             assertTrue(logMedium.message.contains("direction"));
             assertTrue(logMedium.message.contains("in_1"));
             assertTrue(logMedium.message.contains("light"));
-            assertTrue(logMedium.message.contains("Output"));
+            assertTrue(logMedium.message.contains("output"));
             
         } catch (SerializationErrorException ex) {
             fail(ex.toString());

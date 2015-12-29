@@ -69,9 +69,9 @@ public class LogParser {
     
     public static String parseInterfaceDirection(DeviceInterface.InterfaceDirection interfaceDirection) {
         if (interfaceDirection == Input) {
-            return "Input";
+            return "input";
         } else {
-            return "Output";
+            return "output";
         }
     }
     

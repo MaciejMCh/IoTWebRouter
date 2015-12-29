@@ -8,8 +8,6 @@ package requestOperations.Admin;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.Device;
 import model.DeviceInterface;
 import model.ModelSerializer;
@@ -56,7 +54,7 @@ public class LogParserTest {
             Device device = (Device) ModelSerializer.model(Device.class, json);
             
             assertEquals(LogParser.parseDevice(device, new LogDepth(0)), "id: "+device.getId()+" 	 name: sensor");
-            assertEquals(LogParser.parseDevice(device, new LogDepth(1)), "id: "+device.getId()+" 	 name: sensor\n  	 interfaces:\n  	 id: int_li_in	 data type: light	 direction: Output");
+            assertEquals(LogParser.parseDevice(device, new LogDepth(1)), "id: "+device.getId()+" 	 name: sensor\n  	 interfaces:\n  	 id: int_li_in	 data type: light	 direction: output");
             
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
@@ -76,11 +74,30 @@ public class LogParserTest {
             devices.add(device2);
             
             assertEquals(LogParser.parseDevices(devices, new LogDepth(0)), "devices\n" + "id: "+device1.getId()+" 	 name: sensor\n" + "id: "+device2.getId()+" 	 name: actuator\n" + "" + "");
-            assertTrue(LogParser.parseDevices(devices, new LogDepth(1)).contains("devices\n" + "id: dev_1 	 name: sensor\n" + "  	 interfaces:\n" + "  	 id: int_li_in	 data type: light	 direction: Output\n" + "id: dev_2 	 name: actuator\n" + "  	 interfaces:\n" + "  	 id: int_li_out	 data type: light"));
+            assertTrue(LogParser.parseDevices(devices, new LogDepth(1)).contains("devices\n" + "id: "+device1.getId()+" 	 name: sensor\n" + "  	 interfaces:\n" + "  	 id: int_li_in	 data type: light	 direction: output\n" + "id: "+device2.getId()+" 	 name: actuator\n" + "  	 interfaces:\n" + "  	 id: int_li_out	 data type: light"));
             
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }
+    }
+    
+    @Test
+    public void testParseInterface() {
+        try {
+            JsonObject json1 = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device device1 = (Device) ModelSerializer.model(Device.class, json1);
+            
+            assertEquals(LogParser.parseInterface(device1.getInterfaces().get(0), new LogDepth(0)), "id: int_li_in	 data type: light	 direction: output");
+            assertEquals(LogParser.parseInterface(device1.getInterfaces().get(0), new LogDepth(1)), "id: int_li_in	 data type: light	 direction: output	 device: "+device1.getId()+"");
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testParseInterfaceDirection() {
+        assertEquals(LogParser.parseInterfaceDirection(DeviceInterface.InterfaceDirection.Input), "input");
+        assertEquals(LogParser.parseInterfaceDirection(DeviceInterface.InterfaceDirection.Output), "output");
     }
     
 }
