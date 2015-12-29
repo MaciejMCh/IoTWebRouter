@@ -131,8 +131,6 @@ public class ConnectionsLogOperationTest {
             assertTrue(logMedium.message.contains("connections:"));
             assertTrue(logMedium.message.contains(outputDeviceID + "." + "in_1 -> " + inputDeviceID + ".in_0"));
             
-            System.out.println(logMedium.message);
-            
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }
