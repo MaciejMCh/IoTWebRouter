@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import model.Device;
 import model.DeviceInterface;
 import static model.DeviceInterface.InterfaceDirection.Input;
+import model.InterfaceConnection;
 
 /**
  *
@@ -81,5 +82,9 @@ public class LogParser {
             result = result + "\t device: " + deviceInterface.getParentDevice().getId();
         }
         return result;
+    }
+    
+    public static String parseInterfaceConnection(InterfaceConnection interfaceConnection) {
+        return interfaceConnection.getOutput().getParentDevice().getId() + "." + interfaceConnection.getOutput().getId() + " -> " + interfaceConnection.getInput().getParentDevice().getId() + "." + interfaceConnection.getInput().getId();
     }
 }

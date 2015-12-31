@@ -95,8 +95,8 @@ public class ConnectOperationTest {
             
             InterfaceConnection interfaceConnection = Interactor.getInstance().getRouter().getInterfacesConnections().get(0);
             
-            assertEquals(interfaceConnection.input, inputRegisterOperation.getRegisteringDevice().getInterfaces().get(0));
-            assertEquals(interfaceConnection.output, outputRegisterOperation.getRegisteringDevice().getInterfaces().get(0));
+            assertEquals(interfaceConnection.getInput(), inputRegisterOperation.getRegisteringDevice().getInterfaces().get(0));
+            assertEquals(interfaceConnection.getOutput(), outputRegisterOperation.getRegisteringDevice().getInterfaces().get(0));
             
         } catch (SerializationErrorException ex) {
             fail(ex.toString());

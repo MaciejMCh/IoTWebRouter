@@ -53,7 +53,7 @@ public class ConnectionsLogOperation extends InterpretedOperation {
     public String connectionsLog() {
         String output = "connections:";
         for (InterfaceConnection connection : Interactor.getInstance().getRouter().getInterfacesConnections()) {
-            output += "\n " + connection.log();
+            output += "\n " + LogParser.parseInterfaceConnection(connection);
         }
         return output;
     }
@@ -87,7 +87,7 @@ public class ConnectionsLogOperation extends InterpretedOperation {
         }
         
         for (InterfaceConnection connection : validConnections) {
-            output += "\n " + connection.log();
+            output += "\n " + LogParser.parseInterfaceConnection(connection);
         }
         
         return output;

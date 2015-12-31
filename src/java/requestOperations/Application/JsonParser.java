@@ -58,12 +58,12 @@ public class JsonParser {
     
     public static JsonObject parseInterfaceConnection(InterfaceConnection interfaceConnection) {
         JsonObject outputJson = new JsonObject();
-        outputJson.addProperty("interface_id", interfaceConnection.output.getId());
-        outputJson.addProperty("device_id", interfaceConnection.output.getParentDevice().getId());
+        outputJson.addProperty("interface_id", interfaceConnection.getOutput().getId());
+        outputJson.addProperty("device_id", interfaceConnection.getOutput().getParentDevice().getId());
         
         JsonObject inputJson = new JsonObject();
-        inputJson.addProperty("interface_id", interfaceConnection.input.getId());
-        inputJson.addProperty("device_id", interfaceConnection.input.getParentDevice().getId());
+        inputJson.addProperty("interface_id", interfaceConnection.getInput().getId());
+        inputJson.addProperty("device_id", interfaceConnection.getInput().getParentDevice().getId());
         
         JsonObject resultJson = new JsonObject();
         resultJson.add("output", outputJson);
