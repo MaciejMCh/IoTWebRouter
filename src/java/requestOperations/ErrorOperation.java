@@ -22,6 +22,7 @@ public class ErrorOperation extends RequestOperation {
     public ErrorOperation(String errorMessage, Medium medium) {
         super();
         this.errorMessage = errorMessage;
+        this.medium = medium;
     }
 
     @Override
