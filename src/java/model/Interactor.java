@@ -70,7 +70,7 @@ public class Interactor {
         return this.mediumDeviceMap.get(medium);
     }
     
-    public Medium sessionOfDevice(Device device) {
+    public Medium mediumOfDevice(Device device) {
         return this.deviceMediumMap.get(device);
     }
     

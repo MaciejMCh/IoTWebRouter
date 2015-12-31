@@ -51,7 +51,7 @@ public class DataOperation extends RequestOperation implements SerializableModel
         for (Signal signal : signals) {
             
             Device destinationDevice = signal.getDestinationInterface().getParentDevice();
-            Medium destinationMedium = Interactor.getInstance().sessionOfDevice(destinationDevice);
+            Medium destinationMedium = Interactor.getInstance().mediumOfDevice(destinationDevice);
             destinationMedium.sendMessage(signal.stringDataRepresentation());
         }
     }
