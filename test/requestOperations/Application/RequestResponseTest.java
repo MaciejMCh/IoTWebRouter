@@ -71,12 +71,11 @@ public class RequestResponseTest {
      */
     @Test
     public void testJsonRepresentation() {
-        RequestResponse instance = null;
-        JsonObject expResult = null;
-        JsonObject result = instance.jsonRepresentation();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        JsonObject json = new JsonObject();
+        json.addProperty("model", "model");
+        RequestResponse successResponse = RequestResponse.successResponse("req_1", json);
+        
+        assertEquals(successResponse.jsonRepresentation(), new com.google.gson.JsonParser().parse("{\"result\":\"success\",\"requestID\":\"req_1\",\"response\":{\"model\":\"model\"}}").getAsJsonObject());
     }
     
 }
