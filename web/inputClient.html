@@ -67,7 +67,7 @@ var sessionID;
   function onOpen(evt) {
    writeToScreen("CONNECTED"); 
 
-   doSend("{\"stored_id\":\""+ sessionID +"\",\"action\":\"register\",\"device\":{\"name\":\"" + name + "\",\"interface\":[{\"direction\":\"input\",\"dataType\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
+   doSend("{\"stored_id\":\""+ sessionID +"\",\"action\":\"register\",\"device\":{\"name\":\"" + name + "\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"" + dataType + "\",\"id\":\"" + interfaceID + "\"}]}}"); 
 } 
 
  function onClose(evt) {
