@@ -13,8 +13,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import com.google.gson.JsonParser;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.ModelSerializer;
 import model.SerializableModel;
 import model.SerializationErrorException;
@@ -50,10 +48,20 @@ public class ConnectInterfacesOperationTest {
     @Test
     public void testSerialization() {
         try {
-            JsonObject json = new JsonParser().parse("{\"request_id\":\"app_req_1\", \"action\":\"connect_interfaces\",\"output\":{\"device\":\"dev_0\",\"interface\":\"int_0\"},\"input\":{\"device\":\"dev_1\",\"interface\":\"int_1\"}}").getAsJsonObject();
+            JsonObject json = new JsonParser().parse("{\"request_id\":\"app_req_1\",\"action\":\"connect_interfaces\",\"connection\":{\"output_device_id\":\"dev_0\",\"output_interface_id\":\"int_0\",\"input_device_id\":\"dev_1\",\"input_interface_id\":\"int_1\"}}").getAsJsonObject();
             SerializableModel model = ModelSerializer.model(ConnectInterfacesOperation.class, json);
+            
             assertNotNull(model);
             assertEquals(model.getClass(), ConnectInterfacesOperation.class);
+            
+            ConnectInterfacesOperation operation = (ConnectInterfacesOperation)model;
+            
+            assertNotNull(operation.workerOperation);
+            assertEquals(operation.workerOperation.getOutputDeviceID(), "dev_0");
+            assertEquals(operation.workerOperation.getOutputInterfaceID(), "int_0");
+            assertEquals(operation.workerOperation.getInputDeviceID(), "dev_1");
+            assertEquals(operation.workerOperation.getInputInterfaceID(), "int_1");
+            
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }

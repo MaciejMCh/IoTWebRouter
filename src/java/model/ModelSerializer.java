@@ -114,7 +114,7 @@ public class ModelSerializer {
                     }
                 }
                 
-                if (Arrays.asList(((Class)field.getGenericType()).getInterfaces()).contains(SerializableModel.class)) {
+                if (SerializableModel.class.isAssignableFrom(((Class)field.getGenericType()))) {
                     Object model = model((Class) field.getGenericType(), fieldValue.getAsJsonObject());
                     field.set(object, model);
                     return true;

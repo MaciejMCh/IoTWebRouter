@@ -6,6 +6,7 @@
 package requestOperations.Application;
 
 import com.google.gson.JsonObject;
+import java.util.HashMap;
 import requestOperations.Admin.ConnectOperation;
 
 /**
@@ -15,11 +16,14 @@ import requestOperations.Admin.ConnectOperation;
 public class ConnectInterfacesOperation extends ResponsableRequestOperation {
 
     protected ConnectOperation workerOperation;
-    
-    private void init() {
-        //TODO: assign worker operation
-    }
 
+    @Override
+    public HashMap<String, String> JSONKeyPathsByPropertyKey() {
+        HashMap<String, String> map = super.JSONKeyPathsByPropertyKey();
+        map.put("workerOperation", "connection");
+        return map;
+    }
+    
     @Override
     public RequestResponse performReponsableOperation() {
         if (this.workerOperation.getError() == null) {
@@ -28,6 +32,5 @@ public class ConnectInterfacesOperation extends ResponsableRequestOperation {
         } else {
             return RequestResponse.errorResponse(this.requestID, this.workerOperation.getError().getErrorMessage());
         }
-    }
-    
+    }    
 }
