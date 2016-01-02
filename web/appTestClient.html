@@ -1,5 +1,5 @@
 <!DOCTYPE html>  <meta charset="utf-8" />  
-<title>WebSocket Test</title>  
+<title>Application test client</title>  
 
 
 <script language="javascript" type="text/javascript">  
@@ -101,7 +101,7 @@ function connect() {
     inputDeviceID = document.getElementById("inputDeviceID").value;
     inputInterfaceID = document.getElementById("inputInterfaceID").value;
 
-    doSend("{\"request_id\":\"app_req_1\", \"action\":\"connect_interfaces\",\"output\":{\"device\":\""+outputDeviceID+"\",\"interface\":\""+outputInterfaceID+"\"},\"input\":{\"device\":\""+inputDeviceID+"\",\"interface\":\""+inputInterfaceID+"\"}}");
+    doSend("{\"request_id\":\"app_req_1\",\"action\":\"connect_interfaces\",\"connection\":{\"output_device_id\":\""+outputDeviceID+"\",\"output_interface_id\":\""+outputInterfaceID+"\",\"input_device_id\":\""+inputDeviceID+"\",\"input_interface_id\":\""+inputInterfaceID+"\"}}");
   }
 
  window.addEventListener("load", init, false);  </script>  <h2>Application test client</h2> 
