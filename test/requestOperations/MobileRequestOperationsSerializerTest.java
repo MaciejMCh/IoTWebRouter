@@ -68,7 +68,7 @@ public class MobileRequestOperationsSerializerTest {
     
     @Test
     public void testSerializeAddConnectionOperation() {
-        JsonObject json = new JsonParser().parse("{\"request_id\":\"app_req_1\", \"action\":\"connect_interfaces\",\"output\":{\"device\":\"dev_0\",\"interface\":\"int_0\"},\"input\":{\"device\":\"dev_1\",\"interface\":\"int_1\"}}").getAsJsonObject();
+        JsonObject json = new JsonParser().parse("{\"request_id\":\"app_req_1\",\"action\":\"connect_interfaces\",\"connection\":{\"output_device_id\":\"dev_0\",\"output_interface_id\":\"int_0\",\"input_device_id\":\"dev_1\",\"input_interface_id\":\"int_1\"}}").getAsJsonObject();
         FakeMedium medium = new FakeMedium();
         
         RequestOperation dataOperation = new MobileRequestOperationsSerializer().serializeOperation(json, medium);
