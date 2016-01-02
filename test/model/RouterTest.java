@@ -8,17 +8,12 @@ package model;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import requestOperations.Device.RegisterOperation;
-import requestOperations.FakeMedium;
 
 /**
  *
@@ -104,7 +99,32 @@ public class RouterTest {
             JsonObject outputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
             Device outputDevice = (Device) ModelSerializer.model(Device.class, outputJson);
             
+            router.addOutputsOfDevice(outputDevice);
             router.connectInterfaces(outputDevice.getInterfaces().get(0), inputDevice.getInterfaces().get(0));
+            
+            assertEquals(router.getInterfacesConnections().size(), 1);
+            
+            InterfaceConnection connection = router.getInterfacesConnections().get(0);
+            assertEquals(connection.input, inputDevice.interfaces.get(0));
+            assertEquals(connection.output, outputDevice.interfaces.get(0));
+            
+        } catch(Exception ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testGetInterfacesConnectionsOutputsNotAdded() {
+        try {
+            Router router = new Router();
+            JsonObject inputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device inputDevice = (Device) ModelSerializer.model(Device.class, inputJson);
+            JsonObject outputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device outputDevice = (Device) ModelSerializer.model(Device.class, outputJson);
+           
+            router.connectInterfaces(outputDevice.getInterfaces().get(0), inputDevice.getInterfaces().get(0));
+            
+            assertEquals(router.getInterfacesConnections().size(), 0);
             
         } catch(Exception ex) {
             fail(ex.toString());
@@ -116,13 +136,21 @@ public class RouterTest {
      */
     @Test
     public void testConnectInterfaces() {
-        System.out.println("connectInterfaces");
-        DeviceInterface outputInterface = null;
-        DeviceInterface inputInterface = null;
-        Router instance = new Router();
-        instance.connectInterfaces(outputInterface, inputInterface);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            Router router = new Router();
+            JsonObject inputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device inputDevice = (Device) ModelSerializer.model(Device.class, inputJson);
+            JsonObject outputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device outputDevice = (Device) ModelSerializer.model(Device.class, outputJson);
+            
+            router.addOutputsOfDevice(outputDevice);
+            router.connectInterfaces(outputDevice.getInterfaces().get(0), inputDevice.getInterfaces().get(0));
+            
+            assertEquals(router.getRoutingTable().get(outputDevice.getInterfaces().get(0)).get(0), inputDevice.getInterfaces().get(0));
+            
+        } catch(Exception ex) {
+            fail(ex.toString());
+        }
     }
 
     /**
@@ -130,14 +158,34 @@ public class RouterTest {
      */
     @Test
     public void testProduceRoutedSignals() {
-        System.out.println("produceRoutedSignals");
-        Signal signal = null;
-        Router instance = new Router();
-        ArrayList<Signal> expResult = null;
-        ArrayList<Signal> result = instance.produceRoutedSignals(signal);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            Router router = new Router();
+            JsonObject inputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device inputDevice = (Device) ModelSerializer.model(Device.class, inputJson);
+            JsonObject outputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device outputDevice = (Device) ModelSerializer.model(Device.class, outputJson);
+            
+            router.addOutputsOfDevice(outputDevice);
+            router.connectInterfaces(outputDevice.getInterfaces().get(0), inputDevice.getInterfaces().get(0));
+            
+            JsonObject json = new JsonParser().parse("{\"interface_id\":\"int_0\",\"message\":{\"data_type\":\"light\",\"value\":455}}").getAsJsonObject();
+            Signal signal = (Signal) ModelSerializer.model(Signal.class, json);
+            signal.sourceInterface = outputDevice.getInterfaces().get(0);
+            
+            ArrayList<Signal> signals = router.produceRoutedSignals(signal);
+            
+            assertEquals(1, signals.size());
+            
+            Signal producedSignal = signals.get(0);
+            
+            assertEquals(producedSignal.getMessage(), signal.getMessage());
+            assertEquals(producedSignal.getSourceDeviceInterface(), signal.getSourceDeviceInterface());
+            assertNotNull(producedSignal.getDestinationInterface());
+            assertEquals(producedSignal.getDestinationInterface(), inputDevice.getInterfaces().get(0));
+            
+        } catch(Exception ex) {
+            fail(ex.toString());
+        }
     }
 
     /**
@@ -145,12 +193,18 @@ public class RouterTest {
      */
     @Test
     public void testAddOuputInterface() {
-        System.out.println("addOuputInterface");
-        DeviceInterface outputInterface = null;
-        Router instance = new Router();
-        instance.addOuputInterface(outputInterface);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            Router router = new Router();
+            JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device device = (Device) ModelSerializer.model(Device.class, json);
+            
+            DeviceInterface outputInterface = device.getInterfaces().get(0);
+            router.addOuputInterface(outputInterface);
+            
+            assertNotNull(router.getRoutingTable().get(outputInterface));
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
     }
 
     /**
@@ -158,12 +212,23 @@ public class RouterTest {
      */
     @Test
     public void testRemoveOuputInterface() {
-        System.out.println("removeOuputInterface");
-        DeviceInterface outputInterface = null;
-        Router instance = new Router();
-        instance.removeOuputInterface(outputInterface);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            Router router = new Router();
+            JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device device = (Device) ModelSerializer.model(Device.class, json);
+            
+            DeviceInterface outputInterface = device.getInterfaces().get(0);
+            router.addOuputInterface(outputInterface);
+            
+            assertNotNull(router.getRoutingTable().get(outputInterface));
+            
+            router.removeOuputInterface(outputInterface);
+            
+            assertFalse(router.getRoutingTable().containsKey(outputInterface));
+            
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
     }
     
 }
