@@ -5,9 +5,6 @@
  */
 package websocket;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.bean.ApplicationScoped;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -15,11 +12,10 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
-import model.Device;
 import com.google.gson.*;
+import notificationCenter.NotificationCenter;
 import requestOperations.AdminRequestOperationsSerializer;
 import requestOperations.RequestOperation;
-import requestOperations.RequestOperationsSerializer;
 
 /**
  *
@@ -38,12 +34,12 @@ public class AdminWebSocket {
     
     @OnOpen
     public void open(Session session) {
-        
+        NotificationCenter.getInstance().addMedium(new JavaxWebSocketMedium(session));
     }
 
     @OnClose
     public void close(Session session) {
-        
+        NotificationCenter.getInstance().removeMedium(new JavaxWebSocketMedium(session));
     }
 
     @OnError
