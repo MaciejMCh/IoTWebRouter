@@ -14,7 +14,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.*;
 import play.libs.F.Callback;
 import requestOperations.RequestOperation;
-import requestOperations.RequestOperationsSerializer;
+import requestOperations.DeviceRequestOperationsSerializer;
+import requestOperations.AdminRequestOperationsSerializer;
+import requestOperations.MobileRequestOperationsSerializer;
 
 public class Application extends Controller {
     
@@ -25,7 +27,7 @@ public class Application extends Controller {
                     public void invoke(String event) {
                         JsonObject json = new JsonParser().parse(event).getAsJsonObject();
                         RequestOperation operation;
-                        operation = RequestOperationsSerializer.serializeOperation(json, new PlayWebSocketMedium(out));
+                        operation = new DeviceRequestOperationsSerializer().serializeOperation(json, new PlayWebSocketMedium(out));
                         operation.performOperation();
                     }
                 }
@@ -40,7 +42,22 @@ public class Application extends Controller {
                     public void invoke(String event) {
                         JsonObject json = new JsonParser().parse(event).getAsJsonObject();
                         RequestOperation operation;
-                        operation = RequestOperationsSerializer.serializeOperation(json, new PlayWebSocketMedium(out));
+                        operation = new AdminRequestOperationsSerializer().serializeOperation(json, new PlayWebSocketMedium(out));
+                        operation.performOperation();
+                    }
+                }
+            );}
+        };
+    };
+    
+    public static WebSocket<String> mobile() {
+        return new WebSocket<String>() {
+            public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
+                in.onMessage(new Callback<String>() {
+                    public void invoke(String event) {
+                        JsonObject json = new JsonParser().parse(event).getAsJsonObject();
+                        RequestOperation operation;
+                        operation = new MobileRequestOperationsSerializer().serializeOperation(json, new PlayWebSocketMedium(out));
                         operation.performOperation();
                     }
                 }

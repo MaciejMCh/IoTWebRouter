@@ -16,4 +16,3 @@ unmanagedSourceDirectories in Compile += baseDirectory.value / "src/java/model"
 unmanagedSourceDirectories in Compile += baseDirectory.value / "src/java/requestOperations"
 
 unmanagedSourceDirectories in Compile += baseDirectory.value / "src/java/notificationCenter"
-
