@@ -15,6 +15,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import requestOperations.FakeMedium;
+import requestOperations.MobileRequestOperationsSerializer;
 
 /**
  *
@@ -54,6 +56,16 @@ public class IndexDevicesOperationTest {
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }
+    }
+    
+    @Test
+    public void testOperationPerform() {
+        JsonObject json = new com.google.gson.JsonParser().parse("{\"action\":\"index_devices\",\"request_id\":\"app_req_1\"}").getAsJsonObject();
+        FakeMedium medium = new FakeMedium();
+        IndexDevicesOperation operation = (IndexDevicesOperation) new MobileRequestOperationsSerializer().serializeOperation(json, medium);
+        operation.performOperation();
+        
+        assertTrue(medium.message.contains("{\"result\":\"success\",\"requestID\":\"app_req_1\",\"response\":{\"devices\":["));
     }
     
 }

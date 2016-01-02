@@ -6,6 +6,7 @@
 package requestOperations.Application;
 
 import com.google.gson.JsonObject;
+import model.Medium;
 import model.ModelSerializer;
 import model.SerializableModel;
 import model.SerializationErrorException;
@@ -15,6 +16,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import requestOperations.FakeMedium;
+import requestOperations.MobileRequestOperationsSerializer;
 
 /**
  *
@@ -54,6 +57,16 @@ public class IndexConnectionsOperationTest {
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }
+    }
+    
+    @Test
+    public void testOperationPerform() {
+        JsonObject json = new com.google.gson.JsonParser().parse("{\"action\":\"index_connections\",\"request_id\":\"app_req_1\"}").getAsJsonObject();
+        FakeMedium medium = new FakeMedium();
+        IndexConnectionsOperation operation = (IndexConnectionsOperation) new MobileRequestOperationsSerializer().serializeOperation(json, medium);
+        operation.performOperation();
+        
+        assertTrue(medium.message.contains("{\"result\":\"success\",\"requestID\":\"app_req_1\",\"response\":{\"interfaces_connections\":["));
     }
     
 }
