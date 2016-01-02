@@ -20,7 +20,7 @@ public class ConnectInterfacesOperation extends ResponsableRequestOperation {
     @Override
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {
         HashMap<String, String> map = super.JSONKeyPathsByPropertyKey();
-        map.put("workerOperation", "connection");
+        map.put("!workerOperation", "connection");
         return map;
     }
     
