@@ -31,15 +31,13 @@ public class DataOperation extends RequestOperation implements SerializableModel
         };
     }
     
-    void init() {
+    @Override
+    public void performOperation() {
         Device sendingDevice = Interactor.getInstance().deviceForMedium(medium);
         for (Signal signal : signals) {
             signal.sourceInterface = sendingDevice.interfaceWithID(signal.getSourceInterfaceID());
         }
-    }
-    
-    @Override
-    public void performOperation() {
+        
         ArrayList<Signal> routedSignals = new ArrayList<>();
         for (Signal signal : this.signals) {
             routedSignals.addAll(Interactor.getInstance().getRouter().produceRoutedSignals(signal));

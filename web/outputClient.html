@@ -83,7 +83,7 @@ var first;
 } 
 
 function sendData() {
-	doSend("{\"action\":\"data\",\"interfaces\":[{\"data_type\":\""+ dataType +"\",\"value\":"+dataValue+"}]}");
+  doSend("{\"action\":\"data\",\"signals\":[{\"interface_id\":\""+interfaceID+"\",\"message\":{\"data_type\":\""+dataType+"\",\"value\":"+dataValue+"}}]}");
 	setTimeout(sendData, 1000);
 }
 

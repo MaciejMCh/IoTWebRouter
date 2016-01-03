@@ -98,7 +98,6 @@ public class DataOperationTest {
             assertNotNull(dataOperation.signals);
             
             dataOperation.medium = outputRegisterMedium;
-            dataOperation.init();
             
             dataOperation.performOperation();
             
