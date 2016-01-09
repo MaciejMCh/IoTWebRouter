@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import requestOperations.Application.ChangeDeviceTagOperation;
 import requestOperations.Application.ConnectInterfacesOperation;
 import requestOperations.Application.IndexConnectionsOperation;
 import requestOperations.Application.IndexDevicesOperation;
@@ -74,6 +75,16 @@ public class MobileRequestOperationsSerializerTest {
         RequestOperation dataOperation = new MobileRequestOperationsSerializer().serializeOperation(json, medium);
         assertNotNull(dataOperation);
         assertEquals(dataOperation.getClass(), ConnectInterfacesOperation.class);
+    }
+    
+    @Test
+    public void testSerializeChangeTagOperation() {
+        JsonObject json = new JsonParser().parse("{\"action\":\"change_tag\",\"request_id\":\"app_req_1\", \"device_id\":\"dev_0\", \"tag\":\"tag\"}").getAsJsonObject();
+        FakeMedium medium = new FakeMedium();
+        
+        RequestOperation changeOperation = new MobileRequestOperationsSerializer().serializeOperation(json, medium);
+        assertNotNull(changeOperation);
+        assertEquals(changeOperation.getClass(), ChangeDeviceTagOperation.class);
     }
     
 }
