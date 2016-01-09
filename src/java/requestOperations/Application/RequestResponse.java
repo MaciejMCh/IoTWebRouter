@@ -36,7 +36,7 @@ public class RequestResponse {
     public JsonObject jsonRepresentation() {
         JsonObject json = new JsonObject();
         json.addProperty("result", this.result);
-        json.addProperty("requestID", this.requestID);
+        json.addProperty("request_id", this.requestID);
         if (this.result != null) {
             json.add("response", this.response);
         }

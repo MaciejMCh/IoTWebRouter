@@ -75,7 +75,7 @@ public class RequestResponseTest {
         json.addProperty("model", "model");
         RequestResponse successResponse = RequestResponse.successResponse("req_1", json);
         
-        assertEquals(successResponse.jsonRepresentation(), new com.google.gson.JsonParser().parse("{\"result\":\"success\",\"requestID\":\"req_1\",\"response\":{\"model\":\"model\"}}").getAsJsonObject());
+        assertEquals(successResponse.jsonRepresentation(), new com.google.gson.JsonParser().parse("{\"result\":\"success\",\"request_id\":\"req_1\",\"response\":{\"model\":\"model\"}}").getAsJsonObject());
     }
     
 }
