@@ -56,7 +56,9 @@ public class JsonParserTest {
         try {
             JsonObject json = new com.google.gson.JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
             Device device = (Device) ModelSerializer.model(Device.class, json);
+            device.changeTag("tag");
             json.addProperty("id", device.getId());
+            json.addProperty("tag", "tag");
             
             assertEquals(JsonParser.parseDevice(device), json);
         } catch (SerializationErrorException ex) {

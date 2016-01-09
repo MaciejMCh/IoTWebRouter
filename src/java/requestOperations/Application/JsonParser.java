@@ -23,6 +23,9 @@ public class JsonParser {
         json.addProperty("id", device.getId());
         json.addProperty("name", device.getName());
         json.add("interfaces", parseInterfaces(device.getInterfaces()).get("interfaces"));
+        if (device.getTag() != null) {
+            json.addProperty("tag", device.getTag());
+        }
         
         return json;
     }

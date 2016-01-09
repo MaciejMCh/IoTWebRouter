@@ -14,6 +14,7 @@ public class Device implements SerializableModel {
     
     protected String id;
     protected String name;
+    protected String tag;
     protected ArrayList<DeviceInterface> interfaces = new ArrayList<>();
     
     @Override
@@ -36,6 +37,14 @@ public class Device implements SerializableModel {
     }
     public ArrayList<DeviceInterface> getInterfaces() {
         return this.interfaces;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void changeTag(String tag) {
+        this.tag = tag;
     }
     
     private void init() {

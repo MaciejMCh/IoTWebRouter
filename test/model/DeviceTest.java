@@ -94,5 +94,11 @@ public class DeviceTest {
         }
         
     }
+    @Test
+    public void testAssignTag() {
+        Device device = new Device();
+        device.changeTag("tag");
+        assertEquals(device.getTag(), "tag");
+    }
     
 }
