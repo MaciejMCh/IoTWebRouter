@@ -6,7 +6,6 @@
 package requestOperations.Application;
 
 import java.util.HashMap;
-import javax.resource.cci.Interaction;
 import model.Device;
 import model.Interactor;
 
