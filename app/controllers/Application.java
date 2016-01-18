@@ -23,7 +23,6 @@ public class Application extends Controller {
     public static WebSocket<String> device() {
         return new WebSocket<String>() {
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
-                out.write("ping");
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
                         JsonObject json = new JsonParser().parse(event).getAsJsonObject();
