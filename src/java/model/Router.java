@@ -37,6 +37,7 @@ public class Router {
                 this.removeOuputInterface(outputInterface);
             }
         }
+        Interactor.getInstance().saveEnviromentState();
     }
     
     public ArrayList<InterfaceConnection> getInterfacesConnections() {
@@ -54,6 +55,7 @@ public class Router {
             this.routingTable.get(outputInterface).add(inputInterface);
             NotificationCenter.getInstance().notify(new NewConnectionNotification(new InterfaceConnection(inputInterface, outputInterface)));
         }
+        Interactor.getInstance().saveEnviromentState();
     }
     
     public ArrayList<Signal> produceRoutedSignals(Signal signal) {

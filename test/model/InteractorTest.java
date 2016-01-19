@@ -175,4 +175,88 @@ public class InteractorTest {
         }
     }
     
+    @Test
+    public void testSaveEnviromentState() {
+        try {
+            JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device device = (Device) ModelSerializer.model(Device.class, json);
+            Medium medium = new FakeMedium();
+            
+            Interactor interactor = new Interactor();
+            interactor.registerDevice(device, medium);
+            interactor.saveEnviromentState();
+            
+            Interactor secondInteractor = new Interactor();
+            secondInteractor.loadEnviromentState();
+            
+            assertEquals(secondInteractor.enviroment.devices.size(), 1);
+            
+            Device loadedDevice = secondInteractor.enviroment.devices.get(0);
+            assertEquals(loadedDevice.getId(), device.getId());
+            
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testLoadEnviromentStateAndReconnect() {
+        try {
+            JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device device = (Device) ModelSerializer.model(Device.class, json);
+            Medium medium = new FakeMedium();
+            
+            Interactor interactor = new Interactor();
+            interactor.registerDevice(device, medium);
+            interactor.saveEnviromentState();
+            
+            Interactor secondInteractor = new Interactor();
+            secondInteractor.loadEnviromentState();
+            
+            assertEquals(secondInteractor.enviroment.devices.size(), 1);
+            
+            Device loadedDevice = secondInteractor.enviroment.devices.get(0);
+            assertEquals(loadedDevice.getId(), device.getId());
+            
+            Medium newMedium = new FakeMedium();
+            secondInteractor.updateMedium(newMedium, device.getId());
+            assertNotNull(secondInteractor.deviceForMedium(newMedium));
+            
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testLoadEnviromentStateAndRedoConnection() {
+        try {
+            JsonObject outputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_out\"}]}").getAsJsonObject();
+            Device outputDevice = (Device) ModelSerializer.model(Device.class, outputJson);
+            Medium outputMedium = new FakeMedium();
+            
+            JsonObject inputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_in\"}]}").getAsJsonObject();
+            Device inputDevice = (Device) ModelSerializer.model(Device.class, inputJson);
+            Medium inputMedium = new FakeMedium();
+            
+            Interactor interactor = new Interactor();
+            interactor.registerDevice(inputDevice, inputMedium);
+            interactor.registerDevice(outputDevice, outputMedium);
+            interactor.getRouter().connectInterfaces(outputDevice.interfaces.get(0), inputDevice.interfaces.get(0));
+            
+            assertEquals(interactor.getRouter().getInterfacesConnections().size(), 1);
+            interactor.saveEnviromentState();
+            
+            Interactor secondInteractor = new Interactor();
+            secondInteractor.loadEnviromentState();
+            
+            assertEquals(secondInteractor.getRouter().getInterfacesConnections().size(), 1);
+            
+            assertEquals(secondInteractor.getRouter().getInterfacesConnections().get(0).output.getParentDevice().getId(), outputDevice.getId());
+            assertEquals(secondInteractor.getRouter().getInterfacesConnections().get(0).input.getParentDevice().getId(), inputDevice.getId());
+            
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
 }

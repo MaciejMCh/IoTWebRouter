@@ -1,0 +1,1 @@
+{"devices":[{"id":"dev_5","name":"sensor","interfaces":[{"id":"int_in","data_type":"light","direction":"input"}]},{"id":"dev_4","name":"sensor","interfaces":[{"id":"int_out","data_type":"light","direction":"output"}]}],"interfaces_connections":[{"output":{"interface_id":"int_out","device_id":"dev_4"},"input":{"interface_id":"int_in","device_id":"dev_5"}}]}

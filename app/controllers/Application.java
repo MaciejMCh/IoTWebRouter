@@ -17,6 +17,7 @@ import requestOperations.RequestOperation;
 import requestOperations.DeviceRequestOperationsSerializer;
 import requestOperations.AdminRequestOperationsSerializer;
 import requestOperations.MobileRequestOperationsSerializer;
+import model.Interactor;
 
 public class Application extends Controller {
     
@@ -30,8 +31,13 @@ public class Application extends Controller {
                         operation = new DeviceRequestOperationsSerializer().serializeOperation(json, new PlayWebSocketMedium(out));
                         operation.performOperation();
                     }
-                }
-            );}
+                });
+                in.onClose(new Callback0() {
+                    public void invoke() {
+                        Interactor.getInstance().mediumClosed(new PlayWebSocketMedium(out));
+                    }
+                });
+            }
         };
     };
     

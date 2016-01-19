@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -13,13 +14,14 @@ import java.util.HashMap;
  */
 public class ModelTestClass implements SerializableModel {
 
-    private String stringProperty;
-    private int intProperty;
-    private long longProperty;
-    private float floatProperty;
-    private double doubleProperty;
-    private boolean booleanProperty;
-    private ModelTestClass serializableProperty;
+    public String stringProperty;
+    public int intProperty;
+    public long longProperty;
+    public float floatProperty;
+    public double doubleProperty;
+    public boolean booleanProperty;
+    public ModelTestClass serializableProperty;
+    public ArrayList<String> arrayProperty;
     
     @Override
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {
@@ -32,6 +34,7 @@ public class ModelTestClass implements SerializableModel {
                 put("doubleProperty", "double_property");
                 put("booleanProperty", "boolean_property");
                 put("serializableProperty", "serializable_property");
+                put("arrayProperty", "array_property");
             }
         };
     }
