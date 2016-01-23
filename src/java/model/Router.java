@@ -5,6 +5,7 @@
  */
 package model;
 
+import model.Session.SessionStorage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import static model.DeviceInterface.InterfaceDirection.Output;
@@ -37,7 +38,7 @@ public class Router {
                 this.removeOuputInterface(outputInterface);
             }
         }
-        Interactor.getInstance().saveEnviromentState();
+        SessionStorage.getInstance().saveSessionState();
     }
     
     public ArrayList<InterfaceConnection> getInterfacesConnections() {
@@ -55,7 +56,7 @@ public class Router {
             this.routingTable.get(outputInterface).add(inputInterface);
             NotificationCenter.getInstance().notify(new NewConnectionNotification(new InterfaceConnection(inputInterface, outputInterface)));
         }
-        Interactor.getInstance().saveEnviromentState();
+        SessionStorage.getInstance().saveSessionState();
     }
     
     public ArrayList<Signal> produceRoutedSignals(Signal signal) {

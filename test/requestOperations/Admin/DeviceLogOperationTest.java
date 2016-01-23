@@ -197,8 +197,6 @@ public class DeviceLogOperationTest {
             RequestOperation operation = new AdminRequestOperationsSerializer().serializeOperation(logJson, logMedium);
             operation.performOperation();
             
-            System.out.println(logMedium.message);
-            
             assertFalse(logMedium.message.contains("devices"));
             assertTrue(logMedium.message.contains("id:"));
             assertTrue(logMedium.message.contains("name:"));

@@ -53,7 +53,6 @@ public class DeviceConnectionErrorNotificationTest {
             JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
             Device device = (Device) ModelSerializer.model(Device.class, json);
             DeviceConnectionErrorNotification instance = new DeviceConnectionErrorNotification(device);
-            System.out.println(instance.jsonRepresentation());
             JsonObject expResult = new JsonParser().parse("{\"notification_type\":\"device_connection_error\",\"subject\":{\"id\":\"" + device.getId() + "\",\"name\":\"sensor\",\"interfaces\":[{\"id\":\"int_li_in\",\"data_type\":\"light\",\"direction\":\"output\"}]}}").getAsJsonObject();
             JsonObject result = instance.jsonRepresentation();
             assertEquals(expResult, result);

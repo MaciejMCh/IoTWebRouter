@@ -65,7 +65,7 @@ public class IndexDevicesOperationTest {
         IndexDevicesOperation operation = (IndexDevicesOperation) new MobileRequestOperationsSerializer().serializeOperation(json, medium);
         operation.performOperation();
         
-        assertTrue(medium.message.contains("{\"result\":\"success\",\"requestID\":\"app_req_1\",\"response\":{\"devices\":["));
+        assertTrue(medium.message.contains("{\"result\":\"success\",\"request_id\":\"app_req_1\",\"response\":{\"devices\":["));
     }
     
 }

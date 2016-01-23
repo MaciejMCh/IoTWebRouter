@@ -65,8 +65,7 @@ public class IndexConnectionsOperationTest {
         FakeMedium medium = new FakeMedium();
         IndexConnectionsOperation operation = (IndexConnectionsOperation) new MobileRequestOperationsSerializer().serializeOperation(json, medium);
         operation.performOperation();
-        
-        assertTrue(medium.message.contains("{\"result\":\"success\",\"requestID\":\"app_req_1\",\"response\":{\"interfaces_connections\":["));
+        assertTrue(medium.message.contains("{\"result\":\"success\",\"request_id\":\"app_req_1\",\"response\":{\"interfaces_connections\":["));
     }
     
 }

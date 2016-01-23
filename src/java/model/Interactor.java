@@ -5,6 +5,7 @@
  */
 package model;
 
+import model.Session.SessionStorage;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -39,58 +40,9 @@ public class Interactor {
     protected final Enviroment enviroment = new Enviroment();
     protected final Router router = new Router();
     
-    protected Interactor() {
+    public Interactor() {
         super();
-        this.loadEnviromentState();
-    }
-    
-    protected synchronized void loadEnviromentState() {
-        try {
-            String filePath = "session.txt";
-            
-            BufferedReader reader = new BufferedReader(new FileReader(filePath));
-            StringBuilder stringBuffer = new StringBuilder();
-            String line = reader.readLine();
-            while (line != null) {
-                stringBuffer.append(line);
-                stringBuffer.append(System.lineSeparator());
-                line = reader.readLine();
-            }
-            String everything = stringBuffer.toString();
-            reader.close();
-            JsonObject sessionJson = new JsonParser().parse(everything).getAsJsonObject();
-            
-            for (JsonElement deviceJson : sessionJson.get("devices").getAsJsonArray()) {
-                Device device = (Device) ModelSerializer.model(Device.class, deviceJson.getAsJsonObject());
-                this.enviroment.addDevice(device);
-                this.router.addOutputsOfDevice(device);
-            }
-            
-            for (JsonElement connectionJson : sessionJson.get("interfaces_connections").getAsJsonArray()) {
-                Device outputDevice = this.deviceForID(connectionJson.getAsJsonObject().get("output").getAsJsonObject().get("device_id").getAsString());
-                DeviceInterface outputInterface = outputDevice.interfaceWithID(connectionJson.getAsJsonObject().get("output").getAsJsonObject().get("interface_id").getAsString());
-                Device inputDevice = this.deviceForID(connectionJson.getAsJsonObject().get("input").getAsJsonObject().get("device_id").getAsString());
-                DeviceInterface inputInterface = inputDevice.interfaceWithID(connectionJson.getAsJsonObject().get("input").getAsJsonObject().get("interface_id").getAsString());
-                this.router.connectInterfaces(outputInterface, inputInterface);
-            }
-            
-        } catch (Exception ex) {
-            Logger.getLogger(Interactor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public synchronized void saveEnviromentState() {
-        try {
-            JsonObject sessionJson = new JsonObject();
-            sessionJson.add("devices", requestOperations.Application.JsonParser.parseDevices(this.enviroment.devices).get("devices"));
-            sessionJson.add("interfaces_connections", requestOperations.Application.JsonParser.parseInterfacesConnections(this.router.getInterfacesConnections()).get("interfaces_connections"));
-            String filePath = "session.txt";
-            PrintWriter writer = new PrintWriter(filePath, "UTF-8");
-            writer.print(sessionJson.toString());
-            writer.close();
-        } catch (Exception ex) {
-            Logger.getLogger(Interactor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        SessionStorage.getInstance().loadSessionState();
     }
     
     public Router getRouter() {
@@ -111,7 +63,7 @@ public class Interactor {
         this.enviroment.addDevice(device);
         this.router.addOutputsOfDevice(device);
         
-        this.saveEnviromentState();
+        SessionStorage.getInstance().saveSessionState();
         NotificationCenter.getInstance().notify(new NewDeviceNotification(device));
     }
     
