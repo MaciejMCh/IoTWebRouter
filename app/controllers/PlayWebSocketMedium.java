@@ -19,6 +19,11 @@ class PlayWebSocketMedium implements Medium {
     }
     
     @Override
+    public void close() {
+        webSocketOut.close();
+    }
+    
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof PlayWebSocketMedium)) return false;

@@ -5,6 +5,7 @@
         <group>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Admin/Option.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/test/model/SignalTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/test/requestOperations/FakeMedium.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Session/RemoteSQLSessionStorage.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Admin/Argument.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java</file>
@@ -17,7 +18,6 @@
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DeviceRequestOperationsSerializer.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/test/model/Session/LocalFileSessionStorageTest.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/AdminWebSocket.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Router.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Device/DataOperation.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/InterfaceConnection.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Admin/InterpretedOperation.java</file>
@@ -28,10 +28,13 @@
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Interactor.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Admin/HelpLogOperation.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Session/SessionStorage.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/JavaxWebSocketMedium.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Admin/RestartOperation.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/AdminRequestOperationsSerializer.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/test/requestOperations/Device/DataOperationTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/websocket/MobileAppWebSocket.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Admin/ConnectionsLogOperation.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Admin/DeviceLogOperation.java</file>
-            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Medium.java</file>
         </group>
     </open-files>
 </project-private>
