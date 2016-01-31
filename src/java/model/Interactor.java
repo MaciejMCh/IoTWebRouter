@@ -19,8 +19,8 @@ public class Interactor {
     public static Interactor getInstance() {
         if(instance == null) {
             instance = new Interactor();
-            SessionStorage.getInstance().targetInteractor = instance;
-            SessionStorage.getInstance().loadSessionState();
+//            SessionStorage.getInstance().targetInteractor = instance;
+//            SessionStorage.getInstance().loadSessionState();
         }
         return instance;
     }

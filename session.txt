@@ -1,1 +1,1 @@
-payload
+{"devices":[{"id":"dev_1","name":"actuator","interfaces":[{"id":"in_0","data_type":"light","direction":"input"}]},{"id":"dev_2","name":"actuator","interfaces":[{"id":"in_0","data_type":"light","direction":"input"}]}],"interfaces_connections":[]}
