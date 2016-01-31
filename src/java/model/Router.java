@@ -9,6 +9,7 @@ import model.Session.SessionStorage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import static model.DeviceInterface.InterfaceDirection.Output;
+import notificationCenter.ConnectionRemovedNotification;
 import notificationCenter.NewConnectionNotification;
 import notificationCenter.NotificationCenter;
 
@@ -55,6 +56,14 @@ public class Router {
         if (this.routingTable.containsKey(outputInterface)) {
             this.routingTable.get(outputInterface).add(inputInterface);
             NotificationCenter.getInstance().notify(new NewConnectionNotification(new InterfaceConnection(inputInterface, outputInterface)));
+        }
+        SessionStorage.getInstance().saveSessionState();
+    }
+    
+    public void disconnectInterfaces(DeviceInterface outputInterface, DeviceInterface inputInterface) {
+        if (this.routingTable.containsKey(outputInterface)) {
+            this.routingTable.get(outputInterface).remove(inputInterface);
+            NotificationCenter.getInstance().notify(new ConnectionRemovedNotification(new InterfaceConnection(inputInterface, outputInterface)));
         }
         SessionStorage.getInstance().saveSessionState();
     }

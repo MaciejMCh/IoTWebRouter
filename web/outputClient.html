@@ -53,7 +53,7 @@ var first;
     if (checkbox.checked) {
       wsUri = "wss://iotwebrouter.herokuapp.com/device";
     } else {
-      wsUri = "ws://localhost:8080/IoTWebRouter/actions";
+      wsUri = "ws://192.168.43.230:8080/IoTWebRouter/actions";
     }
 
   	websocket = new WebSocket(wsUri); 
