@@ -56,4 +56,15 @@ public class DeviceInterface implements SerializableModel {
     public Device getParentDevice() {
         return this.parentDevice.get();
     }
+
+    @Override
+    public String toString() {
+        String s = "DeviceInterface id:" + this.id;
+        if (this.getParentDevice() != null) {
+            s += " device: " + this.getParentDevice().getId();
+        }
+        return s;
+    }
+    
+    
 }

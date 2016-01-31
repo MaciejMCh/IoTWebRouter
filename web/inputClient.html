@@ -78,7 +78,9 @@ var sessionID;
  function onMessage(evt) { 
  	writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>'); 
   var json = JSON.parse(evt.data);
-  this.sessionID = json["device_id"];
+  if (json["device_id"] != null) {
+    this.sessionID = json["device_id"];
+  }
  } 
 
  function onError(evt) {

@@ -64,5 +64,12 @@ public class Device implements SerializableModel {
         }
         return null;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " id:" + this.id;
+    }
+    
+    
     
 }

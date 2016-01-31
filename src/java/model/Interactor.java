@@ -56,10 +56,11 @@ public class Interactor {
         Device device = this.deviceForID(deviceID);
         Medium oldMedium = this.deviceMediumMap.get(device);
         
+        this.deviceMediumMap.remove(device);
+        this.deviceMediumMap.put(device, medium);
+        
         this.mediumDeviceMap.remove(oldMedium);
         this.mediumDeviceMap.put(medium, device);
-        
-        this.deviceMediumMap.replace(device, medium);
         
         NotificationCenter.getInstance().notify(new DeviceReconnectNotification(device));
     }

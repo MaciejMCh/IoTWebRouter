@@ -12,6 +12,7 @@ import model.Signal;
 import java.util.HashMap;
 import model.Medium;
 import model.SerializableModel;
+import requestOperations.Admin.LogParser;
 import requestOperations.RequestOperation;
 
 /**
@@ -47,9 +48,11 @@ public class DataOperation extends RequestOperation implements SerializableModel
     
     protected void sendSignals(ArrayList<Signal> signals) {
         for (Signal signal : signals) {
-            
             Device destinationDevice = signal.getDestinationInterface().getParentDevice();
             Medium destinationMedium = Interactor.getInstance().mediumOfDevice(destinationDevice);
+            if (destinationMedium == null) {
+                return;
+            }
             destinationMedium.sendMessage(signal.stringDataRepresentation());
         }
     }
