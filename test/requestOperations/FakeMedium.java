@@ -21,5 +21,10 @@ public class FakeMedium implements Medium {
     public void sendMessage(String message) {
         this.message = message;
     }
+
+    @Override
+    public void close() {
+        
+    }
     
 }

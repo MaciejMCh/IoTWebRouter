@@ -18,7 +18,7 @@ import model.ModelSerializer;
  * @author maciej
  */
 public abstract class SessionStorage {
-    private static SessionStorage instance = new NotReadySessionStorage();
+    private static SessionStorage instance = new LocalFileSessionStorage();
     
     public Interactor targetInteractor;
     

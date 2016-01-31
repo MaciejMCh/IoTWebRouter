@@ -13,6 +13,7 @@ import requestOperations.Admin.ConnectionsLogOperation;
 import requestOperations.Admin.DeviceLogOperation;
 import requestOperations.Admin.HelpLogOperation;
 import requestOperations.Admin.QueryJsonizer;
+import requestOperations.Admin.RestartOperation;
 
 /**
  *
@@ -27,6 +28,7 @@ public class AdminRequestOperationsSerializer extends RequestOperationsSerialize
             put("devices", DeviceLogOperation.class);
             put("connections", ConnectionsLogOperation.class);
             put("help", HelpLogOperation.class);
+            put("restart", RestartOperation.class);
         }};
     }
 

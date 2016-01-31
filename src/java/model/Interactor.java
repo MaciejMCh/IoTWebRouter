@@ -5,22 +5,10 @@
  */
 package model;
 
-import model.Session.SessionStorage;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
-import java.io.FileReader;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import model.Session.SessionStorage;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Set;
 import notificationCenter.DeviceConnectionErrorNotification;
 import notificationCenter.DeviceReconnectNotification;
 import notificationCenter.NewDeviceNotification;
@@ -31,6 +19,8 @@ public class Interactor {
     public static Interactor getInstance() {
         if(instance == null) {
             instance = new Interactor();
+            SessionStorage.getInstance().targetInteractor = instance;
+            SessionStorage.getInstance().loadSessionState();
         }
         return instance;
     }
@@ -39,11 +29,6 @@ public class Interactor {
     protected final HashMap<Device, Medium> deviceMediumMap = new HashMap<>();    
     protected final Enviroment enviroment = new Enviroment();
     protected final Router router = new Router();
-    
-    public Interactor() {
-        super();
-        SessionStorage.getInstance().loadSessionState();
-    }
     
     public Router getRouter() {
         return this.router;
@@ -77,6 +62,19 @@ public class Interactor {
         this.deviceMediumMap.replace(device, medium);
         
         NotificationCenter.getInstance().notify(new DeviceReconnectNotification(device));
+    }
+    
+    public void restart() {
+        Set<Medium> activeMediums = this.mediumDeviceMap.keySet();
+        
+        this.deviceMediumMap.clear();
+        this.mediumDeviceMap.clear();
+        this.enviroment.devices.clear();
+        this.router.getRoutingTable().clear();
+        
+        for (Medium activeMedium : activeMediums) {
+            activeMedium.close();
+        }
     }
     
     public void mediumClosed(Medium medium) {

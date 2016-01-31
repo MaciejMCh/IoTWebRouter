@@ -92,7 +92,7 @@ var query;
  } 
 
  function onMessage(evt) { 
- 	writeToScreen('<span style="color: blue;">RESPONSE:\n' + evt.data+'</span>'); 
+ 	writeToScreen('\n' + evt.data+'</span>'); 
  } 
 
  function onError(evt) {
@@ -100,7 +100,7 @@ var query;
  }  
 
  function doSend(message) { 
- 	writeToScreen("SENT: " + message);  
+ 	// writeToScreen("SENT: " + message);  
  	websocket.send(message); 
  }  
 

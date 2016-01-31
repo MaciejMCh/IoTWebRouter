@@ -11,4 +11,5 @@ package model;
  */
 public interface Medium {
     public void sendMessage(String message);
+    public void close();
 }

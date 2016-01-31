@@ -33,6 +33,15 @@ public class JavaxWebSocketMedium implements Medium {
             Logger.getLogger(JavaxWebSocketMedium.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public void close() {
+        try {
+            this.session.close();
+        } catch (IOException ex) {
+            Logger.getLogger(JavaxWebSocketMedium.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     @Override
     public boolean equals(Object o) {
