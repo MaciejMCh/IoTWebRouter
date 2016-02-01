@@ -10,6 +10,7 @@ import model.Device;
 import model.Interactor;
 import model.Signal;
 import java.util.HashMap;
+import model.LastMessagesStorage;
 import model.Medium;
 import model.SerializableModel;
 import requestOperations.Admin.LogParser;
@@ -54,6 +55,12 @@ public class DataOperation extends RequestOperation implements SerializableModel
                 return;
             }
             destinationMedium.sendMessage(signal.stringDataRepresentation());
+        }
+    }
+    
+    protected void storeMessage(Signal signal) {
+        if ((signal.getMessage() != null) && (signal.getSourceDeviceInterface() != null)) {
+            LastMessagesStorage.getInstance().passValue(signal.getMessage(), signal.getSourceDeviceInterface());
         }
     }
     

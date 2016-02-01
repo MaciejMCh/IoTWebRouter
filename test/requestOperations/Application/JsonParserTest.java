@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import model.Device;
 import model.DeviceInterface;
 import model.InterfaceConnection;
+import model.Message;
 import model.ModelSerializer;
 import model.SerializationErrorException;
 import org.junit.After;
@@ -59,6 +60,7 @@ public class JsonParserTest {
             device.changeTag("tag");
             json.addProperty("id", device.getId());
             json.addProperty("tag", "tag");
+            json.addProperty("online", false);
             
             assertEquals(JsonParser.parseDevice(device), json);
         } catch (SerializationErrorException ex) {
@@ -81,7 +83,9 @@ public class JsonParserTest {
             devices.add(device2);
             
             json1.addProperty("id", device1.getId());
+            json1.addProperty("online", false);
             json2.addProperty("id", device2.getId());
+            json2.addProperty("online", false);
             JsonObject finalJson = new JsonObject();
             JsonArray jsonArray = new JsonArray();
             jsonArray.add(json1);
@@ -177,6 +181,18 @@ public class JsonParserTest {
             connections.add(connection);
             
             assertEquals(JsonParser.parseInterfacesConnections(connections), finalJson);
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testParseMessage() {
+        try {
+            JsonObject json = new com.google.gson.JsonParser().parse("{\"data_type\":\"light\",\"value\":455}").getAsJsonObject();
+            Message message = (Message) ModelSerializer.model(Message.class, json);
+            
+            assertEquals(json, JsonParser.parseMessage(message));
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }

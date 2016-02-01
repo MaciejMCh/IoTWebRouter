@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import model.Device;
 import model.DeviceInterface;
 import static model.DeviceInterface.InterfaceDirection.Input;
+import model.Interactor;
 import model.InterfaceConnection;
 
 /**
@@ -58,6 +59,7 @@ public class LogParser {
     
     public static String parseDevice(Device device, LogDepth depth) {
         String output = "id: " + device.getId() + " \t name: " + device.getName();
+        output += "\t(" + (Interactor.getInstance().mediumOfDevice(device) == null ? "offline" : "online") + ")";
         if (depth.getCurrentDepth() > 0) {
             output += "\n " + depth.decreasedDepth().getTab() + "interfaces:";
             for (DeviceInterface deviceInterface : device.getInterfaces()) {

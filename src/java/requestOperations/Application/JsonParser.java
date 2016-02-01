@@ -10,7 +10,10 @@ import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import model.Device;
 import model.DeviceInterface;
+import model.Interactor;
 import model.InterfaceConnection;
+import model.LastMessagesStorage;
+import model.Message;
 import requestOperations.Admin.LogParser;
 
 /**
@@ -23,6 +26,7 @@ public class JsonParser {
         json.addProperty("id", device.getId());
         json.addProperty("name", device.getName());
         json.add("interfaces", parseInterfaces(device.getInterfaces()).get("interfaces"));
+        json.addProperty("online", Interactor.getInstance().mediumOfDevice(device) != null);
         if (device.getTag() != null) {
             json.addProperty("tag", device.getTag());
         }
@@ -45,6 +49,11 @@ public class JsonParser {
         json.addProperty("id", deviceInterface.getId());
         json.addProperty("data_type", deviceInterface.getDataType());
         json.addProperty("direction", LogParser.parseInterfaceDirection(deviceInterface.getInterfaceDirection()));
+        
+        Message lastMessage = LastMessagesStorage.getInstance().getlastMessage(deviceInterface);
+        if (lastMessage != null) {
+            json.add("last_message", parseMessage(lastMessage));
+        }
         
         return json;
     }
@@ -83,5 +92,12 @@ public class JsonParser {
         JsonObject resultJson = new JsonObject();
         resultJson.add("interfaces_connections", interfacesConnectionsJsonArray);
         return resultJson;
+    }
+    
+    public static JsonObject parseMessage(Message message) {
+        JsonObject json = new JsonObject();
+        json.addProperty("data_type", message.getDataType());
+        json.addProperty("value", message.getValue());
+        return json;
     }
 }

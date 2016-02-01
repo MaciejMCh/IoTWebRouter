@@ -25,7 +25,7 @@ public class Message implements SerializableModel {
         return this.dataType;
     }
     
-    public Object getValue() {
+    public String getValue() {
         return this.value;
     }
     
