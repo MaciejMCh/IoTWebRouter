@@ -64,6 +64,32 @@ public class Device implements SerializableModel {
         }
         return null;
     }
+    
+    public boolean isDuplicate(Device device) {
+        if (this == device) {
+            return true;
+        }
+        if (!this.getName().equals(device.getName())) {
+            return false;
+        }
+        if (this.getInterfaces().size() != device.getInterfaces().size()) {
+            return false;
+        }
+        
+        for (int i=0; i<=this.interfaces.size() - 1; i++) {
+            if (!this.interfaces.get(i).getDataType().equals(device.interfaces.get(i).getDataType())) {
+                return false;
+            }
+            if (!this.interfaces.get(i).getId().equals(device.interfaces.get(i).getId())) {
+                return false;
+            }
+            if (!this.interfaces.get(i).getInterfaceDirection().equals(device.interfaces.get(i).getInterfaceDirection())) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
 
     @Override
     public String toString() {

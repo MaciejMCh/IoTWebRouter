@@ -7,6 +7,8 @@ package model;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -101,4 +103,80 @@ public class DeviceTest {
         assertEquals(device.getTag(), "tag");
     }
     
+    @Test
+    public void testDeviceIsDuplicate() {
+        try {
+            JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device device1 = (Device) ModelSerializer.model(Device.class, json);
+            Device device2 = (Device) ModelSerializer.model(Device.class, json);
+            assertTrue(device1.isDuplicate(device2));
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testDeviceIsDuplicateDiffrentNames() {
+        try {
+            JsonObject json1 = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            JsonObject json2 = new JsonParser().parse("{\"name\":\"sensor2\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device device1 = (Device) ModelSerializer.model(Device.class, json1);
+            Device device2 = (Device) ModelSerializer.model(Device.class, json2);
+            assertFalse(device1.isDuplicate(device2));
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testDeviceIsDuplicateDiffrentInterfacesCount() {
+        try {
+            JsonObject json1 = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            JsonObject json2 = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}, {\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device device1 = (Device) ModelSerializer.model(Device.class, json1);
+            Device device2 = (Device) ModelSerializer.model(Device.class, json2);
+            assertFalse(device1.isDuplicate(device2));
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testDeviceIsDuplicateDiffrentInterfaceID() {
+        try {
+            JsonObject json1 = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            JsonObject json2 = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"diffrent\"}]}").getAsJsonObject();
+            Device device1 = (Device) ModelSerializer.model(Device.class, json1);
+            Device device2 = (Device) ModelSerializer.model(Device.class, json2);
+            assertFalse(device1.isDuplicate(device2));
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testDeviceIsDuplicateDiffrentInterfaceDataType() {
+        try {
+            JsonObject json1 = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            JsonObject json2 = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"temperature\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device device1 = (Device) ModelSerializer.model(Device.class, json1);
+            Device device2 = (Device) ModelSerializer.model(Device.class, json2);
+            assertFalse(device1.isDuplicate(device2));
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
+    @Test
+    public void testDeviceIsDuplicateDiffrentInterfaceDirection() {
+        try {
+            JsonObject json1 = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            JsonObject json2 = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
+            Device device1 = (Device) ModelSerializer.model(Device.class, json1);
+            Device device2 = (Device) ModelSerializer.model(Device.class, json2);
+            assertFalse(device1.isDuplicate(device2));
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
 }
