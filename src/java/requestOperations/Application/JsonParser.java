@@ -97,7 +97,7 @@ public class JsonParser {
     public static JsonObject parseMessage(Message message) {
         JsonObject json = new JsonObject();
         json.addProperty("data_type", message.getDataType());
-        json.addProperty("value", message.getValue());
+        json.add("value", message.getValue());
         return json;
     }
 }

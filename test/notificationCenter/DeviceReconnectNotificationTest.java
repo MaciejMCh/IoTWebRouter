@@ -53,7 +53,7 @@ public class DeviceReconnectNotificationTest {
             JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
             Device device = (Device) ModelSerializer.model(Device.class, json);
             DeviceReconnectNotification instance = new DeviceReconnectNotification(device);
-            JsonObject expResult = new JsonParser().parse("{\"notification_type\":\"device_reconnect\",\"subject\":{\"id\":\"" + device.getId() + "\",\"name\":\"sensor\",\"interfaces\":[{\"id\":\"int_li_in\",\"data_type\":\"light\",\"direction\":\"output\"}]}}").getAsJsonObject();
+            JsonObject expResult = new JsonParser().parse("{\"notification_type\":\"device_reconnect\",\"subject\":{\"id\":\"" + device.getId() + "\",\"name\":\"sensor\",\"interfaces\":[{\"id\":\"int_li_in\",\"data_type\":\"light\",\"direction\":\"output\"}], \"online\":false}}").getAsJsonObject();
             JsonObject result = instance.jsonRepresentation();
             assertEquals(expResult, result);
         } catch (SerializationErrorException ex) {

@@ -8,6 +8,7 @@ package requestOperations.Device;
 import requestOperations.FakeMedium;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 import model.ModelSerializer;
 import model.SerializationErrorException;
 import model.Signal;
@@ -61,7 +62,7 @@ public class DataOperationTest {
             
             assertEquals(signal.getSourceInterfaceID(), "int_0");
             assertEquals(signal.getMessage().getDataType(), "light");
-            assertEquals(signal.getMessage().getValue(), "455");
+            assertEquals(signal.getMessage().getValue(), new JsonPrimitive(455));
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }
@@ -102,7 +103,7 @@ public class DataOperationTest {
             dataOperation.performOperation();
             
             assertNull(dataOperation.getError());
-            assertEquals(inputRegisterMedium.message, "{\"data_type\":\"light\",\"value\":\"455\"}");
+            assertEquals(inputRegisterMedium.message, "{\"data_type\":\"light\",\"value\":455}");
             
         } catch (SerializationErrorException ex) {
             fail(ex.toString());

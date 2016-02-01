@@ -57,7 +57,7 @@ public class Signal implements SerializableModel {
         JsonObject json = new JsonObject();
         
         json.addProperty("data_type", this.message.dataType);
-        json.addProperty("value", this.message.value);
+        json.add("value", this.message.value);
         
         return json.toString();
     }

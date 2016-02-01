@@ -5,11 +5,13 @@
  */
 package model;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import java.util.HashMap;
 
 public class Message implements SerializableModel {
     protected String dataType;
-    protected String value;
+    protected JsonElement value;
     
     @Override
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {
@@ -25,7 +27,7 @@ public class Message implements SerializableModel {
         return this.dataType;
     }
     
-    public String getValue() {
+    public JsonElement getValue() {
         return this.value;
     }
     

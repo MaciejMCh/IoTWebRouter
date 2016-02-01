@@ -53,8 +53,8 @@ public class LogParserTest {
             JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
             Device device = (Device) ModelSerializer.model(Device.class, json);
             
-            assertEquals(LogParser.parseDevice(device, new LogDepth(0)), "id: "+device.getId()+" 	 name: sensor");
-            assertEquals(LogParser.parseDevice(device, new LogDepth(1)), "id: "+device.getId()+" 	 name: sensor\n  	 interfaces:\n  	 id: int_li_in	 data type: light	 direction: output");
+            assertEquals(LogParser.parseDevice(device, new LogDepth(0)), "id: "+device.getId()+" 	 name: sensor	(offline)");
+            assertEquals(LogParser.parseDevice(device, new LogDepth(1)), "id: "+device.getId()+" 	 name: sensor	(offline)\n  	 interfaces:\n  	 id: int_li_in	 data type: light	 direction: output");
             
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
@@ -73,8 +73,8 @@ public class LogParserTest {
             devices.add(device1);
             devices.add(device2);
             
-            assertEquals(LogParser.parseDevices(devices, new LogDepth(0)), "devices\n" + "id: "+device1.getId()+" 	 name: sensor\n" + "id: "+device2.getId()+" 	 name: actuator\n" + "" + "");
-            assertTrue(LogParser.parseDevices(devices, new LogDepth(1)).contains("devices\n" + "id: "+device1.getId()+" 	 name: sensor\n" + "  	 interfaces:\n" + "  	 id: int_li_in	 data type: light	 direction: output\n" + "id: "+device2.getId()+" 	 name: actuator\n" + "  	 interfaces:\n" + "  	 id: int_li_out	 data type: light"));
+            assertEquals(LogParser.parseDevices(devices, new LogDepth(0)), "devices\n" + "id: "+device1.getId()+" 	 name: sensor	(offline)\n" + "id: "+device2.getId()+" 	 name: actuator	(offline)\n" + "" + "");
+            assertTrue(LogParser.parseDevices(devices, new LogDepth(1)).contains("devices\n" + "id: "+device1.getId()+" 	 name: sensor	(offline)\n" + "  	 interfaces:\n" + "  	 id: int_li_in	 data type: light	 direction: output\n" + "id: "+device2.getId()+" 	 name: actuator	(offline)\n" + "  	 interfaces:\n" + "  	 id: int_li_out	 data type: light"));
             
         } catch (SerializationErrorException ex) {
             fail(ex.toString());

@@ -58,6 +58,12 @@ public class ModelSerializer {
             try {
                 Field field = clazz.getDeclaredField(fieldName);
                 field.setAccessible(true);
+                
+                if (field.getGenericType() == JsonElement.class) {
+                    field.set(object, fieldValue);
+                    return true;
+                }
+                
                 if (field.getGenericType() == String.class) {
                     field.set(object, fieldValue.getAsString());
                     return true;

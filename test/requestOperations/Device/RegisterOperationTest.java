@@ -154,7 +154,7 @@ public class RegisterOperationTest {
             dataOperation.medium = outputRegistrationMedium;
             dataOperation.performOperation();
             
-            assertEquals(firstInputRegistrationMedium.message, "{\"data_type\":\"light\",\"value\":\"455\"}");
+            assertEquals(firstInputRegistrationMedium.message, "{\"data_type\":\"light\",\"value\":455}");
             
             // device disconnected
             Interactor.getInstance().mediumClosed(firstInputRegistrationMedium);
@@ -165,7 +165,7 @@ public class RegisterOperationTest {
             dataOperation2.medium = outputRegistrationMedium;
             dataOperation2.performOperation();
             
-            assertEquals(firstInputRegistrationMedium.message, "{\"data_type\":\"light\",\"value\":\"455\"}");
+            assertEquals(firstInputRegistrationMedium.message, "{\"data_type\":\"light\",\"value\":455}");
             
             // reconnect input
             JsonObject secondInputRegisterJson = new JsonParser().parse("{\"action\":\"register\",\"stored_id\":\"" + inputDevice.getId() + "\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_0\"}]}}").getAsJsonObject();
@@ -182,8 +182,8 @@ public class RegisterOperationTest {
             dataOperation3.medium = outputRegistrationMedium;
             dataOperation3.performOperation();
             
-            assertEquals(firstInputRegistrationMedium.message, "{\"data_type\":\"light\",\"value\":\"455\"}");
-            assertEquals(secondInputRegistrationMedium.message, "{\"data_type\":\"light\",\"value\":\"555\"}");
+            assertEquals(firstInputRegistrationMedium.message, "{\"data_type\":\"light\",\"value\":455}");
+            assertEquals(secondInputRegistrationMedium.message, "{\"data_type\":\"light\",\"value\":555}");
             
         } catch (SerializationErrorException ex) {
             fail(ex.toString());

@@ -7,6 +7,7 @@ package model;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -50,7 +51,7 @@ public class MessageTest {
             
             assertNotNull(message);
             assertEquals(message.getDataType(), "light");
-            assertEquals(message.getValue(), "455");
+            assertEquals(message.getValue(), new JsonPrimitive(455));
         } catch (SerializationErrorException ex) {
             fail(ex.toString());
         }
