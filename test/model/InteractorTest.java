@@ -209,5 +209,36 @@ public class InteractorTest {
         }
     }
     
+    @Test
+    public void testRemoveDuplicatesDoesNotRemoveIfDeviceIsOnline() {
+        try {
+            Interactor.getInstance().restart();
+            
+            JsonObject json = new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"in_0\"}]}}").getAsJsonObject();
+            RegisterOperation operation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, json);
+            operation.medium = new FakeMedium();
+            operation.performOperation();
+            
+            Device firstRegistrationDevice = operation.getRegisteringDevice();
+            
+            assertTrue(Interactor.getInstance().getEnviroment().devices.contains(firstRegistrationDevice));
+            assertEquals(Interactor.getInstance().getEnviroment().devices.size(), 1);
+            
+            assertTrue(Interactor.getInstance().getEnviroment().devices.contains(firstRegistrationDevice));
+            assertEquals(Interactor.getInstance().getEnviroment().devices.size(), 1);
+            
+            RegisterOperation secondOperation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, json);
+            secondOperation.medium = new FakeMedium();
+            secondOperation.performOperation();
+            
+            assertTrue(Interactor.getInstance().getEnviroment().devices.contains(firstRegistrationDevice));
+            assertTrue(Interactor.getInstance().getEnviroment().devices.contains(secondOperation.getRegisteringDevice()));
+            assertEquals(Interactor.getInstance().getEnviroment().devices.size(), 2);
+            
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
     
 }

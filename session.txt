@@ -1,1 +1,1 @@
-{"devices":[{"id":"dev_3","name":"actuator","interfaces":[{"id":"in_0","data_type":"light","direction":"input"}]}],"interfaces_connections":[]}
+{"devices":[{"id":"dev_4","name":"actuator","interfaces":[{"id":"in_0","data_type":"light","direction":"input"}]},{"id":"dev_5","name":"actuator","interfaces":[{"id":"in_0","data_type":"light","direction":"input"}]}],"interfaces_connections":[]}
