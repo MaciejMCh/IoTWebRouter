@@ -40,7 +40,7 @@ public class Interactor {
     
     public void registerDevice(Device device, Medium medium) {
         if (this.mediumDeviceMap.keySet().contains(medium)) {
-            return;
+            this.mediumDeviceMap.remove(medium);
         }
         
         this.mediumDeviceMap.put(medium, device);
@@ -48,8 +48,30 @@ public class Interactor {
         this.enviroment.addDevice(device);
         this.router.addOutputsOfDevice(device);
         
+        this.removeDuplicatesOfDevice(device);
+        
         SessionStorage.getInstance().saveSessionState();
         NotificationCenter.getInstance().notify(new NewDeviceNotification(device));
+    }
+    
+    private void unregisterDevice(Device device) {
+        Medium medium = this.mediumOfDevice(device);
+        if (medium != null) {
+            this.mediumDeviceMap.remove(medium);
+        }
+        this.deviceMediumMap.remove(device);
+        this.enviroment.removeDevice(device);
+        this.router.removeOutputsOfDevice(device);
+    }
+    
+    public void removeDuplicatesOfDevice(Device device) {
+        for (Device aDevice : this.enviroment.devices) {
+            if (this.mediumOfDevice(aDevice) == null) {
+                if (aDevice.isDuplicate(device)) {
+                    this.unregisterDevice(aDevice);
+                }
+            }
+        }
     }
     
     public void updateMedium(Medium medium, String deviceID) {

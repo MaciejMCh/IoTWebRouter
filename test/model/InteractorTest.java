@@ -7,12 +7,15 @@ package model;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import requestOperations.Device.RegisterOperation;
 import requestOperations.FakeMedium;
 
 /**
@@ -173,88 +176,38 @@ public class InteractorTest {
         }
     }
     
-//    @Test
-//    public void testSaveEnviromentState() {
-//        try {
-//            JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
-//            Device device = (Device) ModelSerializer.model(Device.class, json);
-//            Medium medium = new FakeMedium();
-//            
-//            Interactor interactor = new Interactor();
-//            interactor.registerDevice(device, medium);
-//            interactor.saveEnviromentState();
-//            
-//            Interactor secondInteractor = new Interactor();
-//            secondInteractor.loadEnviromentState();
-//            
-//            assertEquals(secondInteractor.enviroment.devices.size(), 1);
-//            
-//            Device loadedDevice = secondInteractor.enviroment.devices.get(0);
-//            assertEquals(loadedDevice.getId(), device.getId());
-//            
-//        } catch (SerializationErrorException ex) {
-//            fail(ex.toString());
-//        }
-//    }
-//    
-//    @Test
-//    public void testLoadEnviromentStateAndReconnect() {
-//        try {
-//            JsonObject json = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_li_in\"}]}").getAsJsonObject();
-//            Device device = (Device) ModelSerializer.model(Device.class, json);
-//            Medium medium = new FakeMedium();
-//            
-//            Interactor interactor = new Interactor();
-//            interactor.registerDevice(device, medium);
-//            interactor.saveEnviromentState();
-//            
-//            Interactor secondInteractor = new Interactor();
-//            secondInteractor.loadEnviromentState();
-//            
-//            assertEquals(secondInteractor.enviroment.devices.size(), 1);
-//            
-//            Device loadedDevice = secondInteractor.enviroment.devices.get(0);
-//            assertEquals(loadedDevice.getId(), device.getId());
-//            
-//            Medium newMedium = new FakeMedium();
-//            secondInteractor.updateMedium(newMedium, device.getId());
-//            assertNotNull(secondInteractor.deviceForMedium(newMedium));
-//            
-//        } catch (SerializationErrorException ex) {
-//            fail(ex.toString());
-//        }
-//    }
-//    
-//    @Test
-//    public void testLoadEnviromentStateAndRedoConnection() {
-//        try {
-//            JsonObject outputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"output\",\"data_type\":\"light\",\"id\":\"int_out\"}]}").getAsJsonObject();
-//            Device outputDevice = (Device) ModelSerializer.model(Device.class, outputJson);
-//            Medium outputMedium = new FakeMedium();
-//            
-//            JsonObject inputJson = new JsonParser().parse("{\"name\":\"sensor\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"int_in\"}]}").getAsJsonObject();
-//            Device inputDevice = (Device) ModelSerializer.model(Device.class, inputJson);
-//            Medium inputMedium = new FakeMedium();
-//            
-//            Interactor interactor = new Interactor();
-//            interactor.registerDevice(inputDevice, inputMedium);
-//            interactor.registerDevice(outputDevice, outputMedium);
-//            interactor.getRouter().connectInterfaces(outputDevice.interfaces.get(0), inputDevice.interfaces.get(0));
-//            
-//            assertEquals(interactor.getRouter().getInterfacesConnections().size(), 1);
-//            interactor.saveEnviromentState();
-//            
-//            Interactor secondInteractor = new Interactor();
-//            secondInteractor.loadEnviromentState();
-//            
-//            assertEquals(secondInteractor.getRouter().getInterfacesConnections().size(), 1);
-//            
-//            assertEquals(secondInteractor.getRouter().getInterfacesConnections().get(0).output.getParentDevice().getId(), outputDevice.getId());
-//            assertEquals(secondInteractor.getRouter().getInterfacesConnections().get(0).input.getParentDevice().getId(), inputDevice.getId());
-//            
-//        } catch (SerializationErrorException ex) {
-//            fail(ex.toString());
-//        }
-//    }
+    @Test
+    public void testRemoveDuplicates() {
+        try {
+            Interactor.getInstance().restart();
+            
+            JsonObject json = new JsonParser().parse("{\"action\":\"register\",\"device\":{\"name\":\"actuator\",\"interfaces\":[{\"direction\":\"input\",\"data_type\":\"light\",\"id\":\"in_0\"}]}}").getAsJsonObject();
+            RegisterOperation operation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, json);
+            operation.medium = new FakeMedium();
+            operation.performOperation();
+            
+            Device firstRegistrationDevice = operation.getRegisteringDevice();
+            
+            assertTrue(Interactor.getInstance().getEnviroment().devices.contains(firstRegistrationDevice));
+            assertEquals(Interactor.getInstance().getEnviroment().devices.size(), 1);
+            
+            Interactor.getInstance().mediumClosed(operation.medium);
+            
+            assertTrue(Interactor.getInstance().getEnviroment().devices.contains(firstRegistrationDevice));
+            assertEquals(Interactor.getInstance().getEnviroment().devices.size(), 1);
+            
+            RegisterOperation secondOperation = (RegisterOperation) ModelSerializer.model(RegisterOperation.class, json);
+            secondOperation.medium = new FakeMedium();
+            secondOperation.performOperation();
+            
+            assertFalse(Interactor.getInstance().getEnviroment().devices.contains(firstRegistrationDevice));
+            assertTrue(Interactor.getInstance().getEnviroment().devices.contains(secondOperation.getRegisteringDevice()));
+            assertEquals(Interactor.getInstance().getEnviroment().devices.size(), 1);
+            
+        } catch (SerializationErrorException ex) {
+            fail(ex.toString());
+        }
+    }
+    
     
 }
