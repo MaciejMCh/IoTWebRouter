@@ -2,6 +2,25 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/test/requestOperations/Device/RegisterOperationTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/test/model/SignalTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Application/LastMessagesOperation.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/LastMessagesStorage.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/test/model/MessageTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/test/requestOperations/Admin/LogParserTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Application/JsonParser.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/test/notificationCenter/NewDeviceNotificationTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Application/IndexDevicesOperation.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Admin/LogParser.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/test/notificationCenter/DeviceConnectionErrorNotificationTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/test/notificationCenter/DeviceReconnectNotificationTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/test/requestOperations/Application/JsonParserTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/MobileRequestOperationsSerializer.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/test/requestOperations/Device/DataOperationTest.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Device/DataOperation.java</file>
+        </group>
     </open-files>
 </project-private>

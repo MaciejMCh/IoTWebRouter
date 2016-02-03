@@ -62,6 +62,7 @@ public class Interactor {
         this.deviceMediumMap.remove(device);
         this.enviroment.removeDevice(device);
         this.router.removeOutputsOfDevice(device);
+        LastMessagesStorage.getInstance().removeStoredMessagesOfDevice(device);
     }
     
     public void removeDuplicatesOfDevice(Device device) {

@@ -23,6 +23,10 @@ import requestOperations.RequestOperation;
 public class DataOperation extends RequestOperation implements SerializableModel {
 
     protected ArrayList<Signal> signals;
+
+    public ArrayList<Signal> getSignals() {
+        return signals;
+    }
     
     @Override
     public HashMap<String, String> JSONKeyPathsByPropertyKey() {
@@ -38,6 +42,7 @@ public class DataOperation extends RequestOperation implements SerializableModel
         Device sendingDevice = Interactor.getInstance().deviceForMedium(medium);
         for (Signal signal : signals) {
             signal.sourceInterface = sendingDevice.interfaceWithID(signal.getSourceInterfaceID());
+            this.storeMessage(signal);
         }
         
         ArrayList<Signal> routedSignals = new ArrayList<>();

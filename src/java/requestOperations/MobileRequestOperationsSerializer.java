@@ -10,6 +10,7 @@ import requestOperations.Application.ChangeDeviceTagOperation;
 import requestOperations.Application.ConnectInterfacesOperation;
 import requestOperations.Application.IndexConnectionsOperation;
 import requestOperations.Application.IndexDevicesOperation;
+import requestOperations.Application.LastMessagesOperation;
 
 /**
  *
@@ -25,6 +26,7 @@ public class MobileRequestOperationsSerializer extends RequestOperationsSerializ
                 put("index_connections", IndexConnectionsOperation.class);
                 put("connect_interfaces", ConnectInterfacesOperation.class);
                 put("change_tag", ChangeDeviceTagOperation.class);
+                put("last_messages", LastMessagesOperation.class);
             }
         };
     }

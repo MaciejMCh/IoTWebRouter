@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import sun.security.jca.GetInstance;
 
@@ -30,5 +31,15 @@ public class LastMessagesStorage {
     
     public Message getlastMessage(DeviceInterface deviceInterface) {
         return this.messagesByInterfaces.get(deviceInterface);
+    }
+    
+    public HashMap<DeviceInterface, Message> getAllLastMessages() {
+        return this.messagesByInterfaces;
+    }
+    
+    public void removeStoredMessagesOfDevice(Device device) {
+        for (DeviceInterface deviceInterface : device.getInterfaces()) {
+            this.messagesByInterfaces.remove(deviceInterface);
+        }
     }
 }

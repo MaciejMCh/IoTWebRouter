@@ -95,6 +95,11 @@ function indexConnections() {
   doSend("{\"action\":\"index_connections\",\"request_id\":\"app_req_1\"}");
 }
 
+function lastMessages() {
+doSend("{\"action\":\"last_messages\",\"request_id\":\"app_req_1\"}");
+}
+
+
 function connect() {
     outputDeviceID = document.getElementById("outputDeviceID").value;
     outputInterfaceID = document.getElementById("outputInterfaceID").value;
@@ -108,5 +113,6 @@ function connect() {
   <textarea id="output" style="resize:none;font-size:10pt;height:calc(100vh - 200px);width:100%;"></textarea>
   <br><input type="button" value="Execute" onclick="execute();"><input style="width:calc(100% - 100px);" type="text" name="txt" id="query"/>
   <br><input type="button" value="Index devices" onclick="indexDevices();">
+  <br><input type="button" value="Last messages" onclick="lastMessages();">
   <br><input type="button" value="Index connections" onclick="indexConnections();">
   <br><input type="button" value="Connect interfaces" onclick="connect();"><label for="male"> Output device id: </label><input type="text" name="txt" id="outputDeviceID"/><label for="male"> Output interface id: </label><input type="text" name="txt" id="outputInterfaceID"/><label for="male"> Input device id: </label><input type="text" name="txt" id="inputDeviceID"/><label for="male"> Input interface id: </label><input type="text" name="txt" id="inputInterfaceID"/>
