@@ -61,6 +61,7 @@ public class Application extends Controller {
     public static WebSocket<String> mobile() {
         return new WebSocket<String>() {
             public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
+                NotificationCenter.getInstance().addMedium(new PlayWebSocketMedium(out));
                 in.onMessage(new Callback<String>() {
                     public void invoke(String event) {
                         JsonObject json = new JsonParser().parse(event).getAsJsonObject();
