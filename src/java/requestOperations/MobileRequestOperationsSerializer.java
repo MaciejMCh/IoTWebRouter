@@ -8,6 +8,7 @@ package requestOperations;
 import java.util.HashMap;
 import requestOperations.Application.ChangeDeviceTagOperation;
 import requestOperations.Application.ConnectInterfacesOperation;
+import requestOperations.Application.DisconnectInterfacesOperation;
 import requestOperations.Application.IndexConnectionsOperation;
 import requestOperations.Application.IndexDevicesOperation;
 import requestOperations.Application.LastMessagesOperation;
@@ -27,6 +28,7 @@ public class MobileRequestOperationsSerializer extends RequestOperationsSerializ
                 put("connect_interfaces", ConnectInterfacesOperation.class);
                 put("change_tag", ChangeDeviceTagOperation.class);
                 put("last_messages", LastMessagesOperation.class);
+                put("disconnect_interfaces", DisconnectInterfacesOperation.class);
             }
         };
     }

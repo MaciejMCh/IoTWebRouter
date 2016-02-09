@@ -14,6 +14,12 @@ import model.Interactor;
 public class DisconnectOperation extends ConnectOperation {
     @Override
     public void performOperation() {
+        System.out.println("perform worker");
         Interactor.getInstance().getRouter().disconnectInterfaces(this.outputInterface, this.inputInterface);
+    }
+    
+    @Override
+    public String description() {
+        return "Disconnects two interfaces.";
     }
 }

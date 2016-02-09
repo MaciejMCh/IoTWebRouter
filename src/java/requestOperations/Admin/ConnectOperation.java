@@ -57,8 +57,16 @@ public class ConnectOperation extends InterpretedOperation {
     public String getInputInterfaceID() {
         return inputInterfaceID;
     }
+
+    public DeviceInterface getInputInterface() {
+        return inputInterface;
+    }
+
+    public DeviceInterface getOutputInterface() {
+        return outputInterface;
+    }
     
-    protected void init() {
+    public void init() {
         
         Device outputDevice = Interactor.getInstance().deviceForID(outputDeviceID);
         if (outputDevice == null) {

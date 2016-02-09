@@ -6,6 +6,7 @@
             <file>file:/Users/maciej/Desktop/IoTWebRouter/test/requestOperations/Device/RegisterOperationTest.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/test/model/SignalTest.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Application/LastMessagesOperation.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Application/ConnectInterfacesOperation.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/test/model/MessageTest.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/test/requestOperations/Admin/LogParserTest.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Application/JsonParser.java</file>
@@ -20,6 +21,7 @@
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Signal.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/Message.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/MobileRequestOperationsSerializer.java</file>
+            <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/DeviceRequestOperationsSerializer.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/test/requestOperations/Device/DataOperationTest.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/requestOperations/Device/DataOperation.java</file>
             <file>file:/Users/maciej/Desktop/IoTWebRouter/src/java/model/InterfaceConnection.java</file>

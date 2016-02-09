@@ -11,6 +11,7 @@ import model.Medium;
 import requestOperations.Admin.ConnectOperation;
 import requestOperations.Admin.ConnectionsLogOperation;
 import requestOperations.Admin.DeviceLogOperation;
+import requestOperations.Admin.DisconnectOperation;
 import requestOperations.Admin.HelpLogOperation;
 import requestOperations.Admin.QueryJsonizer;
 import requestOperations.Admin.RestartOperation;
@@ -25,6 +26,7 @@ public class AdminRequestOperationsSerializer extends RequestOperationsSerialize
     public HashMap<String, Class> operationClassMap() {
         return new HashMap<String, Class>() {{
             put("connect", ConnectOperation.class);
+            put("disconnect", DisconnectOperation.class);
             put("devices", DeviceLogOperation.class);
             put("connections", ConnectionsLogOperation.class);
             put("help", HelpLogOperation.class);
