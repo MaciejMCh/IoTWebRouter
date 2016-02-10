@@ -98,6 +98,10 @@ public class ConnectOperation extends InterpretedOperation {
             return;
         }
         
+        if (!inputInterface.getDataType().equals(outputInterface.getDataType())) {
+            this.error("Unable to connect, data type mismatch.");
+        }
+        
         this.inputInterface = inputInterface;
         this.outputInterface = outputInterface;
     }
