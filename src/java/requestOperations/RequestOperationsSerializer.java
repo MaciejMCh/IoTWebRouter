@@ -26,6 +26,9 @@ public abstract class RequestOperationsSerializer {
             try {
                 RequestOperation operation = (RequestOperation)ModelSerializer.model(operationClass, json);
                 operation.medium = medium;
+                if (operation.getError() != null) {
+                    return new ErrorOperation(operation.getError().getErrorMessage(), medium);
+                }
                 return operation;
             } catch (Exception e) {
                 return new ErrorOperation(e.toString(), medium);
